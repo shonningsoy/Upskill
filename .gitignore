@@ -1,0 +1,12 @@
+# Obsidian local UI state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian runtime/cache artifacts
+.obsidian/cache/
+.obsidian/plugins/*/data.json
+.trash/
+
+# OS noise
+Thumbs.db
+Desktop.ini
