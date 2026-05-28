@@ -1,3 +1,8 @@
+---
+tags:
+  - note-comparison
+---
+
 # Comparison - A vs B
 
 ## Short Answer

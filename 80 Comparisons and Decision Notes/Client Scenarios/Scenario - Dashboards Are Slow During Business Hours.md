@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - Dashboards Are Slow During Business Hours
 
 > Client says: "Dashboards are fine early, but slow when everyone logs in."

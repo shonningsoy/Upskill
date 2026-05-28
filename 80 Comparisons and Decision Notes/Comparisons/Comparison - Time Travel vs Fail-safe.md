@@ -1,3 +1,8 @@
+---
+tags:
+  - note-comparison
+---
+
 # Comparison - Time Travel vs Fail-safe
 
 > Time Travel is self-service recovery; Fail-safe is Snowflake-managed last-resort protection.

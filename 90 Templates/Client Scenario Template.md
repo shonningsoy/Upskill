@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - Client Problem
 
 > Client says: "Write the problem in the client's language."

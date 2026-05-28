@@ -1,3 +1,8 @@
+---
+tags:
+  - note-comparison
+---
+
 # Comparison - Time Travel vs Modeled Historical Data
 
 > Recovery history and business history are different requirements.

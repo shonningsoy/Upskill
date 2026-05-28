@@ -1,3 +1,8 @@
+---
+tags:
+  - note-decision
+---
+
 # Decisions - Decision Note Title
 
 > One-sentence consultant framing: what decision this note helps make.

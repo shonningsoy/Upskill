@@ -61,6 +61,7 @@ The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer.
 - Name comparison files and H1 titles as `Comparison - <topic>`.
 - Name decision-note files and H1 titles as `Decisions - <topic>`.
 - Name client-scenario files and H1 titles as `Scenario - <client problem>`.
+- Use `note-comparison` for comparison notes, `note-decision` for decision notes, and `note-scenario` for scenario notes so Obsidian Graph View can color them.
 
 ## Current Learning Focus
 

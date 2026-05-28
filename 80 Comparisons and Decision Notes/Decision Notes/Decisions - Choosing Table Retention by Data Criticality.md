@@ -1,3 +1,8 @@
+---
+tags:
+  - note-decision
+---
+
 # Decisions - Choosing Table Retention by Data Criticality
 
 > Retention should follow recovery value, rebuildability, and detection time.

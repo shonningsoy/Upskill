@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - Query Scans Too Much Data
 
 > Client says: "This dashboard filter should be selective, but Snowflake still scans a lot."

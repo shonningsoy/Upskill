@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - One Shared Warehouse Is Causing Conflicts
 
 > Client says: "BI users complain whenever ETL jobs run."

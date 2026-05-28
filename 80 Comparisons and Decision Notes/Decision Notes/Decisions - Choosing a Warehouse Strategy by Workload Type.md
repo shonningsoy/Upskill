@@ -1,3 +1,8 @@
+---
+tags:
+  - note-decision
+---
+
 # Decisions - Choosing a Warehouse Strategy by Workload Type
 
 > Match compute isolation, size, and cluster count to the workload shape.

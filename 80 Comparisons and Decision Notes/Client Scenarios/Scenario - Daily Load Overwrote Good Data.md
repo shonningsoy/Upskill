@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - Daily Load Overwrote Good Data
 
 > Client says: "Today's pipeline loaded bad data and replaced yesterday's correct table."

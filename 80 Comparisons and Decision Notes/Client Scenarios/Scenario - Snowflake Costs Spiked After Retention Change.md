@@ -1,3 +1,8 @@
+---
+tags:
+  - note-scenario
+---
+
 # Scenario - Snowflake Costs Spiked After Retention Change
 
 > Client says: "We changed retention to 30 days and storage costs jumped."

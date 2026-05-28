@@ -1,3 +1,8 @@
+---
+tags:
+  - note-comparison
+---
+
 # Comparison - Permanent vs Transient vs Temporary Tables
 
 > Choose table type by recovery value, rebuildability, and lifecycle.
