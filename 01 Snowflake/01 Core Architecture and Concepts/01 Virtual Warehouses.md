@@ -54,8 +54,7 @@ A query is assigned to a warehouse. If the warehouse is suspended, Snowflake res
 
 ![[00 Home/assets/snowflake-core-01-virtual-warehouse-architecture.png]]
 
-- If the local image is not added yet, use this official source page to capture the architecture/pruning visual:
-  - https://docs.snowflake.com/en/user-guide/warehouses
+- Original local diagram based on Snowflake's virtual warehouse documentation.
 
 ## Readable Snippets
 
@@ -128,6 +127,6 @@ alter warehouse ETL_WH set warehouse_size = 'LARGE';
 
 ## Sources To Revisit
 
-- Snowflake docs: Virtual Warehouses
-- Snowflake docs: Multi-cluster warehouses and scaling policy
-- Snowflake docs: Cost and billing for warehouses
+- Snowflake docs: Virtual Warehouses - https://docs.snowflake.com/en/user-guide/warehouses
+- Snowflake docs: Multi-cluster warehouses and scaling policy - https://docs.snowflake.com/en/user-guide/warehouses-multicluster
+- Snowflake docs: Cost and billing for warehouses - https://docs.snowflake.com/en/user-guide/cost-understanding-compute

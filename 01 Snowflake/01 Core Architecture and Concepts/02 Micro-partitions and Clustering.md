@@ -58,8 +58,7 @@ tags:
 
 ![[00 Home/assets/snowflake-core-02-micro-partition-pruning.png]]
 
-- If the local image is not added yet, use this official source page to capture the architecture/pruning visual:
-  - https://docs.snowflake.com/user-guide/tables-clustering-micropartitions
+- Original local diagram based on Snowflake's micro-partition and clustering documentation.
 
 ## Readable Snippets
 
@@ -126,7 +125,7 @@ select system$clustering_information('SALES_FACTS');
 
 ## Sources To Revisit
 
-- Snowflake docs: Micro-partitions and data clustering
-- Snowflake docs: Clustering keys and reclustering behavior
-- Snowflake docs: Query profile and scan/pruning analysis
-- Snowflake docs: Cost monitoring and account usage views
+- Snowflake docs: Micro-partitions and data clustering - https://docs.snowflake.com/user-guide/tables-clustering-micropartitions
+- Snowflake docs: Clustering keys and reclustering behavior - https://docs.snowflake.com/user-guide/tables-clustering-keys
+- Snowflake docs: Query profile and scan/pruning analysis - https://docs.snowflake.com/user-guide/ui-query-profile
+- Snowflake docs: Cost monitoring and account usage views - https://docs.snowflake.com/user-guide/cost-exploring-overall
