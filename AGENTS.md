@@ -96,6 +96,16 @@ Keep notes practical, scannable, and consultant-oriented.
 
 Avoid turning notes into documentation dumps. Prefer concise explanations, comparison tables, small examples, and clear decision rules.
 
+
+## Topic Note Consistency Rules
+
+To keep the vault familiar across Snowflake, dbt, and Fivetran, use one stable note structure:
+
+- Keep the section order defined in `90 Templates/Topic Note Template.md`.
+- Write `How It Works` as a simple numbered flow (typically 4-8 steps).
+- Include practical `Common Pitfalls` tied to cost, performance, governance, or operations.
+- Include a meaningful `When to Recommend What (Decision Table)` for notes that move beyond seed placeholders.
+
 ## Depth Target
 
 Default depth is "consultant working knowledge," not exhaustive implementation depth.
@@ -208,6 +218,16 @@ git push
 ```
 
 Do not commit Obsidian local workspace state. `workspace.json` is intentionally ignored.
+
+## Visuals Policy
+
+Use visuals to improve consultant learning speed where relevant.
+
+- Prefer embedded local images in notes (store files under `00 Home/assets/`).
+- Not every topic must include a visual; add one only when it is possible and useful.
+- Prioritize official sources (Snowflake, dbt, Fivetran).
+- If official visuals are not available, use reputable sources.
+- Keep source links in `Sources To Revisit` for each note using external visuals.
 
 ## Important Preference
 
