@@ -1,4 +1,4 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area: Security and Governance
