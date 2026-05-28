@@ -96,6 +96,16 @@ Keep notes practical, scannable, and consultant-oriented.
 
 Avoid turning notes into documentation dumps. Prefer concise explanations, comparison tables, small examples, and clear decision rules.
 
+
+## Topic Note Consistency Rules
+
+To keep the vault familiar across Snowflake, dbt, and Fivetran, use one stable note structure:
+
+- Keep the section order defined in `90 Templates/Topic Note Template.md`.
+- Write `How It Works` as a simple numbered flow (typically 4-8 steps).
+- Include practical `Common Pitfalls` tied to cost, performance, governance, or operations.
+- Include a meaningful `When to Recommend What (Decision Table)` for notes that move beyond seed placeholders.
+
 ## Depth Target
 
 Default depth is "consultant working knowledge," not exhaustive implementation depth.
