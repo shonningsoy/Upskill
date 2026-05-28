@@ -10,16 +10,16 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 
 ## Comparisons
 
-- [[80 Comparisons and Decision Notes/Comparisons/Virtual Warehouse Size vs Multi-cluster]]
-- [[80 Comparisons and Decision Notes/Comparisons/Bigger Warehouse vs Clustering]]
-- [[80 Comparisons and Decision Notes/Comparisons/Time Travel vs Fail-safe]]
-- [[80 Comparisons and Decision Notes/Comparisons/Time Travel vs Modeled Historical Data]]
-- [[80 Comparisons and Decision Notes/Comparisons/Permanent vs Transient vs Temporary Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Fail-safe]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
 
 ## Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Choosing a Warehouse Strategy by Workload Type]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Choosing Table Retention by Data Criticality]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing Table Retention by Data Criticality]]
 
 ## Client Scenarios
 

@@ -58,6 +58,9 @@ The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer.
 - `Decision Notes/` is for broader recommendation frameworks.
 - `Client Scenarios/` is for realistic client problem statements and reasoning paths.
 - Keep `80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview.md` updated as the hub for this area.
+- Name comparison files and H1 titles as `Comparison - <topic>`.
+- Name decision-note files and H1 titles as `Decisions - <topic>`.
+- Name client-scenario files and H1 titles as `Scenario - <client problem>`.
 
 ## Current Learning Focus
 

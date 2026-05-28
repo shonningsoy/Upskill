@@ -23,5 +23,5 @@ Workload isolation is often a cleaner first move than creating one large shared 
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Virtual Warehouse Size vs Multi-cluster]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Choosing a Warehouse Strategy by Workload Type]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]

@@ -22,6 +22,6 @@ The client likely changed a broad default instead of making a data-class decisio
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Permanent vs Transient vs Temporary Tables]]
-- [[80 Comparisons and Decision Notes/Comparisons/Time Travel vs Modeled Historical Data]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Choosing Table Retention by Data Criticality]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing Table Retention by Data Criticality]]

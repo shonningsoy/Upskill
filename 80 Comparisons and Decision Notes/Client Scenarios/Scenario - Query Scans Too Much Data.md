@@ -23,4 +23,4 @@ First prove that pruning is the problem. Clustering is useful when it reduces sc
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]

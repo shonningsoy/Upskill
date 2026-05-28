@@ -23,6 +23,6 @@ Do not recommend "make the warehouse bigger" until the bottleneck is clear. Conc
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Virtual Warehouse Size vs Multi-cluster]]
-- [[80 Comparisons and Decision Notes/Comparisons/Bigger Warehouse vs Clustering]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Choosing a Warehouse Strategy by Workload Type]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]

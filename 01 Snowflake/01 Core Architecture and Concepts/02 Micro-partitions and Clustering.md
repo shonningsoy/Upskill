@@ -119,7 +119,7 @@ select system$clustering_information('SALES_FACTS');
 
 ## Related Decision and Scenario Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Query Scans Too Much Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Dashboards Are Slow During Business Hours]]
 

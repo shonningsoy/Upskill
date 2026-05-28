@@ -1,4 +1,4 @@
-# Bigger Warehouse vs Clustering
+# Comparison - Bigger Warehouse vs Clustering
 
 > Bigger warehouses add compute; clustering improves how much data Snowflake can skip.
 

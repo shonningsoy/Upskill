@@ -1,4 +1,4 @@
-# Decision Note Title
+# Decisions - Decision Note Title
 
 > One-sentence consultant framing: what decision this note helps make.
 

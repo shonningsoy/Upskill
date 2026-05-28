@@ -1,4 +1,4 @@
-# Tool Comparison: A vs B
+# Comparison - A vs B
 
 ## Short Answer
 

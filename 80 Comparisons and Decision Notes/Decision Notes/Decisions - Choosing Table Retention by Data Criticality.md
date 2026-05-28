@@ -1,4 +1,4 @@
-# Choosing Table Retention by Data Criticality
+# Decisions - Choosing Table Retention by Data Criticality
 
 > Retention should follow recovery value, rebuildability, and detection time.
 
@@ -31,6 +31,6 @@ Time Travel retention is a recovery design choice. The useful question is not "h
 
 ## Related Comparisons and Scenarios
 
-- [[80 Comparisons and Decision Notes/Comparisons/Permanent vs Transient vs Temporary Tables]]
-- [[80 Comparisons and Decision Notes/Comparisons/Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Costs Spiked After Retention Change]]

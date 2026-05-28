@@ -1,4 +1,4 @@
-# Virtual Warehouse Size vs Multi-cluster
+# Comparison - Virtual Warehouse Size vs Multi-cluster
 
 > Scale up for more power per query; scale out for more concurrent queries.
 

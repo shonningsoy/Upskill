@@ -1,4 +1,4 @@
-# Choosing a Warehouse Strategy by Workload Type
+# Decisions - Choosing a Warehouse Strategy by Workload Type
 
 > Match compute isolation, size, and cluster count to the workload shape.
 
@@ -32,6 +32,6 @@ Warehouse strategy should start with workload shape, not a generic size recommen
 
 ## Related Comparisons and Scenarios
 
-- [[80 Comparisons and Decision Notes/Comparisons/Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - One Shared Warehouse Is Causing Conflicts]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Dashboards Are Slow During Business Hours]]
