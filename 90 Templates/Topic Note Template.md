@@ -1,4 +1,4 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area:
@@ -34,9 +34,20 @@ tags:
 |---|---|---|
 |  |  |  |
 
-## How It Works
+## How It Works (Simple Flow)
 
-Explain the mechanism at a title-and-subtitle level. Prefer short paragraphs and diagrams over exhaustive detail.
+Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end at consultant depth.
+
+## Visuals
+
+- Add **one embedded local image** when relevant and possible; skip only when no useful visual exists.
+- If skipped, add one sentence: `No high-value visual identified for this topic yet.`
+- Prioritize official visuals from Snowflake/dbt/Fivetran; otherwise use reputable sources.
+- Keep the source URL in `Sources To Revisit`.
+
+```md
+![[00 Home/assets/<image-file>.png]]
+```
 
 ## Readable Snippets
 
@@ -53,7 +64,13 @@ Explain the mechanism at a title-and-subtitle level. Prefer short paragraphs and
 
 ## Common Pitfalls
 
-- 
+- Add at least 3 practical pitfalls linked to cost, performance, governance, or operations.
+
+## When to Recommend What (Decision Table)
+
+| Situation | Recommend | Why | Watch-outs |
+|---|---|---|---|
+|  |  |  |  |
 
 ## Related Topics
 
