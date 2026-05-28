@@ -40,9 +40,10 @@ Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end 
 
 ## Visuals
 
-- Prefer embedded local image(s) when relevant and available.
-- Not every topic requires a visual; include one when it improves understanding.
+- Add **one embedded local image** when relevant and possible; skip only when no useful visual exists.
+- If skipped, add one sentence: `No high-value visual identified for this topic yet.`
 - Prioritize official visuals from Snowflake/dbt/Fivetran; otherwise use reputable sources.
+- Keep the source URL in `Sources To Revisit`.
 
 ```md
 ![[00 Home/assets/<image-file>.png]]

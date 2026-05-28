@@ -224,7 +224,8 @@ Do not commit Obsidian local workspace state. `workspace.json` is intentionally 
 Use visuals to improve consultant learning speed where relevant.
 
 - Prefer embedded local images in notes (store files under `00 Home/assets/`).
-- Not every topic must include a visual; add one only when it is possible and useful.
+- Default target is one useful visual per topic note when relevant and possible.
+- A topic note may omit a visual only if no high-value visual is available; in that case, add a one-line note in `Visuals` stating this explicitly.
 - Prioritize official sources (Snowflake, dbt, Fivetran).
 - If official visuals are not available, use reputable sources.
 - Keep source links in `Sources To Revisit` for each note using external visuals.
