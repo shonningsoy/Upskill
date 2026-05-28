@@ -117,6 +117,12 @@ select system$clustering_information('SALES_FACTS');
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
 
+## Related Decision and Scenario Notes
+
+- [[80 Comparisons and Decision Notes/Comparisons/Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Query Scans Too Much Data]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Dashboards Are Slow During Business Hours]]
+
 ## Questions
 
 - Which 3 tables have the highest business impact from filter latency today?

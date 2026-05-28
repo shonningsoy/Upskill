@@ -120,6 +120,13 @@ alter warehouse ETL_WH set warehouse_size = 'LARGE';
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 
+## Related Decision and Scenario Notes
+
+- [[80 Comparisons and Decision Notes/Comparisons/Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Choosing a Warehouse Strategy by Workload Type]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - One Shared Warehouse Is Causing Conflicts]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Dashboards Are Slow During Business Hours]]
+
 ## Questions
 
 - How should we map warehouse strategy to environment tiers (dev/test/prod) for this client?

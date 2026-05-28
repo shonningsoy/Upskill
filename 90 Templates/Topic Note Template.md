@@ -76,6 +76,11 @@ Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end 
 
 - 
 
+## Related Decision and Scenario Notes
+
+- Add 1-3 curated links to comparison, decision, or client scenario notes when useful.
+- Skip this section only when no useful decision/scenario note exists yet.
+
 ## Questions
 
 - 

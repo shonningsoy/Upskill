@@ -27,7 +27,7 @@ That keeps Graph View readable while still allowing selected cross-links between
 
 ## Cross-Tool Context
 
+- [[80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview|Comparisons and Decision Notes]]
 - [[80 Comparisons and Decision Notes/Modern Data Stack Overview|Modern Data Stack Overview]]
 - [[02 dbt/dbt Learning Map|dbt Learning Map]]
 - [[03 Fivetran/Fivetran Learning Map|Fivetran Learning Map]]
-

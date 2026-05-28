@@ -46,6 +46,19 @@ Use the existing folder structure.
 
 Do not reorganize folders unless explicitly asked.
 
+The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer. Use these subfolders:
+
+```text
+80 Comparisons and Decision Notes/Comparisons/
+80 Comparisons and Decision Notes/Decision Notes/
+80 Comparisons and Decision Notes/Client Scenarios/
+```
+
+- `Comparisons/` is for A vs B trade-off notes.
+- `Decision Notes/` is for broader recommendation frameworks.
+- `Client Scenarios/` is for realistic client problem statements and reasoning paths.
+- Keep `80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview.md` updated as the hub for this area.
+
 ## Current Learning Focus
 
 The current focus is Snowflake.
@@ -92,6 +105,10 @@ Each topic note should generally include:
 - Questions
 - Sources To Revisit
 
+Topic notes may also include:
+
+- Related Decision and Scenario Notes
+
 Keep notes practical, scannable, and consultant-oriented.
 
 Avoid turning notes into documentation dumps. Prefer concise explanations, comparison tables, small examples, and clear decision rules.
@@ -105,6 +122,8 @@ To keep the vault familiar across Snowflake, dbt, and Fivetran, use one stable n
 - Write `How It Works` as a simple numbered flow (typically 4-8 steps).
 - Include practical `Common Pitfalls` tied to cost, performance, governance, or operations.
 - Include a meaningful `When to Recommend What (Decision Table)` for notes that move beyond seed placeholders.
+- After a topic note is filled out, add 1-3 curated links to relevant comparison, decision, or client scenario notes when they exist.
+- When a topic creates a useful new client situation or recommendation trade-off, add or update a note under `80 Comparisons and Decision Notes/`.
 
 ## Depth Target
 
@@ -169,10 +188,12 @@ Preferred setup:
 
 - Snowflake Learning Map links to chapter overview notes.
 - Chapter overview notes link to topic notes.
+- Comparisons and Decision Notes Overview links to comparison, decision, and scenario notes.
+- Scenario/decision notes link to the few topic notes needed to reason through the situation.
 - Topic notes link to their overview note and selected related topics.
 - Use tags for Graph View color groups.
 
-Avoid file-based Graph View hacks or excessive cross-linking. Too many links make the graph noisy.
+Avoid file-based Graph View hacks or excessive cross-linking. Too many links make the graph noisy. A comparison or scenario note should usually link to 3-6 genuinely relevant topic notes, not every vaguely related note.
 
 ## Durable Notes Principle
 
@@ -193,7 +214,8 @@ Preferred workflow:
 5. Weed out tangents, weak explanations, and non-useful details.
 6. Update the relevant Obsidian note with only the durable material worth keeping.
 7. Add useful related links and short readable snippets where helpful.
-8. Commit and push if the user asks, or if the session clearly produced durable vault updates.
+8. Add or update comparison, decision, or client scenario notes if the topic produced durable "when would I recommend this?" material.
+9. Commit and push if the user asks, or if the session clearly produced durable vault updates.
 
 The final note should read like a clean consultant reference, not like a transcript of the conversation.
 

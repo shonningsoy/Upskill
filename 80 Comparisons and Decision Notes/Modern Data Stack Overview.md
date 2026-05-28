@@ -15,3 +15,7 @@ A useful client discussion usually separates these questions:
 - Where should transformations happen?
 - Who owns quality, documentation, and governance?
 - How will cost, access, and operations be controlled?
+
+## Related Reasoning Notes
+
+- [[80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview]]
