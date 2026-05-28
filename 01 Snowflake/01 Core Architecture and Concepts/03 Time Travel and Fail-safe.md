@@ -138,14 +138,12 @@ alter table finance.transactions
 - [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
 
-## Related Decision and Scenario Notes
+## Related Decision Notes
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Fail-safe]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing Table Retention by Data Criticality]]
-- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Daily Load Overwrote Good Data]]
-- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Costs Spiked After Retention Change]]
 
 ## Questions
 

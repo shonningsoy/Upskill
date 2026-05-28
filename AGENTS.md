@@ -110,7 +110,7 @@ Each topic note should generally include:
 
 Topic notes may also include:
 
-- Related Decision and Scenario Notes
+- Related Decision Notes
 
 Keep notes practical, scannable, and consultant-oriented.
 
@@ -125,7 +125,8 @@ To keep the vault familiar across Snowflake, dbt, and Fivetran, use one stable n
 - Write `How It Works` as a simple numbered flow (typically 4-8 steps).
 - Include practical `Common Pitfalls` tied to cost, performance, governance, or operations.
 - Include a meaningful `When to Recommend What (Decision Table)` for notes that move beyond seed placeholders.
-- After a topic note is filled out, add 1-3 curated links to relevant comparison, decision, or client scenario notes when they exist.
+- After a topic note is filled out, add 1-3 curated links to relevant comparison or decision notes when they exist.
+- Prefer not to link topic notes directly to scenario notes unless the scenario is exceptionally central; let scenario notes link to topics and rely on backlinks.
 - When a topic creates a useful new client situation or recommendation trade-off, add or update a note under `80 Comparisons and Decision Notes/`.
 
 ## Depth Target
