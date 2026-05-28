@@ -1,4 +1,4 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area:
@@ -54,6 +54,12 @@ Explain the mechanism at a title-and-subtitle level. Prefer short paragraphs and
 ## Common Pitfalls
 
 - 
+
+## When to Recommend What (Decision Table)
+
+| Situation | Recommend | Why | Watch-outs |
+|---|---|---|---|
+|  |  |  |  |
 
 ## Related Topics
 
