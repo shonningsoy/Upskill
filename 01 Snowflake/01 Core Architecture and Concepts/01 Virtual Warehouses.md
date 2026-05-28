@@ -50,6 +50,13 @@ tags:
 
 A query is assigned to a warehouse. If the warehouse is suspended, Snowflake resumes it, executes the query against shared storage, and then suspends again after an idle threshold. In single-cluster mode, concurrency pressure creates queueing sooner. In multi-cluster mode, Snowflake can add clusters (within min/max limits) to absorb bursts.
 
+## Visuals
+
+![[00 Home/assets/snowflake-core-01-virtual-warehouse-architecture.png]]
+
+- If the local image is not added yet, use this official source page to capture the architecture/pruning visual:
+  - https://docs.snowflake.com/en/user-guide/warehouses
+
 ## Readable Snippets
 
 ```sql

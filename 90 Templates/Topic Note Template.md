@@ -38,6 +38,16 @@ tags:
 
 Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end at consultant depth.
 
+## Visuals
+
+- Prefer embedded local image(s) when relevant and available.
+- Not every topic requires a visual; include one when it improves understanding.
+- Prioritize official visuals from Snowflake/dbt/Fivetran; otherwise use reputable sources.
+
+```md
+![[00 Home/assets/<image-file>.png]]
+```
+
 ## Readable Snippets
 
 ```sql
@@ -54,12 +64,6 @@ Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end 
 ## Common Pitfalls
 
 - Add at least 3 practical pitfalls linked to cost, performance, governance, or operations.
-
-## When to Recommend What (Decision Table)
-
-| Situation | Recommend | Why | Watch-outs |
-|---|---|---|---|
-|  |  |  |  |
 
 ## When to Recommend What (Decision Table)
 

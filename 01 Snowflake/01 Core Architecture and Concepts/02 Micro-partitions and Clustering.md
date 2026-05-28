@@ -54,6 +54,13 @@ tags:
 5. Non-matching partitions are skipped (pruned); matching candidates are scanned.
 6. If pruning is weak on a very large table, clustering keys can improve partition organization over time.
 
+## Visuals
+
+![[00 Home/assets/snowflake-core-02-micro-partition-pruning.png]]
+
+- If the local image is not added yet, use this official source page to capture the architecture/pruning visual:
+  - https://docs.snowflake.com/user-guide/tables-clustering-micropartitions
+
 ## Readable Snippets
 
 ```sql

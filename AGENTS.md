@@ -219,6 +219,16 @@ git push
 
 Do not commit Obsidian local workspace state. `workspace.json` is intentionally ignored.
 
+## Visuals Policy
+
+Use visuals to improve consultant learning speed where relevant.
+
+- Prefer embedded local images in notes (store files under `00 Home/assets/`).
+- Not every topic must include a visual; add one only when it is possible and useful.
+- Prioritize official sources (Snowflake, dbt, Fivetran).
+- If official visuals are not available, use reputable sources.
+- Keep source links in `Sources To Revisit` for each note using external visuals.
+
 ## Important Preference
 
 The vault should feel familiar and consistent from note to note. Prioritize a stable structure over clever formatting.
