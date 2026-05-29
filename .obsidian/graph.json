@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "tag:#sf-core-architecture",
@@ -55,6 +55,27 @@
         "a": 1,
         "rgb": 5395168
       }
+    },
+    {
+      "query": "note-scenario",
+      "color": {
+        "a": 1,
+        "rgb": 11621088
+      }
+    },
+    {
+      "query": "note-comparison",
+      "color": {
+        "a": 1,
+        "rgb": 14701233
+      }
+    },
+    {
+      "query": "note-decision",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
     }
   ],
   "collapse-display": true,
@@ -67,6 +88,6 @@
   "repelStrength": 9.47916666666667,
   "linkStrength": 0.494791666666667,
   "linkDistance": 57,
-  "scale": 0.9999999999999918,
+  "scale": 1.4019828977760833,
   "close": true
 }

@@ -1,4 +1,4 @@
-﻿---
+---
 status: hub
 platform: Snowflake
 area: Core Architecture and Concepts
