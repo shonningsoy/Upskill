@@ -11,6 +11,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 ## Comparisons
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Fail-safe]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
