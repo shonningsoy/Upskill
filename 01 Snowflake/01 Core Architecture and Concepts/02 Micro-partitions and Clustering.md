@@ -43,6 +43,7 @@ tags:
 | Partition metadata | Stored stats per partition (for example min/max values). | Allows Snowflake to skip irrelevant partitions quickly. |
 | Pruning | Excluding partitions before full scan based on metadata. | Directly affects latency and compute cost. |
 | Clustering key | Columns used to improve data co-location for query patterns. | Can improve pruning consistency on large, high-value tables. |
+| Automatic Clustering | Snowflake-managed service that maintains clustered tables after a clustering key is defined. | Removes manual reclustering work, but introduces serverless credit consumption. |
 | Clustering depth/quality | How well data remains organized by clustering dimensions. | Degradation can reduce pruning gains and trigger maintenance cost. |
 
 ## How It Works (Simple Flow)
@@ -53,6 +54,11 @@ tags:
 4. Snowflake checks partition metadata first to determine which partitions cannot match.
 5. Non-matching partitions are skipped (pruned); matching candidates are scanned.
 6. If pruning is weak on a very large table, clustering keys can improve partition organization over time.
+7. After a clustering key is defined, Automatic Clustering can maintain the table in the background when Snowflake determines reclustering would be beneficial.
+
+## How Automatic Clustering Works
+
+Automatic Clustering is Snowflake's managed background service for maintaining clustered tables. Once a clustering key is defined, Snowflake monitors the table as data is inserted, updated, merged, or deleted, then reclusters only when the table is likely to benefit. This work does not use one of the client's virtual warehouses; Snowflake uses serverless compute and charges credits for the actual reclustering work. Consultant lens: Automatic Clustering reduces maintenance effort, but it is still a costed optimization feature, so start with a few high-value tables, measure impact, and watch for churn-heavy tables that keep needing reclustering.
 
 ## Visuals
 
@@ -82,6 +88,12 @@ alter table sales_facts
 select system$clustering_information('SALES_FACTS');
 ```
 
+```sql
+-- Pause or resume Automatic Clustering if cost or maintenance behavior needs review
+alter table sales_facts suspend recluster;
+alter table sales_facts resume recluster;
+```
+
 ## Consultant Talking Points
 
 - **Client question this answers:** Why are some dashboard filters fast while others are slow on the same table?
@@ -96,6 +108,7 @@ select system$clustering_information('SALES_FACTS');
 - Choosing clustering keys that do not match real filter predicates.
 - Ignoring DML churn (frequent updates/merges) that can increase clustering maintenance cost.
 - Declaring success without pre/post comparison of query latency and bytes scanned.
+- Assuming resource monitors cap Automatic Clustering spend; it uses Snowflake-managed serverless compute.
 
 ## When to Recommend What (Decision Table)
 
@@ -131,5 +144,6 @@ select system$clustering_information('SALES_FACTS');
 
 - Snowflake docs: Micro-partitions and data clustering - https://docs.snowflake.com/user-guide/tables-clustering-micropartitions
 - Snowflake docs: Clustering keys and reclustering behavior - https://docs.snowflake.com/user-guide/tables-clustering-keys
+- Snowflake docs: Automatic Clustering - https://docs.snowflake.com/en/user-guide/tables-auto-reclustering
 - Snowflake docs: Query profile and scan/pruning analysis - https://docs.snowflake.com/user-guide/ui-query-profile
 - Snowflake docs: Cost monitoring and account usage views - https://docs.snowflake.com/user-guide/cost-exploring-overall
