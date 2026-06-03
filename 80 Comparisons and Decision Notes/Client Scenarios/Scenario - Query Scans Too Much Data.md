@@ -24,7 +24,7 @@ First prove that pruning is the problem. Clustering is useful when it reduces sc
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service]]
+- [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
 
 ## Related Decision Notes
 

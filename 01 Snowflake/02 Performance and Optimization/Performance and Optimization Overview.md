@@ -16,10 +16,10 @@ tags:
 
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile|06 - Query Profile]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views|07 - Materialized Views]]
-- [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service|08 - Search Optimization Service]]
-- [[01 Snowflake/02 Performance and Optimization/09 Query Acceleration Service|09 - Query Acceleration Service]]
-- [[01 Snowflake/02 Performance and Optimization/10 Result Caching|10 - Result Caching]]
-- [[01 Snowflake/02 Performance and Optimization/11 Dynamic Tables|11 - Dynamic Tables]]
+- [[01 Snowflake/02 Performance and Optimization/08 Dynamic Tables|08 - Dynamic Tables]]
+- [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service|09 - Search Optimization Service]]
+- [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service|10 - Query Acceleration Service]]
+- [[01 Snowflake/02 Performance and Optimization/11 Result Caching|11 - Result Caching]]
 
 ## How To Use This Area
 

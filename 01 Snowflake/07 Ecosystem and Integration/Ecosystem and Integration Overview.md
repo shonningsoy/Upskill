@@ -14,10 +14,10 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/33 Snowflake CLI and Terraform Provider|33 - Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/34 Git Integration|34 - Git Integration]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Notification Integrations and Alerts|35 - Notification Integrations and Alerts]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Native Apps Framework|36 - Native Apps Framework]]
+- [[01 Snowflake/07 Ecosystem and Integration/34 Snowflake CLI and Terraform Provider|34 - Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/35 Git Integration|35 - Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/36 Notification Integrations and Alerts|36 - Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/37 Native Apps Framework|37 - Native Apps Framework]]
 
 ## How To Use This Area
 

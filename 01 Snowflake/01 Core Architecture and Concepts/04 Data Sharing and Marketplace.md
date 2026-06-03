@@ -129,12 +129,12 @@ from shared_revenue.curated.monthly_revenue;
 ## Related Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/12 Row Access Policies]]
-- [[01 Snowflake/03 Security and Governance/13 Column-level Masking Policies]]
-- [[01 Snowflake/03 Security and Governance/17 Object Tagging]]
-- [[01 Snowflake/03 Security and Governance/15 Network Policies and Private Connectivity]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
+- [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
+- [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
+- [[01 Snowflake/03 Security and Governance/16 Network Policies and Private Connectivity]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
 
 ## Related Decision Notes
 

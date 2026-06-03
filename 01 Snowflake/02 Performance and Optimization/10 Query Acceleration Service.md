@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Security and Governance
-topic_number: 16
+area: Performance and Optimization
+topic_number: 10
 tags:
   - snowflake
-  - sf-security-governance
+  - sf-performance
   - learning
 ---
 
-# Tri-Secret Secure and Customer-Managed Keys
+# Query Acceleration Service
 
-> Encryption approaches where the customer controls part of the key material. Consultant lens: Can be required for financial services and regulated environments.
+> A serverless acceleration feature that can offload portions of eligible queries. Consultant lens: Helps with unpredictable ad-hoc analytics workloads.
 
 ## Executive Summary
 
-- **What it is:** Encryption approaches where the customer controls part of the key material.
-- **Why it matters:** Can be required for financial services and regulated environments.
+- **What it is:** A serverless acceleration feature that can offload portions of eligible queries.
+- **Why it matters:** Helps with unpredictable ad-hoc analytics workloads.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
-- [[01 Snowflake/03 Security and Governance/15 Network Policies and Private Connectivity]]
-- [[01 Snowflake/03 Security and Governance/17 Object Tagging]]
+- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
+- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
 
 ## Questions
 

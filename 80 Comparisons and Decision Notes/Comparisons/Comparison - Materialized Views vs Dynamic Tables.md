@@ -36,11 +36,11 @@ Use a **materialized view** when a repeated expensive query pattern on one base 
 ## Related Learning Topics
 
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/02 Performance and Optimization/11 Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/19 Dynamic Tables]]
+- [[01 Snowflake/02 Performance and Optimization/08 Dynamic Tables]]
+- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/02 Performance and Optimization/10 Result Caching]]
-- [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]]
+- [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
+- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
 
 ## Related Scenarios
 

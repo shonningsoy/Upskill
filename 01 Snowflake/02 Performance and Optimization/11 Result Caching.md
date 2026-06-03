@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 25
+area: Performance and Optimization
+topic_number: 11
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-performance
   - learning
 ---
 
-# Cortex AI Functions
+# Result Caching
 
-> Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis. Consultant lens: Quick AI enrichment on unstructured data such as customer feedback and documents.
+> Reuse of persisted query results when eligibility rules are met. Consultant lens: Free performance when you understand invalidation rules.
 
 ## Executive Summary
 
-- **What it is:** Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis.
-- **Why it matters:** Quick AI enrichment on unstructured data such as customer feedback and documents.
+- **What it is:** Reuse of persisted query results when eligibility rules are met.
+- **Why it matters:** Free performance when you understand invalidation rules.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 ML Model Registry]]
+- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
+- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
 
 ## Questions
 

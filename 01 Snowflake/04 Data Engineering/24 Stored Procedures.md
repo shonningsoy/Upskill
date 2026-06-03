@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Security and Governance
-topic_number: 12
+area: Data Engineering
+topic_number: 24
 tags:
   - snowflake
-  - sf-security-governance
+  - sf-data-engineering
   - learning
 ---
 
-# Row Access Policies
+# Stored Procedures
 
-> Policies that filter rows dynamically per user, role, or context at query time. Consultant lens: Enforce data segregation such as regional restrictions and Chinese walls.
+> Procedural logic inside Snowflake using supported languages. Consultant lens: Useful for complex ETL, admin automation, and migrations.
 
 ## Executive Summary
 
-- **What it is:** Policies that filter rows dynamically per user, role, or context at query time.
-- **Why it matters:** Enforce data segregation such as regional restrictions and Chinese walls.
+- **What it is:** Procedural logic inside Snowflake using supported languages.
+- **Why it matters:** Useful for complex ETL, admin automation, and migrations.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/13 Column-level Masking Policies]]
-- [[01 Snowflake/03 Security and Governance/14 Data Classification]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
+- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark]]
 
 ## Questions
 

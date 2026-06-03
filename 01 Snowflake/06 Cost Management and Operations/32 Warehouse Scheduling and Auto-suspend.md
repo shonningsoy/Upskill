@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Cost Management and Operations
-topic_number: 29
+topic_number: 32
 tags:
   - snowflake
   - sf-cost-ops
   - learning
 ---
 
-# Credit Consumption Model
+# Warehouse Scheduling and Auto-suspend
 
-> How compute, storage, serverless features, and data transfer are billed. Consultant lens: You will be asked to justify and optimize spend.
+> Configuration of idle timeout, auto-resume, and usage patterns for warehouses. Consultant lens: Simple but high-impact cost lever.
 
 ## Executive Summary
 
-- **What it is:** How compute, storage, serverless features, and data transfer are billed.
-- **Why it matters:** You will be asked to justify and optimize spend.
+- **What it is:** Configuration of idle timeout, auto-resume, and usage patterns for warehouses.
+- **Why it matters:** Simple but high-impact cost lever.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -60,9 +60,7 @@ To be filled during learning.
 
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
 
 ## Questions
 

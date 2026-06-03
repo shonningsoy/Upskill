@@ -1,22 +1,22 @@
----
+﻿---
 status: seed
 platform: Snowflake
 area: Data Engineering
-topic_number: 19
+topic_number: 21
 tags:
   - snowflake
   - sf-data-engineering
   - learning
 ---
 
-# Dynamic Tables
+# Snowpipe and Snowpipe Streaming
 
-> Declarative transformation objects where you define the target state. Consultant lens: Simplifies multi-step transformations while Snowflake manages refresh.
+> Continuous and near-real-time data ingestion services. Consultant lens: Ingest market data, transaction feeds, and event streams.
 
 ## Executive Summary
 
-- **What it is:** Declarative transformation objects where you define the target state.
-- **Why it matters:** Simplifies multi-step transformations while Snowflake manages refresh.
+- **What it is:** Continuous and near-real-time data ingestion services.
+- **Why it matters:** Ingest market data, transaction feeds, and event streams.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,9 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]]
-- [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/04 Data Engineering/22 dbt on Snowflake]]
+- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
+- [[03 Fivetran/Fivetran Learning Map]]
+- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
 
 ## Questions
 

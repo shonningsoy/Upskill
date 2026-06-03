@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Security and Governance
-topic_number: 13
+area: Advanced Analytics and AI
+topic_number: 27
 tags:
   - snowflake
-  - sf-security-governance
+  - sf-analytics-ai
   - learning
 ---
 
-# Column-level Masking Policies
+# Cortex Analyst
 
-> Policies that dynamically mask sensitive column values. Consultant lens: Supports PII and PCI compliance without duplicating data.
+> Natural-language-to-SQL experience based on semantic models. Consultant lens: Enables self-service analytics for business users.
 
 ## Executive Summary
 
-- **What it is:** Policies that dynamically mask sensitive column values.
-- **Why it matters:** Supports PII and PCI compliance without duplicating data.
+- **What it is:** Natural-language-to-SQL experience based on semantic models.
+- **Why it matters:** Enables self-service analytics for business users.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/12 Row Access Policies]]
-- [[01 Snowflake/03 Security and Governance/14 Data Classification]]
+- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex AI Functions]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Questions
 

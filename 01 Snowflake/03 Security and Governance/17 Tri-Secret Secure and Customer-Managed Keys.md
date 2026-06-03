@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 21
+area: Security and Governance
+topic_number: 17
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-security-governance
   - learning
 ---
 
-# External Tables and Iceberg
+# Tri-Secret Secure and Customer-Managed Keys
 
-> Ways to query or manage data stored in cloud object storage. Consultant lens: Important for data lake architectures and cost optimization.
+> Encryption approaches where the customer controls part of the key material. Consultant lens: Can be required for financial services and regulated environments.
 
 ## Executive Summary
 
-- **What it is:** Ways to query or manage data stored in cloud object storage.
-- **Why it matters:** Important for data lake architectures and cost optimization.
+- **What it is:** Encryption approaches where the customer controls part of the key material.
+- **Why it matters:** Can be required for financial services and regulated environments.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/05 Advanced Analytics and AI/24 Snowpark]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/16 Network Policies and Private Connectivity]]
+- [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 
 ## Questions
 

@@ -125,10 +125,10 @@ alter table sales_facts resume recluster;
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service]]
+- [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
 
 ## Related Decision Notes
 

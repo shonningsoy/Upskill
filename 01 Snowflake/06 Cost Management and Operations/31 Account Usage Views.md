@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 28
+area: Cost Management and Operations
+topic_number: 31
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-cost-ops
   - learning
 ---
 
-# Snowflake Notebooks
+# Account Usage Views
 
-> Integrated notebooks for SQL, Python, and analysis workflows. Consultant lens: Supports collaborative analysis without requiring a fully external notebook stack.
+> Historical metadata views in the SNOWFLAKE database. Consultant lens: Query history, login history, storage, and warehouse metering become your ops dashboard.
 
 ## Executive Summary
 
-- **What it is:** Integrated notebooks for SQL, Python, and analysis workflows.
-- **Why it matters:** Supports collaborative analysis without requiring a fully external notebook stack.
+- **What it is:** Historical metadata views in the SNOWFLAKE database.
+- **Why it matters:** Query history, login history, storage, and warehouse metering become your ops dashboard.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/24 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 ML Model Registry]]
+- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 
 ## Questions
 

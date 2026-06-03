@@ -31,8 +31,8 @@ Time Travel retention is a recovery design choice. The useful question is not "h
 ## Related Learning Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
 
 ## Related Comparisons and Scenarios
 

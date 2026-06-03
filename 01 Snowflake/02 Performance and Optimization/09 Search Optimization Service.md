@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 35
+area: Performance and Optimization
+topic_number: 09
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-performance
   - learning
 ---
 
-# Notification Integrations and Alerts
+# Search Optimization Service
 
-> Ways to push events to queues, email, webhooks, or alerting surfaces. Consultant lens: Operational alerting for pipeline failures and important system events.
+> A Snowflake optimization feature for selective point-lookup queries. Consultant lens: Speeds up queries on high-cardinality columns such as account IDs and transaction references.
 
 ## Executive Summary
 
-- **What it is:** Ways to push events to queues, email, webhooks, or alerting surfaces.
-- **Why it matters:** Operational alerting for pipeline failures and important system events.
+- **What it is:** A Snowflake optimization feature for selective point-lookup queries.
+- **Why it matters:** Speeds up queries on high-cardinality columns such as account IDs and transaction references.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Budgets]]
+- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
+- [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
+- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 
 ## Questions
 

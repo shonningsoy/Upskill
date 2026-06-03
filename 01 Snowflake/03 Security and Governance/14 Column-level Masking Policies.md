@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 24
+area: Security and Governance
+topic_number: 14
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-security-governance
   - learning
 ---
 
-# Snowpark
+# Column-level Masking Policies
 
-> DataFrame APIs that push compute into Snowflake. Consultant lens: Run ML preprocessing and feature engineering without moving data out.
+> Policies that dynamically mask sensitive column values. Consultant lens: Supports PII and PCI compliance without duplicating data.
 
 ## Executive Summary
 
-- **What it is:** DataFrame APIs that push compute into Snowflake.
-- **Why it matters:** Run ML preprocessing and feature engineering without moving data out.
+- **What it is:** Policies that dynamically mask sensitive column values.
+- **Why it matters:** Supports PII and PCI compliance without duplicating data.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/04 Data Engineering/23 Stored Procedures]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Snowflake Notebooks]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
+- [[01 Snowflake/03 Security and Governance/15 Data Classification]]
 
 ## Questions
 

@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 33
+area: Security and Governance
+topic_number: 15
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-security-governance
   - learning
 ---
 
-# Snowflake CLI and Terraform Provider
+# Data Classification
 
-> Command-line and infrastructure-as-code tools for Snowflake objects. Consultant lens: Repeatable, auditable deployments required in governed environments.
+> Detection and labeling of sensitive data such as PII and financial identifiers. Consultant lens: Feeds into masking, access policies, and regulatory compliance.
 
 ## Executive Summary
 
-- **What it is:** Command-line and infrastructure-as-code tools for Snowflake objects.
-- **Why it matters:** Repeatable, auditable deployments required in governed environments.
+- **What it is:** Detection and labeling of sensitive data such as PII and financial identifiers.
+- **Why it matters:** Feeds into masking, access policies, and regulatory compliance.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/34 Git Integration]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/17 Object Tagging]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
+- [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 
 ## Questions
 

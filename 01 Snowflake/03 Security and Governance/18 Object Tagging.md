@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Performance and Optimization
-topic_number: 09
+area: Security and Governance
+topic_number: 18
 tags:
   - snowflake
-  - sf-performance
+  - sf-security-governance
   - learning
 ---
 
-# Query Acceleration Service
+# Object Tagging
 
-> A serverless acceleration feature that can offload portions of eligible queries. Consultant lens: Helps with unpredictable ad-hoc analytics workloads.
+> Metadata labels attached to Snowflake objects. Consultant lens: Powers governance automation, cost attribution, and lineage.
 
 ## Executive Summary
 
-- **What it is:** A serverless acceleration feature that can offload portions of eligible queries.
-- **Why it matters:** Helps with unpredictable ad-hoc analytics workloads.
+- **What it is:** Metadata labels attached to Snowflake objects.
+- **Why it matters:** Powers governance automation, cost attribution, and lineage.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/15 Data Classification]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/07 Ecosystem and Integration/34 Snowflake CLI and Terraform Provider]]
 
 ## Questions
 

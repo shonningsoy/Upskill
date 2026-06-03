@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 22
+area: Security and Governance
+topic_number: 12
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-security-governance
   - learning
 ---
 
-# dbt on Snowflake
+# RBAC Roles and Privileges
 
-> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
+> Hierarchical role-based access control. Consultant lens: Banks live and die by principle of least privilege.
 
 ## Executive Summary
 
-- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
-- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
+- **What it is:** Hierarchical role-based access control.
+- **Why it matters:** Banks live and die by principle of least privilege.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[02 dbt/dbt Learning Map]]
-- [[01 Snowflake/04 Data Engineering/19 Dynamic Tables]]
-- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
+- [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
+- [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 
 ## Questions
 

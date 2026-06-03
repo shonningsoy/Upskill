@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Cost Management and Operations
-topic_number: 31
+area: Ecosystem and Integration
+topic_number: 35
 tags:
   - snowflake
-  - sf-cost-ops
+  - sf-ecosystem-integration
   - learning
 ---
 
-# Warehouse Scheduling and Auto-suspend
+# Git Integration
 
-> Configuration of idle timeout, auto-resume, and usage patterns for warehouses. Consultant lens: Simple but high-impact cost lever.
+> Connecting repositories to Snowflake stages and development workflows. Consultant lens: Version-control SQL, procedures, and dbt projects.
 
 ## Executive Summary
 
-- **What it is:** Configuration of idle timeout, auto-resume, and usage patterns for warehouses.
-- **Why it matters:** Simple but high-impact cost lever.
+- **What it is:** Connecting repositories to Snowflake stages and development workflows.
+- **Why it matters:** Version-control SQL, procedures, and dbt projects.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
+- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
+- [[01 Snowflake/07 Ecosystem and Integration/34 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/04 Data Engineering/23 dbt on Snowflake]]
+- [[02 dbt/dbt Learning Map]]
 
 ## Questions
 

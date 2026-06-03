@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Cost Management and Operations
-topic_number: 30
+area: Security and Governance
+topic_number: 13
 tags:
   - snowflake
-  - sf-cost-ops
+  - sf-security-governance
   - learning
 ---
 
-# Account Usage Views
+# Row Access Policies
 
-> Historical metadata views in the SNOWFLAKE database. Consultant lens: Query history, login history, storage, and warehouse metering become your ops dashboard.
+> Policies that filter rows dynamically per user, role, or context at query time. Consultant lens: Enforce data segregation such as regional restrictions and Chinese walls.
 
 ## Executive Summary
 
-- **What it is:** Historical metadata views in the SNOWFLAKE database.
-- **Why it matters:** Query history, login history, storage, and warehouse metering become your ops dashboard.
+- **What it is:** Policies that filter rows dynamically per user, role, or context at query time.
+- **Why it matters:** Enforce data segregation such as regional restrictions and Chinese walls.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
+- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
+- [[01 Snowflake/03 Security and Governance/15 Data Classification]]
 
 ## Questions
 

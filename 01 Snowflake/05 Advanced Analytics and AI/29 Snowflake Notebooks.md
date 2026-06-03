@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 34
+area: Advanced Analytics and AI
+topic_number: 29
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-analytics-ai
   - learning
 ---
 
-# Git Integration
+# Snowflake Notebooks
 
-> Connecting repositories to Snowflake stages and development workflows. Consultant lens: Version-control SQL, procedures, and dbt projects.
+> Integrated notebooks for SQL, Python, and analysis workflows. Consultant lens: Supports collaborative analysis without requiring a fully external notebook stack.
 
 ## Executive Summary
 
-- **What it is:** Connecting repositories to Snowflake stages and development workflows.
-- **Why it matters:** Version-control SQL, procedures, and dbt projects.
+- **What it is:** Integrated notebooks for SQL, Python, and analysis workflows.
+- **Why it matters:** Supports collaborative analysis without requiring a fully external notebook stack.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/33 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/04 Data Engineering/22 dbt on Snowflake]]
-- [[02 dbt/dbt Learning Map]]
+- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
+- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
 
 ## Questions
 

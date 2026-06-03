@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Ecosystem and Integration
-topic_number: 36
+topic_number: 34
 tags:
   - snowflake
   - sf-ecosystem-integration
   - learning
 ---
 
-# Native Apps Framework
+# Snowflake CLI and Terraform Provider
 
-> Framework for packaging and distributing applications within or across accounts. Consultant lens: Supports internal tool distribution across business units and external app delivery.
+> Command-line and infrastructure-as-code tools for Snowflake objects. Consultant lens: Repeatable, auditable deployments required in governed environments.
 
 ## Executive Summary
 
-- **What it is:** Framework for packaging and distributing applications within or across accounts.
-- **Why it matters:** Supports internal tool distribution across business units and external app delivery.
+- **What it is:** Command-line and infrastructure-as-code tools for Snowflake objects.
+- **Why it matters:** Repeatable, auditable deployments required in governed environments.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,8 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
+- [[01 Snowflake/07 Ecosystem and Integration/35 Git Integration]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 
 ## Questions
 

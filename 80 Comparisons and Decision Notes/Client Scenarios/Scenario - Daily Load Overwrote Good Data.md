@@ -22,9 +22,9 @@ Time Travel is the first recovery tool, but the follow-up is governance and pipe
 ## Related Learning Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
-- [[01 Snowflake/04 Data Engineering/19 Dynamic Tables]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
+- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
 
 ## Related Decision Notes
 

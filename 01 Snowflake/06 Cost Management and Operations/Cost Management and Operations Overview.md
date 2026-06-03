@@ -14,10 +14,10 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model|29 - Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views|30 - Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Warehouse Scheduling and Auto-suspend|31 - Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Budgets|32 - Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model|30 - Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views|31 - Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Warehouse Scheduling and Auto-suspend|32 - Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/33 Budgets|33 - Budgets]]
 
 ## How To Use This Area
 

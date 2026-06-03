@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Performance and Optimization
-topic_number: 11
+topic_number: 08
 tags:
   - snowflake
   - sf-performance
@@ -169,11 +169,11 @@ order by refresh_start_time desc;
 
 - [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/04 Data Engineering/19 Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]]
-- [[01 Snowflake/04 Data Engineering/22 dbt on Snowflake]]
+- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
+- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
+- [[01 Snowflake/04 Data Engineering/23 dbt on Snowflake]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
 
 ## Related Decision Notes
 

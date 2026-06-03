@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 23
+area: Cost Management and Operations
+topic_number: 33
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-cost-ops
   - learning
 ---
 
-# Stored Procedures
+# Budgets
 
-> Procedural logic inside Snowflake using supported languages. Consultant lens: Useful for complex ETL, admin automation, and migrations.
+> Native spending limits, tracking, and alerts. Consultant lens: Proactive cost control.
 
 ## Executive Summary
 
-- **What it is:** Procedural logic inside Snowflake using supported languages.
-- **Why it matters:** Useful for complex ETL, admin automation, and migrations.
+- **What it is:** Native spending limits, tracking, and alerts.
+- **Why it matters:** Proactive cost control.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/24 Snowpark]]
+- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
+- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/07 Ecosystem and Integration/36 Notification Integrations and Alerts]]
 
 ## Questions
 

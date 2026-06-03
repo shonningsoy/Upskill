@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 27
+topic_number: 26
 tags:
   - snowflake
   - sf-analytics-ai
   - learning
 ---
 
-# ML Model Registry
+# Cortex AI Functions
 
-> A place to register, version, and deploy models inside Snowflake. Consultant lens: Keeps model governance near the governed data platform.
+> Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis. Consultant lens: Quick AI enrichment on unstructured data such as customer feedback and documents.
 
 ## Executive Summary
 
-- **What it is:** A place to register, version, and deploy models inside Snowflake.
-- **Why it matters:** Keeps model governance near the governed data platform.
+- **What it is:** Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis.
+- **Why it matters:** Quick AI enrichment on unstructured data such as customer feedback and documents.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,9 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/24 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
 
 ## Questions
 

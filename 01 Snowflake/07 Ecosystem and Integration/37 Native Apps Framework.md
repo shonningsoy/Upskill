@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Security and Governance
-topic_number: 14
+area: Ecosystem and Integration
+topic_number: 37
 tags:
   - snowflake
-  - sf-security-governance
+  - sf-ecosystem-integration
   - learning
 ---
 
-# Data Classification
+# Native Apps Framework
 
-> Detection and labeling of sensitive data such as PII and financial identifiers. Consultant lens: Feeds into masking, access policies, and regulatory compliance.
+> Framework for packaging and distributing applications within or across accounts. Consultant lens: Supports internal tool distribution across business units and external app delivery.
 
 ## Executive Summary
 
-- **What it is:** Detection and labeling of sensitive data such as PII and financial identifiers.
-- **Why it matters:** Feeds into masking, access policies, and regulatory compliance.
+- **What it is:** Framework for packaging and distributing applications within or across accounts.
+- **Why it matters:** Supports internal tool distribution across business units and external app delivery.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
-- [[01 Snowflake/03 Security and Governance/13 Column-level Masking Policies]]
-- [[01 Snowflake/03 Security and Governance/17 Object Tagging]]
+- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
+- [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Questions
 

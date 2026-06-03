@@ -185,10 +185,10 @@ where query_id = '<query_id>';
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service]]
-- [[01 Snowflake/02 Performance and Optimization/09 Query Acceleration Service]]
-- [[01 Snowflake/02 Performance and Optimization/10 Result Caching]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
+- [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
+- [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
+- [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
 
 ## Related Decision Notes
 

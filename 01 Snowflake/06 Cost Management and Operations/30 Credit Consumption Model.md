@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Performance and Optimization
-topic_number: 10
+area: Cost Management and Operations
+topic_number: 30
 tags:
   - snowflake
-  - sf-performance
+  - sf-cost-ops
   - learning
 ---
 
-# Result Caching
+# Credit Consumption Model
 
-> Reuse of persisted query results when eligibility rules are met. Consultant lens: Free performance when you understand invalidation rules.
+> How compute, storage, serverless features, and data transfer are billed. Consultant lens: You will be asked to justify and optimize spend.
 
 ## Executive Summary
 
-- **What it is:** Reuse of persisted query results when eligibility rules are met.
-- **Why it matters:** Free performance when you understand invalidation rules.
+- **What it is:** How compute, storage, serverless features, and data transfer are billed.
+- **Why it matters:** You will be asked to justify and optimize spend.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,11 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
+- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
+- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/33 Budgets]]
 
 ## Questions
 

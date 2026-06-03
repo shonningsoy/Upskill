@@ -40,16 +40,16 @@ tags:
 
 ## Core Concepts
 
-| Concept | Meaning | Why it matters |
-|---|---|---|
-| Credit quota | Number of credits allocated to the monitor for the interval. | Defines what 100% usage means. |
-| Threshold trigger | A percentage of the quota that fires an action. | Allows early warnings before suspension. |
-| `NOTIFY` | Sends a notification but does not suspend a warehouse. | Useful for progressive alerts at 50%, 75%, or 90%. |
-| `SUSPEND` | Suspends assigned warehouses after running statements finish. | Safer for active workloads, but usage can exceed the quota. |
-| `SUSPEND_IMMEDIATE` | Suspends assigned warehouses immediately and cancels running statements. | Stronger cost protection, but operationally disruptive. |
-| Account monitor | Monitors credit usage for all warehouses in the account. | Acts as a global warehouse-compute safety net. |
-| Warehouse monitor | Monitors one or more assigned warehouses. | Supports workload, team, or client-specific guardrails. |
-| Schedule | Defines when monitoring starts and when used credits reset. | Aligns controls to monthly, weekly, or other operating cycles. |
+| Concept             | Meaning                                                                  | Why it matters                                                 |
+| ------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| Credit quota        | Number of credits allocated to the monitor for the interval.             | Defines what 100% usage means.                                 |
+| Threshold trigger   | A percentage of the quota that fires an action.                          | Allows early warnings before suspension.                       |
+| `NOTIFY`            | Sends a notification but does not suspend a warehouse.                   | Useful for progressive alerts at 50%, 75%, or 90%.             |
+| `SUSPEND`           | Suspends assigned warehouses after running statements finish.            | Safer for active workloads, but usage can exceed the quota.    |
+| `SUSPEND_IMMEDIATE` | Suspends assigned warehouses immediately and cancels running statements. | Stronger cost protection, but operationally disruptive.        |
+| Account monitor     | Monitors credit usage for all warehouses in the account.                 | Acts as a global warehouse-compute safety net.                 |
+| Warehouse monitor   | Monitors one or more assigned warehouses.                                | Supports workload, team, or client-specific guardrails.        |
+| Schedule            | Defines when monitoring starts and when used credits reset.              | Aligns controls to monthly, weekly, or other operating cycles. |
 
 ## How It Works (Simple Flow)
 
@@ -144,10 +144,10 @@ SHOW WAREHOUSES;
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/33 Budgets]]
 
 ## Related Decision Notes
 

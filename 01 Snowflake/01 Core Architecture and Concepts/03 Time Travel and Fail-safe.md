@@ -39,15 +39,15 @@ tags:
 
 ## Core Concepts
 
-| Concept | Meaning | Why it matters |
-|---|---|---|
-| Time Travel | Configurable historical retention window for querying, cloning, and restoring past object states. | Main self-service recovery tool for recent mistakes. |
-| Fail-safe | Non-configurable Snowflake-managed recovery period after Time Travel for permanent table data. | Last-resort protection, not normal user workflow. |
-| Retention period | Number of days historical data remains accessible through Time Travel. | Drives recovery capability and storage cost. |
-| `DATA_RETENTION_TIME_IN_DAYS` | Object/account parameter controlling Time Travel retention. | Can be set broadly or overridden for critical objects. |
-| Permanent table | Table type that supports Fail-safe after Time Travel. | Best for important data that needs stronger protection. |
-| Transient / temporary table | Table types with reduced protection and no Fail-safe. | Useful for rebuildable staging/intermediate data. |
-| Data churn | Amount of data changed, deleted, merged, or replaced. | Main driver of Time Travel storage overhead. |
+| Concept                       | Meaning                                                                                           | Why it matters                                          |
+| ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Time Travel                   | Configurable historical retention window for querying, cloning, and restoring past object states. | Main self-service recovery tool for recent mistakes.    |
+| Fail-safe                     | Non-configurable Snowflake-managed recovery period after Time Travel for permanent table data.    | Last-resort protection, not normal user workflow.       |
+| Retention period              | Number of days historical data remains accessible through Time Travel.                            | Drives recovery capability and storage cost.            |
+| `DATA_RETENTION_TIME_IN_DAYS` | Object/account parameter controlling Time Travel retention.                                       | Can be set broadly or overridden for critical objects.  |
+| Permanent table               | Table type that supports Fail-safe after Time Travel.                                             | Best for important data that needs stronger protection. |
+| Transient / temporary table   | Table types with reduced protection and no Fail-safe.                                             | Useful for rebuildable staging/intermediate data.       |
+| Data churn                    | Amount of data changed, deleted, merged, or replaced.                                             | Main driver of Time Travel storage overhead.            |
 
 ## How It Works (Simple Flow)
 
@@ -119,24 +119,24 @@ alter table finance.transactions
 
 ## When to Recommend What (Decision Table)
 
-| Situation | Recommend | Why | Watch-outs |
-|---|---|---|---|
-| Accidental table drop discovered quickly | Use `UNDROP` through Time Travel | Fast self-service recovery inside retention window | Must act before retention expires |
-| Bad load or overwrite | Clone/query the prior state with `AT` or `BEFORE` | Safer than immediately overwriting production again | Need timestamp, offset, or query ID |
-| Critical production finance/customer data | Permanent tables with longer selective retention | Recovery and audit value can justify storage cost | Longer than 1 day requires Enterprise Edition or higher |
-| Rebuildable staging/intermediate data | Transient table or short retention | Avoids paying for protection where source can be reloaded | Keep enough retention for realistic bad-load detection |
-| Client wants 90 days everywhere | Classify data by recovery value first | Prevents broad storage cost from low-value objects | Global/schema defaults can affect many future objects |
-| Client needs historical analytics | Model history intentionally with snapshots/audit tables | Time Travel is for recovery, not long-term business history | Extra design work, storage, and governance needed |
-| High-churn table with frequent `MERGE`/`UPDATE`/reload | Measure Time Travel storage impact before extending retention | Churn can retain more historical data | Cost may surprise teams even if current table size is stable |
+| Situation                                              | Recommend                                                     | Why                                                         | Watch-outs                                                   |
+| ------------------------------------------------------ | ------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| Accidental table drop discovered quickly               | Use `UNDROP` through Time Travel                              | Fast self-service recovery inside retention window          | Must act before retention expires                            |
+| Bad load or overwrite                                  | Clone/query the prior state with `AT` or `BEFORE`             | Safer than immediately overwriting production again         | Need timestamp, offset, or query ID                          |
+| Critical production finance/customer data              | Permanent tables with longer selective retention              | Recovery and audit value can justify storage cost           | Longer than 1 day requires Enterprise Edition or higher      |
+| Rebuildable staging/intermediate data                  | Transient table or short retention                            | Avoids paying for protection where source can be reloaded   | Keep enough retention for realistic bad-load detection       |
+| Client wants 90 days everywhere                        | Classify data by recovery value first                         | Prevents broad storage cost from low-value objects          | Global/schema defaults can affect many future objects        |
+| Client needs historical analytics                      | Model history intentionally with snapshots/audit tables       | Time Travel is for recovery, not long-term business history | Extra design work, storage, and governance needed            |
+| High-churn table with frequent `MERGE`/`UPDATE`/reload | Measure Time Travel storage impact before extending retention | Churn can retain more historical data                       | Cost may surprise teams even if current table size is stable |
 
 ## Related Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Account Usage Views]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
 
 ## Related Decision Notes
 

@@ -22,8 +22,8 @@ Start with a direct share for a known Snowflake partner. If the dataset needs pa
 ## Related Learning Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/17 Object Tagging]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 
 ## Related Decision Notes
 

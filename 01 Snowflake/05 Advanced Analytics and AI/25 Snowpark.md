@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 26
+topic_number: 25
 tags:
   - snowflake
   - sf-analytics-ai
   - learning
 ---
 
-# Cortex Analyst
+# Snowpark
 
-> Natural-language-to-SQL experience based on semantic models. Consultant lens: Enables self-service analytics for business users.
+> DataFrame APIs that push compute into Snowflake. Consultant lens: Run ML preprocessing and feature engineering without moving data out.
 
 ## Executive Summary
 
-- **What it is:** Natural-language-to-SQL experience based on semantic models.
-- **Why it matters:** Enables self-service analytics for business users.
+- **What it is:** DataFrame APIs that push compute into Snowflake.
+- **Why it matters:** Run ML preprocessing and feature engineering without moving data out.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,8 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Cortex AI Functions]]
-- [[01 Snowflake/03 Security and Governance/11 RBAC Roles and Privileges]]
+- [[01 Snowflake/04 Data Engineering/24 Stored Procedures]]
+- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks]]
 
 ## Questions
 

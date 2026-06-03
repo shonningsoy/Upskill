@@ -1,22 +1,22 @@
 ﻿---
 status: seed
 platform: Snowflake
-area: Performance and Optimization
-topic_number: 08
+area: Data Engineering
+topic_number: 23
 tags:
   - snowflake
-  - sf-performance
+  - sf-data-engineering
   - learning
 ---
 
-# Search Optimization Service
+# dbt on Snowflake
 
-> A Snowflake optimization feature for selective point-lookup queries. Consultant lens: Speeds up queries on high-cardinality columns such as account IDs and transaction references.
+> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
 
 ## Executive Summary
 
-- **What it is:** A Snowflake optimization feature for selective point-lookup queries.
-- **Why it matters:** Speeds up queries on high-cardinality columns such as account IDs and transaction references.
+- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
+- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
+- [[02 dbt/dbt Learning Map]]
+- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
+- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
 
 ## Questions
 
