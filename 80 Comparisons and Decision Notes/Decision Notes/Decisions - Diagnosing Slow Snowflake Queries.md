@@ -42,6 +42,7 @@ A slow Snowflake query is not automatically a warehouse-sizing problem. Use Quer
 ## Related Comparisons and Scenarios
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Search Optimization Service vs Clustering]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Query Scans Too Much Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Dashboards Are Slow During Business Hours]]
