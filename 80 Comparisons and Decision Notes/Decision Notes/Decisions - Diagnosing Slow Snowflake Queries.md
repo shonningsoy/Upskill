@@ -18,7 +18,7 @@ A slow Snowflake query is not automatically a warehouse-sizing problem. Use Quer
 | Query waited in queue | Warehouse concurrency/capacity issue | Check overlapping workloads and warehouse load | Multi-cluster, workload isolation, resize |
 | Large scan / weak pruning | Too much data read | Add selective filters, improve predicate design | Clustering, search optimization, model redesign |
 | Join outputs many more rows than inputs | Exploding join or wrong grain | Fix join keys, deduplicate, filter before joining | Redesign model grain or staging logic |
-| Heavy aggregate, sort, or window | Too many rows processed late | Reduce rows earlier, pre-aggregate, remove unnecessary `DISTINCT` | Materialized view or persistent intermediate model |
+| Heavy aggregate, sort, or window | Too many rows processed late | Reduce rows earlier, pre-aggregate, remove unnecessary `DISTINCT` | Materialized view, dynamic table, or persistent intermediate model |
 | Local or remote spill | Intermediate data exceeds comfortable memory | Reduce intermediate rows, batch processing | Larger warehouse if query shape is reasonable |
 | Same pattern runs frequently | Repeated cost hotspot | Tune the shared SQL/model once | Materialized view, result caching strategy, search optimization, QAS |
 
@@ -35,6 +35,7 @@ A slow Snowflake query is not automatically a warehouse-sizing problem. Use Quer
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
+- [[01 Snowflake/02 Performance and Optimization/11 Dynamic Tables]]
 - [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service]]
 - [[01 Snowflake/02 Performance and Optimization/09 Query Acceleration Service]]
 

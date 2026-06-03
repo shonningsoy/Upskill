@@ -19,6 +19,7 @@ tags:
 - [[01 Snowflake/02 Performance and Optimization/08 Search Optimization Service|08 - Search Optimization Service]]
 - [[01 Snowflake/02 Performance and Optimization/09 Query Acceleration Service|09 - Query Acceleration Service]]
 - [[01 Snowflake/02 Performance and Optimization/10 Result Caching|10 - Result Caching]]
+- [[01 Snowflake/02 Performance and Optimization/11 Dynamic Tables|11 - Dynamic Tables]]
 
 ## How To Use This Area
 
@@ -27,3 +28,4 @@ Use this note as the local hub for this chapter. The global [[00 Home/Snowflake 
 ## Related Areas
 
 - [[00 Home/Snowflake Learning Map|Snowflake Learning Map]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview|Data Engineering]]
