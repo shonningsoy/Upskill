@@ -20,6 +20,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Reader Account]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
 
 ## Decision Notes
 
