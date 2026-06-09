@@ -21,6 +21,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Reader Account]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
 
 ## Decision Notes
 
@@ -38,6 +39,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Costs Spiked After Retention Change]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Partner Needs Access to Live Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Customer Without Snowflake Needs Data Access]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - New Regulatory Team Needs Cross-Domain Data]]
 
 ## Related Learning Maps
 

@@ -337,7 +337,8 @@ USE SECONDARY ROLES NONE;
 
 ## Related Decision Notes
 
-- (Future: Decisions - Choosing an Access Control Strategy)
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
+- (Future: Decisions - Choosing an Access Control Layer)
 
 ## Questions
 
