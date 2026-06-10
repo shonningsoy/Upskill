@@ -182,7 +182,8 @@ RBAC inheritance (parent roles inherit child privileges) does NOT flow into RAP 
 
 ## Related Decision Notes
 
-- No decision notes linked yet — consider adding one for "RAP vs Views for multi-team data segregation" when more topics are covered.
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAP on Base Table vs Views with Separate RAPs]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Row-Level Data Isolation Strategy]]
 
 ## Questions
 

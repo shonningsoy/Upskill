@@ -22,6 +22,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAP on Base Table vs Views with Separate RAPs]]
 
 ## Decision Notes
 
@@ -29,6 +30,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing Table Retention by Data Criticality]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Sharing Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Row-Level Data Isolation Strategy]]
 
 ## Client Scenarios
 
