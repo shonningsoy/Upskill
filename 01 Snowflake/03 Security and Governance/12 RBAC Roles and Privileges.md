@@ -40,16 +40,16 @@ tags:
 
 ## Core Concepts
 
-| Concept | Meaning | Why it matters |
-|---|---|---|
-| Role | A named collection of privileges that can be granted to users or other roles | The fundamental unit of access — never grant privileges directly to users |
-| Privilege | A specific permission (SELECT, USAGE, CREATE, etc.) on an object or container | Granular control at every level |
-| Hierarchy / Inheritance | Parent roles inherit all privileges of child roles granted to them | Enables roll-up management; SYSADMIN inherits all custom roles |
-| Active Role | The single role a user operates under at any moment | Determines what they can see/do in that session |
-| Secondary Roles | Additional roles activated alongside the primary role | Provides union of privileges but weakens audit attribution |
-| Composite Role | A purpose-built role that inherits from multiple other roles | Clean alternative to secondary roles for cross-domain access |
-| SCIM | Protocol for automated user/role provisioning from an identity provider | Eliminates manual Snowflake admin work for joiners/movers/leavers |
-| Ownership | The role that owns an object controls it (can drop, alter, grant) | Critical for pipeline objects — choose owning role carefully |
+| Concept                 | Meaning                                                                       | Why it matters                                                            |
+| ----------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Role                    | A named collection of privileges that can be granted to users or other roles  | The fundamental unit of access — never grant privileges directly to users |
+| Privilege               | A specific permission (SELECT, USAGE, CREATE, etc.) on an object or container | Granular control at every level                                           |
+| Hierarchy / Inheritance | Parent roles inherit all privileges of child roles granted to them            | Enables roll-up management; SYSADMIN inherits all custom roles            |
+| Active Role             | The single role a user operates under at any moment                           | Determines what they can see/do in that session                           |
+| Secondary Roles         | Additional roles activated alongside the primary role                         | Provides union of privileges but weakens audit attribution                |
+| Composite Role          | A purpose-built role that inherits from multiple other roles                  | Clean alternative to secondary roles for cross-domain access              |
+| SCIM                    | Protocol for automated user/role provisioning from an identity provider       | Eliminates manual Snowflake admin work for joiners/movers/leavers         |
+| Ownership               | The role that owns an object controls it (can drop, alter, grant)             | Critical for pipeline objects — choose owning role carefully              |
 
 ## System-Defined Role Hierarchy
 
