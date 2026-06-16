@@ -24,6 +24,8 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAP on Base Table vs Views with Separate RAPs]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Manual vs Auto Classification]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Network Policy vs Private Connectivity]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Default Encryption vs Tri-Secret Secure]]
 
 ## Decision Notes
 
@@ -43,6 +45,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Partner Needs Access to Live Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Customer Without Snowflake Needs Data Access]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - New Regulatory Team Needs Cross-Domain Data]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Client Needs to Revoke Vendor Key Access]]
 
 ## Related Learning Maps
 
