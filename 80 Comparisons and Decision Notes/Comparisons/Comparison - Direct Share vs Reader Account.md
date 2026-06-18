@@ -34,7 +34,7 @@ Use a **direct share** when the consumer already has a Snowflake account and sho
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Related Scenarios
 

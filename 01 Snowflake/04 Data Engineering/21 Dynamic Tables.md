@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 25
+area: Data Engineering
+topic_number: 21
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-data-engineering
   - learning
 ---
 
-# Snowpark
+# Dynamic Tables
 
-> DataFrame APIs that push compute into Snowflake. Consultant lens: Run ML preprocessing and feature engineering without moving data out.
+> Declarative transformation objects where you define the target state. Consultant lens: Simplifies multi-step transformations while Snowflake manages refresh.
 
 ## Executive Summary
 
-- **What it is:** DataFrame APIs that push compute into Snowflake.
-- **Why it matters:** Run ML preprocessing and feature engineering without moving data out.
+- **What it is:** Declarative transformation objects where you define the target state.
+- **Why it matters:** Simplifies multi-step transformations while Snowflake manages refresh.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/04 Data Engineering/24 Stored Procedures]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
+- [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
+- [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
+- [[01 Snowflake/04 Data Engineering/24 dbt on Snowflake]]
 
 ## Questions
 

@@ -1,4 +1,4 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area: Cost Management and Operations
@@ -9,14 +9,14 @@ tags:
   - learning
 ---
 
-# Account Usage Views
+# Credit Consumption Model
 
-> Historical metadata views in the SNOWFLAKE database. Consultant lens: Query history, login history, storage, and warehouse metering become your ops dashboard.
+> How compute, storage, serverless features, and data transfer are billed. Consultant lens: You will be asked to justify and optimize spend.
 
 ## Executive Summary
 
-- **What it is:** Historical metadata views in the SNOWFLAKE database.
-- **Why it matters:** Query history, login history, storage, and warehouse metering become your ops dashboard.
+- **What it is:** How compute, storage, serverless features, and data transfer are billed.
+- **Why it matters:** You will be asked to justify and optimize spend.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,9 +59,10 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
 
 ## Questions
 

@@ -33,7 +33,7 @@ Use a **larger warehouse size** when one query or job needs more compute power. 
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Related Scenarios
 

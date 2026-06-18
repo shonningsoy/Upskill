@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 37
+area: Data Engineering
+topic_number: 23
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-data-engineering
   - learning
 ---
 
-# Native Apps Framework
+# External Tables and Iceberg
 
-> Framework for packaging and distributing applications within or across accounts. Consultant lens: Supports internal tool distribution across business units and external app delivery.
+> Ways to query or manage data stored in cloud object storage. Consultant lens: Important for data lake architectures and cost optimization.
 
 ## Executive Summary
 
-- **What it is:** Framework for packaging and distributing applications within or across accounts.
-- **Why it matters:** Supports internal tool distribution across business units and external app delivery.
+- **What it is:** Ways to query or manage data stored in cloud object storage.
+- **Why it matters:** Important for data lake architectures and cost optimization.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
 
 ## Questions
 

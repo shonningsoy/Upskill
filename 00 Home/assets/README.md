@@ -1,6 +1,16 @@
 # Visual Asset Guidelines
 
-Use this folder for local image assets embedded in topic notes.
+Mermaid diagrams are the default visual medium for topic notes — they are editable, lightweight, Git-friendly, and render natively in Obsidian. Reach for Mermaid first.
+
+Use this folder only for the exception case: local **image** assets embedded when a polished architecture diagram, UI screenshot, or vendor visual communicates the topic better than Mermaid could.
+
+## When to Use an Image Instead of Mermaid
+
+- A polished official architecture diagram or vendor visual already exists and is clearer than a hand-built Mermaid sketch.
+- A UI screenshot is needed to show an actual product surface.
+- The concept is genuinely hard to express as nodes/edges (e.g. a detailed reference architecture).
+
+For flows, lifecycles, decision paths, dependency maps, and threshold/sequence logic, prefer Mermaid in the note itself — no file needed here.
 
 ## Naming Convention
 
@@ -19,6 +29,6 @@ Examples:
 
 ## Topic Note Usage Rule
 
-- Topic notes should usually embed one local image when relevant and available.
+- Aim for one useful visual per topic note when relevant — a Mermaid diagram by default, a local image only when it is clearly the stronger choice.
 - If no useful visual is available yet, keep the `Visuals` section and state that explicitly.
-- Always include source attribution URL in the note.
+- Always include a source attribution URL in the note when using an external image.

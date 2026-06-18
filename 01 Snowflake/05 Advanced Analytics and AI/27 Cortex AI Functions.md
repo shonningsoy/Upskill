@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 22
+area: Advanced Analytics and AI
+topic_number: 27
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-analytics-ai
   - learning
 ---
 
-# External Tables and Iceberg
+# Cortex AI Functions
 
-> Ways to query or manage data stored in cloud object storage. Consultant lens: Important for data lake architectures and cost optimization.
+> Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis. Consultant lens: Quick AI enrichment on unstructured data such as customer feedback and documents.
 
 ## Executive Summary
 
-- **What it is:** Ways to query or manage data stored in cloud object storage.
-- **Why it matters:** Important for data lake architectures and cost optimization.
+- **What it is:** Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis.
+- **Why it matters:** Quick AI enrichment on unstructured data such as customer feedback and documents.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
+- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
 
 ## Questions
 

@@ -38,7 +38,7 @@ Use **secondary roles** when flexibility and speed matter more than strict audit
 
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
 
 ## Related Scenarios
 

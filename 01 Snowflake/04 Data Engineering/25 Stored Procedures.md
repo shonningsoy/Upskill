@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area: Data Engineering
-topic_number: 23
+topic_number: 25
 tags:
   - snowflake
   - sf-data-engineering
   - learning
 ---
 
-# dbt on Snowflake
+# Stored Procedures
 
-> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
+> Procedural logic inside Snowflake using supported languages. Consultant lens: Useful for complex ETL, admin automation, and migrations.
 
 ## Executive Summary
 
-- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
-- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
+- **What it is:** Procedural logic inside Snowflake using supported languages.
+- **Why it matters:** Useful for complex ETL, admin automation, and migrations.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,9 +59,8 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[02 dbt/dbt Learning Map]]
-- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
-- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
+- [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
 
 ## Questions
 

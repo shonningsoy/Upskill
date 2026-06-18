@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area: Cost Management and Operations
-topic_number: 30
+topic_number: 34
 tags:
   - snowflake
   - sf-cost-ops
   - learning
 ---
 
-# Credit Consumption Model
+# Budgets
 
-> How compute, storage, serverless features, and data transfer are billed. Consultant lens: You will be asked to justify and optimize spend.
+> Native spending limits, tracking, and alerts. Consultant lens: Proactive cost control.
 
 ## Executive Summary
 
-- **What it is:** How compute, storage, serverless features, and data transfer are billed.
-- **Why it matters:** You will be asked to justify and optimize spend.
+- **What it is:** Native spending limits, tracking, and alerts.
+- **Why it matters:** Proactive cost control.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,10 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
 
 ## Questions
 

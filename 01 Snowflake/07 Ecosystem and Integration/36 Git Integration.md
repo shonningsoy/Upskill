@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 26
+area: Ecosystem and Integration
+topic_number: 36
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-ecosystem-integration
   - learning
 ---
 
-# Cortex AI Functions
+# Git Integration
 
-> Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis. Consultant lens: Quick AI enrichment on unstructured data such as customer feedback and documents.
+> Connecting repositories to Snowflake stages and development workflows. Consultant lens: Version-control SQL, procedures, and dbt projects.
 
 ## Executive Summary
 
-- **What it is:** Built-in AI and LLM functions for tasks like summarizing, classifying, extracting, and sentiment analysis.
-- **Why it matters:** Quick AI enrichment on unstructured data such as customer feedback and documents.
+- **What it is:** Connecting repositories to Snowflake stages and development workflows.
+- **Why it matters:** Version-control SQL, procedures, and dbt projects.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
+- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
+- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/04 Data Engineering/24 dbt on Snowflake]]
+- [[02 dbt/dbt Learning Map]]
 
 ## Questions
 

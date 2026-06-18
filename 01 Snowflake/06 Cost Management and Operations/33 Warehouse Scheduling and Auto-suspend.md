@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 21
+area: Cost Management and Operations
+topic_number: 33
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-cost-ops
   - learning
 ---
 
-# Snowpipe and Snowpipe Streaming
+# Warehouse Scheduling and Auto-suspend
 
-> Continuous and near-real-time data ingestion services. Consultant lens: Ingest market data, transaction feeds, and event streams.
+> Configuration of idle timeout, auto-resume, and usage patterns for warehouses. Consultant lens: Simple but high-impact cost lever.
 
 ## Executive Summary
 
-- **What it is:** Continuous and near-real-time data ingestion services.
-- **Why it matters:** Ingest market data, transaction feeds, and event streams.
+- **What it is:** Configuration of idle timeout, auto-resume, and usage patterns for warehouses.
+- **Why it matters:** Simple but high-impact cost lever.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
-- [[03 Fivetran/Fivetran Learning Map]]
-- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
+- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
+- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Questions
 

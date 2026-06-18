@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Advanced Analytics and AI
-topic_number: 29
+area: Data Engineering
+topic_number: 24
 tags:
   - snowflake
-  - sf-analytics-ai
+  - sf-data-engineering
   - learning
 ---
 
-# Snowflake Notebooks
+# dbt on Snowflake
 
-> Integrated notebooks for SQL, Python, and analysis workflows. Consultant lens: Supports collaborative analysis without requiring a fully external notebook stack.
+> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
 
 ## Executive Summary
 
-- **What it is:** Integrated notebooks for SQL, Python, and analysis workflows.
-- **Why it matters:** Supports collaborative analysis without requiring a fully external notebook stack.
+- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
+- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry]]
+- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
+- [[02 dbt/dbt Learning Map]]
+- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
+- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
 
 ## Questions
 

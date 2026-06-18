@@ -40,10 +40,18 @@ Use a simple numbered flow (usually 4-8 steps) showing the mechanism end-to-end 
 
 ## Visuals
 
-- Add **one embedded local image** when relevant and possible; skip only when no useful visual exists.
+- Add **one Mermaid diagram by default** when relevant and possible (flows, lifecycles, decision paths, dependency maps); skip only when no useful visual exists.
+- Use an embedded local image only when a polished vendor diagram or screenshot is clearly stronger than Mermaid.
 - If skipped, add one sentence: `No high-value visual identified for this topic yet.`
 - Prioritize official visuals from Snowflake/dbt/Fivetran; otherwise use reputable sources.
-- Keep the source URL in `Sources To Revisit`.
+- Keep the source URL in `Sources To Revisit` when using an external image.
+
+```mermaid
+flowchart LR
+    A[Step] --> B[Next step]
+```
+
+For the image exception, embed from the assets folder instead:
 
 ```md
 ![[00 Home/assets/<image-file>.png]]

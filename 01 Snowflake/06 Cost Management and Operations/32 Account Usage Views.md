@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 35
+area: Cost Management and Operations
+topic_number: 32
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-cost-ops
   - learning
 ---
 
-# Git Integration
+# Account Usage Views
 
-> Connecting repositories to Snowflake stages and development workflows. Consultant lens: Version-control SQL, procedures, and dbt projects.
+> Historical metadata views in the SNOWFLAKE database. Consultant lens: Query history, login history, storage, and warehouse metering become your ops dashboard.
 
 ## Executive Summary
 
-- **What it is:** Connecting repositories to Snowflake stages and development workflows.
-- **Why it matters:** Version-control SQL, procedures, and dbt projects.
+- **What it is:** Historical metadata views in the SNOWFLAKE database.
+- **Why it matters:** Query history, login history, storage, and warehouse metering become your ops dashboard.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/34 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/04 Data Engineering/23 dbt on Snowflake]]
-- [[02 dbt/dbt Learning Map]]
+- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
+- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 
 ## Questions
 

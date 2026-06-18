@@ -36,7 +36,7 @@ Snowflake sharing is not only a technical access pattern. It is also a data-prod
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Related Comparisons and Scenarios
 

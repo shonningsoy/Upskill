@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Cost Management and Operations
-topic_number: 33
+area: Advanced Analytics and AI
+topic_number: 30
 tags:
   - snowflake
-  - sf-cost-ops
+  - sf-analytics-ai
   - learning
 ---
 
-# Budgets
+# Snowflake Notebooks
 
-> Native spending limits, tracking, and alerts. Consultant lens: Proactive cost control.
+> Integrated notebooks for SQL, Python, and analysis workflows. Consultant lens: Supports collaborative analysis without requiring a fully external notebook stack.
 
 ## Executive Summary
 
-- **What it is:** Native spending limits, tracking, and alerts.
-- **Why it matters:** Proactive cost control.
+- **What it is:** Integrated notebooks for SQL, Python, and analysis workflows.
+- **Why it matters:** Supports collaborative analysis without requiring a fully external notebook stack.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,10 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
-- [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Notification Integrations and Alerts]]
+- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
 
 ## Questions
 

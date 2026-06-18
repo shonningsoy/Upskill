@@ -1,4 +1,4 @@
-﻿---
+---
 status: hub
 platform: Snowflake
 area: Advanced Analytics and AI
@@ -14,11 +14,11 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark|25 - Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex AI Functions|26 - Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex Analyst|27 - Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 ML Model Registry|28 - ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks|29 - Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark|26 - Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions|27 - Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst|28 - Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry|29 - ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks|30 - Snowflake Notebooks]]
 
 ## How To Use This Area
 

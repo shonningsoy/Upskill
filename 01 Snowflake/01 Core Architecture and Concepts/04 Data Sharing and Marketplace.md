@@ -134,7 +134,7 @@ from shared_revenue.curated.monthly_revenue;
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 - [[01 Snowflake/03 Security and Governance/16 Network Policies and Private Connectivity]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Related Decision Notes
 

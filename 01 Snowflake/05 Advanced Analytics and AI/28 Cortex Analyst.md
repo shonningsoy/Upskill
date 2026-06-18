@@ -1,22 +1,22 @@
-﻿---
+---
 status: seed
 platform: Snowflake
-area: Ecosystem and Integration
-topic_number: 36
+area: Advanced Analytics and AI
+topic_number: 28
 tags:
   - snowflake
-  - sf-ecosystem-integration
+  - sf-analytics-ai
   - learning
 ---
 
-# Notification Integrations and Alerts
+# Cortex Analyst
 
-> Ways to push events to queues, email, webhooks, or alerting surfaces. Consultant lens: Operational alerting for pipeline failures and important system events.
+> Natural-language-to-SQL experience based on semantic models. Consultant lens: Enables self-service analytics for business users.
 
 ## Executive Summary
 
-- **What it is:** Ways to push events to queues, email, webhooks, or alerting surfaces.
-- **Why it matters:** Operational alerting for pipeline failures and important system events.
+- **What it is:** Natural-language-to-SQL experience based on semantic models.
+- **Why it matters:** Enables self-service analytics for business users.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,9 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Budgets]]
+- [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
+- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
+- [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Questions
 

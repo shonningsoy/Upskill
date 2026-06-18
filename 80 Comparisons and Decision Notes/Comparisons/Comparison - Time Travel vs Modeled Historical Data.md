@@ -31,8 +31,8 @@ Use **Time Travel** when the team needs to recover or inspect a recent previous 
 ## Related Learning Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]]
-- [[01 Snowflake/04 Data Engineering/20 Dynamic Tables]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 
 ## Related Scenarios
 

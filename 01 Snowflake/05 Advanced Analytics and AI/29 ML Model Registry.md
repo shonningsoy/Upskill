@@ -1,8 +1,8 @@
-﻿---
+---
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 28
+topic_number: 29
 tags:
   - snowflake
   - sf-analytics-ai
@@ -59,9 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/25 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
 
 ## Questions
 

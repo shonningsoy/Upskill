@@ -1,22 +1,22 @@
 ---
 status: seed
 platform: Snowflake
-area: Data Engineering
-topic_number: 20
+area: Ecosystem and Integration
+topic_number: 37
 tags:
   - snowflake
-  - sf-data-engineering
+  - sf-ecosystem-integration
   - learning
 ---
 
-# Dynamic Tables
+# Notification Integrations and Alerts
 
-> Declarative transformation objects where you define the target state. Consultant lens: Simplifies multi-step transformations while Snowflake manages refresh.
+> Ways to push events to queues, email, webhooks, or alerting surfaces. Consultant lens: Operational alerting for pipeline failures and important system events.
 
 ## Executive Summary
 
-- **What it is:** Declarative transformation objects where you define the target state.
-- **Why it matters:** Simplifies multi-step transformations while Snowflake manages refresh.
+- **What it is:** Ways to push events to queues, email, webhooks, or alerting surfaces.
+- **Why it matters:** Operational alerting for pipeline failures and important system events.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -58,10 +58,9 @@ To be filled during learning.
 
 ## Related Topics
 
-- [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/04 Data Engineering/19 Streams and Tasks]]
-- [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/04 Data Engineering/23 dbt on Snowflake]]
+- [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
+- [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
+- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
 
 ## Questions
 

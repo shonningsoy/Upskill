@@ -23,8 +23,8 @@ Use a reader account only when provider-managed access is acceptable. It solves 
 
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
 
 ## Related Decision Notes
 

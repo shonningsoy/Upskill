@@ -1,4 +1,4 @@
-﻿---
+---
 status: hub
 platform: Snowflake
 area: Ecosystem and Integration
@@ -14,10 +14,10 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/34 Snowflake CLI and Terraform Provider|34 - Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Git Integration|35 - Git Integration]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Notification Integrations and Alerts|36 - Notification Integrations and Alerts]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Native Apps Framework|37 - Native Apps Framework]]
+- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider|35 - Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration|36 - Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts|37 - Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/38 Native Apps Framework|38 - Native Apps Framework]]
 
 ## How To Use This Area
 

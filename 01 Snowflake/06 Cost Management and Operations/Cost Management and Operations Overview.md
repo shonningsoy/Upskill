@@ -1,4 +1,4 @@
-﻿---
+---
 status: hub
 platform: Snowflake
 area: Cost Management and Operations
@@ -14,10 +14,10 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model|30 - Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Account Usage Views|31 - Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Warehouse Scheduling and Auto-suspend|32 - Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Budgets|33 - Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model|31 - Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views|32 - Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend|33 - Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/34 Budgets|34 - Budgets]]
 
 ## How To Use This Area
 

@@ -250,13 +250,13 @@ Do not commit Obsidian local workspace state. `workspace.json` is intentionally 
 
 Use visuals to improve consultant learning speed where relevant.
 
-- Treat Mermaid diagrams as part of the visual toolbox for flows, lifecycles, decision paths, dependency maps, and lightweight architecture sketches.
-- Prefer Mermaid when the concept is best taught through simple sequence, threshold, or decision logic because it is editable, lightweight, and Git-friendly.
-- Prefer embedded local images when a polished architecture diagram, UI screenshot, vendor visual, or generated illustration communicates the topic better than Mermaid. Store local image files under `00 Home/assets/`.
-- Default target is one useful visual per topic note when relevant and possible, choosing Mermaid or an image based on what helps the learner understand fastest.
+- **Default to Mermaid diagrams.** Mermaid is the preferred visual medium because it is editable, lightweight, Git-friendly, and renders natively in Obsidian. When a topic would benefit from a visual, reach for Mermaid first.
+- Mermaid fits most consultant topics well: flows, lifecycles, decision paths, dependency maps, sequence/threshold logic, and lightweight architecture sketches.
+- Use embedded local images only as the exception — when a polished architecture diagram, UI screenshot, or vendor visual genuinely communicates the topic better than Mermaid could. Store local image files under `00 Home/assets/`.
+- Default target is one useful visual per topic note when relevant and possible; assume Mermaid unless an image is clearly the stronger choice.
 - Keep SQL/config snippets outside Mermaid unless a very short code-like label makes the diagram clearer; use normal fenced code blocks for copyable examples.
 - A topic note may omit a visual only if no high-value visual is available; in that case, add a one-line note in `Visuals` stating this explicitly.
-- Prioritize official sources (Snowflake, dbt, Fivetran) for external images.
+- Prioritize official sources (Snowflake, dbt, Fivetran) for any external images.
 - If official visuals are not available, use reputable sources.
 - Keep source links in `Sources To Revisit` for each note using external visuals.
 

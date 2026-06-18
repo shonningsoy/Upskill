@@ -118,7 +118,7 @@ ALTER SESSION SET USE_CACHED_RESULT = TRUE;
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
 - [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 
 ## Related Decision Notes

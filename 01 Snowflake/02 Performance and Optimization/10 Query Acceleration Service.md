@@ -112,7 +112,7 @@ ALTER WAREHOUSE analyst_wh
 - [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/30 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
 - [[01 Snowflake/02 Performance and Optimization/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 
