@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Data Engineering
-topic_number: 24
+topic_number: 23
 tags:
   - snowflake
   - sf-data-engineering
   - learning
 ---
 
-# dbt on Snowflake
+# Snowpipe Streaming
 
-> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
+> Row-based, low-latency ingestion via a write API — no files, no stage, no `COPY`. Consultant lens: true real-time ingestion for event streams and Kafka, where classic Snowpipe's per-file model is too slow or too costly.
 
 ## Executive Summary
 
-- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
-- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
+- **What it is:** A direct write API (SDK / connectors) that ingests **rows** into Snowflake in seconds or less, bypassing files and `COPY INTO`.
+- **Why it matters:** Removes the "a file" latency floor of classic Snowpipe for genuine streaming workloads (Kafka, IoT, clickstream).
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,9 +59,9 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[02 dbt/dbt Learning Map]]
-- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
-- [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
+- [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
+- [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
+- [[03 Fivetran/Fivetran Learning Map]]
 
 ## Questions
 
@@ -69,6 +69,4 @@ To be filled during learning.
 
 ## Sources To Revisit
 
-- 
-
-
+- [Snowflake Docs: Snowpipe Streaming](https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-overview)

@@ -17,10 +17,11 @@ tags:
 - [[01 Snowflake/04 Data Engineering/19 Stages and Data Loading|19 - Stages and Data Loading]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks|20 - Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables|21 - Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/22 Snowpipe and Snowpipe Streaming|22 - Snowpipe and Snowpipe Streaming]]
-- [[01 Snowflake/04 Data Engineering/23 External Tables and Iceberg|23 - External Tables and Iceberg]]
-- [[01 Snowflake/04 Data Engineering/24 dbt on Snowflake|24 - dbt on Snowflake]]
-- [[01 Snowflake/04 Data Engineering/25 Stored Procedures|25 - Stored Procedures]]
+- [[01 Snowflake/04 Data Engineering/22 Snowpipe|22 - Snowpipe]]
+- [[01 Snowflake/04 Data Engineering/23 Snowpipe Streaming|23 - Snowpipe Streaming]]
+- [[01 Snowflake/04 Data Engineering/24 External Tables and Iceberg|24 - External Tables and Iceberg]]
+- [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake|25 - dbt on Snowflake]]
+- [[01 Snowflake/04 Data Engineering/26 Stored Procedures|26 - Stored Procedures]]
 
 ## How To Use This Area
 

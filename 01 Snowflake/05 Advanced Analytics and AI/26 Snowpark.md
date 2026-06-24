@@ -59,7 +59,7 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/04 Data Engineering/25 Stored Procedures]]
+- [[01 Snowflake/04 Data Engineering/26 Stored Procedures]]
 - [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
 - [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
 

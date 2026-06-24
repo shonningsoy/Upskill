@@ -2,21 +2,21 @@
 status: seed
 platform: Snowflake
 area: Data Engineering
-topic_number: 22
+topic_number: 25
 tags:
   - snowflake
   - sf-data-engineering
   - learning
 ---
 
-# Snowpipe and Snowpipe Streaming
+# dbt on Snowflake
 
-> Continuous and near-real-time data ingestion services. Consultant lens: Ingest market data, transaction feeds, and event streams.
+> Using dbt as a SQL-based transformation framework on Snowflake. Consultant lens: Industry-standard for analytics engineering and a bridge to your next learning area.
 
 ## Executive Summary
 
-- **What it is:** Continuous and near-real-time data ingestion services.
-- **Why it matters:** Ingest market data, transaction feeds, and event streams.
+- **What it is:** Using dbt as a SQL-based transformation framework on Snowflake.
+- **Why it matters:** Industry-standard for analytics engineering and a bridge to your next learning area.
 - **Mental model:** To be filled during learning.
 - **Best used when:** To be filled during learning.
 - **Avoid or reconsider when:** To be filled during learning.
@@ -59,8 +59,8 @@ To be filled during learning.
 ## Related Topics
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
-- [[03 Fivetran/Fivetran Learning Map]]
+- [[02 dbt/dbt Learning Map]]
+- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
 
 ## Questions

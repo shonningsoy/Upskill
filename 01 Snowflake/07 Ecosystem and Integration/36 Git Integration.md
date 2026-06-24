@@ -60,7 +60,7 @@ To be filled during learning.
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
 - [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/04 Data Engineering/24 dbt on Snowflake]]
+- [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[02 dbt/dbt Learning Map]]
 
 ## Questions

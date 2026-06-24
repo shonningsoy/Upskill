@@ -60,6 +60,18 @@ tags:
 5. When that DML **commits**, the Stream's offset advances — the next run sees only newer changes.
 6. If the Task fails, the DML rolls back, the offset does not move, and the changes are reprocessed next run (at-least-once).
 7. Optionally chain child Tasks with `AFTER` to form a DAG; resume children first, then the root.
+
+## How Streams Work Under the Hood (Table Versioning)
+
+A stream does not store changed rows. It stores an **offset** — a pointer to one **table version** — and computes the delta on demand by diffing that version against "now."
+
+- Snowflake tables are **immutable micro-partitions**. DML never edits files in place: it writes new micro-partitions and retires old ones.
+- Every committed DML produces a new **table version** — a metadata snapshot of *which micro-partition files are live* at that moment. Old files are retired but physically retained.
+- **"Comparing table versions"** = a metadata-level diff of two such file lists: partitions added since the offset are inserts, partitions retired are deletes, an update is both (`METADATA$ISUPDATE`). No full-table row scan — this is why streams are cheap.
+- A stream's offset is just a saved version marker; consuming it (committed DML) moves the offset to the current version.
+- This is the **same versioned-partition history that powers Time Travel and zero-copy Clone**. See [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]] and [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]].
+
+Why this explains staleness: to diff your offset version against now, the **micro-partition files that made up the offset version must still exist**. They are only retained for `DATA_RETENTION_TIME_IN_DAYS`. If the offset falls outside that window, the baseline version can no longer be reconstructed and the stream goes **STALE** — even though the current table's rows are all fine. You lose the *bookmark*, not the *book*.
 ## Visuals
 
 Where Streams and Tasks sit in a pipeline. Ingestion (Snowpipe / `COPY INTO`) gets data *into* a table; the Stream tracks the change; the Task moves it *forward* on a cadence.
@@ -121,12 +133,28 @@ CREATE OR REPLACE STREAM raw.events_stream ON TABLE raw.events
 
 ## Common Pitfalls
 
-- **Stream staleness** — an unconsumed Stream plus short Time Travel retention (`DATA_RETENTION_TIME_IN_DAYS`) loses changes and becomes unrecoverable; you must recreate it. Monitor last-consumed time.
+- **Stream staleness** — a stream's offset points at a past **table version**; that version's micro-partitions are only kept for `DATA_RETENTION_TIME_IN_DAYS`. If the stream is unconsumed longer than that (usually a paused Task or broken downstream), the baseline version ages out and the stream goes **STALE** and unrecoverable. The base rows are fine — what's lost is the change-history needed to know which rows were unprocessed. Snowflake auto-extends retention to protect unconsumed streams, but only up to `MAX_DATA_EXTENSION_TIME_IN_DAYS` (default 14, max 90) — don't treat it as infinite. Monitor staleness, not just lag.
 - **Assuming SELECT advances the offset** — it does not. The offset only advances on **committed DML** that reads the Stream. Consume inside the transaction that commits.
 - **Two consumers, one Stream** — whichever Task commits first steals the changes; the other gets a gap. Use a separate Stream per consumer.
 - **Forgetting to RESUME** — Tasks are created suspended; for a DAG, resume children before the root, or nothing runs.
 - **Empty runs wasting credits** — skipping the `WHEN` clause means the Task fires (and may spin a warehouse) even with no changes.
 - **Treating it as full orchestration** — single root, DAG size limits, no rich branching/backfill.
+- **Non-idempotent targets make recovery hard** — if a stream goes stale you must reconcile the raw table into the target; a keyed, idempotent target turns that into a one-line re-MERGE instead of a forensic exercise.
+
+## Recovering From a Stale Stream
+
+A stale stream cannot be resumed — the offset is gone. Recovery means reconciling the source table into the target without missing or double-counting rows, then recreating the stream.
+
+1. **Confirm and stop the bleeding.** Check `SHOW STREAMS` / `DESCRIBE STREAM` for `STALE = true`, then `ALTER TASK ... SUSPEND` so nothing runs on the broken stream.
+2. **Reconcile the target** (pick by target design):
+   - *Keyed target (best):* idempotent full `MERGE` of the source into the target — already-processed rows no-op, missed rows insert. Self-heals the gap.
+   - *Huge source:* bounded backfill using a watermark (`MAX(load_ts)` in the target) plus a small **safety overlap** — overlap is safe with an idempotent MERGE; a gap is not.
+   - *Append-only, no key:* dedup on a row hash used as the merge key, or `DELETE` + reload a bounded `ingest_ts` window.
+3. **Recreate the stream** with `CREATE OR REPLACE STREAM ...` (new offset = now). Do this *after* the backfill captures up to "now" so nothing slips between recovery and resume.
+4. **Resume and verify** — `ALTER TASK ... RESUME`, then reconcile counts (`COUNT(*)` and `COUNT(DISTINCT key)`) to prove no loss or duplication.
+5. **Prevent recurrence** — raise `DATA_RETENTION_TIME_IN_DAYS` to cover worst-case outages, alert on stream staleness + `TASK_HISTORY` failures (the failure mode is silent), and keep targets keyed/idempotent.
+
+Mental model: a stale stream means you lost your *bookmark*, not your *book*. Re-derive the bookmark by reconciling the source into the target with an idempotent MERGE, recreate the stream, then resume.
 
 ## When to Recommend What (Decision Table)
 
@@ -154,16 +182,22 @@ Rule of thumb: reach for **Dynamic Tables first** for declarative incremental SQ
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/22 Snowpipe and Snowpipe Streaming]]
-- [[01 Snowflake/04 Data Engineering/25 Stored Procedures]]
+- [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
+- [[01 Snowflake/04 Data Engineering/26 Stored Procedures]]
 - [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
 
 ## Questions
 
-- 
+- What is the exact retention behaviour when Snowflake "extends" Time Travel to protect an unconsumed stream, and how long can you actually rely on it?
+- For a task DAG, what are the current limits on tree size / number of child tasks?
+- When is a serverless task genuinely cheaper than a small dedicated warehouse, and where is the cost crossover?
+- How do multi-statement tasks handle partial failure mid-sequence (transaction boundaries)?
 
 ## Sources To Revisit
 
-- 
+- [Snowflake Docs: Introduction to Streams](https://docs.snowflake.com/en/user-guide/streams-intro)
+- [Snowflake Docs: Introduction to Tasks](https://docs.snowflake.com/en/user-guide/tasks-intro)
+- [Snowflake Docs: SYSTEM$STREAM_HAS_DATA](https://docs.snowflake.com/en/sql-reference/functions/system_stream_has_data)
+- [Snowflake Docs: Dynamic Tables](https://docs.snowflake.com/en/user-guide/dynamic-tables-about)
 
 

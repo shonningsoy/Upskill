@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Data Engineering
-topic_number: 25
+topic_number: 26
 tags:
   - snowflake
   - sf-data-engineering
