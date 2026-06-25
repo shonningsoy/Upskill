@@ -130,6 +130,10 @@ ALTER PIPE raw.gcs_events_pipe REFRESH;
 - [[01 Snowflake/04 Data Engineering/23 Snowpipe Streaming]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 
+## Related Decision Notes
+
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Ingestion Method]]
+
 ## Questions
 
 - When does the per-file cost of Snowpipe justify moving to Snowpipe Streaming?
