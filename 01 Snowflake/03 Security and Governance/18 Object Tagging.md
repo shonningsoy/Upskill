@@ -132,8 +132,8 @@ WHERE tag_name = 'COST_CENTER' AND tag_value = 'marketing';
 
 ## Sources To Revisit
 
-- Snowflake Docs: Object tagging and tag inheritance
-- Snowflake Docs: Tag-based masking policies
-- Snowflake Docs: ACCOUNT_USAGE.TAG_REFERENCES view
+- [Snowflake Docs: Object tagging](https://docs.snowflake.com/en/user-guide/object-tagging)
+- [Snowflake Docs: Tag-based masking policies](https://docs.snowflake.com/en/user-guide/tag-based-masking-policies)
+- [Snowflake Docs: ACCOUNT_USAGE TAG_REFERENCES view](https://docs.snowflake.com/en/sql-reference/account-usage/tag_references)
 
 

@@ -123,8 +123,8 @@ flowchart LR
 
 ## Sources To Revisit
 
-- Snowflake Docs: Understanding Encryption Key Management (hierarchical key model)
-- Snowflake Docs: Tri-Secret Secure and customer-managed keys
-- Cloud KMS docs: AWS KMS / Azure Key Vault / GCP Cloud KMS integration
+- [Snowflake Docs: Understanding encryption key management](https://docs.snowflake.com/en/user-guide/security-encryption-manage)
+- [Snowflake Docs: Tri-Secret Secure](https://docs.snowflake.com/en/user-guide/security-encryption-tss)
+- [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) / [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) / [GCP Cloud KMS](https://cloud.google.com/kms/docs)
 
 

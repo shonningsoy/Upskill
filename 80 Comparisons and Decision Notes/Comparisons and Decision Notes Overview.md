@@ -27,6 +27,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Manual vs Auto Classification]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Network Policy vs Private Connectivity]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Default Encryption vs Tri-Secret Secure]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - External Tables vs Iceberg Tables]]
 
 ## Decision Notes
 

@@ -175,7 +175,7 @@ ORDER BY object_schema, object_name;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Sensitive data classification (semantic & privacy categories)
-- Snowflake Docs: Classification profiles and auto-classification
-- Snowflake Docs: Tag-based masking policies
+- [Snowflake Docs: Sensitive data classification](https://docs.snowflake.com/en/user-guide/classify-intro)
+- [Snowflake Docs: Auto data classification](https://docs.snowflake.com/en/user-guide/classify-auto)
+- [Snowflake Docs: Tag-based masking policies](https://docs.snowflake.com/en/user-guide/tag-based-masking-policies)
 

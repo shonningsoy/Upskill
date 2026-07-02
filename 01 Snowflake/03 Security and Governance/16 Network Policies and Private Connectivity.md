@@ -131,8 +131,8 @@ ALTER USER svc_loader SET NETWORK_POLICY = corp_only;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Network policies and network rules
-- Snowflake Docs: AWS PrivateLink / Azure Private Link / GCP Private Service Connect
+- [Snowflake Docs: Network policies](https://docs.snowflake.com/en/user-guide/network-policies)
+- [Snowflake Docs: Private connectivity to the Snowflake service](https://docs.snowflake.com/en/user-guide/private-connectivity)
 - Snowflake Docs: Outbound private connectivity / external access integrations
 
 
