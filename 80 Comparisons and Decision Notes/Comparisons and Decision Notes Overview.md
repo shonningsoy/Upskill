@@ -49,6 +49,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Customer Without Snowflake Needs Data Access]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - New Regulatory Team Needs Cross-Domain Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Client Needs to Revoke Vendor Key Access]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Duplicate Trade Event Arrives Repeatedly]]
 
 ## Related Learning Maps
 

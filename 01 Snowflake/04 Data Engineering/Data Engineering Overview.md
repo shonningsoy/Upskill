@@ -20,6 +20,7 @@ tags:
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe|22 - Snowpipe]]
 - [[01 Snowflake/04 Data Engineering/23 Snowpipe Streaming|23 - Snowpipe Streaming]]
 - [[01 Snowflake/04 Data Engineering/24 External Tables and Iceberg|24 - External Tables and Iceberg]]
+- [[01 Snowflake/04 Data Engineering/24.5 Bonus chapter Data from A-Z|24.5 - Bonus: Investment Data from A-Z]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake|25 - dbt on Snowflake]]
 - [[01 Snowflake/04 Data Engineering/26 Stored Procedures|26 - Stored Procedures]]
 
