@@ -29,6 +29,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Default Encryption vs Tri-Secret Secure]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - External Tables vs Iceberg Tables]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - dbt Projects on Snowflake vs dbt Platform]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Stored Procedures vs Declarative Transformations]]
 
 ## Decision Notes
 
@@ -51,6 +52,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - New Regulatory Team Needs Cross-Domain Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Client Needs to Revoke Vendor Key Access]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Duplicate Trade Event Arrives Repeatedly]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Trade Batch Must Be Validated Before Publication]]
 
 ## Related Learning Maps
 
