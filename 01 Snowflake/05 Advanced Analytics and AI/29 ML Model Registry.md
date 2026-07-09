@@ -250,6 +250,7 @@ Use `USAGE` for prediction consumers when possible. Reserve broader access for r
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Warehouse Inference vs SPCS Model Serving]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
 

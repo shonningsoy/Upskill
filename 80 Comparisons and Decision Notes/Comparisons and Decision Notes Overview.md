@@ -30,6 +30,8 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - External Tables vs Iceberg Tables]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - dbt Projects on Snowflake vs dbt Platform]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Stored Procedures vs Declarative Transformations]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Analyst vs Cortex AI Functions]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Warehouse Inference vs SPCS Model Serving]]
 
 ## Decision Notes
 
@@ -53,6 +55,9 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Client Needs to Revoke Vendor Key Access]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Duplicate Trade Event Arrives Repeatedly]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Trade Batch Must Be Validated Before Publication]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Business Users Want Self-Service Analytics but Metrics Are Inconsistent]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - A Churn Model Is Stuck in a Notebook]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Spend Increased but Warehouses Look Normal]]
 
 ## Related Learning Maps
 
