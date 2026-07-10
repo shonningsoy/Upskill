@@ -14,6 +14,7 @@ That keeps Graph View readable while still allowing selected cross-links between
 4. Performance: [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview|Performance and Optimization]].
 5. Advanced analytics and AI: [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview|Advanced Analytics and AI]].
 6. Operations and ecosystem: [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview|Cost Management and Operations]] and [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview|Ecosystem and Integration]].
+7. Enterprise production layer: [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview|Enterprise Snowflake in Production]].
 
 ## Area Hubs
 
@@ -24,6 +25,7 @@ That keeps Graph View readable while still allowing selected cross-links between
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview|Advanced Analytics and AI]]
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview|Cost Management and Operations]]
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview|Ecosystem and Integration]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview|Enterprise Snowflake in Production]]
 
 ## Cross-Tool Context
 
