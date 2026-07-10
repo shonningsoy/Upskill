@@ -60,6 +60,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Business Users Want Self-Service Analytics but Metrics Are Inconsistent]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - A Churn Model Is Stuck in a Notebook]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Spend Increased but Warehouses Look Normal]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Bank Wants to Distribute a Governed Snowflake App Across Accounts]]
 
 ## Related Learning Maps
 
