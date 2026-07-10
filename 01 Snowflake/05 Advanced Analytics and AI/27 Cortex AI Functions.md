@@ -198,6 +198,7 @@ Use query tags and persisted output metadata when costs must be attributed to a 
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake AI and ML Pattern]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Analyst vs Cortex AI Functions]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
 

@@ -12,6 +12,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Account Usage Views vs Information Schema]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Search Optimization Service vs Clustering]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Materialized Views vs Dynamic Tables]]
@@ -21,6 +22,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Reader Account]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Native App vs Streamlit vs Direct Share]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAP on Base Table vs Views with Separate RAPs]]
@@ -43,6 +45,9 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Row-Level Data Isolation Strategy]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Ingestion Method]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Notification Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake AI and ML Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake DevOps and Deployment Pattern]]
 
 ## Client Scenarios
 
@@ -61,6 +66,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - A Churn Model Is Stuck in a Notebook]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Spend Increased but Warehouses Look Normal]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Bank Wants to Distribute a Governed Snowflake App Across Accounts]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Manual Snowflake Changes Keep Breaking Dev Test Prod Consistency]]
 
 ## Related Learning Maps
 

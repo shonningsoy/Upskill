@@ -47,6 +47,7 @@ Snowflake sharing is not only a technical access pattern. It is also a data-prod
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Reader Account]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Native App vs Streamlit vs Direct Share]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Partner Needs Access to Live Data]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Customer Without Snowflake Needs Data Access]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Bank Wants to Distribute a Governed Snowflake App Across Accounts]]

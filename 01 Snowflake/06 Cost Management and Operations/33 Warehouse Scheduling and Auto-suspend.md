@@ -246,8 +246,8 @@ Many auto-resume and auto-suspend events can be a sign that the timeout is too s
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Warehouse Strategy by Workload Type]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
 
 ## Questions

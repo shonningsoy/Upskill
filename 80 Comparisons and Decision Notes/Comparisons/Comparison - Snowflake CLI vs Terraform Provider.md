@@ -47,4 +47,4 @@ In mature Snowflake DevOps, the answer is often **both**: Terraform builds the g
 
 ## Related Scenarios
 
-- No dedicated scenario yet. A strong future scenario would be: "Manual Snowflake changes keep breaking dev/test/prod consistency."
+- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Manual Snowflake Changes Keep Breaking Dev Test Prod Consistency]]
