@@ -14,7 +14,9 @@ Clients rarely ask for a specific Snowflake AI feature by name. They ask things 
 Start with the business job, not the feature name:
 
 - **Ask governed business questions:** Cortex Analyst.
+- **Search and answer from internal text/documents:** Cortex Search + RAG.
 - **Apply managed AI to text/files/media/rows:** Cortex AI Functions.
+- **Coordinate multiple AI tools in one workflow:** Cortex Agents.
 - **Explore and prototype with SQL/Python:** Snowflake Notebooks.
 - **Transform large Snowflake data with Python/Java/Scala:** Snowpark.
 - **Version, govern, and deploy models:** ML Model Registry.
@@ -24,8 +26,8 @@ Start with the business job, not the feature name:
 ## Deciding Axes
 
 - **User shape:** business user, analyst, data scientist, application, or pipeline.
-- **Input shape:** structured tables, semantic metrics, text/files/media, features, or live API request.
-- **Output shape:** answer, enriched column, registered model, prediction table, endpoint response, or app workflow.
+- **Input shape:** structured tables, semantic metrics, text chunks, documents, files/media, features, or live API request.
+- **Output shape:** SQL-backed answer, retrieved context, enriched column, registered model, prediction table, endpoint response, or app workflow.
 - **Governance requirement:** semantic layer, RBAC, prompt controls, model versioning, data retention, and auditability.
 - **Production maturity:** exploration, repeatable analysis, batch pipeline, service endpoint, or packaged product.
 - **Cost surface:** SQL/warehouse credits, Cortex function usage, AI service usage, compute pools, storage, and repeated inference.
@@ -33,7 +35,9 @@ Start with the business job, not the feature name:
 ```mermaid
 flowchart TD
     A{What is the AI/ML job?} -->|Business question over governed metrics| B[Cortex Analyst]
+    A -->|Search or answer over internal text| S[Cortex Search + RAG]
     A -->|Summarize, classify, extract, translate, embed, generate| C[Cortex AI Functions]
+    A -->|Coordinate multiple tools or actions| J[Cortex Agents]
     A -->|Explore SQL + Python near Snowflake data| D[Snowflake Notebooks]
     A -->|Programmatic feature engineering / transformations| E[Snowpark]
     A -->|Model lifecycle, versioning, inference governance| F[ML Model Registry]
@@ -47,7 +51,9 @@ flowchart TD
 | Situation | Recommend | Why | Watch-outs |
 |---|---|---|---|
 | Business users ask natural-language questions over governed metrics | Cortex Analyst | Turns semantic layer plus user question into SQL-backed answers | Requires tight semantic scope and metric governance |
+| Users need search or Q&A over policies, contracts, runbooks, tickets, transcripts, or research | Cortex Search + RAG | Retrieves relevant enterprise text before generating an answer | Chunking, access filters, freshness, citations, and faithfulness |
 | Text/documents/tickets need summarization or classification | Cortex AI Functions | Managed AI inference can run close to Snowflake data | Outputs are probabilistic; validate quality and cost |
+| A workflow needs to combine document search, metric questions, code, and tool calls | Cortex Agents | Coordinates specialized tools such as Analyst and Search | Larger governance, cost, and observability surface |
 | Analysts/data scientists need SQL and Python exploration | Snowflake Notebooks | Fast governed workbench near Snowflake data | Notebooks need promotion discipline before production |
 | Python feature engineering should stay near Snowflake data | Snowpark | Pushes scalable transformations into Snowflake | Avoid local `collect()` and hidden monoliths |
 | A trained model needs governance and reuse | ML Model Registry | Tracks versions, signatures, metrics, and inference options | Registry does not prove the model is good |
@@ -73,6 +79,8 @@ flowchart TD
 - [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
 - [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
 - [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
+- [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
 - [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
 - [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
@@ -89,6 +97,8 @@ flowchart TD
 - [Snowflake Docs: Snowflake AI and ML](https://docs.snowflake.com/en/guides-overview-ai-features)
 - [Snowflake Docs: Cortex AI Functions](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql)
 - [Snowflake Docs: Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst)
+- [Snowflake Docs: Cortex Search](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
+- [Snowflake Docs: Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
 - [Snowflake Docs: Snowflake ML overview](https://docs.snowflake.com/en/developer-guide/snowflake-ml/overview)
 - [Snowflake Docs: Model Registry overview](https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview)
 - [Snowflake Docs: Snowflake Notebooks in Workspaces](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks-in-workspaces/notebooks-in-workspaces-overview)
