@@ -135,8 +135,8 @@ alter table finance.transactions
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

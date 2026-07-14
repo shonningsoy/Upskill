@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Cost Management and Operations
-topic_number: 34
+topic_number: 47
 tags:
   - snowflake
   - sf-cost-ops
@@ -251,10 +251,10 @@ Budgets are cost-control tools, but they are not cost-free. Low-latency budgets 
 
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 
 ## Related Decision Notes

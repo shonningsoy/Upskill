@@ -37,7 +37,7 @@ Use **Search Optimization Service** when users repeatedly look for a small numbe
 - [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Scenarios
 

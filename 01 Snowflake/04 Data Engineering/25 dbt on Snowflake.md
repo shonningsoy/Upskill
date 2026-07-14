@@ -435,7 +435,7 @@ dbt documentation complements these controls; it does not replace them.
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/24.5 Bonus chapter Data from A-Z]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 
 ## Related Decision Notes
 

@@ -22,8 +22,8 @@ The client likely changed a broad default instead of making a data-class decisio
 ## Related Learning Topics
 
 - [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

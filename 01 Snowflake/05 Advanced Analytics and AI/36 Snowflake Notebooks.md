@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 30
+topic_number: 36
 tags:
   - snowflake
   - sf-analytics-ai
@@ -243,15 +243,15 @@ Use **warehouse inference** when a model should score tables in batch. Use **SPC
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

@@ -37,7 +37,7 @@ Use **Warehouse Upsizing** when most queries consistently need more compute (joi
 - [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 
 ## Related Scenarios
 

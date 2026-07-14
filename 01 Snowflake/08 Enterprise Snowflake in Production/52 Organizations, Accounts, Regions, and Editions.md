@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 39
+topic_number: 52
 tags:
   - snowflake
   - sf-enterprise-production
@@ -109,8 +109,8 @@ show accounts;
 ## Related Topics
 
 - [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/40 Replication, Failover, Client Redirect, and DR]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/53 Replication, Failover, Client Redirect, and DR]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 

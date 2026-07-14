@@ -32,8 +32,8 @@ Warehouse strategy should start with workload shape, not a generic size recommen
 
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 
 ## Related Comparisons and Scenarios
 

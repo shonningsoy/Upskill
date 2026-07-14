@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 27
+topic_number: 33
 tags:
   - snowflake
   - sf-analytics-ai
@@ -190,11 +190,11 @@ Use query tags and persisted output metadata when costs must be attributed to a 
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Ecosystem and Integration
-topic_number: 36
+topic_number: 49
 tags:
   - snowflake
   - sf-ecosystem-integration
@@ -198,11 +198,11 @@ Secrets are a general pattern, not only a Git pattern. They store sensitive valu
 ## Related Topics
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[02 dbt/dbt Learning Map]]
 

@@ -144,10 +144,10 @@ SHOW WAREHOUSES;
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

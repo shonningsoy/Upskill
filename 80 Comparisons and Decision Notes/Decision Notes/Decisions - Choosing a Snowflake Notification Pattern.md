@@ -73,10 +73,10 @@ flowchart TD
 
 ## Related Learning Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 
 ## Related Comparisons and Scenarios

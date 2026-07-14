@@ -112,8 +112,8 @@ ALTER WAREHOUSE analyst_wh
 - [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/02 Performance and Optimization/02 Micro-partitions and Clustering]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 
 ## Related Decision Notes
@@ -129,5 +129,4 @@ ALTER WAREHOUSE analyst_wh
 
 - [Snowflake Docs — Query Acceleration Service](https://docs.snowflake.com/en/user-guide/query-acceleration-service)
 - [Snowflake Docs — SYSTEM$ESTIMATE_QUERY_ACCELERATION](https://docs.snowflake.com/en/sql-reference/functions/system_estimate_query_acceleration)
-
 

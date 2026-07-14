@@ -122,7 +122,7 @@ WHERE tag_name = 'COST_CENTER' AND tag_value = 'marketing';
 - [[01 Snowflake/03 Security and Governance/Security and Governance Overview]]
 - [[01 Snowflake/03 Security and Governance/15 Data Classification]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 
 ## Questions
 

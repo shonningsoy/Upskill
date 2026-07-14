@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 33
+topic_number: 39
 tags:
   - snowflake
   - sf-analytics-ai
@@ -110,10 +110,10 @@ ORDER BY credits_used DESC;
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/31 Cortex Search and RAG]]
-- [[01 Snowflake/05 Advanced Analytics and AI/32 Cortex Agents and CoWork]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
+- [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

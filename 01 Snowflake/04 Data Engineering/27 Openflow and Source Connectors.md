@@ -112,7 +112,7 @@ flowchart LR
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
 - [[01 Snowflake/04 Data Engineering/23 Snowpipe Streaming]]
 - [[01 Snowflake/04 Data Engineering/28 Pipeline Observability, Latency, and Recovery]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/44 Platform Extensions and Operational Workloads]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/57 Platform Extensions and Operational Workloads]]
 
 ## Related Decision Notes
 

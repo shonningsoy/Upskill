@@ -188,7 +188,7 @@ where query_id = '<query_id>';
 - [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
 - [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
 - [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

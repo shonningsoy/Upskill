@@ -44,11 +44,11 @@ Do not stop at warehouse dashboards. A suspended warehouse does not mean Snowfla
 
 ## Related Learning Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 
 ## Related Decision Notes
 

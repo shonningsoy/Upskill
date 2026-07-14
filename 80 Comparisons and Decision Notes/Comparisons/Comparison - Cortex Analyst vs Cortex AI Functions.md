@@ -43,10 +43,10 @@ Use **Cortex Analyst** when the user asks business questions over governed struc
 
 ## Related Learning Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 
 ## Related Scenarios
 

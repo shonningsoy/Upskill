@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 37
+topic_number: 43
 tags:
   - snowflake
   - sf-analytics-ai
@@ -107,10 +107,10 @@ Decision shortcut:
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/31 Cortex Search and RAG]]
-- [[01 Snowflake/05 Advanced Analytics and AI/33 AI Governance, Guardrails, Observability, and Cost]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Document and Multimodal AI]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
+- [[01 Snowflake/05 Advanced Analytics and AI/39 AI Governance, Guardrails, Observability, and Cost]]
+- [[01 Snowflake/05 Advanced Analytics and AI/42 Document and Multimodal AI]]
 
 ## Related Decision Notes
 

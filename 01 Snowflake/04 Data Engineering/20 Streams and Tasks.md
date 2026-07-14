@@ -184,7 +184,7 @@ Rule of thumb: reach for **Dynamic Tables first** for declarative incremental SQ
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
 - [[01 Snowflake/04 Data Engineering/26 Stored Procedures]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 
 ## Questions
 

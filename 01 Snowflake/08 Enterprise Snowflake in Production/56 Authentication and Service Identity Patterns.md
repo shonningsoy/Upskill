@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 43
+topic_number: 56
 tags:
   - snowflake
   - sf-enterprise-production
@@ -124,8 +124,8 @@ order by event_timestamp desc;
 - [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/16 Network Policies and Private Connectivity]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
 
 ## Related Decision Notes
 

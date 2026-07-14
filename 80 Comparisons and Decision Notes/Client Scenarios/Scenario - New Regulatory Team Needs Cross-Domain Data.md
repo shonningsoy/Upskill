@@ -28,7 +28,7 @@ Create a purpose-built composite role that inherits from both domain read roles.
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

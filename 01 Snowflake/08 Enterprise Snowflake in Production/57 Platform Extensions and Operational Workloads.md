@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 44
+topic_number: 57
 tags:
   - snowflake
   - sf-enterprise-production
@@ -117,10 +117,10 @@ select current_role(), current_warehouse(), current_database(), current_schema()
 ## Related Topics
 
 - [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/38 Native Apps Framework]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/51 Native Apps Framework]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
 - [[01 Snowflake/04 Data Engineering/23 Snowpipe Streaming]]
 

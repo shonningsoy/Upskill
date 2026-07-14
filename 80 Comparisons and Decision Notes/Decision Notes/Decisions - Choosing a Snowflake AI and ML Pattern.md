@@ -70,12 +70,12 @@ flowchart TD
 
 ## Related Learning Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 
 ## Related Comparisons and Scenarios
 

@@ -156,13 +156,13 @@ Use normal Obsidian wikilinks.
 Always use forward slashes in links:
 
 ```md
-[[01 Snowflake/04 Data Engineering/19 Dynamic Tables]]
+[[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 ```
 
 Do not use Windows backslashes inside wikilinks:
 
 ```md
-[[01 Snowflake\04 Data Engineering\19 Dynamic Tables]]
+[[01 Snowflake\04 Data Engineering\21 Dynamic Tables]]
 ```
 
 Bad links can create duplicate blank notes in Obsidian Graph View.

@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 40
+topic_number: 53
 tags:
   - snowflake
   - sf-enterprise-production
@@ -111,10 +111,10 @@ show failover groups;
 ## Related Topics
 
 - [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/39 Organizations, Accounts, Regions, and Editions]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/52 Organizations, Accounts, Regions, and Editions]]
 - [[01 Snowflake/01 Core Architecture and Concepts/03 Time Travel and Fail-safe]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 
 ## Related Decision Notes
 

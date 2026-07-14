@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 29
+topic_number: 35
 tags:
   - snowflake
   - sf-analytics-ai
@@ -239,14 +239,14 @@ Use `USAGE` for prediction consumers when possible. Reserve broader access for r
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

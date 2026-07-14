@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 26
+topic_number: 32
 tags:
   - snowflake
   - sf-analytics-ai
@@ -165,8 +165,8 @@ rows = customer_features.collect()
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
 - [[01 Snowflake/04 Data Engineering/26 Stored Procedures]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 
 ## Related Decision Notes
 

@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 28
+topic_number: 34
 tags:
   - snowflake
   - sf-analytics-ai
@@ -297,13 +297,13 @@ Use monitoring to inspect generated SQL, warnings, errors, and patterns in faile
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

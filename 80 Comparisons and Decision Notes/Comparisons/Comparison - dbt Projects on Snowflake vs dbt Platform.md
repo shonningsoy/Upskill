@@ -144,7 +144,7 @@ Avoid scheduling the same project from both Snowflake Tasks and dbt-platform job
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[02 dbt/dbt Learning Map]]
 
 ## Related Scenarios

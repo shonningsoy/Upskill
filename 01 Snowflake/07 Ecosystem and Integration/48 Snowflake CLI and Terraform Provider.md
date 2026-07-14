@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Ecosystem and Integration
-topic_number: 35
+topic_number: 48
 tags:
   - snowflake
   - sf-ecosystem-integration
@@ -234,13 +234,13 @@ In a mature setup, `plan` runs on pull requests and `apply` runs only after appr
 ## Related Topics
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 
 ## Related Decision Notes
 

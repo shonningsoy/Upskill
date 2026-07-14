@@ -66,7 +66,7 @@ For strict all-or-nothing publication, do not expose a new consumer state until 
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/24.5 Bonus chapter Data from A-Z]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 
 ## Related Decision Notes
 

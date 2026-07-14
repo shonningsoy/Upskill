@@ -75,12 +75,12 @@ flowchart TD
 
 ## Related Learning Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration]]
-- [[01 Snowflake/07 Ecosystem and Integration/38 Native Apps Framework]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/51 Native Apps Framework]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Related Comparisons and Scenarios

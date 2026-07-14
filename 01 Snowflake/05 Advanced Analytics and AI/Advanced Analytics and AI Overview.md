@@ -14,18 +14,18 @@ tags:
 
 ## Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark|26 - Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions|27 - Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst|28 - Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry|29 - ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks|30 - Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/31 Cortex Search and RAG|31 - Cortex Search and RAG]]
-- [[01 Snowflake/05 Advanced Analytics and AI/32 Cortex Agents and CoWork|32 - Cortex Agents and CoWork]]
-- [[01 Snowflake/05 Advanced Analytics and AI/33 AI Governance, Guardrails, Observability, and Cost|33 - AI Governance, Guardrails, Observability, and Cost]]
-- [[01 Snowflake/05 Advanced Analytics and AI/34 ML Functions for Forecasting, Anomaly Detection, and Classification|34 - ML Functions for Forecasting, Anomaly Detection, and Classification]]
-- [[01 Snowflake/05 Advanced Analytics and AI/35 Feature Store and ML Operations|35 - Feature Store and ML Operations]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Document and Multimodal AI|36 - Document and Multimodal AI]]
-- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle|37 - Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark|32 - Snowpark]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions|33 - Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst|34 - Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry|35 - ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks|36 - Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG|37 - Cortex Search and RAG]]
+- [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork|38 - Cortex Agents and CoWork]]
+- [[01 Snowflake/05 Advanced Analytics and AI/39 AI Governance, Guardrails, Observability, and Cost|39 - AI Governance, Guardrails, Observability, and Cost]]
+- [[01 Snowflake/05 Advanced Analytics and AI/40 ML Functions for Forecasting, Anomaly Detection, and Classification|40 - ML Functions for Forecasting, Anomaly Detection, and Classification]]
+- [[01 Snowflake/05 Advanced Analytics and AI/41 Feature Store and ML Operations|41 - Feature Store and ML Operations]]
+- [[01 Snowflake/05 Advanced Analytics and AI/42 Document and Multimodal AI|42 - Document and Multimodal AI]]
+- [[01 Snowflake/05 Advanced Analytics and AI/43 Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle|43 - Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle]]
 
 ## How To Use This Area
 

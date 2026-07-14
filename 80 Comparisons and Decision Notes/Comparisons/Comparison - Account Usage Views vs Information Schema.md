@@ -44,9 +44,9 @@ Use **Account Usage** when the client needs historical usage, cost, audit, dropp
 
 ## Related Learning Topics
 
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Related Decision Notes

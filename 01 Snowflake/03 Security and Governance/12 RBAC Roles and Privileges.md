@@ -333,7 +333,7 @@ USE SECONDARY ROLES NONE;
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

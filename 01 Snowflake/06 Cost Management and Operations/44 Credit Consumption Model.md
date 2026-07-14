@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Cost Management and Operations
-topic_number: 31
+topic_number: 44
 tags:
   - snowflake
   - sf-cost-ops
@@ -251,10 +251,10 @@ Query tags turn cost analysis from archaeology into accounting. Without them, at
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/33 Warehouse Scheduling and Auto-suspend]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 
 ## Related Decision Notes

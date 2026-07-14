@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 42
+topic_number: 55
 tags:
   - snowflake
   - sf-enterprise-production
@@ -116,7 +116,7 @@ from table(
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
 - [[01 Snowflake/03 Security and Governance/15 Data Classification]]
-- [[01 Snowflake/07 Ecosystem and Integration/37 Notification Integrations and Alerts]]
+- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 
 ## Related Decision Notes
 

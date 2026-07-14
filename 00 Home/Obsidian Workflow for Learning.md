@@ -44,9 +44,9 @@ Use links when two topics help explain each other:
 
 Examples:
 
-- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]] relates to [[01 Snowflake/06 Cost Management and Operations/29 Credit Consumption Model]].
-- [[01 Snowflake/04 Data Engineering/19 Dynamic Tables]] relates to [[01 Snowflake/04 Data Engineering/18 Streams and Tasks]].
-- [[01 Snowflake/03 Security and Governance/13 Column-level Masking Policies]] relates to [[01 Snowflake/03 Security and Governance/14 Data Classification]].
+- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]] relates to [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]].
+- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]] relates to [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]].
+- [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]] relates to [[01 Snowflake/03 Security and Governance/15 Data Classification]].
 
 ## Tags
 

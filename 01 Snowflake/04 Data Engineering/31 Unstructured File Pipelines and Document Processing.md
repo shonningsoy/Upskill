@@ -107,10 +107,10 @@ flowchart LR
 ## Related Topics
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Document and Multimodal AI]]
-- [[01 Snowflake/05 Advanced Analytics and AI/31 Cortex Search and RAG]]
-- [[01 Snowflake/05 Advanced Analytics and AI/33 AI Governance, Guardrails, Observability, and Cost]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/44 Platform Extensions and Operational Workloads]]
+- [[01 Snowflake/05 Advanced Analytics and AI/42 Document and Multimodal AI]]
+- [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
+- [[01 Snowflake/05 Advanced Analytics and AI/39 AI Governance, Guardrails, Observability, and Cost]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/57 Platform Extensions and Operational Workloads]]
 
 ## Related Decision Notes
 

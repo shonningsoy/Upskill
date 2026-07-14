@@ -119,7 +119,7 @@ ORDER BY LAST_LOAD_TIME DESC;
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

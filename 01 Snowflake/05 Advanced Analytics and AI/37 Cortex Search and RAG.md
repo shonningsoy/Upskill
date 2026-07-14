@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 31
+topic_number: 37
 tags:
   - snowflake
   - sf-analytics-ai
@@ -101,9 +101,9 @@ flowchart LR
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/27 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
-- [[01 Snowflake/05 Advanced Analytics and AI/32 Cortex Agents and CoWork]]
+- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
 - [[01 Snowflake/04 Data Engineering/31 Unstructured File Pipelines and Document Processing]]
 
 ## Related Decision Notes

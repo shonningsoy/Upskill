@@ -20,36 +20,36 @@ Treat this chapter as a production-readiness map. The notes are intentionally se
 
 ## Topics
 
-- [[01 Snowflake/08 Enterprise Snowflake in Production/39 Organizations, Accounts, Regions, and Editions|39 - Organizations, Accounts, Regions, and Editions]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/40 Replication, Failover, Client Redirect, and DR|40 - Replication, Failover, Client Redirect, and DR]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/41 Horizon Catalog, Lineage, and Access History|41 - Horizon Catalog, Lineage, and Access History]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/42 Trust Center, Data Quality, and Data Protection Policies|42 - Trust Center, Data Quality, and Data Protection Policies]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/43 Authentication and Service Identity Patterns|43 - Authentication and Service Identity Patterns]]
-- [[01 Snowflake/08 Enterprise Snowflake in Production/44 Platform Extensions and Operational Workloads|44 - Platform Extensions and Operational Workloads]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/52 Organizations, Accounts, Regions, and Editions|52 - Organizations, Accounts, Regions, and Editions]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/53 Replication, Failover, Client Redirect, and DR|53 - Replication, Failover, Client Redirect, and DR]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/54 Horizon Catalog, Lineage, and Access History|54 - Horizon Catalog, Lineage, and Access History]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/55 Trust Center, Data Quality, and Data Protection Policies|55 - Trust Center, Data Quality, and Data Protection Policies]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/56 Authentication and Service Identity Patterns|56 - Authentication and Service Identity Patterns]]
+- [[01 Snowflake/08 Enterprise Snowflake in Production/57 Platform Extensions and Operational Workloads|57 - Platform Extensions and Operational Workloads]]
 
 ## Topic Summaries
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/39 Organizations, Accounts, Regions, and Editions|39 - Organizations, Accounts, Regions, and Editions]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/52 Organizations, Accounts, Regions, and Editions|52 - Organizations, Accounts, Regions, and Editions]]
 
 Organizations and accounts define the enterprise boundary of Snowflake. This note is about account topology, dev/test/prod separation, region and cloud choices, organization-level usage visibility, and edition-driven feature availability. The consultant lens is to separate workload isolation, governance, billing, resilience, and regulatory constraints before recommending an account structure.
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/40 Replication, Failover, Client Redirect, and DR|40 - Replication, Failover, Client Redirect, and DR]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/53 Replication, Failover, Client Redirect, and DR|53 - Replication, Failover, Client Redirect, and DR]]
 
 Business continuity is not the same as Time Travel. This note covers replication groups, failover groups, account-object replication, RTO/RPO thinking, Client Redirect, DR drills, and the cost/governance implications of cross-region or cross-cloud resilience.
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/41 Horizon Catalog, Lineage, and Access History|41 - Horizon Catalog, Lineage, and Access History]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/54 Horizon Catalog, Lineage, and Access History|54 - Horizon Catalog, Lineage, and Access History]]
 
 Horizon Catalog is the broader trust and discovery layer around Snowflake data. This note frames catalog, semantic context, lineage, object dependencies, Access History, and internal marketplace style discovery as the evidence layer that lets humans and AI agents find, understand, and trust data.
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/42 Trust Center, Data Quality, and Data Protection Policies|42 - Trust Center, Data Quality, and Data Protection Policies]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/55 Trust Center, Data Quality, and Data Protection Policies|55 - Trust Center, Data Quality, and Data Protection Policies]]
 
 This note connects security posture, data quality monitoring, data metric functions, and advanced policies. It extends the earlier security chapter from "define controls" to "operate, monitor, and prove controls over time."
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/43 Authentication and Service Identity Patterns|43 - Authentication and Service Identity Patterns]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/56 Authentication and Service Identity Patterns|56 - Authentication and Service Identity Patterns]]
 
 Authentication design is a production platform concern. This note covers human access, service users, SSO, MFA, authentication policies, OAuth, key-pair auth, programmatic access tokens, workload identity federation, and how to think about secretless CI/CD in a bank.
 
-### [[01 Snowflake/08 Enterprise Snowflake in Production/44 Platform Extensions and Operational Workloads|44 - Platform Extensions and Operational Workloads]]
+### [[01 Snowflake/08 Enterprise Snowflake in Production/57 Platform Extensions and Operational Workloads|57 - Platform Extensions and Operational Workloads]]
 
 Snowflake is increasingly a platform for ingestion, apps, APIs, containers, and operational workloads. This note maps Openflow, Snowpark Container Services, Streamlit in Snowflake, SQL/REST APIs, hybrid tables, Snowflake Postgres, and unstructured data handling without going deep into any single one yet.
 

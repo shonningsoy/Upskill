@@ -151,7 +151,7 @@ order by credits_used desc;
 - [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 - [[01 Snowflake/02 Performance and Optimization/08 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

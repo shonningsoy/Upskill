@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Enterprise Snowflake in Production
-topic_number: 41
+topic_number: 54
 tags:
   - snowflake
   - sf-enterprise-production
@@ -116,10 +116,10 @@ order by query_start_time desc;
 ## Related Topics
 
 - [[01 Snowflake/08 Enterprise Snowflake in Production/Enterprise Snowflake in Production Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/28 Cortex Analyst]]
+- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
 - [[01 Snowflake/03 Security and Governance/15 Data Classification]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 

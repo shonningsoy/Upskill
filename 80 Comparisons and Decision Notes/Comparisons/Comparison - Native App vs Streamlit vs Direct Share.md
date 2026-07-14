@@ -43,9 +43,9 @@ Use **direct sharing** when the job is to expose governed live data to another S
 
 ## Related Learning Topics
 
-- [[01 Snowflake/07 Ecosystem and Integration/38 Native Apps Framework]]
+- [[01 Snowflake/07 Ecosystem and Integration/51 Native Apps Framework]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Related Decision Notes

@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Ecosystem and Integration
-topic_number: 38
+topic_number: 51
 tags:
   - snowflake
   - sf-ecosystem-integration
@@ -265,10 +265,10 @@ Treat account-level app privileges like production access requests. They need ju
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]

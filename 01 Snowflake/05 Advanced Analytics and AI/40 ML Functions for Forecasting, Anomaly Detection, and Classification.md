@@ -2,7 +2,7 @@
 status: seed
 platform: Snowflake
 area: Advanced Analytics and AI
-topic_number: 34
+topic_number: 40
 tags:
   - snowflake
   - sf-analytics-ai
@@ -102,9 +102,9 @@ flowchart LR
 ## Related Topics
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/35 Feature Store and ML Operations]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/41 Feature Store and ML Operations]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 
 ## Related Decision Notes
 

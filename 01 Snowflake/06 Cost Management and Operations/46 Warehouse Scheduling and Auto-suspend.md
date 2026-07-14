@@ -2,7 +2,7 @@
 status: active
 platform: Snowflake
 area: Cost Management and Operations
-topic_number: 33
+topic_number: 46
 tags:
   - snowflake
   - sf-cost-ops
@@ -239,9 +239,9 @@ Many auto-resume and auto-suspend events can be a sign that the timeout is too s
 - [[01 Snowflake/06 Cost Management and Operations/Cost Management and Operations Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/32 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/34 Budgets]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
+- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 
 ## Related Decision Notes

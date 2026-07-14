@@ -44,10 +44,10 @@ Use **warehouse inference** when the model should score many Snowflake rows in b
 
 ## Related Learning Topics
 
-- [[01 Snowflake/05 Advanced Analytics and AI/29 ML Model Registry]]
-- [[01 Snowflake/05 Advanced Analytics and AI/30 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/26 Snowpark]]
-- [[01 Snowflake/06 Cost Management and Operations/31 Credit Consumption Model]]
+- [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
+- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
+- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
+- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Related Scenarios

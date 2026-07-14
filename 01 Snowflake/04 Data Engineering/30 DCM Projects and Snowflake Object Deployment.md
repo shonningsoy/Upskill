@@ -102,8 +102,8 @@ The consultant question is which tool should own which object lifecycle.
 
 - [[01 Snowflake/04 Data Engineering/Data Engineering Overview]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
-- [[01 Snowflake/07 Ecosystem and Integration/35 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/36 Git Integration]]
+- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
+- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
 
 ## Related Decision Notes
 
