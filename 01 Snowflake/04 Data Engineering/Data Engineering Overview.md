@@ -10,7 +10,7 @@ tags:
 
 # Data Engineering Overview
 
-> Ingestion, incremental processing, orchestration, lake patterns, dbt integration, and procedural automation.
+> Ingestion, incremental processing, orchestration, lake patterns, dbt integration, deployment patterns, and production pipeline operations.
 
 ## Topics
 
@@ -23,6 +23,11 @@ tags:
 - [[01 Snowflake/04 Data Engineering/24.5 Bonus chapter Data from A-Z|24.5 - Bonus: Investment Data from A-Z]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake|25 - dbt on Snowflake]]
 - [[01 Snowflake/04 Data Engineering/26 Stored Procedures|26 - Stored Procedures]]
+- [[01 Snowflake/04 Data Engineering/27 Openflow and Source Connectors|27 - Openflow and Source Connectors]]
+- [[01 Snowflake/04 Data Engineering/28 Pipeline Observability, Latency, and Recovery|28 - Pipeline Observability, Latency, and Recovery]]
+- [[01 Snowflake/04 Data Engineering/29 Semi-structured Data, Schema Drift, and Data Contracts|29 - Semi-structured Data, Schema Drift, and Data Contracts]]
+- [[01 Snowflake/04 Data Engineering/30 DCM Projects and Snowflake Object Deployment|30 - DCM Projects and Snowflake Object Deployment]]
+- [[01 Snowflake/04 Data Engineering/31 Unstructured File Pipelines and Document Processing|31 - Unstructured File Pipelines and Document Processing]]
 
 ## How To Use This Area
 
