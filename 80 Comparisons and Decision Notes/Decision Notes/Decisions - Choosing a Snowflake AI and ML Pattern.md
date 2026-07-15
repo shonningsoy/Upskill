@@ -5,7 +5,7 @@ tags:
 
 # Decisions - Choosing a Snowflake AI and ML Pattern
 
-> A framework for deciding whether a Snowflake AI/ML request belongs in Cortex, managed ML Functions, Snowpark, Notebooks, the Model Registry, warehouse inference, or Snowpark Container Services.
+> A framework for deciding whether a Snowflake AI/ML request belongs in Cortex, managed ML Functions, Feature Store, Snowpark, Notebooks, the Model Registry, warehouse inference, or Snowpark Container Services.
 
 ## Decision Frame
 
@@ -20,6 +20,7 @@ Start with the business job, not the feature name:
 - **Forecast, detect anomalies, or classify rows with a packaged model:** Snowflake ML Functions.
 - **Explore and prototype with SQL/Python:** Snowflake Notebooks.
 - **Transform large Snowflake data with Python/Java/Scala:** Snowpark.
+- **Standardize reusable model inputs:** Feature Store.
 - **Version, govern, and deploy models:** ML Model Registry.
 - **Score many rows in batch:** warehouse inference.
 - **Serve low-latency/custom runtime models:** Snowpark Container Services.
@@ -42,6 +43,7 @@ flowchart TD
     A -->|Forecast, detect anomalies, classify tabular rows| M[Snowflake ML Functions]
     A -->|Explore SQL + Python near Snowflake data| D[Snowflake Notebooks]
     A -->|Programmatic feature engineering / transformations| E[Snowpark]
+    A -->|Reusable production features| FS[Feature Store]
     A -->|Model lifecycle, versioning, inference governance| F[ML Model Registry]
     F --> G{Serving pattern?}
     G -->|Score tables / batch analytics| H[Warehouse inference]
@@ -59,6 +61,7 @@ flowchart TD
 | Team needs forecasting, anomaly detection, or simple tabular classification quickly | Snowflake ML Functions | Packaged ML workflow directly in Snowflake | Validate data, leakage, metrics, drift, and business impact |
 | Analysts/data scientists need SQL and Python exploration | Snowflake Notebooks | Fast governed workbench near Snowflake data | Notebooks need promotion discipline before production |
 | Python feature engineering should stay near Snowflake data | Snowpark | Pushes scalable transformations into Snowflake | Avoid local `collect()` and hidden monoliths |
+| Multiple models need consistent reusable inputs | Feature Store | Reduces training-serving skew and duplicated feature logic | Needs feature ownership, point-in-time correctness, and refresh governance |
 | A trained model needs governance and reuse | ML Model Registry | Tracks versions, signatures, metrics, and inference options | Registry does not prove the model is good |
 | Predictions feed tables, dashboards, campaigns, or scheduled analytics | Warehouse inference | Efficient batch pattern inside Snowflake workflows | Repeated rescoring can become expensive |
 | Application needs prediction during user interaction | SPCS model serving | Request/response service model with custom runtime options | Needs endpoint security, scaling, monitoring, and cost ownership |
@@ -85,6 +88,7 @@ flowchart TD
 - [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
 - [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
 - [[01 Snowflake/05 Advanced Analytics and AI/40 ML Functions for Forecasting, Anomaly Detection, and Classification]]
+- [[01 Snowflake/05 Advanced Analytics and AI/41 Feature Store and ML Operations]]
 - [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
 - [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
@@ -105,5 +109,6 @@ flowchart TD
 - [Snowflake Docs: Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
 - [Snowflake Docs: ML Functions](https://docs.snowflake.com/en/guides-overview-ml-functions)
 - [Snowflake Docs: Snowflake ML overview](https://docs.snowflake.com/en/developer-guide/snowflake-ml/overview)
+- [Snowflake Docs: Feature Store](https://docs.snowflake.com/en/developer-guide/snowflake-ml/feature-store/overview)
 - [Snowflake Docs: Model Registry overview](https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview)
 - [Snowflake Docs: Snowflake Notebooks in Workspaces](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks-in-workspaces/notebooks-in-workspaces-overview)
