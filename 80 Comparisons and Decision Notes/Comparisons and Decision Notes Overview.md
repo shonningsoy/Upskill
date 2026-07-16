@@ -33,6 +33,10 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - dbt Projects on Snowflake vs dbt Platform]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Stored Procedures vs Declarative Transformations]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Analyst vs Cortex AI Functions]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Search vs Cortex Analyst]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - AI_EXTRACT vs Cortex Search]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAG vs Fine-tuning]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - On-demand Cortex Inference vs Provisioned Throughput]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Warehouse Inference vs SPCS Model Serving]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Snowflake CLI vs Terraform Provider]]
 

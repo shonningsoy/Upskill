@@ -108,6 +108,10 @@ flowchart TD
 ## Related Comparisons and Scenarios
 
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Analyst vs Cortex AI Functions]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Cortex Search vs Cortex Analyst]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - AI_EXTRACT vs Cortex Search]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - RAG vs Fine-tuning]]
+- [[80 Comparisons and Decision Notes/Comparisons/Comparison - On-demand Cortex Inference vs Provisioned Throughput]]
 - [[80 Comparisons and Decision Notes/Comparisons/Comparison - Warehouse Inference vs SPCS Model Serving]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Business Users Want Self-Service Analytics but Metrics Are Inconsistent]]
 - [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - A Churn Model Is Stuck in a Notebook]]
