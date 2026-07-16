@@ -4,7 +4,7 @@
 
 ## How To Use This Area
 
-Use the Snowflake topic notes to learn what each feature is. Use this area to practice when to recommend features, how to compare trade-offs, and how to reason through client situations.
+Use the topic notes to learn what each feature is. Use this area to practice when to recommend features, how to compare trade-offs, and how to reason through client situations.
 
 Keep links curated. A comparison or scenario should usually link to the 3-6 topic notes that genuinely matter for the decision.
 
@@ -52,6 +52,7 @@ Keep links curated. A comparison or scenario should usually link to the 3-6 topi
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake AI and ML Pattern]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake DevOps and Deployment Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a dbt Environment and Credential Strategy]]
 
 ## Client Scenarios
 
