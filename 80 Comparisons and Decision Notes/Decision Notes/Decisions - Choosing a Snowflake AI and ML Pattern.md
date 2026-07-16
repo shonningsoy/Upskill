@@ -16,6 +16,7 @@ Start with the business job, not the feature name:
 - **Ask governed business questions:** Cortex Analyst.
 - **Search and answer from internal text/documents:** Cortex Search + RAG.
 - **Apply managed AI to text/files/media/rows:** Cortex AI Functions.
+- **Turn files/media into parsed text, extracted fields, transcripts, or embeddings:** Document and Multimodal AI.
 - **Coordinate multiple AI tools in one workflow:** Cortex Agents.
 - **Forecast, detect anomalies, or classify rows with a packaged model:** Snowflake ML Functions.
 - **Explore and prototype with SQL/Python:** Snowflake Notebooks.
@@ -39,6 +40,7 @@ flowchart TD
     A{What is the AI/ML job?} -->|Business question over governed metrics| B[Cortex Analyst]
     A -->|Search or answer over internal text| S[Cortex Search + RAG]
     A -->|Summarize, classify, extract, translate, embed, generate| C[Cortex AI Functions]
+    A -->|Parse, extract, transcribe, or embed files/media| DM[Document and Multimodal AI]
     A -->|Coordinate multiple tools or actions| J[Cortex Agents]
     A -->|Forecast, detect anomalies, classify tabular rows| M[Snowflake ML Functions]
     A -->|Explore SQL + Python near Snowflake data| D[Snowflake Notebooks]
@@ -57,6 +59,7 @@ flowchart TD
 | Business users ask natural-language questions over governed metrics | Cortex Analyst | Turns semantic layer plus user question into SQL-backed answers | Requires tight semantic scope and metric governance |
 | Users need search or Q&A over policies, contracts, runbooks, tickets, transcripts, or research | Cortex Search + RAG | Retrieves relevant enterprise text before generating an answer | Chunking, access filters, freshness, citations, and faithfulness |
 | Text/documents/tickets need summarization or classification | Cortex AI Functions | Managed AI inference can run close to Snowflake data | Outputs are probabilistic; validate quality and cost |
+| Documents, images, audio, or video need parsing, field extraction, transcription, or multimodal embeddings | Document and Multimodal AI | Turns non-tabular content into structured, searchable, reviewable outputs | File support, regional inference, source traceability, review thresholds, and cost |
 | A workflow needs to combine document search, metric questions, code, and tool calls | Cortex Agents | Coordinates specialized tools such as Analyst and Search | Larger governance, cost, and observability surface |
 | Team needs forecasting, anomaly detection, or simple tabular classification quickly | Snowflake ML Functions | Packaged ML workflow directly in Snowflake | Validate data, leakage, metrics, drift, and business impact |
 | Analysts/data scientists need SQL and Python exploration | Snowflake Notebooks | Fast governed workbench near Snowflake data | Notebooks need promotion discipline before production |
@@ -89,6 +92,7 @@ flowchart TD
 - [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
 - [[01 Snowflake/05 Advanced Analytics and AI/40 ML Functions for Forecasting, Anomaly Detection, and Classification]]
 - [[01 Snowflake/05 Advanced Analytics and AI/41 Feature Store and ML Operations]]
+- [[01 Snowflake/05 Advanced Analytics and AI/42 Document and Multimodal AI]]
 - [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
 - [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
@@ -107,6 +111,8 @@ flowchart TD
 - [Snowflake Docs: Cortex Analyst](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst)
 - [Snowflake Docs: Cortex Search](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
 - [Snowflake Docs: Cortex Agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents)
+- [Snowflake Docs: Cortex AI Functions for documents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/ai-documents)
+- [Snowflake Docs: Cortex AI Functions for multimodal](https://docs.snowflake.com/en/user-guide/snowflake-cortex/ai-multimodal)
 - [Snowflake Docs: ML Functions](https://docs.snowflake.com/en/guides-overview-ml-functions)
 - [Snowflake Docs: Snowflake ML overview](https://docs.snowflake.com/en/developer-guide/snowflake-ml/overview)
 - [Snowflake Docs: Feature Store](https://docs.snowflake.com/en/developer-guide/snowflake-ml/feature-store/overview)
