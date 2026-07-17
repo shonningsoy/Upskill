@@ -126,9 +126,9 @@ select current_role(), current_warehouse(), current_database(), current_schema()
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Ingestion Method]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Warehouse Inference vs SPCS Model Serving]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Snowflake CLI vs Terraform Provider]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake Ingestion Method]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Warehouse Inference vs SPCS Model Serving]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Snowflake CLI vs Terraform Provider]]
 
 ## Questions
 

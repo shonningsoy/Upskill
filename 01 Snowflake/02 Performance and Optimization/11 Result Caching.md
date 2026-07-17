@@ -123,7 +123,7 @@ ALTER SESSION SET USE_CACHED_RESULT = TRUE;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - QAS vs Warehouse Upsizing]]
 
 ## Questions
 

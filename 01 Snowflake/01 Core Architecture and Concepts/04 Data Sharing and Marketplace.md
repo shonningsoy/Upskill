@@ -138,9 +138,9 @@ from shared_revenue.curated.monthly_revenue;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Reader Account]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Direct Share vs Marketplace Listing]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Sharing Pattern]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Direct Share vs Reader Account]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Direct Share vs Marketplace Listing]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake Sharing Pattern]]
 
 ## Questions
 

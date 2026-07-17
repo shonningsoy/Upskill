@@ -1,4 +1,4 @@
-﻿---
+---
 status: active
 platform: Snowflake
 area: Security and Governance
@@ -165,7 +165,7 @@ ORDER BY object_schema, object_name;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Manual vs Auto Classification]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Manual vs Auto Classification]]
 
 ## Questions
 

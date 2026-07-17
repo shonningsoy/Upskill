@@ -107,7 +107,7 @@ The consultant question is which tool should own which object lifecycle.
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake DevOps and Deployment Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/Decisions - Choosing a Snowflake DevOps and Deployment Pattern]]
 
 ## Questions
 

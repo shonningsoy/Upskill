@@ -283,9 +283,9 @@ The dangerous version for Snowflake is often indirect prompt injection. A RAG ap
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake AI and ML Pattern]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake AI and ML Pattern]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Resource Monitors vs Budgets]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Snowflake Spend Increases]]
 
 ## Questions
 

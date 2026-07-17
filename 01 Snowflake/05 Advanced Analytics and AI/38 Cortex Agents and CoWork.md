@@ -215,7 +215,7 @@ Poor agent candidate:
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake AI and ML Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake AI and ML Pattern]]
 
 ## Questions
 

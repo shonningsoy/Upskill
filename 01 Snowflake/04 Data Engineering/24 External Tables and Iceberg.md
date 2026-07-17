@@ -138,7 +138,7 @@ CREATE ICEBERG TABLE sales_ext
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - External Tables vs Iceberg Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - External Tables vs Iceberg Tables]]
 
 ## Questions
 

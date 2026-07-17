@@ -192,9 +192,9 @@ where query_id = '<query_id>';
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Slow Snowflake Queries]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Virtual Warehouse Size vs Multi-cluster]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Slow Snowflake Queries]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Virtual Warehouse Size vs Multi-cluster]]
 
 ## Questions
 

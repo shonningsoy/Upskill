@@ -214,7 +214,7 @@ branch_code,branch_name
 
 ## Related Decision Notes
 
-- No related decision note yet.
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Seeds vs Managed Reference Tables|Comparison - Seeds vs Managed Reference Tables]]
 
 ## Questions
 

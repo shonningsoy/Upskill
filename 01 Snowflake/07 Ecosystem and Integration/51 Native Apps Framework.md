@@ -275,9 +275,9 @@ Treat account-level app privileges like production access requests. They need ju
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Sharing Pattern]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Native App vs Streamlit vs Direct Share]]
-- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Bank Wants to Distribute a Governed Snowflake App Across Accounts]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake Sharing Pattern]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Native App vs Streamlit vs Direct Share]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Snowflake/Scenario - Bank Wants to Distribute a Governed Snowflake App Across Accounts]]
 
 ## Questions
 

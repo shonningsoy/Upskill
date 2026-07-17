@@ -173,7 +173,7 @@ The version above is illustrative. Always check the currently supported versions
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - dbt Projects on Snowflake vs dbt Platform]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - dbt Projects on Snowflake vs dbt Platform]]
 
 ## Questions
 

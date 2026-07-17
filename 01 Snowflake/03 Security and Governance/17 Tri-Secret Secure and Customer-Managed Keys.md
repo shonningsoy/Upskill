@@ -1,4 +1,4 @@
-﻿---
+---
 status: active
 platform: Snowflake
 area: Security and Governance
@@ -113,7 +113,7 @@ flowchart LR
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Default Encryption vs Tri-Secret Secure]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Default Encryption vs Tri-Secret Secure]]
 
 ## Questions
 

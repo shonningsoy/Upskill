@@ -118,7 +118,7 @@ ALTER WAREHOUSE analyst_wh
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - QAS vs Warehouse Upsizing]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - QAS vs Warehouse Upsizing]]
 
 ## Questions
 

@@ -175,9 +175,9 @@ from analytics.public.orders;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Search Optimization Service vs Clustering]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Slow Snowflake Queries]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Bigger Warehouse vs Clustering]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Search Optimization Service vs Clustering]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Slow Snowflake Queries]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Bigger Warehouse vs Clustering]]
 
 ## Questions
 

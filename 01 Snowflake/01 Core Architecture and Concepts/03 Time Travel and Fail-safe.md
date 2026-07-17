@@ -140,10 +140,10 @@ alter table finance.transactions
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Fail-safe]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Permanent vs Transient vs Temporary Tables]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing Table Retention by Data Criticality]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Time Travel vs Fail-safe]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Permanent vs Transient vs Temporary Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing Table Retention by Data Criticality]]
 
 ## Questions
 

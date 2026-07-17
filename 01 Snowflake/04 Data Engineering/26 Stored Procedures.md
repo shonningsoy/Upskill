@@ -360,8 +360,8 @@ Use Task History, Query History, Event Table logs/traces, explicit audit tables,
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Stored Procedures vs Declarative Transformations]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Streams and Tasks vs Dynamic Tables]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Stored Procedures vs Declarative Transformations]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Streams and Tasks vs Dynamic Tables]]
 
 ## Questions
 

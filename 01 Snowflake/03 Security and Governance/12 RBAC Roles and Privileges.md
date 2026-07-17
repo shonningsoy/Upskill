@@ -337,7 +337,7 @@ USE SECONDARY ROLES NONE;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Secondary Roles vs Composite Roles]]
 - (Future: Decisions - Choosing an Access Control Layer)
 
 ## Questions

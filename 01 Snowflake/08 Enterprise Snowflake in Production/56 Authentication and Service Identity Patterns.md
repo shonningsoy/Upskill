@@ -129,8 +129,8 @@ order by event_timestamp desc;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Secondary Roles vs Composite Roles]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Snowflake CLI vs Terraform Provider]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Secondary Roles vs Composite Roles]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Snowflake CLI vs Terraform Provider]]
 
 ## Questions
 

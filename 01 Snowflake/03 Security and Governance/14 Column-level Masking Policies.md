@@ -192,7 +192,7 @@ ALTER TABLE orders.contacts
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Row-Level Data Isolation Strategy]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Row-Level Data Isolation Strategy]]
 
 ## Questions
 

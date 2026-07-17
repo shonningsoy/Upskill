@@ -296,9 +296,9 @@ Security and platform teams can use this to spot authentication problems, suspic
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Account Usage Views vs Information Schema]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Slow Snowflake Queries]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Snowflake Spend Increases]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Account Usage Views vs Information Schema]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Slow Snowflake Queries]]
 
 ## Questions
 

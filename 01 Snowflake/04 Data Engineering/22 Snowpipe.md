@@ -132,7 +132,7 @@ ALTER PIPE raw.gcs_events_pipe REFRESH;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Choosing a Snowflake Ingestion Method]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Choosing a Snowflake Ingestion Method]]
 
 ## Questions
 

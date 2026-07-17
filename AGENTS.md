@@ -46,24 +46,34 @@ Use the existing folder structure.
 
 Do not reorganize folders unless explicitly asked.
 
-The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer. Use these subfolders:
+The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer. Organize it by note type first, then domain:
 
 ```text
-80 Comparisons and Decision Notes/Comparisons/
-80 Comparisons and Decision Notes/Decision Notes/
-80 Comparisons and Decision Notes/Client Scenarios/
+80 Comparisons and Decision Notes/Comparisons/Snowflake/
+80 Comparisons and Decision Notes/Comparisons/dbt/
+80 Comparisons and Decision Notes/Comparisons/Fivetran/
+80 Comparisons and Decision Notes/Comparisons/Cross-Tool/
+80 Comparisons and Decision Notes/Decision Notes/Snowflake/
+80 Comparisons and Decision Notes/Decision Notes/dbt/
+80 Comparisons and Decision Notes/Decision Notes/Fivetran/
+80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/
+80 Comparisons and Decision Notes/Client Scenarios/Snowflake/
+80 Comparisons and Decision Notes/Client Scenarios/dbt/
+80 Comparisons and Decision Notes/Client Scenarios/Fivetran/
+80 Comparisons and Decision Notes/Client Scenarios/Cross-Tool/
 ```
 
 - `Comparisons/` is for A vs B trade-off notes.
 - `Decision Notes/` is for broader recommendation frameworks.
 - `Client Scenarios/` is for realistic client problem statements and reasoning paths.
+- Use `Snowflake/`, `dbt/`, `Fivetran/`, and `Cross-Tool/` domain subfolders under each note type. Create the domain folder when it has notes worth keeping.
 - Keep `80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview.md` updated as the hub for this area.
 - Name comparison files and H1 titles as `Comparison - <topic>`.
 - Name decision-note files and H1 titles as `Decisions - <topic>`.
 - Name client-scenario files and H1 titles as `Scenario - <client problem>`.
 - Use `note-comparison` for comparison notes, `note-decision` for decision notes, and `note-scenario` for scenario notes so Obsidian Graph View can color them.
-- Keep one shared consultant reasoning layer for Snowflake, dbt, Fivetran, and cross-tool decisions. Do not create a separate dbt decision-note area.
-- As dbt grows, organize the overview note with headings such as Snowflake Decisions, dbt Decisions, Cross-Tool Decisions, and Client Scenarios if needed for readability.
+- Keep one shared consultant reasoning layer for Snowflake, dbt, Fivetran, and cross-tool decisions. Do not create separate top-level reasoning areas under the individual tool folders.
+- Keep the overview note grouped with headings for Snowflake, dbt, Fivetran, and Cross-Tool notes under each note type.
 - Add dbt decision, comparison, and scenario notes only when a topic discussion produces durable recommendation material. Do not pre-create decision notes just to mirror the topic curriculum.
 
 ## Current Learning Focus

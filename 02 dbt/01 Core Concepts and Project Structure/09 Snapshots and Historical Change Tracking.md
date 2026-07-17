@@ -214,7 +214,8 @@ customer_id | status  | dbt_valid_from | dbt_valid_to
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data|Comparison - Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Snapshots vs Incremental Models|Comparison - Snapshots vs Incremental Models]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Time Travel vs Modeled Historical Data|Comparison - Time Travel vs Modeled Historical Data]]
 
 ## Questions
 

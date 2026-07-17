@@ -259,9 +259,9 @@ Budgets are cost-control tools, but they are not cost-free. Low-latency budgets 
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Resource Monitors vs Budgets]]
-- [[80 Comparisons and Decision Notes/Decision Notes/Decisions - Diagnosing Snowflake Spend Increases]]
-- [[80 Comparisons and Decision Notes/Client Scenarios/Scenario - Snowflake Spend Increased but Warehouses Look Normal]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Resource Monitors vs Budgets]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Snowflake Spend Increases]]
+- [[80 Comparisons and Decision Notes/Client Scenarios/Snowflake/Scenario - Snowflake Spend Increased but Warehouses Look Normal]]
 
 ## Questions
 

@@ -1,4 +1,4 @@
-﻿---
+---
 status: active
 platform: Snowflake
 area: Security and Governance
@@ -121,7 +121,7 @@ ALTER USER svc_loader SET NETWORK_POLICY = corp_only;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Network Policy vs Private Connectivity]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Network Policy vs Private Connectivity]]
 
 ## Questions
 

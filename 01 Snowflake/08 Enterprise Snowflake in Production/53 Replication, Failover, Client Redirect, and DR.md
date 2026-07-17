@@ -118,8 +118,8 @@ show failover groups;
 
 ## Related Decision Notes
 
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Fail-safe]]
-- [[80 Comparisons and Decision Notes/Comparisons/Comparison - Time Travel vs Modeled Historical Data]]
+- [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Time Travel vs Fail-safe]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Time Travel vs Modeled Historical Data]]
 
 ## Questions
 
