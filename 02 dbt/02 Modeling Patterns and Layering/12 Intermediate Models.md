@@ -244,8 +244,8 @@ models/
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Modeling Layer|Decisions - Choosing the Right dbt Modeling Layer]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Snowflake/Decisions - Diagnosing Slow Snowflake Queries|Decisions - Diagnosing Slow Snowflake Queries]]
-- Revisit whether a dbt layer-placement decision note is warranted after studying Marts and Data Products.
 
 ## Questions
 

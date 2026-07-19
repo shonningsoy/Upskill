@@ -220,7 +220,7 @@ models/
 
 ## Related Decision Notes
 
-- No related decision note yet. The layer-placement framework should be revisited after Intermediate Models and Marts have been studied.
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Modeling Layer|Decisions - Choosing the Right dbt Modeling Layer]]
 
 ## Questions
 
