@@ -141,6 +141,7 @@ This prevents ID collisions. It does **not** prove that a CRM customer and a cor
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Conformed Analytical Models vs Master Data Management|Comparison - Conformed Analytical Models vs Master Data Management]]
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Modeling Layer|Decisions - Choosing the Right dbt Modeling Layer]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Star Schema vs Wide Marts|Comparison - Star Schema vs Wide Marts]]
 

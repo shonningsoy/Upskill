@@ -156,6 +156,7 @@ This supports both “What is correct now?” and “What did we report on 5 Feb
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a Data History and Restatement Pattern|Decisions - Choosing a Data History and Restatement Pattern]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Snapshots vs Incremental Models|Comparison - Snapshots vs Incremental Models]]
 
 ## Questions

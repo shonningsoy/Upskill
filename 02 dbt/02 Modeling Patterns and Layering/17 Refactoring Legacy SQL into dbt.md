@@ -143,6 +143,7 @@ Do not create one dbt model for every legacy temporary table. Promote a step onl
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a Legacy SQL-to-dbt Migration Strategy|Decisions - Choosing a Legacy SQL-to-dbt Migration Strategy]]
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Modeling Layer|Decisions - Choosing the Right dbt Modeling Layer]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Stored Procedures vs Declarative Transformations|Comparison - Stored Procedures vs Declarative Transformations]]
 
