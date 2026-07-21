@@ -305,6 +305,8 @@ The vault should contain distilled understanding, not raw conversation. Notes sh
 
 When helping the learner with a topic, the agent should treat the conversation as a learning dialogue first and a note-writing task second.
 
+For dbt topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
+
 The learner may ask follow-up questions, test understanding, challenge explanations, or temporarily explore side paths. Do not update the vault after every message unless the learner explicitly asks for that. Some parts of the conversation may be exploratory, repetitive, mistaken, or ultimately not useful.
 
 Preferred workflow:
