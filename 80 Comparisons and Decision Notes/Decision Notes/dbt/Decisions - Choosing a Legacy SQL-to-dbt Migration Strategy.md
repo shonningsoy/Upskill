@@ -68,6 +68,8 @@ flowchart TD
 6. Classify every material difference as intended improvement, legacy defect, dbt regression, or unresolved policy question.
 7. Cut over with monitoring and rollback, then retire the legacy path on a defined date.
 
+Validate in layers: align the source cutoff, compare schema and grain, then counts, keys, row values, control totals, business invariants, and representative operating cycles. Maintain an accepted-differences register with the reason, affected population, quantitative impact, owner, approval, and evidence; any unexplained material difference blocks cutover.
+
 ## Consultant Recommendation Shape
 
 > “Start by deciding which outputs still deserve to exist. For trusted critical logic, establish parity before refactoring. Redesign only from approved requirements, keep transactional side effects at an explicit procedural boundary, and require evidence-based cutover rather than treating translated SQL as proof of success.”
@@ -89,10 +91,12 @@ flowchart TD
 - [[02 dbt/02 Modeling Patterns and Layering/13 Marts and Data Products]]
 - [[02 dbt/02 Modeling Patterns and Layering/17 Refactoring Legacy SQL into dbt]]
 - [[02 dbt/02 Modeling Patterns and Layering/20 Reconciliation Models]]
+- [[02 dbt/03 Testing Documentation and Data Quality/28 Audit and Migration Validation]]
 
 ## Related Comparisons and Decisions
 
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Modeling Layer]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Quality Control]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Stored Procedures vs Declarative Transformations]]
 
 ## Sources To Revisit
