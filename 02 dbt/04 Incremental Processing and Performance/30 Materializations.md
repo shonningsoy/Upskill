@@ -253,6 +253,7 @@ A useful client message is: **materialization does not remove compute; it decide
 
 ## Related Decision Notes
 
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a dbt Materialization and Refresh Pattern|Decisions - Choosing a dbt Materialization and Refresh Pattern]]
 - [[80 Comparisons and Decision Notes/Comparisons/Snowflake/Comparison - Materialized Views vs Dynamic Tables|Comparison - Materialized Views vs Dynamic Tables]]
 
 ## Questions

@@ -34,6 +34,9 @@ Warehouse strategy should start with workload shape, not a generic size recommen
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
+- [[02 dbt/04 Incremental Processing and Performance/34 Parallel Microbatch Execution]]
+- [[02 dbt/04 Incremental Processing and Performance/37 Threads Warehouse Sizing and Snowflake Cost]]
+- [[02 dbt/04 Incremental Processing and Performance/39 Full Refreshes Backfills and Replay]]
 
 ## Related Comparisons and Scenarios
 

@@ -77,6 +77,7 @@ flowchart TD
 ## Related Learning Topics
 
 - [[02 dbt/01 Core Concepts and Project Structure/04 Environments Profiles Targets and Credentials]]
+- [[02 dbt/04 Incremental Processing and Performance/36 Model Selection State and Deferral]]
 - [[02 dbt/05 Deployment CI CD and Operations/41 Dev CI Staging and Prod Environments]]
 - [[02 dbt/05 Deployment CI CD and Operations/42 CI Jobs and Slim CI]]
 - [[02 dbt/05 Deployment CI CD and Operations/47 Secrets Service Accounts and RBAC]]

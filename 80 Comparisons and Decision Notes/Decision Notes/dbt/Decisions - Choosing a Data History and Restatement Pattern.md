@@ -84,14 +84,18 @@ flowchart TD
 ## Related Learning Topics
 
 - [[02 dbt/01 Core Concepts and Project Structure/09 Snapshots and Historical Change Tracking]]
-- [[02 dbt/02 Modeling Patterns and Layering/14 Dimensional Modeling with dbt]]
-- [[02 dbt/02 Modeling Patterns and Layering/15 Finance Modeling Patterns]]
 - [[02 dbt/02 Modeling Patterns and Layering/19 Late-arriving Data Corrections and Restatements]]
 - [[02 dbt/02 Modeling Patterns and Layering/20 Reconciliation Models]]
+- [[02 dbt/04 Incremental Processing and Performance/31 Incremental Models and Unique Keys]]
+- [[02 dbt/04 Incremental Processing and Performance/33 Microbatch Incremental Models]]
+- [[02 dbt/04 Incremental Processing and Performance/35 Snapshots vs Incremental Models vs Dynamic Tables]]
+- [[02 dbt/04 Incremental Processing and Performance/39 Full Refreshes Backfills and Replay]]
 
 ## Related Comparisons and Decisions
 
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Snapshots vs Incremental Models]]
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Full Refresh vs Backfill vs Replay]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a dbt Incremental Strategy on Snowflake]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Time Travel vs Modeled Historical Data]]
 
 ## Sources To Revisit
