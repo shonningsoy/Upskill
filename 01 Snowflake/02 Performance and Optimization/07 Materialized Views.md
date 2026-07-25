@@ -11,7 +11,9 @@ tags:
 
 # Materialized Views
 
-> Maintained precomputed query results. Consultant lens: Trade storage and maintenance cost for faster repeated reads.
+> [!abstract] Consultant lens
+> **What it is:** Materialized views store and maintain precomputed query results.
+> **Why it matters:** They trade storage and maintenance cost for faster repeated reads.
 
 ## Executive Summary
 
@@ -74,6 +76,16 @@ flowchart TD
     F["User query"] --> G{"Optimizer can use MV?"}
     G -->|Yes| C
     G -->|No| A
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,D,F input
+    class B,C,E snowflake
+    class G control
 ```
 
 ## Readable Snippets
@@ -150,7 +162,6 @@ order by credits_used desc;
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 - [[01 Snowflake/02 Performance and Optimization/08 Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
@@ -169,7 +180,7 @@ order by credits_used desc;
 
 ## Sources To Revisit
 
-- Snowflake docs: Working with Materialized Views - https://docs.snowflake.com/en/user-guide/views-materialized
-- Snowflake SQL reference: CREATE MATERIALIZED VIEW - https://docs.snowflake.com/en/sql-reference/sql/create-materialized-view
-- Snowflake docs: Views, materialized views, and dynamic tables - https://docs.snowflake.com/en/user-guide/overview-view-mview-dts
-- Snowflake Account Usage: MATERIALIZED_VIEW_REFRESH_HISTORY - https://docs.snowflake.com/en/sql-reference/account-usage/materialized_view_refresh_history
+- [Snowflake Docs: Working with Materialized Views](https://docs.snowflake.com/en/user-guide/views-materialized)
+- [Snowflake SQL Reference: CREATE MATERIALIZED VIEW](https://docs.snowflake.com/en/sql-reference/sql/create-materialized-view)
+- [Snowflake Docs: Views, materialized views, and dynamic tables](https://docs.snowflake.com/en/user-guide/overview-view-mview-dts)
+- [Snowflake Account Usage: MATERIALIZED_VIEW_REFRESH_HISTORY](https://docs.snowflake.com/en/sql-reference/account-usage/materialized_view_refresh_history)

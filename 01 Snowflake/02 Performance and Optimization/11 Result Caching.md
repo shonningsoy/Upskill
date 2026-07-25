@@ -11,7 +11,9 @@ tags:
 
 # Result Caching
 
-> Reuse of persisted query results when eligibility rules are met. Consultant lens: free performance for repetitive queries on stable data — zero warehouse credits consumed.
+> [!abstract] Consultant lens
+> **What it is:** Result caching reuses persisted query results when eligibility rules are met.
+> **Why it matters:** It provides free performance for repetitive queries on stable data — with zero warehouse credits consumed.
 
 ## Executive Summary
 
@@ -69,6 +71,18 @@ flowchart TD
     C -- Yes --> E{Eligibility<br>checks pass?}
     E -- No --> W
     E -- Yes --> F[Return cached result<br>instantly — no warehouse]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class Q input
+    class C,E control
+    class W platform
+    class S snowflake
+    class R,F output
 ```
 
 ## Readable Snippets
@@ -135,5 +149,3 @@ ALTER SESSION SET USE_CACHED_RESULT = TRUE;
 
 - [Snowflake Docs — Understanding Query Caching](https://docs.snowflake.com/en/user-guide/querying-persisted-results)
 - [Snowflake Docs — USE_CACHED_RESULT Parameter](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result)
-
-

@@ -11,7 +11,9 @@ tags:
 
 # Search Optimization Service
 
-> A Snowflake performance feature for selective lookup and search predicates. Consultant lens: Use it when users need fast access to a small set of rows in a very large table.
+> [!abstract] Consultant lens
+> **What it is:** Search Optimization Service accelerates selective lookup and search predicates.
+> **Why it matters:** Use it when users need fast access to a small set of rows in a very large table.
 
 ## Executive Summary
 
@@ -82,6 +84,17 @@ flowchart TD
     J -->|Yes| L["Enable on specific columns/methods"]
     L --> M["Wait for search access path to finish building"]
     M --> N["Validate with Search Optimization Access in Query Profile"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B,L,M,N snowflake
+    class C,E,G,J control
+    class D,F,H,I,K output
 ```
 
 ## Readable Snippets
@@ -168,9 +181,7 @@ from analytics.public.orders;
 - [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
 - [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
-- [[01 Snowflake/02 Performance and Optimization/08 Dynamic Tables]]
 - [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
-- [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
@@ -189,9 +200,9 @@ from analytics.public.orders;
 
 ## Sources To Revisit
 
-- Snowflake docs: Search optimization service - https://docs.snowflake.com/en/user-guide/search-optimization-service
-- Snowflake docs: Identifying queries that can benefit from search optimization - https://docs.snowflake.com/en/user-guide/search-optimization/queries-that-benefit
-- Snowflake docs: Enabling and disabling search optimization - https://docs.snowflake.com/en/user-guide/search-optimization/enabling
-- Snowflake docs: Monitoring search optimization using Snowsight - https://docs.snowflake.com/en/user-guide/search-optimization/monitoring-search-optimization
-- Snowflake docs: Search optimization cost estimation and management - https://docs.snowflake.com/en/user-guide/search-optimization/cost-estimation
-- Snowflake SQL reference: SYSTEM$ESTIMATE_SEARCH_OPTIMIZATION_COSTS - https://docs.snowflake.com/en/sql-reference/functions/system_estimate_search_optimization_costs
+- [Snowflake Docs: Search Optimization Service](https://docs.snowflake.com/en/user-guide/search-optimization-service)
+- [Snowflake Docs: Identifying queries that can benefit from search optimization](https://docs.snowflake.com/en/user-guide/search-optimization/queries-that-benefit)
+- [Snowflake Docs: Enabling and disabling search optimization](https://docs.snowflake.com/en/user-guide/search-optimization/enabling)
+- [Snowflake Docs: Monitoring search optimization using Snowsight](https://docs.snowflake.com/en/user-guide/search-optimization/monitoring-search-optimization)
+- [Snowflake Docs: Search optimization cost estimation and management](https://docs.snowflake.com/en/user-guide/search-optimization/cost-estimation)
+- [Snowflake SQL Reference: SYSTEM$ESTIMATE_SEARCH_OPTIMIZATION_COSTS](https://docs.snowflake.com/en/sql-reference/functions/system_estimate_search_optimization_costs)

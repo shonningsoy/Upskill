@@ -11,7 +11,9 @@ tags:
 
 # Query Acceleration Service
 
-> A serverless burst-compute feature that offloads scan-heavy portions of eligible queries to temporary serverless nodes. Consultant lens: keeps warehouses small while handling unpredictable ad-hoc outlier queries.
+> [!abstract] Consultant lens
+> **What it is:** Query Acceleration Service offloads scan-heavy portions of eligible queries to temporary serverless nodes.
+> **Why it matters:** It helps keep warehouses small while handling unpredictable ad-hoc outlier queries.
 
 ## Executive Summary
 
@@ -65,6 +67,18 @@ flowchart LR
     R --> WH2[Warehouse completes<br>joins / agg / sort]
     WH2 --> Done[Result returned]
     WH --> Done
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class Q input
+    class O control
+    class S snowflake
+    class WH,R,WH2 platform
+    class Done output
 ```
 
 ## Readable Snippets
@@ -129,4 +143,3 @@ ALTER WAREHOUSE analyst_wh
 
 - [Snowflake Docs — Query Acceleration Service](https://docs.snowflake.com/en/user-guide/query-acceleration-service)
 - [Snowflake Docs — SYSTEM$ESTIMATE_QUERY_ACCELERATION](https://docs.snowflake.com/en/sql-reference/functions/system_estimate_query_acceleration)
-

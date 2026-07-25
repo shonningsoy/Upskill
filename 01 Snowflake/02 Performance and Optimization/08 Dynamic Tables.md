@@ -11,7 +11,9 @@ tags:
 
 # Dynamic Tables for Performance
 
-> Declarative maintained tables with freshness targets. Consultant lens: Use them when repeated derived data should be managed as a pipeline, not just accelerated as a single query.
+> [!abstract] Consultant lens
+> **What it is:** Dynamic tables are declaratively maintained tables with freshness targets.
+> **Why it matters:** Use them when repeated derived data should be managed as a pipeline, not merely accelerated as a single query.
 
 ## Executive Summary
 
@@ -72,6 +74,16 @@ flowchart TD
     C --> E["BI dashboard reads maintained table"]
     F["transform_wh"] --> B
     F --> C
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,D input
+    class B,C,F snowflake
+    class E output
 ```
 
 ## Readable Snippets
@@ -172,7 +184,6 @@ order by refresh_start_time desc;
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
@@ -190,8 +201,8 @@ order by refresh_start_time desc;
 
 ## Sources To Revisit
 
-- Snowflake docs: Dynamic tables overview - https://docs.snowflake.com/en/user-guide/dynamic-tables/overview
-- Snowflake docs: Target lag and scheduling - https://docs.snowflake.com/en/user-guide/dynamic-tables/target-lag
-- Snowflake docs: Dynamic table refresh modes - https://docs.snowflake.com/en/user-guide/dynamic-tables/refresh-modes
-- Snowflake docs: Choose and size warehouses for dynamic tables - https://docs.snowflake.com/en/user-guide/dynamic-tables/warehouse-selection
-- Snowflake Account Usage: DYNAMIC_TABLE_REFRESH_HISTORY - https://docs.snowflake.com/en/sql-reference/account-usage/dynamic_table_refresh_history
+- [Snowflake Docs: Dynamic tables overview](https://docs.snowflake.com/en/user-guide/dynamic-tables/overview)
+- [Snowflake Docs: Target lag and scheduling](https://docs.snowflake.com/en/user-guide/dynamic-tables/target-lag)
+- [Snowflake Docs: Dynamic table refresh modes](https://docs.snowflake.com/en/user-guide/dynamic-tables/refresh-modes)
+- [Snowflake Docs: Choose and size warehouses for dynamic tables](https://docs.snowflake.com/en/user-guide/dynamic-tables/warehouse-selection)
+- [Snowflake Account Usage: DYNAMIC_TABLE_REFRESH_HISTORY](https://docs.snowflake.com/en/sql-reference/account-usage/dynamic_table_refresh_history)

@@ -11,7 +11,9 @@ tags:
 
 # Query Profile
 
-> Visual execution plan for a completed query. Consultant lens: Use it to turn "this query is slow" into a specific bottleneck and next action.
+> [!abstract] Consultant lens
+> **What it is:** Query Profile is the visual execution plan for a completed query.
+> **Why it matters:** It turns "this query is slow" into a specific bottleneck and next action.
 
 ## Executive Summary
 
@@ -78,6 +80,17 @@ flowchart TD
     G -->|Aggregate/Sort/Window heavy| J["Reduce rows earlier or precompute"]
     G -->|Local/remote spill| K["Reduce intermediate data or use more memory"]
     G -->|Repeated expensive query| L["Consider materialized view, search optimization, QAS, or model redesign"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B,E,F snowflake
+    class C,G control
+    class D,H,I,J,K,L output
 ```
 
 ## Readable Snippets
@@ -184,10 +197,8 @@ where query_id = '<query_id>';
 - [[01 Snowflake/02 Performance and Optimization/Performance and Optimization Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
 - [[01 Snowflake/01 Core Architecture and Concepts/02 Micro-partitions and Clustering]]
-- [[01 Snowflake/02 Performance and Optimization/07 Materialized Views]]
 - [[01 Snowflake/02 Performance and Optimization/09 Search Optimization Service]]
 - [[01 Snowflake/02 Performance and Optimization/10 Query Acceleration Service]]
-- [[01 Snowflake/02 Performance and Optimization/11 Result Caching]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
@@ -206,7 +217,7 @@ where query_id = '<query_id>';
 
 ## Sources To Revisit
 
-- Snowflake docs: Monitor query activity with Query History - https://docs.snowflake.com/en/user-guide/ui-snowsight-activity
-- Snowflake docs: Using query insights to improve performance - https://docs.snowflake.com/en/user-guide/query-insights
-- Snowflake SQL reference: GET_QUERY_OPERATOR_STATS - https://docs.snowflake.com/en/sql-reference/functions/get_query_operator_stats
-- Snowflake docs: Queries too large to fit in memory - https://docs.snowflake.com/en/user-guide/performance-query-warehouse-memory
+- [Snowflake Docs: Monitor query activity with Query History](https://docs.snowflake.com/en/user-guide/ui-snowsight-activity)
+- [Snowflake Docs: Using query insights to improve performance](https://docs.snowflake.com/en/user-guide/query-insights)
+- [Snowflake SQL Reference: GET_QUERY_OPERATOR_STATS](https://docs.snowflake.com/en/sql-reference/functions/get_query_operator_stats)
+- [Snowflake Docs: Queries too large to fit in memory](https://docs.snowflake.com/en/user-guide/performance-query-warehouse-memory)
