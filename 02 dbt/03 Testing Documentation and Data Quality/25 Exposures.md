@@ -11,7 +11,8 @@ tags:
 
 # Exposures
 
-> Exposures extend the dbt DAG beyond transformation models to the dashboards, reports, notebooks, applications, ML workflows, and owners that create business value or risk.
+> [!abstract] Mental model
+> Models show how data is transformed; exposures show who uses the result and where a failure creates business impact.
 
 ## Executive Summary
 
@@ -75,12 +76,23 @@ tags:
 flowchart LR
     A[External source] --> B[Staging models]
     B --> C[Intermediate models]
-    C --> D[Published mart or metric]
-    D --> E[Exposure: dashboard, report, application, notebook, or ML]
-    E --> F[Business users and decisions]
+    C --> D[Published data product]
+    D --> E[Exposure]
+    E --> F[Dashboard, report, app, or ML]
+    F --> G[Business users and decisions]
 
-    G[Owner, maturity, URL, tags, and metadata] --> E
-    H[Tests, freshness, contracts, and documentation] --> D
+    H[Owner, maturity, URL, and tags] --> E
+    I[Tests, freshness, contracts, and docs] --> D
+
+    class A input
+    class B,C,D,E dbt
+    class H,I control
+    class F,G output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 Exposures complete the business-impact path, while the surrounding controls establish whether the data should be trusted and published.

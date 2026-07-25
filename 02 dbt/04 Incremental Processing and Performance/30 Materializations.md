@@ -11,7 +11,8 @@ tags:
 
 # Materializations
 
-> A materialization determines how dbt represents and refreshes a model in the data platform, moving compute between build time, query time, downstream models, and platform-managed refresh.
+> [!abstract] Mental model
+> A materialization decides where a model lives, when its compute happens, and who owns its refresh.
 
 ## Executive Summary
 
@@ -76,29 +77,42 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[dbt model SQL] --> B{Materialization}
-    B --> C[View]
-    B --> D[Table]
-    B --> E[Incremental]
-    B --> F[Ephemeral]
-    B --> G[Dynamic table or materialized view]
+    A[Model SQL] --> B{Materialization}
+    B --> C[View<br/>compute on read]
+    B --> D[Table<br/>full build in dbt]
+    B --> E[Incremental<br/>changed rows in dbt]
+    B --> F[Ephemeral<br/>inline downstream]
+    B --> G[Dynamic table<br/>platform refresh]
 
-    C --> C1[Compute when queried]
-    D --> D1[Compute full result during dbt run]
-    E --> E1[Compute selected changes during dbt run]
-    F --> F1[Compute inside downstream queries]
-    G --> G1[Platform manages recurring refresh]
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B control
+    class C,D,E,F dbt
+    class G platform
 ```
 
 Materializations mainly move compute and refresh responsibility:
 
 ```mermaid
 flowchart TB
-    A[Simple transformation and low reuse] --> B[View]
-    C[Fast repeatable reads needed] --> D[Table]
-    E[Full rebuild is measurably too costly] --> F[Incremental]
-    G[Small private helper used once or twice] --> H[Ephemeral]
-    I[Platform-managed freshness preferred] --> J[Dynamic table on Snowflake]
+    A{Primary need} -->|Simple, low reuse| B[View]
+    A -->|Fast repeat reads| C[Table]
+    A -->|Avoid costly rebuilds| D[Incremental]
+    A -->|Private helper| E[Ephemeral]
+    A -->|Managed freshness| F[Dynamic table]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A control
+    class B,C,D,E dbt
+    class F platform
 ```
 
 ## Readable Snippets

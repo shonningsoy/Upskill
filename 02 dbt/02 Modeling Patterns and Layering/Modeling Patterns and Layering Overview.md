@@ -12,6 +12,9 @@ tags:
 
 > How dbt projects shape raw source data into reliable analytical models, marts, and finance-ready data products.
 
+> [!abstract] Chapter outcome
+> You should be able to design a layered dbt model, declare grain and ownership, and explain how controlled data products handle conformance, corrections, and reconciliation.
+
 ## Topics
 
 - [[02 dbt/02 Modeling Patterns and Layering/11 Staging Models|11 - Staging Models]]
@@ -25,51 +28,47 @@ tags:
 - [[02 dbt/02 Modeling Patterns and Layering/19 Late-arriving Data Corrections and Restatements|19 - Late-arriving Data, Corrections, and Restatements]]
 - [[02 dbt/02 Modeling Patterns and Layering/20 Reconciliation Models|20 - Reconciliation Models]]
 
+## Chapter Map
+
+```mermaid
+flowchart LR
+    A["11–12<br/>Prepare and compose"] --> B["13–14<br/>Shape trusted outputs"]
+    B --> C["15–16<br/>Apply domain controls"]
+    C --> D["17–19<br/>Modernize and manage change"]
+    D --> E["20<br/>Prove the result"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,B dbt
+    class C control
+    class D platform
+    class E output
+```
+
 ## Topic Summaries
 
-### [[02 dbt/02 Modeling Patterns and Layering/11 Staging Models|11 - Staging Models]]
-
-Standardizes raw source data into clean, typed, renamed, lightly transformed building blocks.
-
-### [[02 dbt/02 Modeling Patterns and Layering/12 Intermediate Models|12 - Intermediate Models]]
-
-Keeps complex business logic readable without exposing every step as a consumer-facing asset.
-
-### [[02 dbt/02 Modeling Patterns and Layering/13 Marts and Data Products|13 - Marts and Data Products]]
-
-Frames dbt output as trusted analytical products for BI, risk, finance, and regulatory use.
-
-### [[02 dbt/02 Modeling Patterns and Layering/14 Dimensional Modeling with dbt|14 - Dimensional Modeling with dbt]]
-
-Gives structure for facts, dimensions, grain, keys, and conformed entities.
-
-### [[02 dbt/02 Modeling Patterns and Layering/15 Finance Modeling Patterns|15 - Finance Modeling Patterns]]
-
-Covers trades, orders, executions, positions, instruments, counterparties, accounts, FX, prices, P&L, and risk measures.
-
-### [[02 dbt/02 Modeling Patterns and Layering/16 Naming Conventions and Folder Design|16 - Naming Conventions and Folder Design]]
-
-Makes large projects navigable and reduces onboarding friction.
-
-### [[02 dbt/02 Modeling Patterns and Layering/17 Refactoring Legacy SQL into dbt|17 - Refactoring Legacy SQL into dbt]]
-
-Highly relevant in consulting, where existing SQL estates rarely start clean.
-
-### [[02 dbt/02 Modeling Patterns and Layering/18 Multi-source Conformed Models|18 - Multi-source Conformed Models]]
-
-Handles the reality of combining trading, risk, finance, reference, and market-data sources.
-
-### [[02 dbt/02 Modeling Patterns and Layering/19 Late-arriving Data Corrections and Restatements|19 - Late-arriving Data, Corrections, and Restatements]]
-
-Essential in banks where adjustments and backdated corrections are normal.
-
-### [[02 dbt/02 Modeling Patterns and Layering/20 Reconciliation Models|20 - Reconciliation Models]]
-
-Provides evidence that trade, position, cash, P&L, and regulatory numbers tie out.
+| Topic | What it unlocks |
+|---|---|
+| [[02 dbt/02 Modeling Patterns and Layering/11 Staging Models\|11 - Staging Models]] | Standardizes raw data into clean, typed, source-aligned building blocks. |
+| [[02 dbt/02 Modeling Patterns and Layering/12 Intermediate Models\|12 - Intermediate Models]] | Isolates reusable joins and business logic without exposing every step to consumers. |
+| [[02 dbt/02 Modeling Patterns and Layering/13 Marts and Data Products\|13 - Marts and Data Products]] | Turns modeled data into trusted outputs with clear ownership and service expectations. |
+| [[02 dbt/02 Modeling Patterns and Layering/14 Dimensional Modeling with dbt\|14 - Dimensional Modeling with dbt]] | Establishes facts, dimensions, grain, keys, and reusable analytical context. |
+| [[02 dbt/02 Modeling Patterns and Layering/15 Finance Modeling Patterns\|15 - Finance Modeling Patterns]] | Connects financial events, states, reference data, valuation, and controls. |
+| [[02 dbt/02 Modeling Patterns and Layering/16 Naming Conventions and Folder Design\|16 - Naming Conventions and Folder Design]] | Makes project structure communicate purpose, ownership, and configuration. |
+| [[02 dbt/02 Modeling Patterns and Layering/17 Refactoring Legacy SQL into dbt\|17 - Refactoring Legacy SQL into dbt]] | Provides a controlled path from opaque SQL estates to modular dbt models. |
+| [[02 dbt/02 Modeling Patterns and Layering/18 Multi-source Conformed Models\|18 - Multi-source Conformed Models]] | Combines source systems into governed entities while preserving traceability. |
+| [[02 dbt/02 Modeling Patterns and Layering/19 Late-arriving Data Corrections and Restatements\|19 - Late-arriving Data, Corrections, and Restatements]] | Handles delayed facts and backdated change without losing reporting history. |
+| [[02 dbt/02 Modeling Patterns and Layering/20 Reconciliation Models\|20 - Reconciliation Models]] | Makes agreement, breaks, thresholds, and evidence queryable and operational. |
 
 ## How To Use This Area
 
-Use this note as the local hub for this dbt chapter. The global [[02 dbt/dbt Learning Map|dbt Learning Map]] links here, and the topic notes link back here so Graph View stays readable.
+Follow the topics in order for a first pass. Later, use the table as a quick reference and jump directly to the modeling decision you need.
+
+The global [[02 dbt/dbt Learning Map|dbt Learning Map]] links here, and each topic links back to this hub so Graph View stays readable.
 
 ## Related Areas
 

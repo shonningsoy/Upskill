@@ -11,7 +11,8 @@ tags:
 
 # Audit and Migration Validation
 
-> Audit validation produces evidence that data satisfies defined controls; migration validation proves that a replacement preserves or intentionally changes legacy behavior before cutover.
+> [!abstract] Mental model
+> Compare broadly, investigate material differences, and cut over only when every important difference is fixed or accepted.
 
 ## Executive Summary
 
@@ -81,20 +82,31 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Define contract, scope, materiality, and approvers] --> B[Align old and new inputs]
-    B --> C[Compare schema, grain, counts, and keys]
-    C --> D{Broad checks agree?}
-    D -->|No| E[Drill into rows, columns, segments, and totals]
+    A[Define scope, materiality, and approvers] --> B[Align old and new inputs]
+    B --> C[Compare schema, grain, counts, keys]
+    C --> D{Broad checks match?}
+    D -->|No| E[Drill into rows, columns, and totals]
     D -->|Yes| F[Validate business rules and representative cycles]
-    E --> G{Classify each material difference}
-    G -->|Replacement defect| H[Fix, rebuild, and rerun]
-    G -->|Legacy defect or intended change| I[Document rationale and obtain approval]
+    E --> G{Classify difference}
+    G -->|Replacement defect| H[Fix and rerun]
+    G -->|Expected change| I[Document and approve]
     G -->|Unresolved| J[Block cutover]
     H --> C
     I --> F
-    F --> K{Acceptance criteria met?}
+    F --> K{Criteria met?}
     K -->|No| J
-    K -->|Yes| L[Sign off, cut over, monitor, and retain rollback]
+    K -->|Yes| L[Sign off, cut over, and monitor]
+
+    class A input
+    class D,G,K control
+    class C,E,F dbt
+    class B platform
+    class H,I,J,L output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

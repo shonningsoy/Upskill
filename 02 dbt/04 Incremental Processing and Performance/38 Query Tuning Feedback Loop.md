@@ -11,7 +11,8 @@ tags:
 
 # Query Tuning Feedback Loop
 
-> Measure where the time goes, fix the cause that owns that time, prove correctness, and compare runtime and credits before keeping the change.
+> [!abstract] Mental model
+> Tune from evidence: find the bottleneck, change one lever, prove correctness, then compare time and credits.
 
 ## Executive Summary
 
@@ -67,16 +68,26 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["Measure baseline"] --> B["Find critical bottleneck"]
-    B --> C["Diagnose the cause"]
-    C --> D["Change one lever"]
-    D --> E["Validate correctness"]
-    E --> F["Compare runtime and cost"]
-    F --> G{"Improvement?"}
-    G -->|Yes| H["Keep and document"]
-    G -->|No| I["Revert or test another cause"]
+    A[Measure baseline] --> B[Find bottleneck]
+    B --> C[Diagnose cause]
+    C --> D[Change one lever]
+    D --> E[Validate correctness]
+    E --> F[Compare time and cost]
+    F --> G{Better?}
+    G -->|Yes| H[Keep and document]
+    G -->|No| I[Revert or retry]
     H --> A
     I --> B
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B,C,G control
+    class D,E dbt
+    class F,H,I output
 ```
 
 ## Readable Snippets

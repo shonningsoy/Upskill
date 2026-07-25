@@ -11,7 +11,8 @@ tags:
 
 # Marts and Data Products
 
-> Marts are trusted, business-conformed datasets at declared grains; data products add the ownership, controls, documentation, access, and service expectations needed for safe consumption.
+> [!abstract] Mental model
+> A mart is a trusted business-facing dataset; a data product adds the ownership and service expectations that make it safe to depend on.
 
 ## Executive Summary
 
@@ -73,20 +74,22 @@ tags:
 
 ```mermaid
 flowchart LR
-    S[Staging models] --> I[Intermediate models]
-    I --> M[Mart at declared grain]
+    STG["Staging models"] --> INT["Intermediate models"]
+    INT --> MART["Mart at declared grain"]
+    MART --> CONSUMERS["Dashboards · reports<br/>applications · analytics"]
 
-    M --> BI[Dashboard]
-    M --> R[Risk or finance report]
-    M --> APP[Application]
-    M --> DS[Analytics or ML]
+    CTRL["Owner · tests · reconciliation<br/>docs · access · freshness<br/>change management"] -.-> MART
 
-    O[Owner] -.-> M
-    Q[Tests and reconciliation] -.-> M
-    D[Documentation] -.-> M
-    A[Access policies] -.-> M
-    F[Freshness expectation] -.-> M
-    C[Change management] -.-> M
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class STG input
+    class INT,MART dbt
+    class CTRL control
+    class CONSUMERS output
 ```
 
 ## Readable Snippets

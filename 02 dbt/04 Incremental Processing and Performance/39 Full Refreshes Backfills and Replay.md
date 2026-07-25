@@ -11,7 +11,8 @@ tags:
 
 # Full Refreshes, Backfills, and Replay
 
-> A full refresh rebuilds the whole selected model, a backfill repairs a bounded historical scope, and replay makes past processing safely repeatable.
+> [!abstract] Mental model
+> Full refresh replaces everything; backfill repairs a bounded period; replay makes historical processing repeatable.
 
 ## Executive Summary
 
@@ -71,28 +72,46 @@ tags:
 ```mermaid
 flowchart TD
     A{What happened?}
-    A -->|Entire model state or logic is affected| B["Full refresh"]
-    A -->|Known historical scope is affected| C["Targeted backfill"]
-    A -->|Past processing must be repeatable| D["Governed replay"]
-    A -->|Latest invocation partially failed| E["dbt retry"]
-    B --> F["Validate source completeness and downstream impact"]
+    A -->|Whole model affected| B[Full refresh]
+    A -->|Known period affected| C[Targeted backfill]
+    A -->|Repeat past processing| D[Governed replay]
+    A -->|Latest run failed| E[dbt retry]
+    B --> F[Validate scope and impact]
     C --> F
     D --> F
     E --> F
-    F --> G["Test, reconcile, approve, execute, and record evidence"]
+    F --> G[Test, approve, execute, reconcile]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,F control
+    class B,C,D,E dbt
+    class G output
 ```
 
 Correction scope can be smaller than impact scope:
 
 ```mermaid
 flowchart LR
-    A["June transaction correction"] --> B["Rebuild June facts"]
-    B --> C["Rebuild June monthly totals"]
-    B --> D["Rebuild June onward running balances"]
-    B --> E["Rebuild affected rolling windows"]
-    C --> F["Validate publication or restatement"]
+    A[June correction] --> B[Rebuild June facts]
+    B --> C[June totals]
+    B --> D[June onward balances]
+    B --> E[Affected rolling windows]
+    C --> F[Validate publication]
     D --> F
     E --> F
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B dbt
+    class C,D,E,F output
 ```
 
 ## Readable Snippets

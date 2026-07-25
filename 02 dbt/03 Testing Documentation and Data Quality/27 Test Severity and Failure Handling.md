@@ -11,7 +11,8 @@ tags:
 
 # Test Severity and Failure Handling
 
-> A test defines what is wrong; severity classifies the result; failure handling decides whether the problem merely warns, blocks dependent work, preserves evidence, alerts an owner, or triggers recovery.
+> [!abstract] Mental model
+> A test detects the problem, severity expresses its importance, and failure handling decides what happens next.
 
 ## Executive Summary
 
@@ -77,18 +78,28 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Data test returns violations] --> B[Calculate integer failure value]
-    B --> C{Severity evaluation}
+    A[Test returns violations] --> B[Calculate failure value]
+    B --> C{Evaluate severity}
     C -->|Pass| D[Continue]
     C -->|Warning| E[Continue and notify owner]
     C -->|Error| F[Skip downstream descendants]
     F --> G{Fail-fast enabled?}
-    G -->|No| H[Independent branches may continue]
-    G -->|Yes| I[Stop the whole invocation]
-    E --> J[Investigate or monitor tolerance]
-    H --> K[Store evidence and assess impact]
+    G -->|No| H[Other branches may continue]
+    G -->|Yes| I[Stop invocation]
+    E --> J[Investigate tolerance]
+    H --> K[Retain evidence and assess impact]
     I --> K
     K --> L[Fix, backfill, validate, and communicate]
+
+    class A input
+    class C,G control
+    class B,F dbt
+    class D,E,H,I,J,K,L output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

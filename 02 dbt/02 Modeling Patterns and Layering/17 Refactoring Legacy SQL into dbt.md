@@ -11,7 +11,8 @@ tags:
 
 # Refactoring Legacy SQL into dbt
 
-> Preserve trusted behavior first, then improve structure with evidence and a controlled cutover.
+> [!abstract] Mental model
+> Treat legacy SQL as a behavioral contract: prove parity first, then improve structure and cut over under control.
 
 ## Executive Summary
 
@@ -65,12 +66,23 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["Discover and triage"] --> B["Capture legacy contract"]
-    B --> C["Build parity model"]
-    C --> D["Refactor into useful layers"]
-    D --> E["Reconcile old vs new"]
-    E --> F["Parallel run"]
-    F --> G["Cut over and retire"]
+    LEGACY["Discover legacy SQL"] --> CONTRACT["Capture behavior<br/>and dependencies"]
+    CONTRACT --> PARITY["Build parity model"]
+    PARITY --> LAYERS["Refactor into<br/>useful layers"]
+    LAYERS --> CHECK["Reconcile old vs new"]
+    CHECK --> RUN["Parallel run"]
+    RUN --> CUTOVER["Controlled cutover"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class LEGACY input
+    class CONTRACT,CHECK,RUN control
+    class PARITY,LAYERS dbt
+    class CUTOVER output
 ```
 
 ## Readable Snippets

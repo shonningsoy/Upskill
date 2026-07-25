@@ -11,7 +11,8 @@ tags:
 
 # Model Contracts and Constraints
 
-> Model contracts define the schema consumers can rely on; constraints add data rules whose real protection depends on warehouse and adapter enforcement.
+> [!abstract] Mental model
+> A contract fixes the interface shape; a constraint states a data rule; actual protection depends on warehouse enforcement.
 
 ## Executive Summary
 
@@ -71,16 +72,27 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Model SQL output] --> C{Matches every contracted name and type?}
+    A[Model SQL output] --> C{Matches contract?}
     B[YAML contract] --> C
-    C -->|No| D[Fail the model build]
-    C -->|Yes| E[Generate DDL with declared columns and supported constraints]
-    E --> F{Does the platform enforce this constraint?}
-    F -->|Yes| G[Reject violating writes]
-    F -->|No| H[Keep informational metadata only]
+    C -->|No| D[Fail build]
+    C -->|Yes| E[Generate declared DDL]
+    E --> F{Constraint enforced?}
+    F -->|Yes| G[Reject invalid writes]
+    F -->|No| H[Retain metadata only]
     G --> I[Materialized model]
     H --> I
-    I --> J[Run data tests and downstream controls]
+    I --> J[Run tests and downstream controls]
+
+    class A,B input
+    class C,F control
+    class E,J dbt
+    class G,H,I platform
+    class D output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

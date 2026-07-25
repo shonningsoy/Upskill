@@ -11,7 +11,8 @@ tags:
 
 # Late-arriving Data, Corrections, and Restatements
 
-> Data can describe the past while arriving or changing in the present; controlled models preserve both business meaning and reporting history.
+> [!abstract] Mental model
+> Separate when an event happened from when it arrived, then preserve both current truth and any governed reporting history.
 
 ## Executive Summary
 
@@ -65,14 +66,25 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["Business event occurs"] --> B["Record arrives later"]
-    B --> C["Current model is merged"]
-    C --> D["Correction arrives"]
-    D --> E["Affected period is rebuilt"]
-    E --> F{"Was output published?"}
-    F -- "No" --> G["Update current truth"]
-    F -- "Yes" --> H["Create governed restatement version"]
-    H --> I["Reconcile, approve, and republish"]
+    EVENT["Business event occurs"] --> ARRIVE["Record arrives later"]
+    ARRIVE --> MERGE["Merge current model"]
+    MERGE --> CORRECT["Correction arrives"]
+    CORRECT --> REBUILD["Rebuild affected period"]
+    REBUILD --> PUBLISHED{"Output already<br/>published?"}
+    PUBLISHED -- "No" --> CURRENT["Update current truth"]
+    PUBLISHED -- "Yes" --> RESTATE["Create governed<br/>restatement version"]
+    RESTATE --> APPROVE["Reconcile · approve<br/>republish"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class EVENT,ARRIVE,CORRECT input
+    class MERGE,REBUILD dbt
+    class PUBLISHED,RESTATE,APPROVE control
+    class CURRENT output
 ```
 
 ## Readable Snippets

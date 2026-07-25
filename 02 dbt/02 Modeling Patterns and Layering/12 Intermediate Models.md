@@ -11,7 +11,8 @@ tags:
 
 # Intermediate Models
 
-> Intermediate models are internal, purpose-built transformation steps that prepare clean staging data for consumer-facing marts.
+> [!abstract] Mental model
+> Intermediate models are the workshop: they isolate reusable joins and business logic before the finished data reaches consumers.
 
 ## Executive Summary
 
@@ -72,15 +73,24 @@ tags:
 
 ```mermaid
 flowchart LR
-    O[stg_trading__orders] --> J[int_orders_joined_to_execution_summary]
-    E[stg_trading__executions] --> A[int_executions_aggregated_to_order]
-    A --> J
-    R[stg_reference__instruments] --> J
-    J --> M[fct_orders]
+    ORD["stg_trading__orders"] --> JOIN["int_orders_joined_to_execution_summary"]
+    EXEC["stg_trading__executions"] --> AGG["int_executions_aggregated_to_order"]
+    AGG --> JOIN
+    REF["stg_reference__instruments"] --> JOIN
+    JOIN --> MART["fct_orders"]
 
-    E -. one row per execution .-> A
-    A -. one row per order .-> J
-    J -. one row per order .-> M
+    EXEC -. "execution grain" .-> AGG
+    AGG -. "order grain" .-> JOIN
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class ORD,EXEC,REF input
+    class AGG,JOIN dbt
+    class MART output
 ```
 
 ## Readable Snippets

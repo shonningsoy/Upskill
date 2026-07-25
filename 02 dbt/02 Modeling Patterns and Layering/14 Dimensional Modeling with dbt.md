@@ -11,7 +11,8 @@ tags:
 
 # Dimensional Modeling with dbt
 
-> Dimensional modeling gives analytical data a predictable shape: facts record business events or states, dimensions provide reusable context, and every model has an explicit grain.
+> [!abstract] Mental model
+> Facts record events or states; dimensions supply reusable context; grain defines exactly what one row means.
 
 ## Executive Summary
 
@@ -76,18 +77,20 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[dim_accounts] --> F[fct_trades]
-    I[dim_instruments] --> F
-    C[dim_counterparties] --> F
-    T[dim_traders] --> F
-    D[dim_dates] --> F
+    DIMS["Dimensions<br/>account · instrument · counterparty<br/>trader · date"] --> FACT["fct_trades"]
+    FACT --> MEASURES["Measures<br/>quantity · price · notional · fee"]
+    FACT -. grain .-> GRAIN["One row per booked trade"]
 
-    F --> M1[Trade quantity]
-    F --> M2[Trade price]
-    F --> M3[Notional amount]
-    F --> M4[Fee amount]
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 
-    F -. grain .-> G[One row per booked trade]
+    class DIMS input
+    class FACT dbt
+    class GRAIN control
+    class MEASURES output
 ```
 
 ## Readable Snippets

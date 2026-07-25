@@ -11,7 +11,8 @@ tags:
 
 # Snapshots vs Incremental Models vs Dynamic Tables
 
-> Snapshots preserve observed source history, incremental models optimize dbt-controlled processing, and Dynamic Tables delegate recurring freshness and refresh work to Snowflake.
+> [!abstract] Mental model
+> Snapshots preserve change, incremental models reduce rebuild work, and Dynamic Tables hand refresh ownership to Snowflake.
 
 ## Executive Summary
 
@@ -77,17 +78,27 @@ tags:
 
 ```mermaid
 flowchart TD
-    A{What is the primary problem?}
-    A -->|Source overwrites states and history is required| B[dbt snapshot or source CDC]
-    A -->|Source history exists but rebuilding is expensive| C[Incremental model]
-    A -->|Snowflake should maintain a freshness target| D[Dynamic Table]
-    B --> E[Observed or source-provided history]
-    C --> F[Efficient dbt-controlled processing]
-    D --> G[Platform-managed current result]
-    E --> H{Need all three outcomes?}
+    A{Primary problem?}
+    A -->|Preserve overwritten states| B[Snapshot or CDC]
+    A -->|Avoid full rebuilds| C[Incremental model]
+    A -->|Maintain freshness target| D[Dynamic Table]
+    B --> E[History]
+    C --> F[Efficient processing]
+    D --> G[Managed refresh]
+    E --> H{Multiple needs?}
     F --> H
     G --> H
-    H -->|Yes| I[Combine the patterns]
+    H -->|Yes| I[Combine patterns]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,H control
+    class B,C dbt
+    class D,G platform
+    class E,F,I output
 ```
 
 A realistic combined architecture:
@@ -95,12 +106,22 @@ A realistic combined architecture:
 ```mermaid
 flowchart LR
     A[Mutable customer source] --> B[dbt snapshot]
-    B --> C[Customer risk history]
-    D[Transaction event stream] --> E[Incremental event model]
+    B --> C[Risk history]
+    D[Transaction events] --> E[Incremental model]
     E --> F[Transaction history]
     C --> G[Dynamic Table]
     F --> G
-    G --> H[Fresh risk exposure aggregate]
+    G --> H[Fresh exposure aggregate]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,D input
+    class B,E dbt
+    class G platform
+    class C,F,H output
 ```
 
 ## Readable Snippets

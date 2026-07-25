@@ -11,7 +11,8 @@ tags:
 
 # Data Quality Strategy in Regulated Environments
 
-> Regulated data quality connects critical data to approved rules, accountable owners, automated controls, retained evidence, impact-based escalation, and verified remediation; dbt implements part of this control system but does not create compliance by itself.
+> [!abstract] Mental model
+> A quality rule detects a problem; a regulated control adds scope, ownership, evidence, response, and assurance around it.
 
 ## Executive Summary
 
@@ -83,18 +84,28 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Identify obligations, critical data, reports, and owners] --> B[Define quality rules, materiality, and evidence]
-    B --> C[Prevent: contracts, access, review, unit tests, and CI]
-    C --> D[Detect: freshness, data tests, reconciliation, and monitoring]
+    A[Identify obligations, critical data, and owners] --> B[Define rules, materiality, and evidence]
+    B --> C[Prevent<br/>Contracts, access, review, CI]
+    C --> D[Detect<br/>Freshness, tests, reconciliation]
     D --> E{Control breached?}
-    E -->|No| F[Retain evidence and report indicators]
-    E -->|Yes| G[Assess severity, impact, and affected exposures]
-    G --> H[Block, quarantine, or approve controlled exception]
-    H --> I[Correct, backfill, rerun, and validate]
-    I --> J[Record root cause, approval, and closure evidence]
-    F --> K[Periodic assurance and control review]
+    E -->|No| F[Retain evidence and report]
+    E -->|Yes| G[Assess severity and impact]
+    G --> H[Block, quarantine, or approve exception]
+    H --> I[Correct, rerun, and validate]
+    I --> J[Record cause, approval, and closure]
+    F --> K[Periodic assurance review]
     J --> K
     K --> B
+
+    class A input
+    class B,E,G,H,K control
+    class C,D dbt
+    class F,I,J output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

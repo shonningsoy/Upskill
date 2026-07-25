@@ -11,7 +11,8 @@ tags:
 
 # Microbatch Incremental Models
 
-> Microbatch divides a large time-series model into bounded, independently replaceable event-time windows so dbt can run, retry, backfill, and potentially parallelize them separately.
+> [!abstract] Mental model
+> Microbatch turns one large time-series build into small, replaceable event-time windows.
 
 ## Executive Summary
 
@@ -78,16 +79,24 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[Determine event-time range] --> B[Create bounded batches]
-    B --> C[July 22 query]
-    B --> D[July 23 query]
-    B --> E[July 24 query]
-    C --> F[Replace July 22 target scope]
-    D --> G[Replace July 23 target scope]
-    E --> H[Replace July 24 target scope]
-    F --> I[Test and reconcile]
-    G --> I
-    H --> I
+    A[Event-time range] --> B[Create batches]
+    B --> C[July 22]
+    B --> D[July 23]
+    B --> E[July 24]
+    C --> F[Replace matching window]
+    D --> F
+    E --> F
+    F --> G[Test and reconcile]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B control
+    class C,D,E,F dbt
+    class G output
 ```
 
 Late arrivals either fall inside the routine lookback or require explicit replay:
@@ -95,12 +104,23 @@ Late arrivals either fall inside the routine lookback or require explicit replay
 ```mermaid
 flowchart TD
     A[Late event arrives] --> B{Event-time batch inside lookback?}
-    B -->|Yes| C[Routine run reprocesses batch]
-    B -->|No| D[Late-data control detects exception]
+    B -->|Yes| C[Routine reprocessing]
+    B -->|No| D[Late-data exception]
     D --> E[Approve targeted backfill]
-    E --> F[Replace affected historical batch]
+    E --> F[Replace historical batch]
     C --> G[Reconcile period]
     F --> G
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B control
+    class C,E,F dbt
+    class D platform
+    class G output
 ```
 
 ## Readable Snippets

@@ -11,7 +11,8 @@ tags:
 
 # Naming Conventions and Folder Design
 
-> Model names explain what a dbt model is; folders explain where it belongs and help drive configuration, selection, ownership, and governance.
+> [!abstract] Mental model
+> Names tell you what a model is; folders tell you where it belongs and how the project governs it.
 
 ## Executive Summary
 
@@ -73,21 +74,23 @@ tags:
 
 ```mermaid
 flowchart LR
-    TS[Trading source] --> ST[staging/trading]
-    RS[Reference source] --> SR[staging/reference]
-    MS[Market-data source] --> SM[staging/market_data]
+    SRC["Trading · reference<br/>market-data sources"] --> STG["staging/<source>"]
+    STG --> INT["intermediate/<domain>"]
+    INT --> MART["marts/<domain>"]
 
-    ST --> IT[intermediate/trading]
-    SR --> IT
-    SM --> IF[intermediate/finance]
+    STG -. "source + entity" .-> N1["stg_trading__trades"]
+    INT -. "entity + verb" .-> N2["int_trade_events_canonicalized"]
+    MART -. "business output" .-> N3["fct_trades"]
 
-    IT --> MT[marts/trading]
-    IF --> MF[marts/finance]
-    SR --> SH[marts/shared]
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 
-    ST -. source and entity .-> N1[stg_trading__trades]
-    IT -. entity and verb .-> N2[int_trade_events_canonicalized]
-    MT -. business output .-> N3[fct_trades]
+    class SRC input
+    class STG,INT,MART dbt
+    class N1,N2,N3 control
 ```
 
 ## Readable Snippets

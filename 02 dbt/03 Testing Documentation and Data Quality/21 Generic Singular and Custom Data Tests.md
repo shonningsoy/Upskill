@@ -11,7 +11,8 @@ tags:
 
 # Generic, Singular, and Custom Data Tests
 
-> dbt data tests turn quality rules into SQL queries that return the records violating an assertion.
+> [!abstract] Mental model
+> A dbt data test is an **anti-query**: it searches for violations, and zero returned rows means the rule passed.
 
 ## Executive Summary
 
@@ -67,17 +68,28 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Define a data assumption] --> B{Does a trusted generic test already express it?}
-    B -->|Yes| C[Declare the generic test in YAML]
-    B -->|No| D{Is the rule unique or still evolving?}
-    D -->|Yes| E[Write a singular SQL test]
-    D -->|No, the pattern repeats| F[Create a custom generic test]
-    C --> G[dbt queries for violating records]
+    A[Business or technical assumption] --> B{Reusable rule exists?}
+    B -->|Yes| C[Declare generic test]
+    B -->|No| D{Rule repeats?}
+    D -->|No| E[Write singular SQL test]
+    D -->|Yes| F[Create custom generic test]
+    C --> G[dbt queries for violations]
     E --> G
     F --> G
-    G --> H{Rows returned?}
-    H -->|No| I[Pass]
-    H -->|Yes| J[Warn or fail and follow the response process]
+    G --> H{Violating rows?}
+    H -->|None| I[Pass]
+    H -->|Found| J[Warn or fail]
+    J --> K[Investigate and respond]
+
+    class A input
+    class B,D,H control
+    class C,E,F,G dbt
+    class I,J,K output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

@@ -11,7 +11,8 @@ tags:
 
 # Staging Models
 
-> Staging models turn raw source tables into clean, consistently named, typed, source-aligned building blocks without introducing substantial business logic.
+> [!abstract] Mental model
+> Staging translates one raw source table into a clean, source-aligned building block without changing its business meaning.
 
 ## Executive Summary
 
@@ -71,16 +72,23 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[Raw source table] -->|source function| B[Staging model]
-    B -->|ref function| C[Intermediate models]
-    C --> D[Marts and data products]
+    RAW["Raw source table"] -->|source| STG["Staging model"]
+    STG -->|ref| INT["Intermediate models"]
+    INT --> MART["Marts and data products"]
 
-    R[Rename columns] -.-> B
-    T[Cast data types] -.-> B
-    S[Standardize universal values] -.-> B
-    M[Expose load metadata] -.-> B
+    CLEAN["Rename · cast · standardize<br/>retain load metadata"] -.-> STG
+    STG -. preserves .-> GRAIN["Source grain and meaning"]
 
-    B -. preserves .-> G[Source grain and concept]
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class RAW input
+    class STG,INT dbt
+    class CLEAN,GRAIN control
+    class MART output
 ```
 
 ## Readable Snippets

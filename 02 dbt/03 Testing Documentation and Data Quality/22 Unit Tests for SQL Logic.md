@@ -11,7 +11,8 @@ tags:
 
 # Unit Tests for SQL Logic
 
-> dbt unit tests feed controlled rows into a SQL model and compare its actual output with an explicitly expected result before full materialization.
+> [!abstract] Mental model
+> A dbt unit test asks: given controlled inputs, does this model SQL produce exactly the expected rows?
 
 ## Executive Summary
 
@@ -69,13 +70,24 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[Given: controlled input rows] --> B[When: execute the model SQL]
-    B --> C[Actual result]
-    D[Then: expected output rows] --> E{Actual equals expected?}
+    A[Controlled input rows] --> B[Execute model SQL]
+    B --> C[Actual rows]
+    D[Expected rows] --> E{Results match?}
     C --> E
     E -->|Yes| F[Pass]
-    E -->|No| G[Fail with row-level difference]
-    G --> H[Correct SQL or correct the expectation]
+    E -->|No| G[Show row-level difference]
+    G --> H[Correct SQL or expectation]
+
+    class A,D input
+    class E control
+    class B dbt
+    class C platform
+    class F,G,H output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

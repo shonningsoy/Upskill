@@ -11,7 +11,8 @@ tags:
 
 # Source Freshness and SLA Monitoring
 
-> Source freshness measures whether the newest upstream data is recent enough; SLA monitoring turns that measurement into ownership, alerting, gating, recovery, and evidence.
+> [!abstract] Mental model
+> Freshness is the sensor; the SLA process supplies ownership, alerting, gating, recovery, and evidence around it.
 
 ## Executive Summary
 
@@ -74,23 +75,41 @@ tags:
 flowchart LR
     A[Upstream source] --> B[Ingestion process]
     B --> C[Raw Snowflake table]
-    C --> D[dbt source freshness]
-    D --> E{Age of newest signal}
-    E -->|Within warn threshold| F[Pass]
-    E -->|Past warn threshold| G[Warn and investigate]
-    E -->|Past error threshold| H[Error and escalate]
-    H --> I{Is freshness a blocking control?}
-    I -->|Yes| J[Stop downstream publication]
-    I -->|No| K[Continue with visible stale status]
+    C --> D[dbt freshness check]
+    D --> E{Newest signal age}
+    E -->|Current| F[Pass]
+    E -->|Warn threshold| G[Warn and investigate]
+    E -->|Error threshold| H[Error and escalate]
+    H --> I{Blocking control?}
+    I -->|Yes| J[Stop publication]
+    I -->|No| K[Publish with stale status]
+
+    class A input
+    class I control
+    class D dbt
+    class B,C platform
+    class E,F,G,H,J,K output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 Freshness is one layer of a broader trust pattern:
 
 ```mermaid
 flowchart LR
-    A[Freshness: something arrived recently] --> B[Completeness: everything expected arrived]
-    B --> C[Validity: records satisfy quality rules]
-    C --> D[Reconciliation: results agree with control totals]
+    A[Freshness<br/>Something arrived] --> B[Completeness<br/>Everything arrived]
+    B --> C[Validity<br/>Records satisfy rules]
+    C --> D[Reconciliation<br/>Totals agree]
+
+    class A,B,C,D control
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

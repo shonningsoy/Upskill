@@ -11,7 +11,8 @@ tags:
 
 # Parallel Microbatch Execution
 
-> Parallel microbatch execution submits independent time windows concurrently, trading lower wall-clock time for higher demands on dependency design, dbt threads, Snowflake concurrency, and cost controls.
+> [!abstract] Mental model
+> Parallel microbatch runs independent time windows together—but only correctness and capacity turn concurrency into speed.
 
 ## Executive Summary
 
@@ -77,28 +78,49 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[Microbatch windows] --> B[dbt eligibility and independence check]
-    B --> C[dbt thread pool]
-    C --> D[Queries submitted to Snowflake]
-    D --> E{Warehouse capacity}
-    E -->|Capacity available| F[Execute concurrently]
-    E -->|Capacity constrained| G[Share resources or queue]
-    F --> H[Lower wall-clock time when efficient]
-    G --> I[Measure contention, queueing, and cost]
+    A[Batch windows] --> B{Independent?}
+    B -->|Yes| C[dbt thread pool]
+    B -->|No| D[Run sequentially]
+    C --> E[Snowflake warehouse]
+    E --> F{Capacity?}
+    F -->|Available| G[Run concurrently]
+    F -->|Constrained| H[Queue or contend]
+    G --> I[Measure time and cost]
+    H --> I
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B,F control
+    class C,D,G dbt
+    class E,H platform
+    class I output
 ```
 
 Correctness determines whether parallelism is allowed:
 
 ```mermaid
 flowchart TD
-    A{Does each batch depend only on independent inputs?}
-    A -->|Yes| B{Enough eligible batches to matter?}
-    A -->|No or uncertain| C[Run sequentially]
-    B -->|Yes| D[Test parallel execution]
-    B -->|No| E[Keep automatic or sequential behavior]
-    D --> F{Snowflake queueing or contention acceptable?}
+    A{Batches independent?}
+    A -->|No or unsure| B[Run sequentially]
+    A -->|Yes| C{Enough batches?}
+    C -->|No| D[Keep default behavior]
+    C -->|Yes| E[Test parallel run]
+    E --> F{Contention acceptable?}
     F -->|Yes| G[Adopt measured concurrency]
-    F -->|No| H[Reduce threads or change warehouse design]
+    F -->|No| H[Reduce threads or resize]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,C,F control
+    class B,D,E,G dbt
+    class H platform
 ```
 
 ## Readable Snippets

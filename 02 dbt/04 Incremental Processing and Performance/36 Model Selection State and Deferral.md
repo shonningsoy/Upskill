@@ -11,7 +11,8 @@ tags:
 
 # Model Selection, State, and Deferral
 
-> Selection chooses what to run, state identifies what changed, and deferral lets an isolated CI run reuse unchanged relations from another environment.
+> [!abstract] Mental model
+> Selection limits the run, state finds the change, and deferral borrows unchanged parents from a trusted environment.
 
 ## Executive Summary
 
@@ -74,20 +75,39 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["Saved production manifest"] --> B["Compare with pull-request project"]
-    B --> C["Select changed models"]
-    C --> D["Include affected downstream models"]
-    E["Unchanged production parent"] -. "deferred ref()" .-> F["Changed model built in CI"]
+    A[Production manifest] --> B[Compare PR project]
+    B --> C[Select changed models]
+    C --> D[Include downstream impact]
+    E[Production parent] -. deferred ref .-> F[Changed model in CI]
     D --> F
-    F --> G["Downstream model built and tested in CI"]
+    F --> G[Build and test in CI]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,E input
+    class B,C,D control
+    class F dbt
+    class G output
 ```
 
 A concrete environment example:
 
 ```mermaid
 flowchart LR
-    A["ANALYTICS_PROD.CORE.STG_ORDERS<br/>unchanged and unselected"] -. "read through deferral" .-> B["ANALYTICS_CI.PR_123.INT_ORDERS<br/>changed and selected"]
-    B --> C["ANALYTICS_CI.PR_123.FCT_ORDERS<br/>downstream and selected"]
+    A["PROD.STG_ORDERS<br/>unchanged"] -. deferral .-> B["CI.INT_ORDERS<br/>changed"]
+    B --> C["CI.FCT_ORDERS<br/>downstream"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A platform
+    class B dbt
+    class C output
 ```
 
 `CI` means **Continuous Integration**. It is shorthand for a temporary, isolated environment used to validate a pull request; it is not special dbt syntax.

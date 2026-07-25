@@ -11,7 +11,8 @@ tags:
 
 # Reconciliation Models
 
-> Reconciliation models turn “the numbers should agree” into queryable breaks, thresholds, ownership, and durable control evidence.
+> [!abstract] Mental model
+> Reconciliation turns “the numbers should agree” into explicit comparisons, explainable breaks, thresholds, ownership, and evidence.
 
 ## Executive Summary
 
@@ -65,14 +66,25 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["Define population, grain, and cutoff"] --> B["Normalize both sides"]
-    B --> C["Compare totals and records"]
-    C --> D["Classify breaks"]
-    D --> E{"Within tolerance?"}
-    E -- "Yes" --> F["Retain pass evidence"]
-    E -- "No" --> G["Warn or block publication"]
-    G --> H["Investigate and resolve"]
-    H --> I["Rerun and retain evidence"]
+    DEFINE["Define population<br/>grain and cutoff"] --> NORMALIZE["Normalize both sides"]
+    NORMALIZE --> COMPARE["Compare totals<br/>and records"]
+    COMPARE --> BREAKS["Classify breaks"]
+    BREAKS --> TOL{"Within tolerance?"}
+    TOL -- "Yes" --> PASS["Retain pass evidence"]
+    TOL -- "No" --> BLOCK["Warn or block<br/>publication"]
+    BLOCK --> RESOLVE["Investigate and resolve"]
+    RESOLVE --> RERUN["Rerun and retain evidence"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class DEFINE input
+    class NORMALIZE,COMPARE,BREAKS dbt
+    class TOL,BLOCK,RESOLVE control
+    class PASS,RERUN output
 ```
 
 ## Readable Snippets

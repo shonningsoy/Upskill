@@ -11,7 +11,8 @@ tags:
 
 # Threads, Warehouse Sizing, and Snowflake Cost
 
-> dbt threads control how much work may be submitted concurrently; Snowflake warehouse size controls compute per cluster; total cost depends on the credit rate, running time, and active clusters.
+> [!abstract] Mental model
+> Threads control work in flight; warehouse design controls capacity; runtime and active clusters turn both into cost.
 
 ## Executive Summary
 
@@ -76,16 +77,25 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["dbt dependency graph"] --> B["Ready models"]
-    B --> C["Threads submit concurrent work"]
-    C --> D["Snowflake warehouse"]
-    D --> E{"Enough capacity?"}
-    E -->|Yes| F["Queries run in parallel"]
-    E -->|No| G["Queueing or contention"]
-    F --> H["Shorter elapsed run"]
-    G --> I["More threads add little value"]
-    H --> J["Measure runtime and credits"]
-    I --> J
+    A[dbt DAG] --> B[Ready models]
+    B --> C[Thread pool]
+    C --> D[Snowflake warehouse]
+    D --> E{Capacity?}
+    E -->|Enough| F[Concurrent queries]
+    E -->|Constrained| G[Queueing]
+    F --> H[Measure runtime and credits]
+    G --> H
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,B input
+    class C dbt
+    class D,G platform
+    class E control
+    class F,H output
 ```
 
 Choose the scaling direction from the bottleneck:
@@ -93,10 +103,19 @@ Choose the scaling direction from the bottleneck:
 ```mermaid
 flowchart TD
     A{What is slow?}
-    A -->|One heavy query| B["Tune SQL and consider a larger warehouse"]
-    A -->|Many queries are queued| C["Tune threads, isolate workloads, or consider multi-cluster"]
-    A -->|dbt has few ready nodes| D["DAG is mostly serial; more threads will not help"]
-    A -->|Warehouse is idle while running| E["Tune schedule and auto-suspend"]
+    A -->|One heavy query| B[Tune SQL or scale up]
+    A -->|Many queued queries| C[Tune threads or scale out]
+    A -->|Few ready nodes| D[Fix serial DAG]
+    A -->|Warehouse idle| E[Tune schedule and suspension]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A control
+    class B,C,E platform
+    class D dbt
 ```
 
 ## Readable Snippets

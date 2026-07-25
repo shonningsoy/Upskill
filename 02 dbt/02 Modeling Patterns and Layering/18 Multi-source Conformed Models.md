@@ -11,7 +11,8 @@ tags:
 
 # Multi-source Conformed Models
 
-> Translate several source systems into one governed business language while preserving traceability and uncertainty.
+> [!abstract] Mental model
+> Conformance translates several source dialects into one governed business language without hiding lineage or uncertainty.
 
 ## Executive Summary
 
@@ -64,13 +65,24 @@ tags:
 
 ```mermaid
 flowchart LR
-    A["CRM customers"] --> D["Source-specific staging"]
-    B["Core banking parties"] --> D
-    C["Cardholders"] --> D
-    D --> E["Standardize shape and vocabulary"]
-    E --> F["Map identities and resolve conflicts"]
-    F --> G["Conformed customer model"]
-    G --> H["Finance, risk, and customer marts"]
+    SOURCES["CRM customers<br/>core banking parties<br/>cardholders"] --> STG["Source-specific staging"]
+    STG --> STANDARD["Standardize shape<br/>and vocabulary"]
+    STANDARD --> RESOLVE["Map identities<br/>and resolve conflicts"]
+    RESOLVE --> CONFORMED["Conformed customer"]
+    CONFORMED --> MARTS["Finance · risk<br/>customer marts"]
+
+    TRACE["Source keys · match method<br/>confidence · survivorship"] -.-> RESOLVE
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class SOURCES input
+    class STG,STANDARD,RESOLVE,CONFORMED dbt
+    class TRACE control
+    class MARTS output
 ```
 
 ## Readable Snippets

@@ -11,7 +11,8 @@ tags:
 
 # Documentation Blocks and Catalog
 
-> dbt treats descriptions as version-controlled metadata, documentation blocks as reusable Markdown, and documentation or Catalog interfaces as the discovery layer built from project, warehouse, and run metadata.
+> [!abstract] Mental model
+> SQL explains how data is built; metadata explains what it means; dbt Docs and Catalog make that context discoverable.
 
 ## Executive Summary
 
@@ -71,19 +72,29 @@ tags:
 
 ```mermaid
 flowchart LR
-    A[SQL models and resource YAML] --> D[dbt project metadata]
-    B[Inline descriptions and docs blocks] --> D
-    C[Tests, owners, tags, contracts, and exposures] --> D
-    E[Warehouse columns, types, and statistics] --> F[Generated metadata]
+    A[Models and resource YAML] --> D[Project metadata]
+    B[Descriptions and docs blocks] --> D
+    C[Tests, owners, contracts, exposures] --> D
+    E[Warehouse metadata] --> F[Combined metadata]
     D --> F
-    F --> G[dbt Docs or dbt Docs v2]
+    F --> G[dbt Docs]
     F --> H[dbt Catalog]
-    I[Production and staging run results] --> H
-    G --> J[Developers and data consumers]
+    I[Run results] --> H
+    G --> J[Developers and consumers]
     H --> J
-    J --> K[Feedback and governed code changes]
+    J --> K[Feedback and governed changes]
     K --> A
     K --> B
+
+    class A,B,C input
+    class D,F,G,H dbt
+    class E,I platform
+    class J,K output
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 ```
 
 ## Readable Snippets

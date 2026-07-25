@@ -11,7 +11,8 @@ tags:
 
 # Incremental Strategies
 
-> An incremental strategy determines how dbt combines an incoming change set with an existing target table; on Snowflake the choice affects matching, replacement scope, scan cost, history, and recovery.
+> [!abstract] Mental model
+> An incremental strategy is the rule for merging a bounded change set into an existing table.
 
 ## Executive Summary
 
@@ -79,26 +80,44 @@ tags:
 ```mermaid
 flowchart TD
     A[Incoming change set] --> B{Chosen strategy}
-    B -->|append| C[Insert every incoming row]
-    B -->|merge| D[Update matching keys and insert new keys]
-    B -->|delete plus insert| E[Replace complete incoming key scopes]
-    B -->|insert overwrite on Snowflake| F[Replace entire target contents]
-    B -->|microbatch| G[Replace independent event-time windows]
+    B -->|Append| C[Insert all rows]
+    B -->|Merge| D[Upsert by key]
+    B -->|Delete + insert| E[Replace key scopes]
+    B -->|Insert overwrite| F[Replace full table]
+    B -->|Microbatch| G[Replace time windows]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class B control
+    class C,D,E,F,G dbt
 ```
 
 The decision begins with source behavior and replacement grain:
 
 ```mermaid
 flowchart TD
-    A{Are records immutable events?} -->|Yes, delivery is safe| B[Append]
+    A{Immutable events?} -->|Yes, safe delivery| B[Append]
     A -->|No or replay is possible| C{Reliable row key?}
     C -->|Yes| D[Merge]
-    C -->|Need complete group replacement| E[Delete plus insert]
-    D --> F{Very large time-series workload?}
+    C -->|Replace groups| E[Delete + insert]
+    D --> F{Large time series?}
     E --> F
     F -->|Yes| G[Evaluate microbatch]
     F -->|No| H[Keep row or group strategy]
-    I[Need full-table replacement] --> J[Snowflake insert overwrite]
+    I[Full-table replacement] --> J[Insert overwrite]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,C,F control
+    class I input
+    class B,D,E,G,H,J dbt
 ```
 
 ## Readable Snippets

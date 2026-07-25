@@ -11,7 +11,8 @@ tags:
 
 # Finance Modeling Patterns
 
-> Finance models preserve financial events, derive controlled states, apply reference and market data at the correct time, and reconcile important populations and amounts.
+> [!abstract] Mental model
+> Finance models preserve events, derive controlled states, apply time-correct context, and prove that important populations and amounts reconcile.
 
 ## Executive Summary
 
@@ -73,22 +74,30 @@ tags:
 
 ```mermaid
 flowchart LR
-    R[Raw observations] --> S[Staged records]
-    S --> C[Canonical events]
-    C --> T[Current trade state]
-    C --> P[Positions and balances]
+    RAW["Raw observations"] --> STG["Staged records"]
+    STG --> EVENTS["Canonical events"]
+    EVENTS --> STATE["Trade state"]
+    EVENTS --> POS["Positions and balances"]
 
-    REF[Reference data] --> T
-    REF --> P
-    MKT[Prices and FX] --> P
+    CONTEXT["Reference data<br/>prices and FX"] --> STATE
+    CONTEXT --> POS
+    POS --> OUT["P&L and risk measures"]
 
-    P --> PL[P&L]
-    P --> RM[Risk measures]
+    RAW -.-> CTRL["Reconciliation<br/>and breaks"]
+    EVENTS -.-> CTRL
+    POS -.-> CTRL
+    OUT -.-> CTRL
 
-    R -. counts and amounts .-> CTRL[Reconciliation and breaks]
-    C -. accepted and rejected .-> CTRL
-    P -. closing state .-> CTRL
-    PL -. explained total .-> CTRL
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class RAW,CONTEXT input
+    class STG,EVENTS,STATE,POS dbt
+    class CTRL control
+    class OUT output
 ```
 
 ## Readable Snippets

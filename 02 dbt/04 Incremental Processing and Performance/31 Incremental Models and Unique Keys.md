@@ -11,7 +11,8 @@ tags:
 
 # Incremental Models and Unique Keys
 
-> Incremental models reduce processing by rebuilding only a selected change set; the unique key determines how those incoming rows match the existing target.
+> [!abstract] Mental model
+> The filter chooses which rows to reconsider; the unique key tells dbt where those rows belong in the target.
 
 ## Executive Summary
 
@@ -78,16 +79,26 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Run incremental model] --> B{Target exists and no full refresh?}
-    B -->|No| C[Process complete model query]
-    C --> D[Create full target table]
-    B -->|Yes| E[Apply incremental filter]
-    E --> F[Build incoming change set]
-    F --> G{Unique key matches target?}
-    G -->|Yes| H[Update or replace according to strategy]
-    G -->|No| I[Insert new row]
-    H --> J[Test and reconcile]
-    I --> J
+    A[Run model] --> B{Incremental run?}
+    B -->|No| C[Build full target]
+    B -->|Yes| D[Filter source changes]
+    D --> E[Incoming change set]
+    E --> F{Key match?}
+    F -->|Yes| G[Update or replace]
+    F -->|No| H[Insert]
+    C --> I[Test and reconcile]
+    G --> I
+    H --> I
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,E input
+    class B,F control
+    class C,D,G,H dbt
+    class I output
 ```
 
 The filter and key solve different problems:
@@ -95,9 +106,18 @@ The filter and key solve different problems:
 ```mermaid
 flowchart LR
     A[Source history] --> B[Incremental filter]
-    B -->|Which rows are reconsidered?| C[Incoming change set]
+    B -->|Which rows?| C[Change set]
     C --> D[Unique key]
-    D -->|Which existing row does each belong to?| E[Updated target]
+    D -->|Which target row?| E[Updated target]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,C input
+    class B,D control
+    class E output
 ```
 
 ## Readable Snippets
