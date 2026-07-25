@@ -1,10 +1,35 @@
 # Snowflake Learning Map
 
+> [!abstract] Learning outcome
+> Move from Snowflake foundations to governed production recommendations: explain the feature, diagnose the client problem, compare trade-offs, and connect the decision to cost, security, and operations.
+
 Use this as the main entry point for Snowflake. The graph is intentionally structured as:
 
 `Snowflake Learning Map -> area overview -> individual topic notes`
 
 That keeps Graph View readable while still allowing selected cross-links between topics that belong together.
+
+## Learning Path
+
+```mermaid
+flowchart LR
+    A["1<br/>Core architecture"] --> B["2<br/>Security and governance"]
+    B --> C["3<br/>Data engineering"]
+    C --> D["4<br/>Performance"]
+    D --> E["5<br/>Analytics and AI"]
+    E --> F["6<br/>Cost and ecosystem"]
+    F --> G["7<br/>Enterprise production"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B,C,D,E,F snowflake
+    class G output
+```
 
 ## Suggested Path
 
