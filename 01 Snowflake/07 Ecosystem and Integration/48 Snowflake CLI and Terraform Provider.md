@@ -11,7 +11,10 @@ tags:
 
 # Snowflake CLI and Terraform Provider
 
-> Developer tooling and infrastructure-as-code for repeatable Snowflake changes. Consultant lens: move production Snowflake work from manual clicks to reviewed, automated, auditable deployment paths.
+> [!abstract] Consultant lens
+> **What it is:** Developer tooling and infrastructure-as-code for repeatable Snowflake changes.
+>
+> **Why it matters:** Move production Snowflake work from manual clicks to reviewed, automated, auditable deployment paths.
 
 ## Executive Summary
 
@@ -93,6 +96,16 @@ flowchart LR
     TF --> SF
     SF --> DRIFT["Drift and audit review"]
     STATE --> DRIFT
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DEV,GIT input
+    class PR,DRIFT control
+    class CLI,TF,SF snowflake
+    class CI,STATE platform
 ```
 
 The useful split: **Snowflake CLI is the deployment remote control; Terraform is the desired-state contract.**
@@ -126,38 +139,39 @@ snow streamlit deploy --connection dev
 
 These show the CLI as an execution/deployment surface, not as a long-term state tracker.
 
-### `snowflake.yml` project definition shape
-
-```yaml
-definition_version: 2
-
-entities:
-  sales_app:
-    type: streamlit
-    identifier: SALES_APP
-    stage: app_stage
-    main_file: streamlit_app.py
-    query_warehouse: APP_WH
-    artifacts:
-      - streamlit_app.py
-      - pages/
-```
-
-The exact entity properties depend on the workload. The pattern to recognize is: a project file tells Snowflake CLI what local files and Snowflake objects belong together.
-
-### CI/CD service user with OIDC shape
-
-```sql
-CREATE USER cicd_deploy_user
-  TYPE = SERVICE
-  WORKLOAD_IDENTITY = (
-    TYPE = OIDC
-    ISSUER = '<ci-platform-issuer>'
-    SUBJECT = '<ci-platform-subject>'
-  );
-```
-
-The issuer and subject come from the CI platform. The service user should receive only the roles needed for deployment.
+> [!example]- Additional CLI project and CI configuration
+> ### `snowflake.yml` project definition shape
+>
+> ```yaml
+> definition_version: 2
+>
+> entities:
+>   sales_app:
+>     type: streamlit
+>     identifier: SALES_APP
+>     stage: app_stage
+>     main_file: streamlit_app.py
+>     query_warehouse: APP_WH
+>     artifacts:
+>       - streamlit_app.py
+>       - pages/
+> ```
+>
+> The exact entity properties depend on the workload. The pattern to recognize is: a project file tells Snowflake CLI what local files and Snowflake objects belong together.
+>
+> ### CI/CD service user with OIDC shape
+>
+> ```sql
+> CREATE USER cicd_deploy_user
+>   TYPE = SERVICE
+>   WORKLOAD_IDENTITY = (
+>     TYPE = OIDC
+>     ISSUER = '<ci-platform-issuer>'
+>     SUBJECT = '<ci-platform-subject>'
+>   );
+> ```
+>
+> The issuer and subject come from the CI platform. The service user should receive only the roles needed for deployment.
 
 ### Terraform provider and resources
 
@@ -185,15 +199,14 @@ resource "snowflake_warehouse" "transforming" {
 
 This is the recognizable IaC pattern: declare the Snowflake objects, review the plan, then apply.
 
-### Terraform workflow
-
-```bash
-terraform init
-terraform plan
-terraform apply
-```
-
-In a mature setup, `plan` runs on pull requests and `apply` runs only after approval.
+> [!example]- Terraform workflow
+> ```bash
+> terraform init
+> terraform plan
+> terraform apply
+> ```
+>
+> In a mature setup, `plan` runs on pull requests and `apply` runs only after approval.
 
 ## Consultant Talking Points
 
@@ -238,8 +251,6 @@ In a mature setup, `plan` runs on pull requests and `apply` runs only after appr
 - [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
-- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 
 ## Related Decision Notes

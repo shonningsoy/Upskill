@@ -11,7 +11,10 @@ tags:
 
 # Git Integration
 
-> Connect remote Git repositories to Snowflake so version-controlled files can be fetched, browsed, referenced, executed, and used by Snowflake development workflows.
+> [!abstract] Consultant lens
+> **What it is:** A connection from remote Git repositories to Snowflake so version-controlled files can be fetched, browsed, referenced, and executed.
+>
+> **Why it matters:** It brings source-controlled files into Snowflake development workflows while keeping Git—not Snowflake—as the collaboration and history system.
 
 ## Executive Summary
 
@@ -88,6 +91,16 @@ flowchart LR
     CLONE --> SQL["EXECUTE IMMEDIATE FROM<br/>SQL scripts"]
     CLONE --> CODE["Procedure/UDF handlers<br/>Python files"]
     CLONE --> APPS["Workspaces, notebooks,<br/>Streamlit, dbt projects"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DEV,TOKEN input
+    class SECRET,API control
+    class CLONE,SQL,CODE,APPS snowflake
+    class REMOTE platform
 ```
 
 The memorable chain: **token = key, secret = safe, API integration = rulebook, Git repository clone = Snowflake's fetched copy.**
@@ -199,12 +212,10 @@ Secrets are a general pattern, not only a Git pattern. They store sensitive valu
 
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
 - [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[02 dbt/dbt Learning Map]]
 
 ## Related Decision Notes
 

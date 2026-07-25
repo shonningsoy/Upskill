@@ -11,7 +11,10 @@ tags:
 
 # Notification Integrations and Alerts
 
-> Outbound messaging and condition-based actions for Snowflake operations. Consultant lens: alerts decide when something matters; notification integrations decide where the message goes.
+> [!abstract] Consultant lens
+> **What it is:** Outbound messaging and condition-based actions for Snowflake operations.
+>
+> **Why it matters:** Alerts decide when something matters; notification integrations decide where the message goes.
 
 ## Executive Summary
 
@@ -92,6 +95,16 @@ flowchart LR
     INT --> EMAIL["Email"]
     INT --> WEBHOOK["Webhook<br/>Slack, Teams, PagerDuty"]
     INT --> QUEUE["Cloud queue/topic<br/>SNS, Event Grid, Pub/Sub"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DATA,TASK,PIPE input
+    class ALERT,ACTION control
+    class BUILTIN,BUILTIN2,INT snowflake
+    class EMAIL,WEBHOOK,QUEUE output
 ```
 
 The important consultant distinction: **alerts are decision logic; notification integrations are delivery plumbing.**
@@ -109,35 +122,36 @@ CREATE OR REPLACE NOTIFICATION INTEGRATION ops_email_int
 
 Email recipients must be verified. Use email for human-readable signals, not high-volume machine events.
 
-### Send an email directly
-
-```sql
-CALL SYSTEM$SEND_EMAIL(
-  'ops_email_int',
-  'ops@example.com',
-  'Snowflake pipeline warning',
-  'The hourly customer mart pipeline exceeded its expected runtime.'
-);
-```
-
-This is a direct send. It does not decide when to send; something else must call it.
-
-### Send a richer notification
-
-```sql
-CALL SYSTEM$SEND_SNOWFLAKE_NOTIFICATION(
-  SNOWFLAKE.NOTIFICATION.TEXT_HTML('<p>Customer mart exceeded SLA.</p>'),
-  SNOWFLAKE.NOTIFICATION.EMAIL_INTEGRATION_CONFIG(
-    'ops_email_int',
-    'Customer mart SLA warning',
-    ARRAY_CONSTRUCT('ops@example.com'),
-    ARRAY_CONSTRUCT(),
-    ARRAY_CONSTRUCT()
-  )
-);
-```
-
-`SYSTEM$SEND_SNOWFLAKE_NOTIFICATION` is the broader notification procedure and can target multiple destination types.
+> [!example]- Direct message-sending patterns
+> ### Send an email directly
+>
+> ```sql
+> CALL SYSTEM$SEND_EMAIL(
+>   'ops_email_int',
+>   'ops@example.com',
+>   'Snowflake pipeline warning',
+>   'The hourly customer mart pipeline exceeded its expected runtime.'
+> );
+> ```
+>
+> This is a direct send. It does not decide when to send; something else must call it.
+>
+> ### Send a richer notification
+>
+> ```sql
+> CALL SYSTEM$SEND_SNOWFLAKE_NOTIFICATION(
+>   SNOWFLAKE.NOTIFICATION.TEXT_HTML('<p>Customer mart exceeded SLA.</p>'),
+>   SNOWFLAKE.NOTIFICATION.EMAIL_INTEGRATION_CONFIG(
+>     'ops_email_int',
+>     'Customer mart SLA warning',
+>     ARRAY_CONSTRUCT('ops@example.com'),
+>     ARRAY_CONSTRUCT(),
+>     ARRAY_CONSTRUCT()
+>   )
+> );
+> ```
+>
+> `SYSTEM$SEND_SNOWFLAKE_NOTIFICATION` is the broader notification procedure and can target multiple destination types.
 
 ### Scheduled alert for a cost threshold
 
@@ -166,77 +180,78 @@ ALTER ALERT high_credit_usage_alert RESUME;
 
 Newly created alerts are suspended by default. Always remember the `RESUME`.
 
-### Serverless alert
-
-```sql
-CREATE OR REPLACE ALERT failed_quality_check_alert
-  SCHEDULE = '15 MINUTE'
-  IF (EXISTS (
-    SELECT 1
-    FROM data_quality.failed_checks
-    WHERE detected_at >= DATEADD(minute, -15, CURRENT_TIMESTAMP())
-  ))
-  THEN
-    INSERT INTO ops.alert_audit(alert_name, detected_at)
-    VALUES ('failed_quality_check_alert', CURRENT_TIMESTAMP());
-```
-
-Omitting `WAREHOUSE` creates a serverless alert. This can be a better fit for infrequent or lightweight checks.
-
-### AWS SNS notification integration for tasks or Snowpipe
-
-```sql
-CREATE OR REPLACE NOTIFICATION INTEGRATION my_notification_int
-  ENABLED = TRUE
-  DIRECTION = OUTBOUND
-  TYPE = QUEUE
-  NOTIFICATION_PROVIDER = AWS_SNS
-  AWS_SNS_TOPIC_ARN = 'arn:aws:sns:us-east-2:111122223333:snowflake_task_alerts'
-  AWS_SNS_ROLE_ARN = 'arn:aws:iam::111122223333:role/snowflake_sns_role';
-```
-
-The cloud-side setup also needs the cloud topic, policy, IAM role/trust, or equivalent provider configuration.
-
-### Task error notification
-
-```sql
-CREATE OR REPLACE TASK refresh_customer_mart
-  WAREHOUSE = transform_wh
-  SCHEDULE = '15 MINUTE'
-  ERROR_INTEGRATION = my_notification_int
-  AS
-    CALL analytics.refresh_customer_mart();
-```
-
-If the task fails, Snowflake sends a message to the configured cloud messaging service.
-
-### Task graph success and error notifications
-
-```sql
-CREATE OR REPLACE TASK root_pipeline_task
-  WAREHOUSE = transform_wh
-  SCHEDULE = 'USING CRON 0 * * * * UTC'
-  ERROR_INTEGRATION = my_notification_int
-  SUCCESS_INTEGRATION = my_notification_int
-  AS
-    CALL pipelines.start_hourly_pipeline();
-```
-
-For task graphs, specify notification integrations on the root task. Failed child tasks notify through the root task integration. Success notifications apply to successful task graph completion, not every standalone task success.
-
-### Snowpipe error notification
-
-```sql
-CREATE OR REPLACE PIPE load_orders_pipe
-  AUTO_INGEST = TRUE
-  ERROR_INTEGRATION = my_notification_int
-  AS
-    COPY INTO raw.orders
-    FROM @raw.orders_stage
-    FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1);
-```
-
-Snowpipe error notifications identify the pipe, table, stage/path, file, and error details. They work when `ON_ERROR = SKIP_FILE`, which is the default; Snowflake docs note they are not sent when `ON_ERROR = CONTINUE`.
+> [!example]- Additional alert and pipeline-notification patterns
+> ### Serverless alert
+>
+> ```sql
+> CREATE OR REPLACE ALERT failed_quality_check_alert
+>   SCHEDULE = '15 MINUTE'
+>   IF (EXISTS (
+>     SELECT 1
+>     FROM data_quality.failed_checks
+>     WHERE detected_at >= DATEADD(minute, -15, CURRENT_TIMESTAMP())
+>   ))
+>   THEN
+>     INSERT INTO ops.alert_audit(alert_name, detected_at)
+>     VALUES ('failed_quality_check_alert', CURRENT_TIMESTAMP());
+> ```
+>
+> Omitting `WAREHOUSE` creates a serverless alert. This can be a better fit for infrequent or lightweight checks.
+>
+> ### AWS SNS notification integration for tasks or Snowpipe
+>
+> ```sql
+> CREATE OR REPLACE NOTIFICATION INTEGRATION my_notification_int
+>   ENABLED = TRUE
+>   DIRECTION = OUTBOUND
+>   TYPE = QUEUE
+>   NOTIFICATION_PROVIDER = AWS_SNS
+>   AWS_SNS_TOPIC_ARN = 'arn:aws:sns:us-east-2:111122223333:snowflake_task_alerts'
+>   AWS_SNS_ROLE_ARN = 'arn:aws:iam::111122223333:role/snowflake_sns_role';
+> ```
+>
+> The cloud-side setup also needs the cloud topic, policy, IAM role/trust, or equivalent provider configuration.
+>
+> ### Task error notification
+>
+> ```sql
+> CREATE OR REPLACE TASK refresh_customer_mart
+>   WAREHOUSE = transform_wh
+>   SCHEDULE = '15 MINUTE'
+>   ERROR_INTEGRATION = my_notification_int
+>   AS
+>     CALL analytics.refresh_customer_mart();
+> ```
+>
+> If the task fails, Snowflake sends a message to the configured cloud messaging service.
+>
+> ### Task graph success and error notifications
+>
+> ```sql
+> CREATE OR REPLACE TASK root_pipeline_task
+>   WAREHOUSE = transform_wh
+>   SCHEDULE = 'USING CRON 0 * * * * UTC'
+>   ERROR_INTEGRATION = my_notification_int
+>   SUCCESS_INTEGRATION = my_notification_int
+>   AS
+>     CALL pipelines.start_hourly_pipeline();
+> ```
+>
+> For task graphs, specify notification integrations on the root task. Failed child tasks notify through the root task integration. Success notifications apply to successful task graph completion, not every standalone task success.
+>
+> ### Snowpipe error notification
+>
+> ```sql
+> CREATE OR REPLACE PIPE load_orders_pipe
+>   AUTO_INGEST = TRUE
+>   ERROR_INTEGRATION = my_notification_int
+>   AS
+>     COPY INTO raw.orders
+>     FROM @raw.orders_stage
+>     FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1);
+> ```
+>
+> Snowpipe error notifications identify the pipe, table, stage/path, file, and error details. They work when `ON_ERROR = SKIP_FILE`, which is the default; Snowflake docs note they are not sent when `ON_ERROR = CONTINUE`.
 
 ### Inspect notification history
 
@@ -296,10 +311,8 @@ Use notification history when a team says, "Snowflake did not alert us."
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/22 Snowpipe]]
-- [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 - [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
-- [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 
 ## Related Decision Notes

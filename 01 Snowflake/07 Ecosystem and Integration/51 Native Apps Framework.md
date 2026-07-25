@@ -11,7 +11,10 @@ tags:
 
 # Native Apps Framework
 
-> Framework for packaging and distributing Snowflake-native applications across accounts while letting each consumer account retain local control over data, roles, privileges, and governance.
+> [!abstract] Consultant lens
+> **What it is:** A framework for packaging and distributing Snowflake-native applications across accounts.
+>
+> **Why it matters:** Each consumer account retains local control over data, roles, privileges, and governance.
 
 ## Executive Summary
 
@@ -101,6 +104,17 @@ flowchart LR
     RAPP --> RVIEWS["Retail governed views"]
     KAPP --> KVIEWS["Risk governed views"]
     FAPP --> FVIEWS["Finance governed views"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class PROVIDER input
+    class PACKAGE,LISTING snowflake
+    class RETAIL,RISK,FINANCE platform
+    class RAPP,KAPP,FAPP control
+    class RVIEWS,KVIEWS,FVIEWS output
 ```
 
 For a bank, the key pattern is: **the app is standardized, but each account's data bindings and RBAC remain local.**
@@ -266,9 +280,6 @@ Treat account-level app privileges like production access requests. They need ju
 - [[01 Snowflake/07 Ecosystem and Integration/Ecosystem and Integration Overview]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
 - [[01 Snowflake/07 Ecosystem and Integration/48 Snowflake CLI and Terraform Provider]]
-- [[01 Snowflake/07 Ecosystem and Integration/49 Git Integration]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
-- [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
