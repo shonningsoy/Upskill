@@ -11,7 +11,10 @@ tags:
 
 # Account Usage Views
 
-> Historical metadata and usage views in the shared `SNOWFLAKE` database. Consultant lens: Account Usage is the evidence layer behind Snowflake FinOps, operations, security review, and workload diagnosis.
+> [!abstract] Consultant lens
+> **What it is:** Historical metadata and usage views in the shared `SNOWFLAKE` database.
+>
+> **Why it matters:** Account Usage is the evidence layer behind Snowflake FinOps, operations, security review, and workload diagnosis.
 
 ## Executive Summary
 
@@ -89,6 +92,17 @@ flowchart LR
     AU --> SEC["Security and governance<br/>logins, grants,<br/>access history"]
     AU --> DASH["Dashboards, alerts,<br/>recurring reviews"]
     DASH --> ACTION["Tune, tag, govern,<br/>budget, or investigate"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class ACT input
+    class LAT control
+    class PUB,AU snowflake
+    class FIN,OPS,SEC,DASH platform
+    class ACTION output
 ```
 
 Account Usage is not the control itself. It is the evidence layer that tells you where controls are needed.
@@ -135,119 +149,125 @@ ORDER BY usage_day DESC, credits_used DESC;
 
 Use this before assuming a cost spike came from warehouses. The driver might be serverless, AI services, Snowpipe, Search Optimization, or another service type.
 
-### Find warehouse credits by warehouse
+> [!example]- Cost attribution query library
+> Use these after the service-type query identifies warehouse or cloud services spend as the area to investigate.
+>
+> ### Find warehouse credits by warehouse
+>
+> ```sql
+> SELECT
+>     warehouse_name,
+>     DATE_TRUNC('day', start_time) AS usage_day,
+>     SUM(credits_used) AS credits_used,
+>     SUM(credits_used_compute) AS compute_credits,
+>     SUM(credits_used_cloud_services) AS cloud_services_credits
+> FROM snowflake.account_usage.warehouse_metering_history
+> WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
+> GROUP BY warehouse_name, usage_day
+> ORDER BY usage_day DESC, credits_used DESC;
+> ```
+>
+> This shows hourly warehouse usage rolled up by day. It does not by itself explain which queries or teams caused the usage.
+>
+> ### Attribute warehouse compute to queries
+>
+> ```sql
+> SELECT
+>     warehouse_name,
+>     user_name,
+>     query_tag,
+>     query_id,
+>     start_time,
+>     credits_attributed_compute
+> FROM snowflake.account_usage.query_attribution_history
+> WHERE start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+> ORDER BY credits_attributed_compute DESC
+> LIMIT 50;
+> ```
+>
+> This is useful for warehouse compute attribution. It excludes idle warehouse time, storage, transfer, cloud services, serverless feature costs, and AI token/service costs.
+>
+> ### Join query cost to query text
+>
+> ```sql
+> SELECT
+>     qah.credits_attributed_compute,
+>     qh.user_name,
+>     qh.role_name,
+>     qh.warehouse_name,
+>     qh.query_tag,
+>     qh.execution_status,
+>     qh.start_time,
+>     qh.query_text
+> FROM snowflake.account_usage.query_attribution_history qah
+> JOIN snowflake.account_usage.query_history qh
+>     ON qah.query_id = qh.query_id
+> WHERE qah.start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+> ORDER BY qah.credits_attributed_compute DESC
+> LIMIT 25;
+> ```
+>
+> This is the recognizable "who ran the expensive query?" pattern. Remember that query text itself can contain sensitive information.
+>
+> ### Check cloud services after the daily adjustment
+>
+> ```sql
+> SELECT
+>     usage_date,
+>     credits_used_cloud_services,
+>     credits_adjustment_cloud_services,
+>     credits_used_cloud_services + credits_adjustment_cloud_services AS billed_cloud_services
+> FROM snowflake.account_usage.metering_daily_history
+> WHERE usage_date >= DATEADD(month, -1, CURRENT_DATE())
+>   AND credits_used_cloud_services > 0
+> ORDER BY billed_cloud_services DESC;
+> ```
+>
+> Many views show consumed cloud services credits. This query helps estimate what was billed after Snowflake's daily cloud services adjustment.
 
-```sql
-SELECT
-    warehouse_name,
-    DATE_TRUNC('day', start_time) AS usage_day,
-    SUM(credits_used) AS credits_used,
-    SUM(credits_used_compute) AS compute_credits,
-    SUM(credits_used_cloud_services) AS cloud_services_credits
-FROM snowflake.account_usage.warehouse_metering_history
-WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
-GROUP BY warehouse_name, usage_day
-ORDER BY usage_day DESC, credits_used DESC;
-```
-
-This shows hourly warehouse usage rolled up by day. It does not by itself explain which queries or teams caused the usage.
-
-### Attribute warehouse compute to queries
-
-```sql
-SELECT
-    warehouse_name,
-    user_name,
-    query_tag,
-    query_id,
-    start_time,
-    credits_attributed_compute
-FROM snowflake.account_usage.query_attribution_history
-WHERE start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-ORDER BY credits_attributed_compute DESC
-LIMIT 50;
-```
-
-This is useful for warehouse compute attribution. It excludes idle warehouse time, storage, transfer, cloud services, serverless feature costs, and AI token/service costs.
-
-### Join query cost to query text
-
-```sql
-SELECT
-    qah.credits_attributed_compute,
-    qh.user_name,
-    qh.role_name,
-    qh.warehouse_name,
-    qh.query_tag,
-    qh.execution_status,
-    qh.start_time,
-    qh.query_text
-FROM snowflake.account_usage.query_attribution_history qah
-JOIN snowflake.account_usage.query_history qh
-    ON qah.query_id = qh.query_id
-WHERE qah.start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-ORDER BY qah.credits_attributed_compute DESC
-LIMIT 25;
-```
-
-This is the recognizable "who ran the expensive query?" pattern. Remember that query text itself can contain sensitive information.
-
-### Check cloud services after the daily adjustment
-
-```sql
-SELECT
-    usage_date,
-    credits_used_cloud_services,
-    credits_adjustment_cloud_services,
-    credits_used_cloud_services + credits_adjustment_cloud_services AS billed_cloud_services
-FROM snowflake.account_usage.metering_daily_history
-WHERE usage_date >= DATEADD(month, -1, CURRENT_DATE())
-  AND credits_used_cloud_services > 0
-ORDER BY billed_cloud_services DESC;
-```
-
-Many views show consumed cloud services credits. This query helps estimate what was billed after Snowflake's daily cloud services adjustment.
-
-### Find table-level storage drivers
-
-```sql
-SELECT
-    table_catalog,
-    table_schema,
-    table_name,
-    active_bytes,
-    time_travel_bytes,
-    failsafe_bytes,
-    retained_for_clone_bytes,
-    deleted
-FROM snowflake.account_usage.table_storage_metrics
-ORDER BY
-    active_bytes
-    + time_travel_bytes
-    + failsafe_bytes
-    + retained_for_clone_bytes DESC
-LIMIT 50;
-```
-
-This view is useful when storage cost does not match what users see in active tables. Dropped tables and retained historical bytes can still be billable.
-
-### Find failed logins
-
-```sql
-SELECT
-    event_timestamp,
-    user_name,
-    client_ip,
-    reported_client_type,
-    error_code,
-    error_message
-FROM snowflake.account_usage.login_history
-WHERE event_timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-  AND is_success = 'NO'
-ORDER BY event_timestamp DESC;
-```
-
-Security and platform teams can use this to spot authentication problems, suspicious access attempts, or user onboarding issues.
+> [!example]- Storage and security query examples
+> These examples show how the same evidence layer supports investigations beyond compute.
+>
+> ### Find table-level storage drivers
+>
+> ```sql
+> SELECT
+>     table_catalog,
+>     table_schema,
+>     table_name,
+>     active_bytes,
+>     time_travel_bytes,
+>     failsafe_bytes,
+>     retained_for_clone_bytes,
+>     deleted
+> FROM snowflake.account_usage.table_storage_metrics
+> ORDER BY
+>     active_bytes
+>     + time_travel_bytes
+>     + failsafe_bytes
+>     + retained_for_clone_bytes DESC
+> LIMIT 50;
+> ```
+>
+> This view is useful when storage cost does not match what users see in active tables. Dropped tables and retained historical bytes can still be billable.
+>
+> ### Find failed logins
+>
+> ```sql
+> SELECT
+>     event_timestamp,
+>     user_name,
+>     client_ip,
+>     reported_client_type,
+>     error_code,
+>     error_message
+> FROM snowflake.account_usage.login_history
+> WHERE event_timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+>   AND is_success = 'NO'
+> ORDER BY event_timestamp DESC;
+> ```
+>
+> Security and platform teams can use this to spot authentication problems, suspicious access attempts, or user onboarding issues.
 
 ## Consultant Talking Points
 
@@ -290,7 +310,6 @@ Security and platform teams can use this to spot authentication problems, suspic
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 

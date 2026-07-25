@@ -11,7 +11,10 @@ tags:
 
 # Warehouse Scheduling and Auto-suspend
 
-> Activity-based lifecycle controls for virtual warehouses. Consultant lens: auto-suspend is one of the simplest warehouse cost levers, but the timeout must match the workload rhythm rather than blindly chasing the lowest value.
+> [!abstract] Consultant lens
+> **What it is:** Activity-based lifecycle controls for virtual warehouses.
+>
+> **Why it matters:** Auto-suspend is one of the simplest warehouse cost levers, but the timeout must match the workload rhythm rather than blindly chase the lowest value.
 
 ## Executive Summary
 
@@ -90,6 +93,16 @@ flowchart LR
     GAP -->|"Yes"| WORK
     GAP -->|"No"| SUSPEND["Auto-suspend<br/>warehouse stops consuming credits"]
     SUSPEND --> Q
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class Q input
+    class STATE,GAP control
+    class RESUME,MIN,RUN,WORK,IDLE snowflake
+    class SUSPEND output
 ```
 
 The trade-off is visible in the loop: shorter timeouts reduce idle time, but they can increase resume latency and repeated 60-second minimums if queries arrive in small bursts.
@@ -118,87 +131,90 @@ ALTER WAREHOUSE analyst_wh SET
 
 For most ad hoc and analyst workloads, auto-suspend and auto-resume should usually be enabled together.
 
-### Manually suspend or resume
-
-```sql
-ALTER WAREHOUSE analyst_wh SUSPEND;
-
-ALTER WAREHOUSE analyst_wh RESUME;
-```
-
-Manual control is useful for admin operations, emergency cost control, or strict batch windows, but should not be the everyday operating model for normal user workloads.
-
-### Find warehouses with auto-suspend disabled
-
-```sql
-SHOW WAREHOUSES
-  ->> SELECT
-        "name" AS warehouse_name,
-        "size" AS warehouse_size,
-        "auto_suspend" AS auto_suspend
-      FROM $1
-      WHERE IFNULL("auto_suspend", 0) = 0;
-```
-
-An `AUTO_SUSPEND` value of `0` or `NULL` means the warehouse never auto-suspends. That should be intentional and documented.
-
-### Find warehouses without auto-resume
-
-```sql
-SHOW WAREHOUSES
-  ->> SELECT
-        "name" AS warehouse_name,
-        "size" AS warehouse_size,
-        "auto_resume" AS auto_resume
-      FROM $1
-      WHERE "auto_resume" = 'false';
-```
-
-Auto-resume disabled can be useful for tightly controlled warehouses, but it often creates job failures or user friction if no one owns the manual resume process.
-
-### Inspect resume and suspend behavior
-
-```sql
-SELECT
-    timestamp,
-    warehouse_name,
-    event_name,
-    event_reason,
-    user_name,
-    role_name
-FROM snowflake.account_usage.warehouse_events_history
-WHERE timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-  AND event_reason IN (
-      'WAREHOUSE_AUTORESUME',
-      'WAREHOUSE_AUTOSUSPEND',
-      'WAREHOUSE_RESUME',
-      'WAREHOUSE_SUSPEND'
-  )
-ORDER BY timestamp DESC;
-```
-
-Metering tells you credits. Events tell you behavior: manual resumes, automatic resumes, automatic suspends, and possible thrashing.
-
-### Count resume/suspend events by warehouse
-
-```sql
-SELECT
-    warehouse_name,
-    event_reason,
-    COUNT(*) AS event_count
-FROM snowflake.account_usage.warehouse_events_history
-WHERE timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-  AND event_reason IN (
-      'WAREHOUSE_AUTORESUME',
-      'WAREHOUSE_AUTOSUSPEND',
-      'WAREHOUSE_RESUME',
-      'WAREHOUSE_SUSPEND'
-  )
-GROUP BY warehouse_name, event_reason
-ORDER BY warehouse_name, event_count DESC;
-```
-
-Many auto-resume and auto-suspend events can be a sign that the timeout is too short for the workload's query rhythm.
+> [!example]- Operational and diagnostic queries
+> Keep the main warehouse configuration visible above; expand this library when auditing behavior or investigating lifecycle issues.
+>
+> ### Manually suspend or resume
+>
+> ```sql
+> ALTER WAREHOUSE analyst_wh SUSPEND;
+>
+> ALTER WAREHOUSE analyst_wh RESUME;
+> ```
+>
+> Manual control is useful for admin operations, emergency cost control, or strict batch windows, but should not be the everyday operating model for normal user workloads.
+>
+> ### Find warehouses with auto-suspend disabled
+>
+> ```sql
+> SHOW WAREHOUSES
+>   ->> SELECT
+>         "name" AS warehouse_name,
+>         "size" AS warehouse_size,
+>         "auto_suspend" AS auto_suspend
+>       FROM $1
+>       WHERE IFNULL("auto_suspend", 0) = 0;
+> ```
+>
+> An `AUTO_SUSPEND` value of `0` or `NULL` means the warehouse never auto-suspends. That should be intentional and documented.
+>
+> ### Find warehouses without auto-resume
+>
+> ```sql
+> SHOW WAREHOUSES
+>   ->> SELECT
+>         "name" AS warehouse_name,
+>         "size" AS warehouse_size,
+>         "auto_resume" AS auto_resume
+>       FROM $1
+>       WHERE "auto_resume" = 'false';
+> ```
+>
+> Auto-resume disabled can be useful for tightly controlled warehouses, but it often creates job failures or user friction if no one owns the manual resume process.
+>
+> ### Inspect resume and suspend behavior
+>
+> ```sql
+> SELECT
+>     timestamp,
+>     warehouse_name,
+>     event_name,
+>     event_reason,
+>     user_name,
+>     role_name
+> FROM snowflake.account_usage.warehouse_events_history
+> WHERE timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+>   AND event_reason IN (
+>       'WAREHOUSE_AUTORESUME',
+>       'WAREHOUSE_AUTOSUSPEND',
+>       'WAREHOUSE_RESUME',
+>       'WAREHOUSE_SUSPEND'
+>   )
+> ORDER BY timestamp DESC;
+> ```
+>
+> Metering tells you credits. Events tell you behavior: manual resumes, automatic resumes, automatic suspends, and possible thrashing.
+>
+> ### Count resume/suspend events by warehouse
+>
+> ```sql
+> SELECT
+>     warehouse_name,
+>     event_reason,
+>     COUNT(*) AS event_count
+> FROM snowflake.account_usage.warehouse_events_history
+> WHERE timestamp >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+>   AND event_reason IN (
+>       'WAREHOUSE_AUTORESUME',
+>       'WAREHOUSE_AUTOSUSPEND',
+>       'WAREHOUSE_RESUME',
+>       'WAREHOUSE_SUSPEND'
+>   )
+> GROUP BY warehouse_name, event_reason
+> ORDER BY warehouse_name, event_count DESC;
+> ```
+>
+> Many auto-resume and auto-suspend events can be a sign that the timeout is too short for the workload's query rhythm.
 
 ## Consultant Talking Points
 
@@ -242,7 +258,6 @@ Many auto-resume and auto-suspend events can be a sign that the timeout is too s
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 - [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
-- [[01 Snowflake/02 Performance and Optimization/06 Query Profile]]
 
 ## Related Decision Notes
 

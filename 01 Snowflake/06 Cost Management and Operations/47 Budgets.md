@@ -11,7 +11,10 @@ tags:
 
 # Budgets
 
-> Forecasting, notification, and accountability layer for Snowflake credit spend. Consultant lens: budgets help teams see and govern spend before it becomes a surprise, but they are not hard stops by default.
+> [!abstract] Consultant lens
+> **What it is:** The forecasting, notification, and accountability layer for Snowflake credit spend.
+>
+> **Why it matters:** Budgets help teams govern spend before it becomes a surprise, but they are not hard stops by default.
 
 ## Executive Summary
 
@@ -92,6 +95,17 @@ flowchart LR
     DASH --> REVIEW["Owner review<br/>optimize or reallocate"]
     NOTIFY --> REVIEW
     CONTROL --> REVIEW
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class SCOPE input
+    class FORECAST,ACTION control
+    class LIMIT,MEASURE snowflake
+    class DASH,NOTIFY,CONTROL platform
+    class REVIEW output
 ```
 
 The important distinction: the budget forecasts and notifies first. Any stopping behavior comes from a resource monitor or a carefully designed custom action.
@@ -108,107 +122,113 @@ CALL SNOWFLAKE.LOCAL.ACCOUNT_ROOT_BUDGET!SET_SPENDING_LIMIT(1000);
 
 This enables the account budget and sets a monthly limit of 1000 credits.
 
-### Create an email notification integration
+> [!example]- Notification setup
+> Expand this when connecting the account budget to an email notification route.
+>
+> ### Create an email notification integration
+>
+> ```sql
+> USE ROLE ACCOUNTADMIN;
+>
+> CREATE NOTIFICATION INTEGRATION budgets_notification_integration
+>     TYPE = EMAIL
+>     ENABLED = TRUE
+>     ALLOWED_RECIPIENTS = ('costadmin@example.com');
+>
+> GRANT USAGE ON INTEGRATION budgets_notification_integration
+>     TO APPLICATION SNOWFLAKE;
+> ```
+>
+> Budget email recipients must be verified. The `SNOWFLAKE` application needs permission to use the notification integration.
+>
+> ### Configure account budget notifications
+>
+> ```sql
+> CALL SNOWFLAKE.LOCAL.ACCOUNT_ROOT_BUDGET!SET_EMAIL_NOTIFICATIONS(
+>     'budgets_notification_integration',
+>     'costadmin@example.com'
+> );
+>
+> CALL SNOWFLAKE.LOCAL.ACCOUNT_ROOT_BUDGET!SET_NOTIFICATION_THRESHOLD(80);
+> ```
+>
+> This sends notifications when Snowflake forecasts that spend will exceed 80% of the budget limit.
 
-```sql
-USE ROLE ACCOUNTADMIN;
-
-CREATE NOTIFICATION INTEGRATION budgets_notification_integration
-    TYPE = EMAIL
-    ENABLED = TRUE
-    ALLOWED_RECIPIENTS = ('costadmin@example.com');
-
-GRANT USAGE ON INTEGRATION budgets_notification_integration
-    TO APPLICATION SNOWFLAKE;
-```
-
-Budget email recipients must be verified. The `SNOWFLAKE` application needs permission to use the notification integration.
-
-### Configure account budget notifications
-
-```sql
-CALL SNOWFLAKE.LOCAL.ACCOUNT_ROOT_BUDGET!SET_EMAIL_NOTIFICATIONS(
-    'budgets_notification_integration',
-    'costadmin@example.com'
-);
-
-CALL SNOWFLAKE.LOCAL.ACCOUNT_ROOT_BUDGET!SET_NOTIFICATION_THRESHOLD(80);
-```
-
-This sends notifications when Snowflake forecasts that spend will exceed 80% of the budget limit.
-
-### Create a custom budget
-
-```sql
-USE SCHEMA budgets_db.budgets_schema;
-
-CREATE SNOWFLAKE.CORE.BUDGET finance_budget();
-
-CALL finance_budget!SET_SPENDING_LIMIT(500);
-
-CALL finance_budget!SET_EMAIL_NOTIFICATIONS(
-    'budgets_notification_integration',
-    'finance-owner@example.com'
-);
-```
-
-Custom budgets are useful when each team, product, or cost center needs its own spending accountability.
-
-### Add resources to a custom budget
-
-```sql
-CALL finance_budget!ADD_RESOURCE(
-    SYSTEM$REFERENCE(
-        'WAREHOUSE',
-        'FINANCE_WH',
-        'SESSION',
-        'APPLYBUDGET'
-    )
-);
-
-CALL finance_budget!ADD_RESOURCE(
-    SYSTEM$REFERENCE(
-        'DATABASE',
-        'FINANCE_ANALYTICS',
-        'SESSION',
-        'APPLYBUDGET'
-    )
-);
-```
-
-Directly adding objects is simple for small scopes. For larger estates, tag-based budgets usually scale better.
-
-### Add a custom action
-
-```sql
-CALL budgets_db.budgets_schema.finance_budget!ADD_CUSTOM_ACTION(
-    SYSTEM$REFERENCE(
-        'PROCEDURE',
-        'ops_db.cost_controls.alert_team(string, string, string)'
-    ),
-    ARRAY_CONSTRUCT(
-        'finance-owner@example.com',
-        'Budget Alert',
-        'Finance budget is projected to exceed threshold'
-    ),
-    'PROJECTED',
-    75
-);
-```
-
-Custom actions can call stored procedures when projected or actual spend reaches a threshold. Treat this as automation code: it needs owner, testing, idempotency, and careful privileges.
-
-### Check budget measurement cost
-
-```sql
-SELECT
-    SUM(credits_used) AS budget_measurement_credits
-FROM snowflake.account_usage.serverless_task_history
-WHERE task_name = '_MEASUREMENT_TASK'
-  AND start_time >= DATEADD(day, -28, CURRENT_TIMESTAMP());
-```
-
-Budgets are cost-control tools, but they are not cost-free. Low-latency budgets increase measurement cost.
+> [!example]- Custom budget, resource, action, and measurement examples
+> These examples extend the account-wide pattern into cost-center scopes and automated responses.
+>
+> ### Create a custom budget
+>
+> ```sql
+> USE SCHEMA budgets_db.budgets_schema;
+>
+> CREATE SNOWFLAKE.CORE.BUDGET finance_budget();
+>
+> CALL finance_budget!SET_SPENDING_LIMIT(500);
+>
+> CALL finance_budget!SET_EMAIL_NOTIFICATIONS(
+>     'budgets_notification_integration',
+>     'finance-owner@example.com'
+> );
+> ```
+>
+> Custom budgets are useful when each team, product, or cost center needs its own spending accountability.
+>
+> ### Add resources to a custom budget
+>
+> ```sql
+> CALL finance_budget!ADD_RESOURCE(
+>     SYSTEM$REFERENCE(
+>         'WAREHOUSE',
+>         'FINANCE_WH',
+>         'SESSION',
+>         'APPLYBUDGET'
+>     )
+> );
+>
+> CALL finance_budget!ADD_RESOURCE(
+>     SYSTEM$REFERENCE(
+>         'DATABASE',
+>         'FINANCE_ANALYTICS',
+>         'SESSION',
+>         'APPLYBUDGET'
+>     )
+> );
+> ```
+>
+> Directly adding objects is simple for small scopes. For larger estates, tag-based budgets usually scale better.
+>
+> ### Add a custom action
+>
+> ```sql
+> CALL budgets_db.budgets_schema.finance_budget!ADD_CUSTOM_ACTION(
+>     SYSTEM$REFERENCE(
+>         'PROCEDURE',
+>         'ops_db.cost_controls.alert_team(string, string, string)'
+>     ),
+>     ARRAY_CONSTRUCT(
+>         'finance-owner@example.com',
+>         'Budget Alert',
+>         'Finance budget is projected to exceed threshold'
+>     ),
+>     'PROJECTED',
+>     75
+> );
+> ```
+>
+> Custom actions can call stored procedures when projected or actual spend reaches a threshold. Treat this as automation code: it needs owner, testing, idempotency, and careful privileges.
+>
+> ### Check budget measurement cost
+>
+> ```sql
+> SELECT
+>     SUM(credits_used) AS budget_measurement_credits
+> FROM snowflake.account_usage.serverless_task_history
+> WHERE task_name = '_MEASUREMENT_TASK'
+>   AND start_time >= DATEADD(day, -28, CURRENT_TIMESTAMP());
+> ```
+>
+> Budgets are cost-control tools, but they are not cost-free. Low-latency budgets increase measurement cost.
 
 ## Consultant Talking Points
 
@@ -253,7 +273,6 @@ Budgets are cost-control tools, but they are not cost-free. Low-latency budgets 
 - [[01 Snowflake/01 Core Architecture and Concepts/05 Resource Monitors]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[01 Snowflake/07 Ecosystem and Integration/50 Notification Integrations and Alerts]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 

@@ -11,7 +11,10 @@ tags:
 
 # Credit Consumption Model
 
-> How Snowflake turns compute, storage, serverless services, and data movement into billable usage. Consultant lens: start cost conversations by identifying the cost surface that actually moved.
+> [!abstract] Consultant lens
+> **What it is:** How Snowflake turns compute, storage, serverless services, and data movement into billable usage.
+>
+> **Why it matters:** Cost conversations should begin by identifying the cost surface that actually moved.
 
 ## Executive Summary
 
@@ -94,6 +97,17 @@ flowchart LR
     STOR --> USAGE
     XFER --> USAGE
     USAGE --> ACTION["Attribution, budgets,<br/>resource monitors, optimization"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class WORK input
+    class CLASSIFY,ADJ control
+    class WH,SVR,CS,CP,STOR,XFER snowflake
+    class USAGE platform
+    class ACTION output
 ```
 
 The first diagnostic move is always to classify the spend before prescribing an optimization.
@@ -146,68 +160,71 @@ ORDER BY usage_day DESC, credits_used DESC;
 
 This identifies which warehouses consumed credits. It does not yet prove which queries or teams caused the usage.
 
-### Find cloud services drivers by query type
-
-```sql
-SELECT
-    query_type,
-    SUM(credits_used_cloud_services) AS cloud_services_credits,
-    COUNT(*) AS query_count
-FROM snowflake.account_usage.query_history
-WHERE start_time >= DATEADD(day, -1, CURRENT_TIMESTAMP())
-GROUP BY query_type
-ORDER BY cloud_services_credits DESC;
-```
-
-High cloud services usage often points to metadata-heavy or high-frequency behavior: many tiny queries, `SHOW` commands, `INFORMATION_SCHEMA` polling, DDL/cloning loops, broad file listing, or complex generated SQL.
-
-### Check billed cloud services after the daily adjustment
-
-```sql
-SELECT
-    usage_date,
-    credits_used_cloud_services,
-    credits_adjustment_cloud_services,
-    credits_used_cloud_services + credits_adjustment_cloud_services AS billed_cloud_services
-FROM snowflake.account_usage.metering_daily_history
-WHERE usage_date >= DATEADD(month, -1, CURRENT_DATE())
-  AND credits_used_cloud_services > 0
-ORDER BY billed_cloud_services DESC;
-```
-
-Snowflake shows consumed cloud services credits in many places. This query helps separate consumed usage from usage that was actually billed after the daily adjustment.
-
-### Investigate service-type spend
-
-```sql
-SELECT
-    service_type,
-    DATE_TRUNC('day', start_time) AS usage_day,
-    SUM(credits_used) AS credits_used
-FROM snowflake.account_usage.metering_history
-WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
-GROUP BY service_type, usage_day
-ORDER BY usage_day DESC, credits_used DESC;
-```
-
-Use this when warehouse usage looks normal but total compute spend increased. The driver might be serverless, Cortex, Snowpipe, Search Optimization, or another service type.
-
-### Attribute query spend when available
-
-```sql
-SELECT
-    warehouse_name,
-    query_tag,
-    user_name,
-    SUM(credits_attributed_compute) AS credits_attributed_compute,
-    COUNT(*) AS queries
-FROM snowflake.account_usage.query_attribution_history
-WHERE start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
-GROUP BY warehouse_name, query_tag, user_name
-ORDER BY credits_attributed_compute DESC;
-```
-
-Query tags turn cost analysis from archaeology into accounting. Without them, attribution often becomes guesswork.
+> [!example]- Additional cost-surface queries
+> These queries extend the first-pass warehouse check into cloud services, service types, and query attribution.
+>
+> ### Find cloud services drivers by query type
+>
+> ```sql
+> SELECT
+>     query_type,
+>     SUM(credits_used_cloud_services) AS cloud_services_credits,
+>     COUNT(*) AS query_count
+> FROM snowflake.account_usage.query_history
+> WHERE start_time >= DATEADD(day, -1, CURRENT_TIMESTAMP())
+> GROUP BY query_type
+> ORDER BY cloud_services_credits DESC;
+> ```
+>
+> High cloud services usage often points to metadata-heavy or high-frequency behavior: many tiny queries, `SHOW` commands, `INFORMATION_SCHEMA` polling, DDL/cloning loops, broad file listing, or complex generated SQL.
+>
+> ### Check billed cloud services after the daily adjustment
+>
+> ```sql
+> SELECT
+>     usage_date,
+>     credits_used_cloud_services,
+>     credits_adjustment_cloud_services,
+>     credits_used_cloud_services + credits_adjustment_cloud_services AS billed_cloud_services
+> FROM snowflake.account_usage.metering_daily_history
+> WHERE usage_date >= DATEADD(month, -1, CURRENT_DATE())
+>   AND credits_used_cloud_services > 0
+> ORDER BY billed_cloud_services DESC;
+> ```
+>
+> Snowflake shows consumed cloud services credits in many places. This query helps separate consumed usage from usage that was actually billed after the daily adjustment.
+>
+> ### Investigate service-type spend
+>
+> ```sql
+> SELECT
+>     service_type,
+>     DATE_TRUNC('day', start_time) AS usage_day,
+>     SUM(credits_used) AS credits_used
+> FROM snowflake.account_usage.metering_history
+> WHERE start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())
+> GROUP BY service_type, usage_day
+> ORDER BY usage_day DESC, credits_used DESC;
+> ```
+>
+> Use this when warehouse usage looks normal but total compute spend increased. The driver might be serverless, Cortex, Snowpipe, Search Optimization, or another service type.
+>
+> ### Attribute query spend when available
+>
+> ```sql
+> SELECT
+>     warehouse_name,
+>     query_tag,
+>     user_name,
+>     SUM(credits_attributed_compute) AS credits_attributed_compute,
+>     COUNT(*) AS queries
+> FROM snowflake.account_usage.query_attribution_history
+> WHERE start_time >= DATEADD(day, -7, CURRENT_TIMESTAMP())
+> GROUP BY warehouse_name, query_tag, user_name
+> ORDER BY credits_attributed_compute DESC;
+> ```
+>
+> Query tags turn cost analysis from archaeology into accounting. Without them, attribution often becomes guesswork.
 
 ## Consultant Talking Points
 
@@ -254,8 +271,6 @@ Query tags turn cost analysis from archaeology into accounting. Without them, at
 - [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
-- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 
 ## Related Decision Notes
 
