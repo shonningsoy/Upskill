@@ -11,7 +11,9 @@ tags:
 
 # Row Access Policies
 
-> Schema-level policy objects that dynamically filter rows at query time based on the querying user's role or context. Consultant lens: enforce data segregation (regional restrictions, Chinese walls, multi-tenant isolation) without maintaining separate views or copies.
+> [!abstract] Consultant lens
+> **What it is:** Row access policies dynamically filter rows at query time based on the querying user's role or context.
+> **Why it matters:** They enforce data segregation — regional restrictions, Chinese walls, or multi-tenant isolation — without separate views or copies.
 
 ## Executive Summary
 
@@ -65,7 +67,25 @@ tags:
 
 ## Visuals
 
-No high-value visual identified for this topic yet.
+```mermaid
+flowchart LR
+    A["Query + role context"] --> B["Row access policy"]
+    C["Mapping table"] --> B
+    B --> D{"Policy returns true?"}
+    D -->|Yes| E["Row visible"]
+    D -->|No| F["Row filtered out"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,C input
+    class B snowflake
+    class D control
+    class E,F output
+```
 
 ## Readable Snippets
 
@@ -159,7 +179,7 @@ ALTER TABLE shared.leads
 | Very simple "own data only" filter | RAP with `CURRENT_USER()` or `CURRENT_ROLE()` check | No mapping table needed, minimal overhead | Doesn't scale if access rules become team-based later |
 | Row filtering + column masking needed together | RAP + Masking Policy on same table | They stack naturally (RAP first, masking second) | One of each per table — plan the combined logic upfront |
 
-## RBAC + RAP Interaction Pattern
+### RBAC + RAP Interaction Pattern
 
 RBAC and RAP are two independent layers:
 

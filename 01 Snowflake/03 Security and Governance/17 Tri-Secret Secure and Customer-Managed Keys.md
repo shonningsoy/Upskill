@@ -11,7 +11,9 @@ tags:
 
 # Tri-Secret Secure and Customer-Managed Keys
 
-> A composite-key encryption model where the customer holds one required half of the master key in their own cloud KMS. Consultant lens: not stronger encryption (still AES-256) but customer-held control and a revocation kill switch — required by the strictest financial-services, healthcare, and government clients.
+> [!abstract] Consultant lens
+> **What it is:** A composite-key encryption model where the customer holds one required half of the master key in their own cloud KMS.
+> **Why it matters:** It adds customer-held control and a revocation kill switch, not stronger encryption; the strictest regulated clients may require it.
 
 ## Executive Summary
 
@@ -66,6 +68,18 @@ flowchart LR
     B[Your key in your KMS] --> C
     C --> D[Encrypts/decrypts your data]
     B -.->|You revoke access| E[Data becomes<br/>inaccessible — kill switch]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A snowflake
+    class B input
+    class C control
+    class D platform
+    class E output
 ```
 
 ## Readable Snippets
@@ -126,5 +140,3 @@ flowchart LR
 - [Snowflake Docs: Understanding encryption key management](https://docs.snowflake.com/en/user-guide/security-encryption-manage)
 - [Snowflake Docs: Tri-Secret Secure](https://docs.snowflake.com/en/user-guide/security-encryption-tss)
 - [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) / [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) / [GCP Cloud KMS](https://cloud.google.com/kms/docs)
-
-

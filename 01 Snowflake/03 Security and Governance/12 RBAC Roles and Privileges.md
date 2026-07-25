@@ -11,7 +11,9 @@ tags:
 
 # RBAC Roles and Privileges
 
-> Hierarchical role-based access control where privileges are granted to roles, roles are granted to users (or other roles), and users operate under one active role at a time. Consultant lens: the foundation of every regulated Snowflake deployment — banks, healthcare, and enterprise live and die by this.
+> [!abstract] Consultant lens
+> **What it is:** Hierarchical access control where privileges are granted to roles, roles are granted to users or other roles, and users operate under one active role at a time.
+> **Why it matters:** RBAC is the foundation of every regulated Snowflake deployment — banks, healthcare, and enterprises live and die by it.
 
 ## Executive Summary
 
@@ -248,6 +250,16 @@ flowchart TD
     R1 --> SYS[SYSADMIN]
     R2 --> SYS
     SYS --> ACC[ACCOUNTADMIN]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class U input
+    class R1,R2,R3,R4,SYS,ACC control
+    class P1,P2,P3,P4,P5,P6 output
 ```
 
 ## Readable Snippets
@@ -332,8 +344,6 @@ USE SECONDARY ROLES NONE;
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 - [[01 Snowflake/01 Core Architecture and Concepts/04 Data Sharing and Marketplace]]
-- [[01 Snowflake/01 Core Architecture and Concepts/01 Virtual Warehouses]]
-- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
 
 ## Related Decision Notes
 
@@ -353,5 +363,3 @@ USE SECONDARY ROLES NONE;
 - [Snowflake Docs — System-Defined Roles](https://docs.snowflake.com/en/user-guide/security-access-control-considerations)
 - [Snowflake Docs — SCIM with Azure AD](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-configure-scim-azure)
 - [Snowflake Docs — Secondary Roles](https://docs.snowflake.com/en/user-guide/security-access-control-secondary-roles)
-
-

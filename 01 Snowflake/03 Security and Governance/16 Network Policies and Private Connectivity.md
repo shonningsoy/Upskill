@@ -11,7 +11,9 @@ tags:
 
 # Network Policies and Private Connectivity
 
-> Two complementary network-layer controls: network policies (IP allowlisting/blocklisting) and private connectivity (PrivateLink-style tunnels). Consultant lens: the "where can you connect from?" layer that, combined with RBAC and encryption, delivers the defense-in-depth regulated clients (banks, healthcare, gov) require.
+> [!abstract] Consultant lens
+> **What it is:** Network policies control IP access; private connectivity provides PrivateLink-style routes that bypass the public internet.
+> **Why it matters:** Together with RBAC and encryption, this "where can you connect from?" layer delivers the defense in depth regulated clients require.
 
 ## Executive Summary
 
@@ -66,6 +68,17 @@ flowchart LR
     B -->|IP allowed| C[Snowflake]
     B -->|IP blocked| X[Rejected]
     A2[Inside corporate VPC] -->|PrivateLink<br/>never hits internet| C
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,A2 input
+    class B control
+    class C snowflake
+    class X output
 ```
 
 ## Readable Snippets
@@ -134,5 +147,3 @@ ALTER USER svc_loader SET NETWORK_POLICY = corp_only;
 - [Snowflake Docs: Network policies](https://docs.snowflake.com/en/user-guide/network-policies)
 - [Snowflake Docs: Private connectivity to the Snowflake service](https://docs.snowflake.com/en/user-guide/private-connectivity)
 - Snowflake Docs: Outbound private connectivity / external access integrations
-
-

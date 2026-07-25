@@ -11,7 +11,9 @@ tags:
 
 # Column-level Masking Policies
 
-> Schema-level policy objects that dynamically transform sensitive column values at query time based on the querying user's role or context. Consultant lens: supports PII/PCI compliance without duplicating data — everyone queries the same table, privileged roles see real values, others see masked output.
+> [!abstract] Consultant lens
+> **What it is:** Masking policies dynamically transform sensitive column values at query time based on the querying user's role or context.
+> **Why it matters:** They support PII/PCI compliance without duplicating data — privileged roles see real values while others see masked output from the same table.
 
 ## Executive Summary
 
@@ -51,7 +53,7 @@ tags:
 | One-policy-per-column rule | Each column gets at most one masking policy | Unlike RAP (one per table), you can mask many columns on one table — each with its own policy |
 | Evaluation order | RAP filters rows first → masking transforms surviving rows' columns → results returned | No point masking values on rows the user won't see |
 
-## Common Masking Patterns
+### Common Masking Patterns
 
 | Pattern | Example output | Use case | Aggregation impact |
 |---|---|---|---|
@@ -73,7 +75,26 @@ tags:
 
 ## Visuals
 
-No high-value visual identified for this topic yet.
+```mermaid
+flowchart LR
+    A["Query + role context"] --> B["Masking policy"]
+    B --> C{"Allowed output"}
+    C --> D["Raw value"]
+    C --> E["Partial mask"]
+    C --> F["Hashed value"]
+    C --> G["NULL or redacted"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B snowflake
+    class C control
+    class D,E,F,G output
+```
 
 ## Readable Snippets
 
@@ -171,7 +192,7 @@ ALTER TABLE orders.contacts
 | Multiple sensitivity tiers (full, partial, none) | Mapping-table-driven policy | Flexible, no DDL changes when roles change | Mapping table becomes governance artifact — audit it |
 | Department-specific visibility (e.g., salary) | Conditional masking with USING clause | Enables row-context-aware decisions | Adds complexity; document the USING bindings clearly |
 
-## RAP vs Masking: Complementary Layers
+### RAP vs Masking: Complementary Layers
 
 | Dimension | Row Access Policy | Column Masking Policy |
 |---|---|---|

@@ -11,7 +11,9 @@ tags:
 
 # Data Classification
 
-> Automated detection and labeling of sensitive data (PII, financial identifiers) by writing system tags onto columns. Consultant lens: the discovery layer that feeds tag-based masking, access policies, and compliance reporting — it finds where sensitive data lives so other controls can protect it.
+> [!abstract] Consultant lens
+> **What it is:** Data Classification detects sensitive data such as PII and financial identifiers, then writes system tags onto columns.
+> **Why it matters:** It is the discovery layer for tag-based masking, access policies, and compliance reporting — it finds sensitive data so other controls can protect it.
 
 ## Executive Summary
 
@@ -61,7 +63,7 @@ tags:
 6. Any masking policy bound to those tags now protects the newly tagged columns automatically.
 7. You query the tag reference views to report on where sensitive data lives and verify coverage.
 
-## How It Correlates With Column-level Masking
+### How It Correlates With Column-level Masking
 
 Classification and masking are designed to work as a pair: **classification finds and labels, masking protects.** The connective tissue is **tag-based masking** — you attach a masking policy to a *tag* once, and every column that receives that tag (now or in the future) is masked automatically. This is the "governance that scales" pattern consultants should be able to pitch.
 
@@ -71,6 +73,17 @@ flowchart LR
     C[Masking policy bound to tag] --> D{Column gets the tag}
     B --> D
     D --> E[Column masked automatically<br/>no per-column DDL]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,C input
+    class B snowflake
+    class D control
+    class E output
 ```
 
 - **Without classification:** you manually find each sensitive column and run `ALTER TABLE ... SET MASKING POLICY` on each one — error-prone and doesn't keep up with new tables.
@@ -178,4 +191,3 @@ ORDER BY object_schema, object_name;
 - [Snowflake Docs: Sensitive data classification](https://docs.snowflake.com/en/user-guide/classify-intro)
 - [Snowflake Docs: Auto data classification](https://docs.snowflake.com/en/user-guide/classify-auto)
 - [Snowflake Docs: Tag-based masking policies](https://docs.snowflake.com/en/user-guide/tag-based-masking-policies)
-

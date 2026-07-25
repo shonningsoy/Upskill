@@ -11,7 +11,9 @@ tags:
 
 # Object Tagging
 
-> Schema-level key-value labels attached to Snowflake objects that other features read. Consultant lens: the connective tissue of governance — tag once, then power cost attribution, tag-based masking, classification, and inventory/lineage everywhere.
+> [!abstract] Consultant lens
+> **What it is:** Tags are schema-level key-value labels attached to Snowflake objects for other features to read.
+> **Why it matters:** They are connective tissue for governance — tag once, then power cost attribution, masking, classification, and inventory or lineage.
 
 ## Executive Summary
 
@@ -69,6 +71,17 @@ flowchart LR
     B --> G[Cost attribution reports]
     C --> G
     E --> H[Governance / lineage queries]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,D input
+    class B,C,E snowflake
+    class F control
+    class G,H output
 ```
 
 ## Readable Snippets
@@ -135,5 +148,3 @@ WHERE tag_name = 'COST_CENTER' AND tag_value = 'marketing';
 - [Snowflake Docs: Object tagging](https://docs.snowflake.com/en/user-guide/object-tagging)
 - [Snowflake Docs: Tag-based masking policies](https://docs.snowflake.com/en/user-guide/tag-based-masking-policies)
 - [Snowflake Docs: ACCOUNT_USAGE TAG_REFERENCES view](https://docs.snowflake.com/en/sql-reference/account-usage/tag_references)
-
-
