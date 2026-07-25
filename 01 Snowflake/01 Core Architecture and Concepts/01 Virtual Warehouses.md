@@ -11,7 +11,9 @@ tags:
 
 # Virtual Warehouses
 
-> Compute clusters that execute queries independently of storage. Consultant lens: Understand sizing, scaling policies, multi-cluster warehouses, and suspension to control cost and performance.
+> [!abstract] Consultant lens
+> **What it is:** Compute clusters that execute queries independently of storage.
+> **Why it matters:** Sizing, scaling policies, multi-cluster warehouses, and suspension determine cost and performance.
 
 ## Executive Summary
 
@@ -46,7 +48,7 @@ tags:
 | Workload isolation | Separate warehouses for BI, ETL, ad-hoc, etc. | Prevents noisy-neighbor contention and improves predictability. |
 | Scaling policy | Rules for adding/removing clusters in multi-cluster mode. | Balances responsiveness against credit consumption. |
 
-## How It Works
+## How It Works (Simple Flow)
 
 A query is assigned to a warehouse. If the warehouse is suspended, Snowflake resumes it, executes the query against shared storage, and then suspends again after an idle threshold. In single-cluster mode, concurrency pressure creates queueing sooner. In multi-cluster mode, Snowflake can add clusters (within min/max limits) to absorb bursts.
 
@@ -132,6 +134,6 @@ alter warehouse ETL_WH set warehouse_size = 'LARGE';
 
 ## Sources To Revisit
 
-- Snowflake docs: Virtual Warehouses - https://docs.snowflake.com/en/user-guide/warehouses
-- Snowflake docs: Multi-cluster warehouses and scaling policy - https://docs.snowflake.com/en/user-guide/warehouses-multicluster
-- Snowflake docs: Cost and billing for warehouses - https://docs.snowflake.com/en/user-guide/cost-understanding-compute
+- [Snowflake Docs: Virtual Warehouses](https://docs.snowflake.com/en/user-guide/warehouses)
+- [Snowflake Docs: Multi-cluster warehouses and scaling policy](https://docs.snowflake.com/en/user-guide/warehouses-multicluster)
+- [Snowflake Docs: Cost and billing for warehouses](https://docs.snowflake.com/en/user-guide/cost-understanding-compute)

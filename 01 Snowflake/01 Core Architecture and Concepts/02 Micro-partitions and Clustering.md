@@ -11,7 +11,9 @@ tags:
 
 # Micro-partitions and Clustering
 
-> How Snowflake physically stores data in immutable columnar chunks. Consultant lens: Explains query performance, pruning behavior, and when to apply clustering keys on large tables.
+> [!abstract] Consultant lens
+> **What it is:** Snowflake physically stores data in immutable columnar chunks.
+> **Why it matters:** This explains query performance, pruning behavior, and when clustering keys are worth applying to large tables.
 
 ## Executive Summary
 
@@ -56,7 +58,7 @@ tags:
 6. If pruning is weak on a very large table, clustering keys can improve partition organization over time.
 7. After a clustering key is defined, Automatic Clustering can maintain the table in the background when Snowflake determines reclustering would be beneficial.
 
-## How Automatic Clustering Works
+### How Automatic Clustering Works
 
 Automatic Clustering is Snowflake's managed background service for maintaining clustered tables. Once a clustering key is defined, Snowflake monitors the table as data is inserted, updated, merged, or deleted, then reclusters only when the table is likely to benefit. This work does not use one of the client's virtual warehouses; Snowflake uses serverless compute and charges credits for the actual reclustering work. Consultant lens: Automatic Clustering reduces maintenance effort, but it is still a costed optimization feature, so start with a few high-value tables, measure impact, and watch for churn-heavy tables that keep needing reclustering.
 
@@ -142,8 +144,8 @@ alter table sales_facts resume recluster;
 
 ## Sources To Revisit
 
-- Snowflake docs: Micro-partitions and data clustering - https://docs.snowflake.com/user-guide/tables-clustering-micropartitions
-- Snowflake docs: Clustering keys and reclustering behavior - https://docs.snowflake.com/user-guide/tables-clustering-keys
-- Snowflake docs: Automatic Clustering - https://docs.snowflake.com/en/user-guide/tables-auto-reclustering
-- Snowflake docs: Query profile and scan/pruning analysis - https://docs.snowflake.com/user-guide/ui-query-profile
-- Snowflake docs: Cost monitoring and account usage views - https://docs.snowflake.com/user-guide/cost-exploring-overall
+- [Snowflake Docs: Micro-partitions and data clustering](https://docs.snowflake.com/user-guide/tables-clustering-micropartitions)
+- [Snowflake Docs: Clustering keys and reclustering behavior](https://docs.snowflake.com/user-guide/tables-clustering-keys)
+- [Snowflake Docs: Automatic Clustering](https://docs.snowflake.com/en/user-guide/tables-auto-reclustering)
+- [Snowflake Docs: Query Profile and scan/pruning analysis](https://docs.snowflake.com/user-guide/ui-query-profile)
+- [Snowflake Docs: Cost monitoring and Account Usage views](https://docs.snowflake.com/user-guide/cost-exploring-overall)

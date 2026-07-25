@@ -11,7 +11,9 @@ tags:
 
 # Data Sharing and Marketplace
 
-> Zero-copy sharing of live governed data across accounts. Consultant lens: Enables secure collaboration and data products without file exports or copy-based ETL handoffs.
+> [!abstract] Consultant lens
+> **What it is:** Zero-copy sharing exposes live governed data across accounts.
+> **Why it matters:** It enables secure collaboration and data products without file exports or copy-based ETL handoffs.
 
 ## Executive Summary
 
@@ -130,7 +132,6 @@ from shared_revenue.curated.monthly_revenue;
 
 - [[01 Snowflake/01 Core Architecture and Concepts/Core Architecture and Concepts Overview]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
-- [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
 - [[01 Snowflake/03 Security and Governance/18 Object Tagging]]
 - [[01 Snowflake/03 Security and Governance/16 Network Policies and Private Connectivity]]
@@ -152,9 +153,9 @@ from shared_revenue.curated.monthly_revenue;
 
 ## Sources To Revisit
 
-- Snowflake docs: About Secure Data Sharing - https://docs.snowflake.com/en/user-guide/data-sharing-intro
-- Snowflake docs: Share secure database objects - https://docs.snowflake.com/en/user-guide/data-sharing-gs
-- Snowflake docs: Manage reader accounts - https://docs.snowflake.com/en/user-guide/data-sharing-reader-create
-- Snowflake docs: Consume imported data - https://docs.snowflake.com/en/user-guide/data-share-consumers
-- Snowflake docs: About listings - https://docs.snowflake.com/en/collaboration/collaboration-listings-about
-- Snowflake docs: About Snowflake Marketplace - https://docs.snowflake.com/en/collaboration/collaboration-marketplace-about
+- [Snowflake Docs: About Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro)
+- [Snowflake Docs: Share secure database objects](https://docs.snowflake.com/en/user-guide/data-sharing-gs)
+- [Snowflake Docs: Manage reader accounts](https://docs.snowflake.com/en/user-guide/data-sharing-reader-create)
+- [Snowflake Docs: Consume imported data](https://docs.snowflake.com/en/user-guide/data-share-consumers)
+- [Snowflake Docs: About listings](https://docs.snowflake.com/en/collaboration/collaboration-listings-about)
+- [Snowflake Docs: About Snowflake Marketplace](https://docs.snowflake.com/en/collaboration/collaboration-marketplace-about)

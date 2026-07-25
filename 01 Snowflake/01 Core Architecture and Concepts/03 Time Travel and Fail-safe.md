@@ -11,7 +11,9 @@ tags:
 
 # Time Travel and Fail-safe
 
-> Historical data recovery in Snowflake. Consultant lens: Know when teams can self-restore with SQL, when Snowflake-managed Fail-safe applies, and how retention choices affect storage cost.
+> [!abstract] Consultant lens
+> **What it is:** Snowflake provides historical data recovery through Time Travel and Fail-safe.
+> **Why it matters:** Teams need to know when they can self-restore with SQL, when Snowflake-managed Fail-safe applies, and how retention choices affect storage cost.
 
 ## Executive Summary
 
@@ -154,7 +156,7 @@ alter table finance.transactions
 
 ## Sources To Revisit
 
-- Snowflake docs: Understanding and using Time Travel - https://docs.snowflake.com/en/user-guide/data-time-travel
-- Snowflake docs: Understanding and viewing Fail-safe - https://docs.snowflake.com/en/user-guide/data-failsafe
-- Snowflake docs: Working with Temporary and Transient Tables - https://docs.snowflake.com/en/user-guide/tables-temp-transient
-- Snowflake docs: Storage costs for Time Travel and Fail-safe - https://docs.snowflake.com/en/user-guide/data-cdp-storage-costs
+- [Snowflake Docs: Understanding and using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel)
+- [Snowflake Docs: Understanding and viewing Fail-safe](https://docs.snowflake.com/en/user-guide/data-failsafe)
+- [Snowflake Docs: Working with Temporary and Transient Tables](https://docs.snowflake.com/en/user-guide/tables-temp-transient)
+- [Snowflake Docs: Storage costs for Time Travel and Fail-safe](https://docs.snowflake.com/en/user-guide/data-cdp-storage-costs)

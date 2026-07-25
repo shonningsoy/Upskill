@@ -11,7 +11,9 @@ tags:
 
 # Resource Monitors
 
-> Credit guardrails for virtual warehouse usage. Consultant lens: Use them as spend circuit breakers, not full Snowflake cost management.
+> [!abstract] Consultant lens
+> **What it is:** Resource monitors are credit guardrails for virtual warehouse usage.
+> **Why it matters:** Use them as spend circuit breakers, not as full Snowflake cost management.
 
 ## Executive Summary
 
@@ -75,6 +77,17 @@ flowchart TD
     F --> H["Warehouse remains suspended until reset or monitor change"]
     G --> H
     E --> C
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,B input
+    class C snowflake
+    class D control
+    class E,F,G,H output
 ```
 
 ## Readable Snippets
@@ -164,6 +177,6 @@ SHOW WAREHOUSES;
 
 ## Sources To Revisit
 
-- Snowflake docs: Working with resource monitors - https://docs.snowflake.com/en/user-guide/resource-monitors
-- Snowflake SQL reference: CREATE RESOURCE MONITOR - https://docs.snowflake.com/en/sql-reference/sql/create-resource-monitor
-- Snowflake docs: Monitor credit usage with budgets - https://docs.snowflake.com/en/user-guide/budgets
+- [Snowflake Docs: Working with resource monitors](https://docs.snowflake.com/en/user-guide/resource-monitors)
+- [Snowflake SQL Reference: CREATE RESOURCE MONITOR](https://docs.snowflake.com/en/sql-reference/sql/create-resource-monitor)
+- [Snowflake Docs: Monitor credit usage with budgets](https://docs.snowflake.com/en/user-guide/budgets)
