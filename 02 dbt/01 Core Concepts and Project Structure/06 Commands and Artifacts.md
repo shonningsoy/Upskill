@@ -11,13 +11,14 @@ tags:
 
 # Commands and Artifacts
 
-> Commands are how dbt is operated; artifacts are the metadata and evidence dbt leaves behind about what it parsed, compiled, ran, and observed.
+> [!abstract] Mental model
+> **Commands ask dbt to do work; artifacts show what dbt understood and what happened.**
 
 ## Executive Summary
 
 - **What it is:** dbt commands are CLI/platform actions such as `run`, `test`, `build`, `compile`, `deps`, `seed`, `snapshot`, and `source freshness`. Artifacts are generated files such as `manifest.json`, `run_results.json`, `catalog.json`, and `sources.json`.
 - **Why it matters:** Commands define the operating workflow, while artifacts make dbt runs inspectable for lineage, debugging, CI, documentation, performance analysis, and audit evidence.
-- **Mental model:** **Commands ask dbt to do work; artifacts show what dbt understood and what happened.**
+- **Mental model:** The command defines the action; the artifacts preserve machine-readable evidence from it.
 - **Best used when:** A team needs repeatable local development, CI checks, production builds, source freshness checks, documentation generation, and reliable troubleshooting evidence.
 - **Avoid or reconsider when:** Teams treat dbt as a black-box SQL runner, run production with ad hoc commands, or ignore artifacts that explain failures and runtime behavior.
 
@@ -30,7 +31,7 @@ tags:
 - Record which nodes ran, whether they succeeded or failed, and how long they took.
 - Support CI patterns such as building modified models and their dependents.
 - Provide inputs for docs sites, observability tools, run history, audit review, and debugging.
-- Help consultants explain whether a problem is in project parsing, compilation, execution, source freshness, or warehouse behavior.
+- Help isolate whether a problem occurred in parsing, compilation, execution, source freshness, or the warehouse.
 
 ## What It Cannot Do
 
@@ -78,19 +79,32 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[dbt project code] --> B[Command]
-    B --> C[Parse project and build DAG]
-    C --> D[Compile SQL and resource metadata]
-    D --> E{Execute?}
-    E -->|compile/docs metadata only| F[Generated artifacts]
-    E -->|run/build/test/seed/snapshot/freshness| G[Warehouse or source operation]
-    G --> F
+    PROJECT[Project code and config] --> COMMAND[dbt command]
+    COMMAND --> DBT[Parse DAG and compile resources]
+    DBT --> ACTION{Execution required?}
 
-    F --> H[manifest.json]
-    F --> I[run_results.json]
-    F --> J[catalog.json]
-    F --> K[sources.json]
-    F --> L[compiled SQL]
+    ACTION -->|No| ARTIFACTS[Generated artifacts]
+    ACTION -->|Yes| PLATFORM[Warehouse or source operation]
+    PLATFORM --> ARTIFACTS
+
+    ARTIFACTS --> MANIFEST[manifest.json<br/>Project understanding]
+    ARTIFACTS --> RESULTS[run_results.json<br/>Invocation outcome]
+    ARTIFACTS --> CATALOG[catalog.json<br/>Warehouse metadata]
+    ARTIFACTS --> SOURCES[sources.json<br/>Freshness results]
+    ARTIFACTS --> SQL[Compiled SQL]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class PROJECT input
+    class COMMAND control
+    class DBT dbt
+    class ACTION control
+    class PLATFORM platform
+    class ARTIFACTS,MANIFEST,RESULTS,CATALOG,SOURCES,SQL output
 ```
 
 ## Readable Snippets
@@ -149,8 +163,8 @@ sources.json      = whether configured sources were fresh
 ## Consultant Talking Points
 
 - **Client question this answers:** "What should our dbt jobs actually run, and where do we look when something fails?"
-- **Trade-offs to mention:** `dbt run` is narrow and fast for model-only work; `dbt build` is broader and usually better for controlled CI/production because it ties building to validation.
-- **Risk or governance angle:** Artifacts provide evidence for what code dbt parsed, which nodes ran, what failed, and which lineage existed at run time; they are useful for audit but should be handled as internal metadata.
+- **Trade-offs to mention:** `dbt run` is narrow and fast for model-only work. `dbt build` is broader and often better for controlled CI or production because it ties building to validation.
+- **Risk or governance angle:** Artifacts show what dbt parsed, which nodes ran, what failed, and which lineage existed at run time. They help with audits but should be handled as internal metadata.
 - **Cost/performance angle:** Commands can limit scope with selectors, but cost is mainly driven by selected nodes, materializations, incremental filters, test queries, warehouse size, threads, and full-refresh behavior.
 
 ## Common Pitfalls

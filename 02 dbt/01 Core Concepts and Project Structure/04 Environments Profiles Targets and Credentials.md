@@ -11,13 +11,14 @@ tags:
 
 # Environments, Profiles, Targets, and Credentials
 
-> Runtime context for dbt: where dbt connects, what it builds into, which warehouse resources it uses, and whose permissions it acts with.
+> [!abstract] Mental model
+> **The project says what to build; the active target says where and how to build it.** Credentials decide who dbt acts as.
 
 ## Executive Summary
 
 - **What it is:** The dbt connection and runtime layer that separates project code from environment-specific settings such as database, schema, warehouse, role, user, threads, and credentials.
 - **Why it matters:** It prevents local development, CI, staging, and production runs from stepping on each other or using the wrong identity.
-- **Mental model:** **The project says what to build; the active target says where and how to build it.** Credentials decide who dbt is acting as.
+- **Mental model:** Project code stays stable while targets and credentials supply the runtime context.
 - **Best used when:** A team needs safe dev/prod separation, personal developer schemas, CI validation, production service accounts, controlled Snowflake warehouses, and secret management.
 - **Avoid or reconsider when:** Environment settings are being used to change core business logic instead of only changing runtime context, resource routing, or safe development limits.
 
@@ -25,7 +26,7 @@ tags:
 
 - Point a dbt project to the correct connection profile.
 - Define multiple targets such as `dev`, `ci`, `staging`, and `prod`.
-- Keep database, schema, role, warehouse, user, thread count, and authentication details outside model SQL.
+- Keep database, schema, role, warehouse, user, threads, and authentication details outside model SQL.
 - Let local development use personal schemas while production jobs use controlled production schemas.
 - Support separate credentials for developers, CI jobs, scheduled jobs, and production deployment users.
 - Use environment variables so secrets do not need to be stored directly in project files.
@@ -38,7 +39,7 @@ tags:
 - Replace Snowflake RBAC, network policy, SSO, key rotation, or secret-management controls.
 - Guarantee dev/prod isolation if all targets use the same role, database, schema, or warehouse.
 - Prevent accidental production runs by itself; teams still need process, permissions, and CI/CD guardrails.
-- Make environment-specific business logic safe. If dev and prod calculate different definitions, tests may no longer prove production behavior.
+- Make environment-specific business logic safe. If dev and prod use different definitions, dev tests may not prove production behavior.
 - Solve model design, materialization strategy, or warehouse tuning by itself.
 
 ## Core Concepts
@@ -72,20 +73,32 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[dbt_project.yml] --> B[profile name]
-    B --> C[Profile or dbt environment]
-    C --> D{Active target}
-    D -->|dev| E[Personal schema and dev role]
-    D -->|ci| F[Temporary CI schema and CI role]
-    D -->|staging| G[Production-like validation schema]
-    D -->|prod| H[Production schema and service account]
+    PROJECT[dbt_project.yml] --> PROFILE[Profile or platform environment]
+    PROFILE --> TARGET{Active target}
 
-    E --> I[Compile and execute dbt models]
-    F --> I
-    G --> I
-    H --> I
+    TARGET -->|dev| DEV[Personal schema<br/>Developer identity]
+    TARGET -->|CI| CI[Temporary schema<br/>CI identity]
+    TARGET -->|staging| STAGING[Validation schema<br/>Deployment identity]
+    TARGET -->|prod| PROD[Production schema<br/>Service account]
 
-    I --> J[Snowflake database, schema, role, warehouse]
+    DEV --> DBT[dbt compiles and executes]
+    CI --> DBT
+    STAGING --> DBT
+    PROD --> DBT
+    DBT --> SNOWFLAKE[Snowflake<br/>Database · schema · warehouse · role]
+    SNOWFLAKE --> RELATIONS[Built relations]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class PROJECT input
+    class PROFILE,TARGET,DEV,CI,STAGING,PROD control
+    class DBT dbt
+    class SNOWFLAKE platform
+    class RELATIONS output
 ```
 
 ## Readable Snippets
@@ -166,9 +179,9 @@ where is_regulated_trade = {{ "true" if target.name == "prod" else "false" }}
 ## Consultant Talking Points
 
 - **Client question this answers:** "How do we make sure developers, CI, staging, and production dbt runs do not overwrite each other or use the wrong Snowflake privileges?"
-- **Trade-offs to mention:** More environments and roles improve safety, but add setup and operational overhead. Too few environments are simple early on but become risky once multiple people, jobs, or regulated outputs are involved.
+- **Trade-offs to mention:** More environments and roles improve safety but add setup and operational overhead. Too few become risky once multiple people, jobs, or regulated outputs are involved.
 - **Risk or governance angle:** In banking, production execution should usually use controlled service accounts and least-privilege roles, while developers use personal credentials and isolated schemas.
-- **Cost/performance angle:** Development and CI can usually use smaller warehouses and fewer threads; production may need dedicated warehouses, query tagging, monitoring, and stricter scheduling.
+- **Cost/performance angle:** Development and CI can usually use smaller warehouses and fewer threads. Production may need dedicated warehouses, query tagging, monitoring, and stricter scheduling.
 
 ## Common Pitfalls
 

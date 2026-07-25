@@ -11,15 +11,16 @@ tags:
 
 # Seeds and Static Reference Data
 
-> Seeds are small CSV-based reference tables stored with the dbt project; useful for controlled static mappings, but risky for large, sensitive, or frequently changing production data.
+> [!abstract] Mental model
+> A seed is a small, controlled lookup table in Git—not an ingestion pipeline.
 
 ## Executive Summary
 
 - **What it is:** A seed is a CSV file in a dbt project that dbt can load into the warehouse as a table with `dbt seed`, then reference in models with `ref()`.
-- **Why it matters:** Seeds let small reference datasets live beside transformation code, making them version-controlled, code-reviewable, reproducible, testable, and usable across environments.
+- **Why it matters:** Seeds keep small reference datasets beside transformation code. This makes them version-controlled, reviewable, reproducible, testable, and reusable across environments.
 - **Mental model:** **A seed is a tiny controlled lookup table in Git, not an ingestion pipeline.**
 - **Best used when:** The data is small, stable, non-sensitive, and useful as reference logic, such as country codes, static mappings, risk bands, test fixtures, or slow-changing business categories.
-- **Avoid or reconsider when:** The data is large, frequently changing, sensitive, operationally owned outside analytics engineering, or requires approvals and audit controls beyond Git review.
+- **Avoid or reconsider when:** The data is large, frequently changing, sensitive, owned outside analytics engineering, or needs stronger controls than Git review.
 
 ## What It Can Do
 
@@ -36,7 +37,7 @@ tags:
 
 - Replace source systems, ingestion pipelines, master data management, or data governance tools.
 - Handle large or frequently changing datasets well.
-- Safely store sensitive data such as customers, accounts, employees, entitlements, secrets, or regulatory override lists without serious governance concerns.
+- Safely store sensitive customer, account, employee, entitlement, secret, or regulatory override data without strong governance controls.
 - Provide row-level operational audit history beyond Git commits and warehouse load artifacts.
 - Automatically resolve conflicts when many business users want to edit mappings at the same time.
 - Preserve correct data types unless seed configuration is reviewed; type inference can surprise you.
@@ -63,7 +64,7 @@ tags:
 
 1. A small CSV file is placed in the dbt project's seed directory, such as `seeds/country_codes.csv`.
 2. Optional seed properties and configs define descriptions, tests, column types, quoting, tags, and docs behavior.
-3. A developer or job runs `dbt seed`, or `dbt build` includes the seed as part of the selected DAG resources.
+3. A developer or job runs `dbt seed`; `dbt build` can also include the selected seed.
 4. dbt loads the CSV into the warehouse as a table in the active target schema.
 5. Downstream models reference the seed table with `ref('country_codes')`.
 6. dbt records the seed as a node in the DAG, so lineage, selection, docs, and tests can include it.
@@ -73,14 +74,25 @@ tags:
 
 ```mermaid
 flowchart TD
-    A[Seed CSV in Git] --> B[dbt seed or dbt build]
-    B --> C[Seed table in warehouse]
-    C --> D[ref function in dbt model]
-    D --> E[Staging, intermediate, or mart model]
+    A[Git pull request] --> B[Seed CSV]
+    B --> C[dbt seed or dbt build]
+    C --> D[Seed table in warehouse]
+    D --> E[Model using ref]
+    E --> F[Staging, intermediate, or mart output]
+    G[Tests, types, and docs] -. govern .-> B
+    G -. validate .-> D
 
-    F[Git pull request] --> A
-    A --> G[Seed tests and docs]
-    G --> E
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,B input
+    class C,E dbt
+    class D platform
+    class F output
+    class G control
 ```
 
 ## Readable Snippets
@@ -168,7 +180,7 @@ branch_code,branch_name
 ## Consultant Talking Points
 
 - **Client question this answers:** "Should this small mapping live in dbt as a seed, in a source table, in SQL logic, or in a governed master-data process?"
-- **Trade-offs to mention:** Seeds are simple and reviewable, but they move data ownership into Git. That is good for small controlled mappings and bad for operational, sensitive, or frequently edited data.
+- **Trade-offs to mention:** Seeds are simple and reviewable, but they move data ownership into Git. This suits small controlled mappings, not operational, sensitive, or frequently edited data.
 - **Risk or governance angle:** In banking, seeds should not become a backdoor for customer data, account lists, regulatory overrides, entitlements, sanctions data, or manually maintained production controls.
 - **Cost/performance angle:** Seeds are usually cheap because they are small. Cost risk appears when teams misuse seeds for large data, reload them unnecessarily, or join poorly designed mappings into high-volume transformations.
 

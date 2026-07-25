@@ -11,13 +11,14 @@ tags:
 
 # Models, ref(), source(), and the DAG
 
-> Core dbt mental model: SQL files become warehouse objects, `source()` marks external inputs, `ref()` connects dbt-managed models, and the DAG turns SQL into an ordered dependency graph.
+> [!abstract] Mental model
+> **`source()` is the door into dbt; `ref()` is the wiring inside dbt.** The DAG is the map created by those connections.
 
 ## Executive Summary
 
 - **What it is:** The core dependency system in dbt: models contain transformation SQL, `source()` references upstream data that dbt does not create, `ref()` references dbt-managed resources, and the DAG records how everything depends on everything else.
 - **Why it matters:** The DAG lets dbt build models in the right order, show lineage, support documentation, run targeted commands, power CI selection, and make impact analysis practical.
-- **Mental model:** **`source()` is the door into dbt; `ref()` is the wiring inside dbt.** The DAG is the map created from those connections.
+- **Mental model:** External inputs enter through `source()`; dbt-managed resources connect through `ref()`.
 - **Best used when:** A team wants transformation logic to be modular, testable, documented, environment-aware, and easy to reason about across staging, intermediate, and mart layers.
 - **Avoid or reconsider when:** SQL is hard-coded to physical database objects, dependencies are hidden in dynamic SQL, or the team expects the DAG itself to reduce compute without materialization and filtering decisions.
 
@@ -27,7 +28,7 @@ tags:
 - Use `source()` to declare and reference upstream raw or externally managed tables.
 - Use `ref()` to reference dbt models, seeds, and snapshots without hard-coding database and schema names.
 - Tell dbt which models must run before other models.
-- Compile references to the correct physical relation for the active environment and target.
+- Resolve references to the correct physical relation for the active target.
 - Power lineage views, documentation, impact analysis, and node selection commands.
 - Let commands select upstream or downstream resources, such as `+fct_orders` or `stg_orders+`.
 - Make code review easier by showing whether a change affects only one model or a wider downstream chain.
@@ -38,7 +39,7 @@ tags:
 - Replace good modeling structure. A technically valid DAG can still be confusing, overly tangled, or poorly layered.
 - Know about dependencies that are hidden from dbt parsing, such as dynamic SQL that references tables without `ref()` or `source()`.
 - Create raw/source tables. Sources describe external data; ingestion tools or warehouse processes still load that data.
-- Prevent circular logic by design alone; a model cannot depend on a downstream model that eventually depends back on it.
+- Make circular logic executable; dbt rejects a dependency loop because no valid build order exists.
 - Guarantee business correctness. The DAG shows dependencies, not whether the logic is right.
 
 ## Core Concepts
@@ -73,16 +74,22 @@ tags:
 
 ```mermaid
 flowchart TD
-    RAW_ORDERS[Source: raw.erp.orders] --> STG_ORDERS[stg_orders]
-    RAW_CUSTOMERS[Source: raw.erp.customers] --> STG_CUSTOMERS[stg_customers]
+    RAW_ORDERS[raw.erp.orders] --> STG_ORDERS[stg_orders]
+    RAW_CUSTOMERS[raw.erp.customers] --> STG_CUSTOMERS[stg_customers]
 
     STG_ORDERS --> INT_ORDERS[int_orders_enriched]
     STG_CUSTOMERS --> INT_ORDERS
-
     INT_ORDERS --> FCT_ORDERS[fct_orders]
     INT_ORDERS --> DIM_CUSTOMERS[dim_customer_order_summary]
+    FCT_ORDERS --> DASHBOARD[Finance dashboard exposure]
 
-    FCT_ORDERS --> DASHBOARD[Exposure: finance dashboard]
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class RAW_ORDERS,RAW_CUSTOMERS input
+    class STG_ORDERS,STG_CUSTOMERS,INT_ORDERS,FCT_ORDERS,DIM_CUSTOMERS dbt
+    class DASHBOARD output
 ```
 
 ## Readable Snippets
@@ -154,8 +161,8 @@ dbt build --select +fct_order_daily
 ## Consultant Talking Points
 
 - **Client question this answers:** "How does dbt know what to build first, what depends on what, and what will break if we change this model?"
-- **Trade-offs to mention:** Smaller modular models make lineage and review easier, but too many tiny models can create noisy DAGs and unnecessary warehouse objects if materialized poorly.
-- **Risk or governance angle:** Explicit lineage helps explain where regulated data came from, which outputs depend on it, and which models need review after upstream changes.
+- **Trade-offs to mention:** Smaller models make lineage and review easier. Too many tiny models can create a noisy DAG and unnecessary warehouse objects if materialized poorly.
+- **Risk or governance angle:** Explicit lineage shows where regulated data came from, which outputs depend on it, and what needs review after an upstream change.
 - **Cost/performance angle:** The DAG supports targeted builds and parallel execution, but compute savings come from selection, materializations, incremental filters, and warehouse tuning, not from `ref()` alone.
 
 ## Common Pitfalls

@@ -11,12 +11,13 @@ tags:
 
 # Documentation, Lineage, and Exposures
 
-> Documentation explains what dbt assets mean, lineage shows how data flows through them, and exposures connect modeled data to dashboards, reports, ML jobs, and other downstream consumers.
+> [!abstract] Mental model
+> Documentation explains the asset. Lineage explains the flow. Exposures explain why the flow matters.
 
 ## Executive Summary
 
-- **What it is:** dbt metadata that describes models, columns, sources, tests, owners, dependencies, and downstream uses. Documentation lives mostly in YAML and docs blocks; lineage comes from the DAG; exposures declare important external consumers.
-- **Why it matters:** It turns a dbt project from a collection of SQL files into a searchable knowledge layer for impact analysis, onboarding, governance, debugging, and business trust.
+- **What it is:** dbt metadata describing models, columns, sources, tests, owners, dependencies, and downstream uses. Documentation lives mostly in YAML and docs blocks, lineage comes from the DAG, and exposures declare important external consumers.
+- **Why it matters:** It turns SQL files into a searchable knowledge layer for impact analysis, onboarding, governance, debugging, and trust.
 - **Mental model:** **Documentation explains the asset. Lineage explains the flow. Exposures explain why the flow matters.**
 - **Best used when:** A team needs analysts, engineers, reviewers, auditors, and business users to understand what data means, where it came from, who owns it, and which outputs depend on it.
 - **Avoid or reconsider when:** Documentation is treated as a one-time writing exercise, lineage is expected to prove correctness, or exposures are added for every minor downstream use until the graph becomes noise.
@@ -27,7 +28,7 @@ tags:
 - Show upstream and downstream dependencies based on `ref()`, `source()`, tests, metrics, and exposures.
 - Generate docs/catalog metadata through dbt artifacts such as `manifest.json` and `catalog.json`.
 - Help users inspect grain, purpose, ownership, tests, columns, and dependencies.
-- Link final dbt outputs to dashboards, applications, reports, notebooks, ML jobs, reverse ETL syncs, or regulatory outputs.
+- Link dbt outputs to dashboards, applications, reports, notebooks, ML jobs, reverse ETL syncs, and regulatory outputs.
 - Support impact analysis before changing a model.
 - Help CI or operators select resources upstream of important exposures.
 - Reduce tribal knowledge by keeping business definitions close to transformation code.
@@ -37,7 +38,7 @@ tags:
 - Guarantee the data is correct. Documentation and lineage describe assets; tests and validation check assumptions.
 - Detect every dependency outside dbt unless it is declared or integrated.
 - Stay accurate without maintenance during code, model, source, dashboard, and ownership changes.
-- Replace a full enterprise data catalog, BI catalog, access review process, or data governance operating model.
+- Replace an enterprise catalog, BI catalog, access review process, or data governance operating model.
 - Explain hidden dependencies caused by hard-coded relation names, dynamic SQL, manual extracts, or unregistered BI usage.
 - Prove regulatory compliance by itself. It supports evidence, but controls, approvals, tests, lineage, and ownership must align.
 - Automatically infer business meaning from SQL names.
@@ -68,32 +69,35 @@ tags:
 3. Important downstream uses are declared as exposures with type, owner, maturity, URL, description, and `depends_on` references.
 4. dbt parses the project and builds the DAG from declared dependencies.
 5. dbt generates artifacts such as `manifest.json` and, when docs/catalog generation runs, `catalog.json`.
-6. dbt docs, catalog surfaces, and metadata tools use those artifacts to show documentation, lineage, columns, tests, and downstream exposure context.
+6. dbt docs, catalogs, and metadata tools use those artifacts to show descriptions, lineage, columns, tests, and exposures.
 7. Developers and consultants use that metadata for onboarding, impact analysis, incident diagnosis, audit support, and change review.
 
 ## Visuals
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Source: core_banking.accounts] --> B[stg_accounts]
     B --> C[int_account_risk_enriched]
     C --> D[fct_risk_exposure]
+    D --> E[Executive Risk Dashboard]
+    D --> F[Regulatory Risk Report]
 
-    D --> E[Exposure: Executive Risk Dashboard]
-    D --> F[Exposure: Regulatory Risk Report]
+    G[Descriptions and tests] -. enrich .-> B
+    G -. enrich .-> C
+    G -. enrich .-> D
+    H[Owners and maturity] -. govern .-> E
+    H -. govern .-> F
 
-    G[Descriptions and tests] --> B
-    G --> C
-    G --> D
-    H[Owners and maturity] --> E
-    H --> F
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
 
-    A --> I[Lineage and docs]
-    B --> I
-    C --> I
-    D --> I
-    E --> I
-    F --> I
+    class A input
+    class B,C,D dbt
+    class E,F output
+    class G,H control
 ```
 
 ## Readable Snippets
@@ -170,7 +174,7 @@ dbt docs generate
 ## Consultant Talking Points
 
 - **Client question this answers:** "Can we understand what this data means, where it came from, who owns it, and which dashboards or reports depend on it?"
-- **Trade-offs to mention:** Documentation close to code is reviewable and trustworthy, but it requires discipline. Too little documentation creates tribal knowledge; too much low-quality documentation creates noise.
+- **Trade-offs to mention:** Documentation close to code is reviewable and trustworthy, but requires discipline. Too little creates tribal knowledge; too much low-quality text creates noise.
 - **Risk or governance angle:** Lineage and exposures help identify which regulated reports, dashboards, or business processes are affected by upstream changes, but they are only as complete as the declared dependencies.
 - **Cost/performance angle:** Documentation itself is usually low-cost. The practical cost benefit is operational: faster debugging, safer change review, fewer unnecessary broad rebuilds, and clearer ownership.
 

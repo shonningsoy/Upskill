@@ -11,15 +11,16 @@ tags:
 
 # Snapshots and Historical Change Tracking
 
-> Snapshots preserve historical versions of mutable source records, giving dbt an SCD2-style way to answer "what was true when?"
+> [!abstract] Mental model
+> A source table shows the current state. A snapshot preserves the states dbt observed over time.
 
 ## Executive Summary
 
 - **What it is:** A dbt snapshot is a historical table maintained by dbt that records changes to mutable records over time using a stable key and a change-detection strategy.
-- **Why it matters:** Many source systems overwrite records. Without snapshots, previous statuses, classifications, risk ratings, addresses, ownership values, or other changing attributes may disappear from analytics history.
+- **Why it matters:** Many source systems overwrite records. Without snapshots, previous statuses, risk ratings, addresses, and other changing attributes can disappear from analytics history.
 - **Mental model:** **A source table shows current state; a snapshot shows observed versions of that state over time.**
 - **Best used when:** A source table stores only the latest record state, changes matter analytically, and the project needs SCD2-style history for dimensions or reference entities.
-- **Avoid or reconsider when:** The source already has a complete append-only event log, every intra-run change must be captured, the table is huge and volatile, or there is no reliable unique key or change signal.
+- **Avoid or reconsider when:** The source already has a complete event log, every change must be captured, the table is huge and volatile, or no reliable key or change signal exists.
 
 ## What It Can Do
 
@@ -42,7 +43,7 @@ tags:
 - Detect changes reliably if `updated_at` is missing, late, incorrectly maintained, or not updated when important fields change.
 - Avoid storage growth; snapshots add rows as records change.
 - Make historical joins simple by itself. Multiple SCD2 tables require careful valid-from/valid-to logic.
-- Automatically migrate existing snapshot tables when newer configs such as `hard_deletes`, `dbt_valid_to_current`, or custom meta column names are added.
+- Automatically migrate existing snapshot tables when configs such as `hard_deletes`, `dbt_valid_to_current`, or custom meta columns are added.
 
 ## Core Concepts
 
@@ -79,16 +80,27 @@ tags:
 ```mermaid
 flowchart TD
     A[Mutable source table] --> B[dbt snapshot]
-    B --> C{Record changed?}
-    C -->|No| D[Keep current snapshot row]
-    C -->|New row| E[Insert new current version]
-    C -->|Changed row| F[Close old version with dbt_valid_to]
-    F --> G[Insert new current version]
-
+    B --> C{Observed state}
+    C -->|Unchanged| D[Keep current version]
+    C -->|New| E[Insert current version]
+    C -->|Changed| F[Close previous version]
+    F --> G[Insert new version]
     D --> H[Snapshot history table]
     E --> H
     G --> H
     H --> I[Point-in-time models and marts]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B dbt
+    class C,D,E,F,G control
+    class H platform
+    class I output
 ```
 
 ## Readable Snippets
@@ -168,7 +180,7 @@ customer_id | status  | dbt_valid_from | dbt_valid_to
 ## Consultant Talking Points
 
 - **Client question this answers:** "If the source system overwrites records, how can we still report what the value used to be?"
-- **Trade-offs to mention:** Snapshots are simple and useful for SCD2-style history, but they are batch-observed history, not complete event history.
+- **Trade-offs to mention:** Snapshots provide useful SCD2-style history, but only for states observed at each run—not every event.
 - **Risk or governance angle:** In banking, snapshots can support questions such as "what was the customer risk rating when this report ran?", but should not be oversold as legal audit logs unless source timing and controls support that claim.
 - **Cost/performance angle:** Snapshot cost grows with source size, change frequency, check-column complexity, run cadence, and downstream joins over historical rows.
 

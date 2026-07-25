@@ -11,15 +11,16 @@ tags:
 
 # Sources and Source Freshness
 
-> Sources declare the upstream data dbt depends on; source freshness checks whether that upstream data arrived recently enough to trust downstream models.
+> [!abstract] Mental model
+> Sources are the front door into the dbt DAG. Freshness checks whether data arrived on time at that door.
 
 ## Executive Summary
 
-- **What it is:** A source is dbt's named reference to externally loaded data, usually raw tables or views created by ingestion tools, application replicas, Snowpipe, streaming jobs, or custom pipelines. Source freshness checks whether those upstream inputs are current enough.
-- **Why it matters:** A dbt model can run successfully while using stale upstream data. Sources and freshness make the raw-data boundary visible, testable, documented, and operationally inspectable.
+- **What it is:** A source is dbt's named reference to externally loaded data, usually a raw table or view. Source freshness checks whether that input is current enough.
+- **Why it matters:** A dbt model can succeed while using stale data. Sources and freshness make the raw-data boundary visible, testable, documented, and easier to operate.
 - **Mental model:** **Sources are the front door into the dbt DAG; freshness is the arrival-time check at that door.**
 - **Best used when:** Raw data arrival affects dashboards, reconciliations, regulatory reporting, daily finance processes, or downstream data products.
-- **Avoid or reconsider when:** The table is static, historical-only, manually updated without a clear SLA, or freshness would create expensive scans without adding useful operational signal.
+- **Avoid or reconsider when:** The table is static, historical-only, or manually updated without a clear SLA. Also reconsider checks that add scan cost without useful operational signal.
 
 ## What It Can Do
 
@@ -39,7 +40,7 @@ tags:
 - Guarantee every expected file, row, or event arrived unless paired with completeness checks.
 - Replace data tests, row-count checks, reconciliation models, observability, alerts, or incident response.
 - Fix late upstream data; it only detects and reports staleness.
-- Make an unclear ingestion SLA clear. The team still needs business expectations for arrival time and acceptable delay.
+- Define an unclear ingestion SLA. The team still needs agreed arrival times and acceptable delays.
 - Avoid all cost risk. Freshness queries over very large sources can be expensive if configured poorly.
 
 ## Core Concepts
@@ -69,24 +70,34 @@ tags:
 5. Freshness configuration defines the expected arrival window, usually using `loaded_at_field` or `loaded_at_query`.
 6. `dbt source freshness` checks the latest load timestamp against `warn_after` and `error_after`.
 7. dbt reports pass, warning, or error freshness status and writes results to `sources.json`.
-8. Downstream jobs, alerts, and reviewers can use the result to decide whether the data is current enough to publish or investigate.
+8. Jobs, alerts, and reviewers use the result to publish the data or investigate a delay.
 
 ## Visuals
 
 ```mermaid
 flowchart TD
-    A[Ingestion tool or upstream pipeline] --> B[Raw source table]
+    A[Upstream loader] --> B[Raw source table]
     B --> C[dbt source declaration]
-    C --> D[source function in staging model]
-    D --> E[Staging model]
-    E --> F[Intermediate and mart models]
+    C --> D[Staging model using source]
+    D --> E[Intermediate and mart models]
 
-    C --> G[Freshness config]
-    G --> H[dbt source freshness]
-    H --> I{Fresh enough?}
-    I -->|pass| J[Proceed with confidence]
-    I -->|warn| K[Investigate or alert]
-    I -->|error| L[Block, fail, or escalate]
+    C --> F[Freshness thresholds]
+    F --> G[dbt source freshness]
+    G --> H{Within SLA?}
+    H -->|Pass| I[Continue build]
+    H -->|Warn| J[Alert or investigate]
+    H -->|Error| K[Block or escalate]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A,B input
+    class C,D,F,G dbt
+    class E,I output
+    class H,J,K control
 ```
 
 ## Readable Snippets
@@ -183,7 +194,7 @@ max(loaded_at) is 5 hours ago    -> error
 ## Consultant Talking Points
 
 - **Client question this answers:** "Did our upstream data arrive on time, or did dbt successfully build models from stale inputs?"
-- **Trade-offs to mention:** Freshness checks are high-signal for operational sources, but noisy on static, irregular, or poorly timestamped data. Too many freshness checks can create alert fatigue.
+- **Trade-offs to mention:** Freshness checks are useful for operational sources, but noisy on static, irregular, or poorly timestamped data. Too many checks create alert fatigue.
 - **Risk or governance angle:** In finance and banking, source freshness helps separate "the report ran" from "the report used current approved inputs."
 - **Cost/performance angle:** Freshness checks usually query `max(loaded_at_field)`. On huge tables, use a suitable load timestamp, partition-friendly field, warehouse metadata where available, custom query, or filter to avoid unnecessary scans.
 

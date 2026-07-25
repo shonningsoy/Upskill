@@ -11,13 +11,14 @@ tags:
 
 # Project Anatomy and dbt_project.yml
 
-> A dbt project is a structured codebase for transformations; `dbt_project.yml` is the required root configuration file that tells dbt how to operate that codebase.
+> [!abstract] Mental model
+> A dbt project is the transformation codebase; `dbt_project.yml` is its root configuration and sets the broad operating rules.
 
 ## Executive Summary
 
 - **What it is:** Project anatomy is the folder and file structure of a dbt project. `dbt_project.yml` is the required project-level configuration file at the root of that structure.
 - **Why it matters:** A clean project structure makes transformation logic easier to understand, test, document, review, govern, and operate across teams.
-- **Mental model:** **`dbt_project.yml` is the project constitution.** It defines broad defaults and paths; SQL files hold transformation logic; YAML property files describe and test resources; profiles or platform settings handle connections.
+- **Mental model:** **`dbt_project.yml` is the project constitution.** It defines paths and broad defaults. SQL files hold transformation logic, property files describe and test resources, and profiles or platform settings handle connections.
 - **Best used when:** A team needs a maintainable dbt codebase with clear folders, naming rules, default materializations, source/model organization, and environment-aware behavior.
 - **Avoid or reconsider when:** Teams try to put credentials, every test, every column description, or all business logic into `dbt_project.yml`. That file should coordinate the project, not become a dumping ground.
 
@@ -25,11 +26,11 @@ tags:
 
 - Mark a directory as a dbt project.
 - Define the project name, version, config version, and profile reference.
-- Tell dbt where to find models, tests, macros, seeds, snapshots, analyses, docs, and other resources.
+- Tell dbt where to find models, tests, macros, seeds, snapshots, analyses, and other resources.
 - Set default configurations for folders or resource groups, such as materialization, schema, tags, grants, or enabled status.
 - Apply broad conventions so individual model files do not repeat the same boilerplate.
 - Support environment-aware behavior through variables, target-aware Jinja, and platform-specific settings.
-- Make the structure of a transformation codebase understandable for developers, reviewers, auditors, and platform teams.
+- Make the transformation codebase easier for developers, reviewers, auditors, and platform teams to understand.
 
 ## What It Cannot Do
 
@@ -70,24 +71,36 @@ tags:
 
 ```mermaid
 flowchart TD
-    ROOT[Project root] --> PROJECT[dbt_project.yml]
+    ROOT[Project root] --> PROJECT[dbt_project.yml<br/>paths and defaults]
     ROOT --> MODELS[models/]
     ROOT --> MACROS[macros/]
     ROOT --> SEEDS[seeds/]
     ROOT --> SNAPSHOTS[snapshots/]
     ROOT --> TESTS[tests/]
 
-    PROJECT --> PATHS[Resource paths]
-    PROJECT --> DEFAULTS[Default configs]
     PROJECT --> PROFILE[Profile reference]
+    PROJECT -. config inheritance .-> STG
+    PROJECT -. config inheritance .-> INT
+    PROJECT -. config inheritance .-> MARTS
 
     MODELS --> STG[staging]
     MODELS --> INT[intermediate]
     MODELS --> MARTS[marts]
 
-    STG --> STGCFG[Views, source-aligned cleanup]
+    STG --> STGCFG[Source-aligned views]
     INT --> INTCFG[Reusable business logic]
-    MARTS --> MARTCFG[Tables, governed outputs]
+    MARTS --> MARTCFG[Governed outputs]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class ROOT input
+    class PROJECT,PROFILE control
+    class MODELS,MACROS,SEEDS,SNAPSHOTS,TESTS,STG,INT,MARTS dbt
+    class STGCFG,INTCFG,MARTCFG output
 ```
 
 ## Readable Snippets
@@ -173,7 +186,7 @@ models:
 ## Consultant Talking Points
 
 - **Client question this answers:** "How should we structure a dbt project so it stays maintainable as more teams and models are added?"
-- **Trade-offs to mention:** Broad defaults reduce repetition, but too much hidden configuration can make behavior surprising. Folder structure should reveal ownership and maturity, not just technical convenience.
+- **Trade-offs to mention:** Broad defaults reduce repetition, but hidden configuration can make behavior surprising. Folder structure should reveal ownership and maturity, not just technical convenience.
 - **Risk or governance angle:** In a bank, project anatomy supports review, auditability, onboarding, separation of raw/staging/marts, ownership boundaries, and controlled publication of governed outputs.
 - **Cost/performance angle:** Defaults such as `+materialized: table` or broad full-refresh patterns can create unnecessary Snowflake cost if applied too widely.
 
@@ -183,7 +196,7 @@ models:
 - Treating `dbt_project.yml` as the place for every description, test, and business rule.
 - Creating vague folders such as `new_models`, `final`, `temp`, or `misc` that hide model purpose.
 - Applying broad table materialization defaults that make cheap staging views become expensive persisted objects.
-- Overusing folder-level configs so developers cannot easily tell why a model behaves the way it does.
+- Overusing folder-level configs until developers cannot tell why a model behaves as it does.
 - Forgetting that `+schema` and naming conventions affect where Snowflake objects are created.
 - Mixing source-aligned cleanup, business logic, and published marts in the same folder.
 - Letting project structure grow organically without periodic review as more domains and teams contribute.

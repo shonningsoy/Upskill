@@ -11,12 +11,13 @@ tags:
 
 # What dbt Is and Is Not
 
-> dbt is the transformation and analytics-engineering layer: it turns data already in a data platform into tested, documented, dependency-aware analytical models.
+> [!abstract] Mental model
+> dbt is the transformation layer: it turns data already in a platform into tested, documented, dependency-aware analytical models.
 
 ## Executive Summary
 
 - **What it is:** dbt is a framework for building, testing, documenting, and deploying data transformations, usually with SQL, inside a cloud data platform such as Snowflake.
-- **Why it matters:** It lets analytics and data engineering teams treat SQL transformations more like software: modular code, Git review, dependency management, repeatable builds, tests, documentation, and deployment discipline.
+- **Why it matters:** It brings software practices to SQL transformations: modular code, Git review, dependency management, repeatable builds, tests, documentation, and controlled deployment.
 - **Mental model:** Source systems feed a data platform; dbt organizes the transformation logic from raw or source-aligned data into trusted staging models, intermediate models, marts, metrics, and downstream data products.
 - **Best used when:** Data already lands in the warehouse or lakehouse and the client needs reliable transformation logic, lineage, quality checks, documentation, and team workflow around analytical models.
 - **Avoid or reconsider when:** The problem is ingestion, real-time event processing, operational application logic, general-purpose orchestration, BI visualization, or unclear business rules that have not been agreed.
@@ -29,7 +30,7 @@ tags:
 - Materialize models as views, tables, incremental tables, ephemeral models, or platform-specific materializations.
 - Add data tests, unit tests, source freshness checks, documentation, and exposures.
 - Generate artifacts such as `manifest.json`, `run_results.json`, and catalog metadata for lineage, docs, CI, and observability.
-- Support development, CI, deployment, and production workflows through dbt Core, the dbt platform, dbt Fusion, or platform-native options such as dbt Projects on Snowflake.
+- Support development, CI, deployment, and production workflows through dbt Core, Fusion, the dbt platform, or platform-native options such as dbt Projects on Snowflake.
 - Help teams make transformation logic reviewable, reusable, and easier to operate.
 
 ## What It Cannot Do
@@ -40,7 +41,7 @@ tags:
 - Automatically determine correct business logic, metric definitions, regulatory rules, or finance sign-off.
 - Replace enterprise governance controls such as RBAC, masking policies, row access policies, data classification, retention policy, or audit processes.
 - Make inefficient SQL cheap; dbt can structure SQL well, but the warehouse still pays for the queries it runs.
-- Eliminate the need for orchestration, observability, incident response, or ownership in production.
+- Eliminate the need for orchestration, observability, incident response, or clear production ownership.
 
 ## Core Concepts
 
@@ -83,6 +84,18 @@ flowchart LR
     INT --> DAG
     MARTS --> DAG
     DAG --> TESTS[Tests, docs,<br/>artifacts and lineage]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class SRC,ING input
+    class RAW platform
+    class SOURCES,STG,INT,MARTS dbt
+    class CONSUMERS output
+    class DAG,TESTS control
 ```
 
 ## Readable Snippets
@@ -126,7 +139,7 @@ sources:
 ## Consultant Talking Points
 
 - **Client question this answers:** "Why do we need dbt if we already have Snowflake?"
-- **Trade-offs to mention:** Snowflake is the data platform; dbt is the engineering workflow for transformation code, dependency management, tests, documentation, and deployment. The trade-off is another project/control-plane layer to govern.
+- **Trade-offs to mention:** Snowflake is the data platform; dbt is the engineering workflow around transformation code. The trade-off is another project and control-plane layer to govern.
 - **Risk or governance angle:** dbt improves transparency and repeatability, but it must be paired with approved roles, controlled environments, source ownership, test severity, documentation standards, and audit evidence.
 - **Cost/performance angle:** dbt itself does not make queries free. Snowflake still charges for the compiled SQL, tests, full refreshes, incremental merges, and documentation/freshness queries.
 
@@ -134,7 +147,7 @@ sources:
 
 - Treating dbt as "just scheduled SQL" and missing the value of modularity, `ref()` dependencies, tests, docs, environments, and artifacts.
 - Expecting dbt to ingest data from source systems. dbt normally transforms data after it has landed in the platform.
-- Assuming a green dbt run proves the data is correct. A run can succeed while source data is stale, business logic is wrong, or reconciliation is missing.
+- Assuming a green dbt run proves the data is correct. A run can succeed while data is stale, business logic is wrong, or reconciliation is missing.
 - Building too much Jinja or macro abstraction too early, making compiled SQL difficult to inspect and defend.
 - Running dbt with overly powerful roles such as account-level admin roles instead of least-privilege development, CI, deployment, and production execution roles.
 - Scheduling frequent full builds or broad tests without understanding warehouse cost and downstream freshness requirements.

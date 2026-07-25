@@ -11,12 +11,13 @@ tags:
 
 # dbt Core, Fusion, dbt Platform, and dbt Projects on Snowflake
 
-> Separate the dbt project, dbt execution engine, dbt control plane, and Snowflake data plane before making a recommendation.
+> [!abstract] Mental model
+> Separate the project, execution engine, control plane, and Snowflake data plane before making a recommendation.
 
 ## Executive Summary
 
 - **What it is:** These are different ways to develop, compile, execute, schedule, monitor, and govern dbt projects. They are related, but they are not the same layer.
-- **Why it matters:** Clients often ask "Should we use dbt Core, Fusion, dbt platform, or Snowflake-native dbt?" The real decision is usually who owns the dbt operating model, not where the SQL runs.
+- **Why it matters:** Clients often ask, "Should we use dbt Core, Fusion, the dbt platform, or Snowflake-native dbt?" The deeper decision is who owns the dbt operating model; the SQL still runs in the data platform.
 - **Mental model:** **Project code is portable. Engines run dbt. Control planes manage workflow. Snowflake executes and stores the data when Snowflake is the warehouse.**
 - **Best used when:** A client needs to choose a dbt operating model, compare managed versus self-operated execution, or decide whether Snowflake or dbt Labs should own production dbt operations.
 - **Avoid or reconsider when:** The client has not yet defined transformation ownership, data platform strategy, security boundaries, CI/CD standards, or production support responsibilities.
@@ -25,11 +26,11 @@ tags:
 
 - Clarify the difference between the dbt project, engine, control plane, and data platform.
 - Explain why the same dbt project can often run in multiple environments.
-- Compare self-operated dbt Core or Fusion with the managed dbt platform and Snowflake-native dbt Projects.
+- Compare self-operated Core or Fusion with the managed dbt platform and Snowflake-native dbt Projects.
 - Help clients decide where development, CI, scheduling, monitoring, documentation, artifacts, and alerting should live.
 - Support a bank-style governance discussion around SaaS boundaries, metadata exposure, service identities, RBAC, auditability, and production support.
 - Reduce confusion between "Fusion" as an engine and "dbt platform" as a managed control plane.
-- Explain why Snowflake remains the data plane even when dbt platform or dbt Projects on Snowflake manages the dbt workflow.
+- Explain why Snowflake remains the data plane even when another control plane manages the workflow.
 
 ## What It Cannot Do
 
@@ -69,26 +70,35 @@ tags:
 
 ```mermaid
 flowchart TD
-    PROJECT[dbt project in Git<br/>models, tests, macros, docs] --> ENGINE{dbt engine}
+    PROJECT[dbt project in Git<br/>models, tests, macros, docs]
+    PROJECT --> ENGINE{Execution engine}
 
     ENGINE --> CORE[dbt Core<br/>self-operated]
-    ENGINE --> FUSION[dbt Fusion<br/>newer Rust-based engine]
+    ENGINE --> FUSION[dbt Fusion<br/>Rust-based engine]
 
-    PROJECT --> PLATFORM[dbt platform<br/>managed dbt control plane]
-    PROJECT --> SNOW[dbt Projects on Snowflake<br/>Snowflake-native control plane]
-    PROJECT --> SELF[Self-operated control plane<br/>CI, Airflow, Dagster, containers]
-
-    CORE --> SELF
+    CORE --> SELF[Self-operated control plane<br/>CI, orchestrator, containers]
     FUSION --> SELF
-    FUSION --> PLATFORM
-    FUSION --> SNOW
+    FUSION --> PLATFORM[dbt platform<br/>managed control plane]
+    FUSION --> SNOW[dbt Projects on Snowflake<br/>native control plane]
 
-    SELF --> WH[(Snowflake warehouse)]
+    SELF --> WH[(Snowflake<br/>data plane)]
     PLATFORM --> WH
     SNOW --> WH
 
     WH --> MODELS[Tables, views,<br/>incremental models]
-    WH --> META[Query history, cost,<br/>lineage and artifacts]
+    WH --> META[Run metadata,<br/>query history and cost]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef dbt fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class PROJECT input
+    class CORE,FUSION,ENGINE dbt
+    class SELF,PLATFORM,SNOW control
+    class WH platform
+    class MODELS,META output
 ```
 
 ## Readable Snippets
@@ -134,7 +144,7 @@ The version above is illustrative. Always check the currently supported versions
 ## Consultant Talking Points
 
 - **Client question this answers:** "Should we run dbt ourselves, use the dbt platform, use Fusion, or run dbt natively in Snowflake?"
-- **Trade-offs to mention:** Self-operated dbt gives control but more operational responsibility. The dbt platform gives a managed dbt experience but adds a SaaS boundary. dbt Projects on Snowflake keeps more operations inside Snowflake but is Snowflake-centric and has supported-version/command limits.
+- **Trade-offs to mention:** Self-operated dbt gives control but adds operational responsibility. The dbt platform provides a managed experience but adds a SaaS boundary. dbt Projects on Snowflake keeps more operations inside Snowflake but has platform and feature constraints.
 - **Risk or governance angle:** In a bank, the decision depends on metadata boundaries, service identities, least-privilege roles, audit evidence, package approval, SaaS review, and incident ownership.
 - **Cost/performance angle:** Snowflake still charges for the compiled SQL. The control-plane choice changes scheduling, concurrency, observability, and operational cost, but it does not make heavy models cheap.
 
@@ -143,7 +153,7 @@ The version above is illustrative. Always check the currently supported versions
 - Treating dbt Core, Fusion, dbt platform, and dbt Projects on Snowflake as interchangeable names for the same thing.
 - Assuming "Fusion" means "dbt platform." Fusion is an engine; the dbt platform is a managed service/control plane.
 - Assuming "dbt platform" changes where data is processed. With Snowflake, transformation SQL still runs in Snowflake.
-- Choosing self-operated dbt Core because it is easy to start, then underestimating production ownership for CI, scheduling, secrets, logs, artifacts, retries, upgrades, and support.
+- Choosing self-operated dbt Core because it is easy to start, then underestimating ownership of CI, scheduling, secrets, logs, retries, upgrades, and support.
 - Choosing the dbt platform without reviewing SaaS approval, metadata exposure, private connectivity, licensing, and operating ownership.
 - Choosing dbt Projects on Snowflake without checking supported dbt versions, commands, flags, packages, concurrency limits, and scheduling constraints.
 - Running the same production project from multiple control planes, such as dbt platform jobs and Snowflake Tasks, creating duplicate runs and unclear incident ownership.
