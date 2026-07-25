@@ -11,7 +11,10 @@ tags:
 
 # External Tables and Iceberg
 
-> Two ways to query or manage data that lives in cloud object storage instead of Snowflake-managed storage. Consultant lens: the answer to "can we avoid copying our whole data lake into Snowflake?" — and Iceberg is where the modern, open-format story is headed.
+> [!abstract] Consultant lens
+> **What it is:** Two ways to query or manage data in cloud object storage instead of Snowflake-managed storage.
+>
+> **Why it matters:** They answer "can we avoid copying our whole data lake into Snowflake?" Iceberg is the modern open-format direction.
 
 ## Executive Summary
 
@@ -49,7 +52,7 @@ tags:
 | External catalog | Glue / Iceberg REST owns metadata; Snowflake connects through a catalog integration | Fits when another platform owns the catalog; supported REST configurations can allow Snowflake writes |
 | External volume | Named object pointing at the bucket + credentials | Where Iceberg data physically lives |
 
-## How It Works
+## How It Works (Simple Flow)
 
 1. Data files (usually **Parquet**) already sit in the client's cloud bucket, or are written there by Snowflake/another engine.
 2. You define an **external volume** so Snowflake knows the bucket and how to authenticate (integration, not inline secrets).
@@ -71,6 +74,17 @@ flowchart TD
     subgraph SF[Snowflake internal - contrast]
       INT[(Internal table<br/>proprietary micro-partitions<br/>Snowflake's own bucket)]
     end
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class B input
+    class CAT control
+    class ET,IC,INT snowflake
+    class R platform
+    class W output
 ```
 
 ## Readable Snippets
@@ -153,4 +167,3 @@ CREATE ICEBERG TABLE sales_ext
 - [Snowflake Docs: External volumes for Iceberg](https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-external-volume)
 - [Snowflake Docs: Write support for externally managed Iceberg tables](https://docs.snowflake.com/en/user-guide/tables-iceberg-externally-managed-writes)
 - [Apache Iceberg: Table spec & catalogs](https://iceberg.apache.org/spec/)
-

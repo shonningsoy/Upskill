@@ -11,7 +11,10 @@ tags:
 
 # Stages and Data Loading
 
-> Internal/external stages, storage integrations, file formats, and the `COPY INTO` model. Consultant lens: the foundation under Snowpipe and External Tables for getting data into and out of Snowflake.
+> [!abstract] Consultant lens
+> **What it is:** Internal and external stages, storage integrations, file formats, and the `COPY INTO` model.
+>
+> **Why it matters:** These are the foundations under Snowpipe and External Tables for getting data into and out of Snowflake.
 
 ## Executive Summary
 
@@ -49,7 +52,7 @@ tags:
 | `COPY INTO` | The load/unload engine | Bulk parse + load; runs on a virtual warehouse |
 | Load metadata | Per-table record of loaded files (~64 days) | Idempotency — re-running skips already-loaded files |
 
-## How It Works
+## How It Works (Simple Flow)
 
 1. **Files arrive** in cloud storage (or are pushed to an internal stage via `PUT`).
 2. A **stage** points at that location; an **external** stage reaches the bucket through a **storage integration** so no keys live in SQL.
@@ -68,6 +71,16 @@ flowchart LR
     C --> D[Snowflake table]
     SI[Storage integration<br/>no secrets in SQL] -.secures.-> B
     FF[File format<br/>how to parse] -.guides.-> C
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A input
+    class SI,FF control
+    class B,C snowflake
+    class D output
 ```
 
 Stages + file formats + `COPY INTO` are also the foundation for Snowpipe (event-driven loads) and External Tables (query in place).

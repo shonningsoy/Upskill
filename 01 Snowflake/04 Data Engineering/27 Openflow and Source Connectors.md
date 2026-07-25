@@ -11,7 +11,10 @@ tags:
 
 # Openflow and Source Connectors
 
-> Managed and extensible source-to-Snowflake integration patterns. Consultant lens: decide when Snowflake-native connectors, Fivetran, Kafka, Snowpipe, or custom ingestion should own data movement.
+> [!abstract] Consultant lens
+> **What it is:** Managed and extensible source-to-Snowflake integration patterns.
+>
+> **Why it matters:** The design choice is whether Snowflake-native connectors, Fivetran, Kafka, Snowpipe, or custom ingestion should own data movement.
 
 ## Executive Summary
 
@@ -70,6 +73,17 @@ flowchart LR
     SP --> RAW
     CUSTOM --> RAW
     RAW --> MODEL[dbt / Dynamic Tables / Tasks]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class SRC input
+    class CHOICE control
+    class OF,FT,SP,CUSTOM platform
+    class RAW snowflake
+    class MODEL output
 ```
 
 ## Readable Snippets
@@ -129,4 +143,3 @@ flowchart LR
 - [Snowflake Docs: About Openflow](https://docs.snowflake.com/en/user-guide/data-integration/openflow/about)
 - [Snowflake Docs: Openflow connectors](https://docs.snowflake.com/en/user-guide/data-integration/openflow/connectors/about-openflow-connectors)
 - [Snowflake Docs: Openflow Connector for SQL Server CDC](https://docs.snowflake.com/en/user-guide/data-integration/openflow/connectors/sql-server-cdc/about)
-

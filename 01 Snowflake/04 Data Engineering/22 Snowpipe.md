@@ -11,7 +11,10 @@ tags:
 
 # Snowpipe
 
-> Event-driven, file-based continuous ingestion — `COPY INTO` wrapped in a persistent "pipe" that fires automatically when files land. Consultant lens: the standard way to load files into Snowflake within seconds of arrival, without scheduling.
+> [!abstract] Consultant lens
+> **What it is:** Event-driven, file-based ingestion: `COPY INTO` wrapped in a persistent pipe that runs when files land.
+>
+> **Why it matters:** Snowpipe is the standard way to load files into Snowflake within seconds of arrival, without scheduling.
 
 ## Executive Summary
 
@@ -47,7 +50,7 @@ tags:
 | Pipe load metadata | Tracks loaded files (~14 days) | File-level dedup; not row-level |
 | `ON_ERROR` default = `SKIP_FILE` | A bad record skips the **whole file** | Silent-data-loss risk — make it explicit |
 
-## How It Works
+## How It Works (Simple Flow)
 
 1. A file lands in an **external stage** (S3 / Azure / GCS).
 2. The cloud provider emits an **event notification** (S3→SNS/SQS, GCS→Pub/Sub, Azure→Event Grid).
@@ -66,6 +69,16 @@ flowchart LR
     NI --> P[Pipe runs COPY INTO<br/>serverless compute]
     P --> T[(Target RAW table)]
     P -.file-level dedup.-> P
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class F,N input
+    class NI control
+    class P snowflake
+    class T output
 ```
 
 ## Readable Snippets
@@ -145,5 +158,3 @@ ALTER PIPE raw.gcs_events_pipe REFRESH;
 - [Snowflake Docs: Automating Snowpipe (auto-ingest)](https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto)
 - [Snowflake Docs: CREATE PIPE](https://docs.snowflake.com/en/sql-reference/sql/create-pipe)
 - [Snowflake Docs: SYSTEM$PIPE_STATUS](https://docs.snowflake.com/en/sql-reference/functions/system_pipe_status)
-
-

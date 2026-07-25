@@ -11,7 +11,10 @@ tags:
 
 # Semi-structured Data, Schema Drift, and Data Contracts
 
-> JSON, Avro, Parquet, XML, and evolving payloads in Snowflake. Consultant lens: preserve source truth while preventing silent schema changes from breaking downstream finance and risk logic.
+> [!abstract] Consultant lens
+> **What it is:** JSON, Avro, Parquet, XML, and evolving payloads in Snowflake.
+>
+> **Why it matters:** Good patterns preserve source truth while preventing silent schema changes from breaking downstream finance and risk logic.
 
 ## Executive Summary
 
@@ -65,6 +68,16 @@ flowchart LR
     PROFILE --> CONTRACT[Data contract]
     CONTRACT --> CUR[(Curated relational table)]
     RAW --> REPLAY[Replay / audit]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class SRC input
+    class PROFILE,CONTRACT control
+    class RAW snowflake
+    class CUR,REPLAY output
 ```
 
 ## Readable Snippets
@@ -127,4 +140,3 @@ FROM raw.trade_events;
 - [Snowflake Docs: Considerations for semi-structured data stored in VARIANT](https://docs.snowflake.com/en/user-guide/semistructured-considerations)
 - [Snowflake Docs: Automatic table schema evolution](https://docs.snowflake.com/en/user-guide/data-load-schema-evolution)
 - [Snowflake Docs: INFER_SCHEMA](https://docs.snowflake.com/en/sql-reference/functions/infer_schema)
-

@@ -11,7 +11,10 @@ tags:
 
 # Stored Procedures
 
-> Reusable procedural code executed inside Snowflake. Consultant lens: use procedures at operational control points—multi-step DML, validation, quarantine, transactional publication, and controlled privilege delegation—not as a hiding place for ordinary transformations.
+> [!abstract] Consultant lens
+> **What it is:** Reusable procedural code executed inside Snowflake.
+>
+> **Why it matters:** Procedures belong at operational control points—multi-step DML, validation, quarantine, transactional publication, and controlled privilege delegation—not around ordinary transformations.
 
 ## Executive Summary
 
@@ -83,6 +86,16 @@ flowchart LR
     VAL -->|Accepted| MERGE[(Canonical merge)]
     MERGE --> AUDIT[(Batch audit)]
     PROC -->|Unexpected error| RB[Rollback + raise]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class RAW,STR input
+    class TSK,VAL,RB control
+    class PROC,MERGE snowflake
+    class QUAR,AUDIT output
 ```
 
 ### Transaction control versus operational truth
@@ -94,6 +107,16 @@ flowchart TD
     ROLLBACK --> Q{Re-raise error?}
     Q -->|Yes| FAIL[Task records failure<br/>alerts and retries can act]
     Q -->|No; return FAILED| GREEN[Task may appear successful<br/>false-green monitoring]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class ERR input
+    class Q,GREEN control
+    class ROLLBACK snowflake
+    class DATA,FAIL output
 ```
 
 ## Choosing a Handler Language

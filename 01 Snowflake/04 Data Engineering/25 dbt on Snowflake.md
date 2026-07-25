@@ -11,7 +11,10 @@ tags:
 
 # dbt on Snowflake
 
-> Running a standard dbt project as a native, versioned Snowflake object. Consultant lens: decide whether Snowflake should own the dbt control plane, then design deployment, scheduling, access, monitoring, and recovery deliberately.
+> [!abstract] Consultant lens
+> **What it is:** Running a standard dbt project as a native, versioned Snowflake object.
+>
+> **Why it matters:** The key decision is whether Snowflake should own the dbt control plane; deployment, scheduling, access, monitoring, and recovery then need deliberate design.
 
 ## Executive Summary
 
@@ -82,6 +85,16 @@ flowchart LR
     EXEC --> WH[Transformation warehouse]
     WH --> MODELS[(Snowflake tables,<br/>views and models)]
     EXEC --> OBS[Artifacts, logs,<br/>DAG and lineage]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DEV,GIT input
+    class CICD,TASK control
+    class WS,DEPLOY,PROJECT,EXEC,WH snowflake
+    class MODELS,OBS output
 ```
 
 ### Development is not deployment
@@ -93,6 +106,15 @@ flowchart TD
     CI -->|Approved| VERSION[Deploy new DBT PROJECT version]
     VERSION --> RUN[Scheduled production execution]
     EDIT -.does not automatically update.-> VERSION
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class EDIT input
+    class PR,CI control
+    class VERSION,RUN snowflake
 ```
 
 ## Snowflake-Native Setup
@@ -433,7 +455,6 @@ dbt documentation complements these controls; it does not replace them.
 - [[02 dbt/dbt Learning Map]]
 - [[01 Snowflake/04 Data Engineering/20 Streams and Tasks]]
 - [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
-- [[01 Snowflake/04 Data Engineering/24.5 Bonus chapter Data from A-Z]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 

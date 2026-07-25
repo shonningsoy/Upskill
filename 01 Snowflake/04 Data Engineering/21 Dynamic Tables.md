@@ -11,7 +11,10 @@ tags:
 
 # Dynamic Tables
 
-> Declarative transformation objects where you define the target query and Snowflake keeps the result fresh. Consultant lens: the declarative ELT pipeline builder that sits between Materialized Views (too limited) and Streams + Tasks (powerful but hand-built).
+> [!abstract] Consultant lens
+> **What it is:** Declarative transformation objects where you define the target query and Snowflake keeps the result fresh.
+>
+> **Why it matters:** Dynamic Tables fill the space between limited Materialized Views and powerful but hand-built Streams + Tasks pipelines.
 
 ## Executive Summary
 
@@ -48,7 +51,7 @@ tags:
 | Full refresh | Recompute the entire result | Expensive; the failure mode to avoid at scale |
 | Refresh DAG | Auto-inferred dependency graph across chained DTs | Snowflake orders refreshes for you |
 
-## How It Works
+## How It Works (Simple Flow)
 
 1. You `CREATE DYNAMIC TABLE` with a `SELECT`, a `TARGET_LAG`, and a warehouse (or serverless).
 2. Snowflake tracks changes on the source tables (managed change-tracking you never see).
@@ -66,6 +69,16 @@ flowchart LR
     DT1 --> DT3[DT: daily_revenue<br/>TARGET_LAG = 1 hour]
     DT2 --> C{{Snowflake auto-refreshes<br/>to meet each lag}}
     DT3 --> C
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class RAW input
+    class DT1 snowflake
+    class C control
+    class DT2,DT3 output
 ```
 
 ## Readable Snippets
@@ -143,5 +156,3 @@ SELECT * FROM TABLE(INFORMATION_SCHEMA.DYNAMIC_TABLE_REFRESH_HISTORY());
 - [Snowflake Docs: CREATE DYNAMIC TABLE](https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table)
 - [Snowflake Docs: Dynamic Tables refresh (incremental vs full, supported queries)](https://docs.snowflake.com/en/user-guide/dynamic-tables-refresh)
 - [Snowflake Docs: Understanding Dynamic Tables cost](https://docs.snowflake.com/en/user-guide/dynamic-tables-cost)
-
-

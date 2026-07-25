@@ -11,7 +11,10 @@ tags:
 
 # Snowpipe Streaming
 
-> Row-based, low-latency ingestion via a write API — no files, no stage, no `COPY`. Consultant lens: true real-time ingestion for event streams and Kafka, where classic Snowpipe's per-file model is too slow or too costly.
+> [!abstract] Consultant lens
+> **What it is:** Row-based, low-latency ingestion through a write API—no files, stage, or `COPY`.
+>
+> **Why it matters:** It supports event streams and Kafka when classic Snowpipe's per-file model is too slow or costly.
 
 ## Executive Summary
 
@@ -46,7 +49,7 @@ tags:
 | Rows, not files | Rows committed directly | No stage, no file format, no `COPY` |
 | Kafka Connector (streaming mode) | Managed path from Kafka topics to tables | The most common real-world usage |
 
-## How It Works
+## How It Works (Simple Flow)
 
 1. A client app or connector uses the **SDK** to open a **channel** to a target table.
 2. It pushes **rows** directly into the channel — no file, no stage.
@@ -65,6 +68,16 @@ flowchart LR
     subgraph Streaming[Snowpipe Streaming - row based]
         F[App / Kafka connector] -->|write rows via SDK| G[(Table)]
     end
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class A,B,F input
+    class C platform
+    class D snowflake
+    class E,G output
 ```
 
 ## Readable Snippets

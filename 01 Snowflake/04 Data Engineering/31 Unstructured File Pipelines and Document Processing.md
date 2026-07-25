@@ -11,7 +11,10 @@ tags:
 
 # Unstructured File Pipelines and Document Processing
 
-> Governed file pipelines for PDFs, images, audio, video, and document extraction. Consultant lens: connect data engineering controls to AI-powered document workflows.
+> [!abstract] Consultant lens
+> **What it is:** Governed file pipelines for PDFs, images, audio, video, and document extraction.
+>
+> **Why it matters:** They connect established data engineering controls to AI-powered document workflows.
 
 ## Executive Summary
 
@@ -68,6 +71,16 @@ flowchart LR
     REVIEW -->|No| DERIVED[(Derived table)]
     HUMAN --> DERIVED
     DERIVED --> SEARCH[Cortex Search / analytics]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class FILES input
+    class REVIEW,HUMAN control
+    class STAGE,META,PARSE snowflake
+    class DERIVED,SEARCH output
 ```
 
 ## Readable Snippets
@@ -127,4 +140,3 @@ flowchart LR
 - [Snowflake Docs: Cortex AI Functions for documents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/ai-documents)
 - [Snowflake Docs: AI_PARSE_DOCUMENT](https://docs.snowflake.com/en/user-guide/snowflake-cortex/parse-document)
 - [Snowflake Docs: AI_EXTRACT](https://docs.snowflake.com/en/user-guide/snowflake-cortex/document-extraction)
-

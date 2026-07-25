@@ -11,7 +11,10 @@ tags:
 
 # Pipeline Observability, Latency, and Recovery
 
-> The operational layer around Snowflake pipelines. Consultant lens: make ingestion and transformation explainable when a dashboard is stale, a file is missing, or a regulator asks what happened.
+> [!abstract] Consultant lens
+> **What it is:** The operational layer around Snowflake pipelines.
+>
+> **Why it matters:** It makes ingestion and transformation explainable when a dashboard is stale, a file is missing, or a regulator asks what happened.
 
 ## Executive Summary
 
@@ -67,6 +70,16 @@ flowchart LR
     PROC --> CUR[Curated table]
     CUR --> OUT[Consumer freshness]
     OUT --> ALERT[Alert / incident]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class SRC input
+    class STG,LOAD,RAW,PROC,CUR snowflake
+    class ALERT control
+    class OUT output
 ```
 
 ## Readable Snippets
@@ -137,4 +150,3 @@ ORDER BY LAST_LOAD_TIME DESC;
 - [Snowflake Docs: Dynamic Tables refresh history](https://docs.snowflake.com/en/user-guide/dynamic-tables-refresh)
 - [Snowflake Docs: COPY_HISTORY](https://docs.snowflake.com/en/sql-reference/account-usage/copy_history)
 - [Snowflake Docs: TASK_HISTORY](https://docs.snowflake.com/en/sql-reference/functions/task_history)
-

@@ -11,7 +11,10 @@ tags:
 
 # DCM Projects and Snowflake Object Deployment
 
-> Declarative Snowflake object management. Consultant lens: understand where DCM Projects fit beside dbt, Terraform, Snowflake CLI, and manual SQL migrations.
+> [!abstract] Consultant lens
+> **What it is:** Declarative Snowflake object management.
+>
+> **Why it matters:** Consultants need to place DCM Projects correctly beside dbt, Terraform, Snowflake CLI, and manual SQL migrations.
 
 ## Executive Summary
 
@@ -63,6 +66,17 @@ flowchart LR
     PLAN --> DEPLOY[Deploy]
     DEPLOY --> ENV[(Snowflake environment)]
     ENV --> OBS[Review / audit / drift checks]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DEV input
+    class GIT platform
+    class PLAN control
+    class DEPLOY,ENV snowflake
+    class OBS output
 ```
 
 ## Readable Snippets
@@ -120,4 +134,3 @@ The consultant question is which tool should own which object lifecycle.
 - [Snowflake Docs: DCM Projects overview](https://docs.snowflake.com/en/user-guide/dcm-projects/dcm-projects-overview)
 - [Snowflake Docs: DCM Projects for data pipelines](https://docs.snowflake.com/en/user-guide/dcm-projects/dcm-projects-pipelines)
 - [Snowflake Docs: DCM Projects files and templates](https://docs.snowflake.com/en/user-guide/dcm-projects/dcm-projects-files)
-

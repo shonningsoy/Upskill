@@ -11,7 +11,10 @@ tags:
 
 # Streams and Tasks
 
-> Change tracking (CDC) and scheduled SQL execution inside Snowflake. Consultant lens: build incremental pipelines without an external orchestrator like Airflow or ADF.
+> [!abstract] Consultant lens
+> **What it is:** Change tracking (CDC) and scheduled SQL execution inside Snowflake.
+>
+> **Why it matters:** Together, Streams and Tasks build incremental pipelines without an external orchestrator such as Airflow or ADF.
 
 ## Executive Summary
 
@@ -84,10 +87,15 @@ flowchart LR
     STR -->|WHEN STREAM_HAS_DATA| TSK[Task on schedule]
     TSK -->|MERGE commits, offset advances| CUR[(Curated table)]
 
-    classDef ingest fill:#e3f2fd,stroke:#1565c0,color:#0d47a1;
-    classDef st fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20;
-    class PS,STG,LND ingest;
-    class STR,TSK,CUR st;
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class PS input
+    class STG,LND,STR snowflake
+    class TSK control
+    class CUR output
 ```
 
 ## Readable Snippets
@@ -199,5 +207,3 @@ Rule of thumb: reach for **Dynamic Tables first** for declarative incremental SQ
 - [Snowflake Docs: Introduction to Tasks](https://docs.snowflake.com/en/user-guide/tasks-intro)
 - [Snowflake Docs: SYSTEM$STREAM_HAS_DATA](https://docs.snowflake.com/en/sql-reference/functions/system_stream_has_data)
 - [Snowflake Docs: Dynamic Tables](https://docs.snowflake.com/en/user-guide/dynamic-tables-about)
-
-
