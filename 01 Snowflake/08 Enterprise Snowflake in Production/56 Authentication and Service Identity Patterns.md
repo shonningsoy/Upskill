@@ -10,7 +10,8 @@ tags:
 
 # Authentication and Service Identity Patterns
 
-> How humans, services, tools, and CI/CD safely authenticate to Snowflake. Consultant lens: identity design is a core production control, not a setup detail.
+> [!abstract] Consultant lens
+> Authentication determines how humans, services, tools, and CI/CD safely reach Snowflake. Identity design is a core production control, not a setup detail.
 
 ## Executive Summary
 
@@ -73,6 +74,17 @@ flowchart TD
     D --> G
     E --> G
     F --> G
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class A input
+    class B control
+    class C,D,E,F snowflake
+    class G output
 ```
 
 ## Readable Snippets
@@ -140,8 +152,8 @@ order by event_timestamp desc;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Overview of authentication - https://docs.snowflake.com/en/user-guide/security-authentication-overview
-- Snowflake Docs: Authentication policies - https://docs.snowflake.com/en/user-guide/authentication-policies
-- Snowflake Docs: Workload identity federation - https://docs.snowflake.com/en/user-guide/workload-identity-federation
-- Snowflake Docs: Key-pair authentication and rotation - https://docs.snowflake.com/en/user-guide/key-pair-auth
-- Snowflake Docs: Programmatic access tokens - https://docs.snowflake.com/en/user-guide/programmatic-access-tokens
+- [Snowflake Docs: Authentication overview](https://docs.snowflake.com/en/user-guide/security-authentication-overview)
+- [Snowflake Docs: Authentication policies](https://docs.snowflake.com/en/user-guide/authentication-policies)
+- [Snowflake Docs: Workload identity federation](https://docs.snowflake.com/en/user-guide/workload-identity-federation)
+- [Snowflake Docs: Key-pair authentication and rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth)
+- [Snowflake Docs: Programmatic access tokens](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens)

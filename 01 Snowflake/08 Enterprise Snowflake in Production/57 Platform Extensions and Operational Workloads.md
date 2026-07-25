@@ -10,7 +10,8 @@ tags:
 
 # Platform Extensions and Operational Workloads
 
-> Snowflake beyond the classic analytical warehouse. Consultant lens: know when Snowflake can host ingestion, apps, APIs, containers, unstructured processing, and operational workloads, and when those patterns add too much complexity.
+> [!abstract] Consultant lens
+> Snowflake now extends beyond the analytical warehouse into ingestion, apps, APIs, containers, unstructured processing, and operational workloads. Recommend these surfaces only when their ownership, cost, and runtime trade-offs are defensible.
 
 ## Executive Summary
 
@@ -72,6 +73,16 @@ flowchart TD
     I -->|Low-latency operational state| H["Hybrid tables"]
     I -->|Postgres-style transactional app| P["Snowflake Postgres"]
     I -->|Documents and files| U["Unstructured data + Cortex patterns"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class W input
+    class I control
+    class O,S,ST,API,H,P,U snowflake
 ```
 
 ## Readable Snippets
@@ -138,10 +149,10 @@ select current_role(), current_warehouse(), current_database(), current_schema()
 
 ## Sources To Revisit
 
-- Snowflake Docs: About Openflow - https://docs.snowflake.com/en/user-guide/data-integration/openflow/about
-- Snowflake Docs: Snowpark Container Services - https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview
-- Snowflake Docs: About Streamlit in Snowflake - https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit
-- Snowflake Docs: Snowflake SQL API - https://docs.snowflake.com/en/developer-guide/sql-api/index
-- Snowflake Docs: Hybrid tables - https://docs.snowflake.com/en/user-guide/tables-hybrid
-- Snowflake Docs: Snowflake Postgres - https://docs.snowflake.com/en/user-guide/snowflake-postgres/about
-- Snowflake Docs: Introduction to unstructured data - https://docs.snowflake.com/en/user-guide/unstructured-intro
+- [Snowflake Docs: Openflow](https://docs.snowflake.com/en/user-guide/data-integration/openflow/about)
+- [Snowflake Docs: Snowpark Container Services](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview)
+- [Snowflake Docs: Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit)
+- [Snowflake Docs: Snowflake SQL API](https://docs.snowflake.com/en/developer-guide/sql-api/index)
+- [Snowflake Docs: Hybrid tables](https://docs.snowflake.com/en/user-guide/tables-hybrid)
+- [Snowflake Docs: Snowflake Postgres](https://docs.snowflake.com/en/user-guide/snowflake-postgres/about)
+- [Snowflake Docs: Unstructured data](https://docs.snowflake.com/en/user-guide/unstructured-intro)

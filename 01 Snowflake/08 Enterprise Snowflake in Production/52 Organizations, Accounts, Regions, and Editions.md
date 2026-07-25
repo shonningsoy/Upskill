@@ -10,7 +10,8 @@ tags:
 
 # Organizations, Accounts, Regions, and Editions
 
-> The enterprise boundary of Snowflake. Consultant lens: account topology decides governance, isolation, billing visibility, regional resilience, and which features are available.
+> [!abstract] Consultant lens
+> Organizations and accounts define Snowflake's enterprise boundary. Account topology determines governance, isolation, billing visibility, regional resilience, and feature availability.
 
 ## Executive Summary
 
@@ -66,6 +67,16 @@ flowchart TD
     ORG --> PROD["Prod account<br/>regulated workloads"]
     PROD --> EU["Region/cloud choice<br/>latency, residency, DR"]
     PROD --> ED["Edition choice<br/>feature availability"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class ORG,OA platform
+    class DEV,TEST,PROD snowflake
+    class EU,ED control
 ```
 
 ## Readable Snippets
@@ -127,7 +138,7 @@ show accounts;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Introduction to organizations - https://docs.snowflake.com/en/user-guide/organizations
-- Snowflake Docs: Organization accounts - https://docs.snowflake.com/en/user-guide/organization-accounts
-- Snowflake Docs: Snowflake editions - https://docs.snowflake.com/en/user-guide/intro-editions
-- Snowflake Docs: Organization Usage views - https://docs.snowflake.com/en/sql-reference/organization-usage
+- [Snowflake Docs: Introduction to organizations](https://docs.snowflake.com/en/user-guide/organizations)
+- [Snowflake Docs: Organization accounts](https://docs.snowflake.com/en/user-guide/organization-accounts)
+- [Snowflake Docs: Snowflake editions](https://docs.snowflake.com/en/user-guide/intro-editions)
+- [Snowflake Docs: Organization Usage views](https://docs.snowflake.com/en/sql-reference/organization-usage)

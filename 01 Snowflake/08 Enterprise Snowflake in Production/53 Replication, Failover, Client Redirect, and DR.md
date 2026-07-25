@@ -10,7 +10,8 @@ tags:
 
 # Replication, Failover, Client Redirect, and DR
 
-> Business continuity for Snowflake accounts and data. Consultant lens: Time Travel fixes recent mistakes; replication and failover keep critical services available when an account, region, or cloud has a serious issue.
+> [!abstract] Consultant lens
+> Replication and failover provide business continuity for Snowflake accounts and data. Time Travel fixes recent mistakes; resilience design keeps critical services available through serious account, region, or cloud failures.
 
 ## Executive Summary
 
@@ -68,6 +69,16 @@ flowchart LR
     C["Client Redirect URL"] --> P
     C -.during failover.-> N
     R["DR runbook<br/>RTO/RPO, roles, validation"] --> N
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class C input
+    class P,S,N snowflake
+    class R control
 ```
 
 ## Readable Snippets
@@ -129,7 +140,7 @@ show failover groups;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Introduction to business continuity and disaster recovery - https://docs.snowflake.com/en/user-guide/replication-intro
-- Snowflake Docs: Introduction to replication and failover across multiple accounts - https://docs.snowflake.com/en/user-guide/account-replication-intro
-- Snowflake Docs: Redirecting client connections - https://docs.snowflake.com/en/user-guide/client-redirect
-- Snowflake Docs: Backups for disaster recovery and immutable storage - https://docs.snowflake.com/en/user-guide/backups
+- [Snowflake Docs: Business continuity and disaster recovery](https://docs.snowflake.com/en/user-guide/replication-intro)
+- [Snowflake Docs: Replication and failover across multiple accounts](https://docs.snowflake.com/en/user-guide/account-replication-intro)
+- [Snowflake Docs: Redirecting client connections](https://docs.snowflake.com/en/user-guide/client-redirect)
+- [Snowflake Docs: Backups for disaster recovery and immutable storage](https://docs.snowflake.com/en/user-guide/backups)

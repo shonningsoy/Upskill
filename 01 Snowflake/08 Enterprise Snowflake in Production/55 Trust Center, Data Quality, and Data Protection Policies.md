@@ -10,7 +10,8 @@ tags:
 
 # Trust Center, Data Quality, and Data Protection Policies
 
-> The operating layer for security posture and data trust. Consultant lens: production governance is not only defining controls, but continuously monitoring whether controls and data quality hold up.
+> [!abstract] Consultant lens
+> Trust Center, data quality, and protection policies form the operating layer for data trust. Production governance must continuously prove that controls and data quality still hold up.
 
 ## Executive Summary
 
@@ -69,6 +70,16 @@ flowchart TD
     FIND --> EVID["Audit evidence"]
     VIOL --> EVID
     QUERY --> EVID
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class TC,DQ,POL snowflake
+    class FIND,EXP,VIOL,QUERY control
+    class EVID output
 ```
 
 ## Readable Snippets
@@ -132,8 +143,8 @@ from table(
 
 ## Sources To Revisit
 
-- Snowflake Docs: Trust Center - https://docs.snowflake.com/en/user-guide/trust-center/overview
-- Snowflake Docs: Introduction to data quality checks - https://docs.snowflake.com/en/user-guide/data-quality-intro
-- Snowflake Docs: Data metric functions - https://docs.snowflake.com/en/sql-reference/functions-data-metric
-- Snowflake Docs: Manage data protection policies in Snowsight - https://docs.snowflake.com/en/user-guide/data-protection-policies-snowsight
-- Snowflake Docs: Privacy in Snowflake - https://docs.snowflake.com/en/guides-overview-privacy
+- [Snowflake Docs: Trust Center](https://docs.snowflake.com/en/user-guide/trust-center/overview)
+- [Snowflake Docs: Data quality checks](https://docs.snowflake.com/en/user-guide/data-quality-intro)
+- [Snowflake Docs: Data metric functions](https://docs.snowflake.com/en/sql-reference/functions-data-metric)
+- [Snowflake Docs: Manage data protection policies in Snowsight](https://docs.snowflake.com/en/user-guide/data-protection-policies-snowsight)
+- [Snowflake Docs: Privacy in Snowflake](https://docs.snowflake.com/en/guides-overview-privacy)

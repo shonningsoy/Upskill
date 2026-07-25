@@ -10,7 +10,8 @@ tags:
 
 # Horizon Catalog, Lineage, and Access History
 
-> The trust and discovery layer around Snowflake data. Consultant lens: enterprises need to find authoritative data, understand business context, trace lineage, and prove who accessed what.
+> [!abstract] Consultant lens
+> Horizon is the trust and discovery layer around Snowflake data. Enterprises need to find authoritative data, understand its business context, trace lineage, and prove who accessed what.
 
 ## Executive Summary
 
@@ -70,6 +71,17 @@ flowchart TD
     SEM --> USERS["Analysts, BI, Cortex Analyst,<br/>AI agents"]
     LINEAGE --> GOV["Governance and impact analysis"]
     ACCESS --> AUDIT["Audit and investigation"]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+
+    class SRC input
+    class RAW,SEM,LINEAGE,ACCESS,TAGS snowflake
+    class GOV,AUDIT control
+    class USERS output
 ```
 
 ## Readable Snippets
@@ -134,8 +146,8 @@ order by query_start_time desc;
 
 ## Sources To Revisit
 
-- Snowflake Docs: Snowflake Horizon Catalog - https://docs.snowflake.com/en/user-guide/snowflake-horizon
-- Snowflake Docs: Overview of semantic views - https://docs.snowflake.com/en/user-guide/views-semantic/overview
-- Snowflake Docs: Data Lineage - https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage
-- Snowflake Docs: Access History - https://docs.snowflake.com/en/user-guide/access-history
-- Snowflake Docs: Object Dependencies - https://docs.snowflake.com/en/user-guide/object-dependencies
+- [Snowflake Docs: Snowflake Horizon Catalog](https://docs.snowflake.com/en/user-guide/snowflake-horizon)
+- [Snowflake Docs: Semantic views](https://docs.snowflake.com/en/user-guide/views-semantic/overview)
+- [Snowflake Docs: Data Lineage](https://docs.snowflake.com/en/user-guide/ui-snowsight-lineage)
+- [Snowflake Docs: Access History](https://docs.snowflake.com/en/user-guide/access-history)
+- [Snowflake Docs: Object Dependencies](https://docs.snowflake.com/en/user-guide/object-dependencies)
