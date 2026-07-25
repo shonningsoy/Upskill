@@ -11,7 +11,10 @@ tags:
 
 # Snowpark
 
-> DataFrame APIs for expressing data processing in Python, Java, or Scala while Snowflake executes the heavy data work. Consultant lens: move compute to governed data instead of extracting large datasets to application memory.
+> [!abstract] Consultant lens
+> **What it is:** DataFrame APIs for expressing data processing in Python, Java, or Scala while Snowflake executes the heavy data work.
+>
+> **Why it matters:** Move compute to governed data instead of extracting large datasets to application memory.
 
 ## Executive Summary
 
@@ -75,6 +78,16 @@ flowchart LR
     DATA --> WH
     WH -->|Write result| TABLE[(Snowflake result table)]
     WH -->|Bounded collect or show| APP
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class APP input
+    class PLAN,WH snowflake
+    class DATA platform
+    class TABLE output
 ```
 
 The important boundary is the final arrow back to the application: Snowpark pushes compute into Snowflake only while the operations remain translatable or run through a supported server-side mechanism.

@@ -11,7 +11,10 @@ tags:
 
 # ML Model Registry
 
-> Governed model lifecycle management inside Snowflake. Consultant lens: turns trained ML artifacts into versioned, permissioned, callable production assets near governed data.
+> [!abstract] Consultant lens
+> **What it is:** Governed model lifecycle management inside Snowflake.
+>
+> **Why it matters:** It turns trained ML artifacts into versioned, permissioned, callable production assets near governed data.
 
 ## Executive Summary
 
@@ -95,6 +98,16 @@ flowchart LR
     APP --> MON
     MON --> NEXT["New version or rollback"]
     NEXT --> REG
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class TRAIN input
+    class LOG,REG,BATCH,SERVE snowflake
+    class RBAC,MON,NEXT control
+    class PRED,APP output
 ```
 
 The registry is not only a storage shelf. It is the control point between model development, governed access, inference, and operational feedback.
@@ -164,40 +177,41 @@ FROM customers_to_score;
 
 The exact method and arguments depend on the model signature. Before exposing a model broadly, inspect the model methods and signature so SQL consumers call it correctly.
 
-### Use a dynamic table for incremental inference
-
-```sql
-CREATE OR REPLACE DYNAMIC TABLE customers_with_churn_predictions
-    WAREHOUSE = ml_wh
-    TARGET_LAG = '1 hour'
-    REFRESH_MODE = INCREMENTAL
-AS
-SELECT
-    c.customer_id,
-    c.tenure_months,
-    c.monthly_spend,
-    c.support_ticket_count,
-    MODEL(CHURN_CLASSIFIER, PROD)!predict(
-        c.tenure_months,
-        c.monthly_spend,
-        c.support_ticket_count
-    ) AS churn_prediction
-FROM customers_to_score c;
-```
-
-This is a recognizable pattern for continuously scoring new or changed rows. Confirm that the model function is compatible with dynamic table requirements before using this design.
-
-### Grant model access
-
-```sql
-GRANT USAGE ON MODEL CHURN_CLASSIFIER TO ROLE ANALYST_ROLE;
-
--- Use READ only when the role needs broader model metadata/artifact access
--- or serving patterns that require it.
-GRANT READ ON MODEL CHURN_CLASSIFIER TO ROLE ML_PLATFORM_ROLE;
-```
-
-Use `USAGE` for prediction consumers when possible. Reserve broader access for roles that operate or inspect model internals.
+> [!example]- Additional production patterns: incremental inference and access
+> ### Use a dynamic table for incremental inference
+>
+> ```sql
+> CREATE OR REPLACE DYNAMIC TABLE customers_with_churn_predictions
+>     WAREHOUSE = ml_wh
+>     TARGET_LAG = '1 hour'
+>     REFRESH_MODE = INCREMENTAL
+> AS
+> SELECT
+>     c.customer_id,
+>     c.tenure_months,
+>     c.monthly_spend,
+>     c.support_ticket_count,
+>     MODEL(CHURN_CLASSIFIER, PROD)!predict(
+>         c.tenure_months,
+>         c.monthly_spend,
+>         c.support_ticket_count
+>     ) AS churn_prediction
+> FROM customers_to_score c;
+> ```
+>
+> This is a recognizable pattern for continuously scoring new or changed rows. Confirm that the model function is compatible with dynamic table requirements before using this design.
+>
+> ### Grant model access
+>
+> ```sql
+> GRANT USAGE ON MODEL CHURN_CLASSIFIER TO ROLE ANALYST_ROLE;
+>
+> -- Use READ only when the role needs broader model metadata/artifact access
+> -- or serving patterns that require it.
+> GRANT READ ON MODEL CHURN_CLASSIFIER TO ROLE ML_PLATFORM_ROLE;
+> ```
+>
+> Use `USAGE` for prediction consumers when possible. Reserve broader access for roles that operate or inspect model internals.
 
 ## Consultant Talking Points
 
@@ -240,10 +254,7 @@ Use `USAGE` for prediction consumers when possible. Reserve broader access for r
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
 - [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
 - [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
-- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
 - [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]

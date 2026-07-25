@@ -11,7 +11,10 @@ tags:
 
 # Cortex Search and RAG
 
-> Snowflake-native search for enterprise text and documents. Consultant lens: use it to ground AI answers in approved company knowledge instead of asking an LLM to guess.
+> [!abstract] Consultant lens
+> **What it is:** Snowflake-native search for enterprise text and documents.
+>
+> **Why it matters:** Use it to ground AI answers in approved company knowledge instead of asking an LLM to guess.
 
 ## Executive Summary
 
@@ -74,9 +77,21 @@ flowchart LR
     SEARCH --> CTX[Top relevant chunks]
     CTX --> LLM[AI_COMPLETE or Cortex Agent]
     LLM --> ANSWER[Answer with sources]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DOCS,USER input
+    class PARSE,SEARCH,LLM snowflake
+    class TABLE platform
+    class CTX,ANSWER output
 ```
 
 ## Readable Snippets
+
+### Create a governed search service
 
 ```sql
 CREATE OR REPLACE CORTEX SEARCH SERVICE compliance_policy_search
@@ -107,6 +122,8 @@ CREATE OR REPLACE CORTEX SEARCH SERVICE compliance_policy_search
   );
 ```
 
+### Search with metadata and entitlement filters
+
 ```sql
 -- Preview/search the service with filters.
 -- In a real bank application, the entitlement filter should be derived
@@ -133,6 +150,8 @@ SELECT PARSE_JSON(
   )
 )['results'] AS results;
 ```
+
+### Recognize when RAG fits
 
 ```text
 Good fit:

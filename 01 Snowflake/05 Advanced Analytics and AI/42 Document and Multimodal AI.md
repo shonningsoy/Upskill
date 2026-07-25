@@ -11,7 +11,10 @@ tags:
 
 # Document and Multimodal AI
 
-> Cortex capabilities for text, documents, images, audio, and video. Consultant lens: turn messy files and media into searchable, structured, reviewable data products.
+> [!abstract] Consultant lens
+> **What it is:** Cortex capabilities for text, documents, images, audio, and video.
+>
+> **Why it matters:** Turn messy files and media into searchable, structured, reviewable data products.
 
 ## Executive Summary
 
@@ -88,9 +91,22 @@ flowchart LR
     REVIEW -->|No| APPROVED[(Approved outputs)]
     HUMAN --> APPROVED
     APPROVED --> ANALYTICS[Analytics, workflows,<br/>evidence, apps]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class FILES input
+    class PARSE,EXTRACT,CLASSIFY,TRANSCRIBE,EMBED,SEARCH snowflake
+    class STAGE,META,CHUNKS platform
+    class ROUTE,REVIEW,HUMAN control
+    class APPROVED,ANALYTICS output
 ```
 
 ## Readable Snippets
+
+### Parse a complex PDF
 
 ```sql
 -- Parse a complex PDF while preserving layout and page boundaries.
@@ -99,6 +115,8 @@ SELECT AI_PARSE_DOCUMENT(
   {'mode': 'LAYOUT', 'page_split': TRUE}
 ) AS parsed_document;
 ```
+
+### Extract reviewable fields
 
 ```sql
 -- Extract reviewable structured fields from a document.
@@ -114,6 +132,8 @@ SELECT AI_EXTRACT(
 ) AS extracted_fields;
 ```
 
+### Classify incoming files
+
 ```sql
 -- Classify incoming files before sending them to different extraction workflows.
 SELECT
@@ -125,30 +145,35 @@ SELECT
 FROM DIRECTORY(@inbound_docs);
 ```
 
-```sql
--- Transcribe a recorded meeting or client call with speaker turns.
-SELECT AI_TRANSCRIBE(
-  TO_FILE('@call_recordings', 'client_call_2026_07_01.mp4'),
-  {'timestamp_granularity': 'speaker'}
-) AS transcript;
-```
-
-```sql
--- Create multimodal embeddings for staged videos.
--- Store and search the returned vectors/metadata in a governed table.
-CREATE OR REPLACE TABLE video_embeddings AS
-SELECT
-  relative_path,
-  AI_MULTI_EMBED(
-    'twelvelabs-marengo-embed-3-0',
-    TO_FILE('@surveillance_video', relative_path),
-    {
-      'embedding_scope': ['clip'],
-      'embedding_options': ['visual', 'audio', 'transcription']
-    }
-  ) AS embeddings
-FROM DIRECTORY(@surveillance_video);
-```
+> [!example]- Additional media-processing patterns
+> ### Transcribe audio or video
+>
+> ```sql
+> -- Transcribe a recorded meeting or client call with speaker turns.
+> SELECT AI_TRANSCRIBE(
+>   TO_FILE('@call_recordings', 'client_call_2026_07_01.mp4'),
+>   {'timestamp_granularity': 'speaker'}
+> ) AS transcript;
+> ```
+>
+> ### Create multimodal embeddings
+>
+> ```sql
+> -- Create multimodal embeddings for staged videos.
+> -- Store and search the returned vectors/metadata in a governed table.
+> CREATE OR REPLACE TABLE video_embeddings AS
+> SELECT
+>   relative_path,
+>   AI_MULTI_EMBED(
+>     'twelvelabs-marengo-embed-3-0',
+>     TO_FILE('@surveillance_video', relative_path),
+>     {
+>       'embedding_scope': ['clip'],
+>       'embedding_options': ['visual', 'audio', 'transcription']
+>     }
+>   ) AS embeddings
+> FROM DIRECTORY(@surveillance_video);
+> ```
 
 ## Important Terms
 

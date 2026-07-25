@@ -11,7 +11,10 @@ tags:
 
 # ML Functions for Forecasting, Anomaly Detection, and Classification
 
-> Snowflake-managed machine learning functions for common analytical predictions. Consultant lens: use them when the business problem matches a packaged ML pattern, and know when the risk requires custom ML, model governance, or human review.
+> [!abstract] Consultant lens
+> **What it is:** Snowflake-managed machine learning functions for common analytical predictions.
+>
+> **Why it matters:** Use them when the business problem matches a packaged ML pattern, and know when the risk requires custom ML, model governance, or human review.
 
 ## Executive Summary
 
@@ -80,6 +83,16 @@ flowchart LR
     OUTPUT --> REVIEW[Business review + monitoring]
     REVIEW --> RETRAIN[Retrain or retire]
     RETRAIN --> TRAIN
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DATA input
+    class PREP,TRAIN,SCORE snowflake
+    class EVAL,REVIEW,RETRAIN control
+    class OUTPUT output
 ```
 
 ## Readable Snippets

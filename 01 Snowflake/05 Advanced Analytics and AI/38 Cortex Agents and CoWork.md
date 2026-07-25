@@ -11,7 +11,10 @@ tags:
 
 # Cortex Agents and CoWork
 
-> Governed agentic workflows inside Snowflake. Consultant lens: use agents for multi-step orchestration across data, documents, code, and tools, not for every question that could be answered by SQL.
+> [!abstract] Consultant lens
+> **What it is:** Governed agentic workflows inside Snowflake.
+>
+> **Why it matters:** Use agents for multi-step orchestration across data, documents, code, and tools—not for every question that SQL could answer.
 
 ## Executive Summary
 
@@ -80,9 +83,22 @@ flowchart LR
     CHART --> RESPONSE
     CUSTOM --> RESPONSE
     RESPONSE --> OBS[Monitoring, feedback, evaluations]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class USER input
+    class AGENT,ANALYST,SEARCH,CODE,CHART snowflake
+    class SURFACE,CUSTOM platform
+    class OBS control
+    class RESPONSE output
 ```
 
 ## Readable Snippets
+
+### Define an agent with governed tools
 
 ```sql
 CREATE OR REPLACE AGENT risk_investigation_agent
@@ -129,6 +145,8 @@ CREATE OR REPLACE AGENT risk_investigation_agent
           country: "NO"
   $$;
 ```
+
+### Recognize when an agent fits
 
 ```text
 Good agent candidate:

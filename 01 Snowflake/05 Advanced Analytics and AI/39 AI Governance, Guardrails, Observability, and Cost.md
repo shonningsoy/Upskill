@@ -11,7 +11,10 @@ tags:
 
 # AI Governance, Guardrails, Observability, and Cost
 
-> Production controls for Snowflake AI. Consultant lens: in a bank, the AI feature is not ready until access, model choice, data residency, prompt safety, quality, logging, and spend are controlled.
+> [!abstract] Consultant lens
+> **What it is:** Production controls for Snowflake AI.
+>
+> **Why it matters:** In a bank, an AI feature is not ready until access, model choice, data residency, prompt safety, quality, logging, and spend are controlled.
 
 ## Executive Summary
 
@@ -80,6 +83,16 @@ flowchart LR
     EVAL --> RUN[Production usage]
     RUN --> OBS[Traces, usage, cost, feedback]
     OBS --> IMPROVE[Review, tune, restrict, or retire]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class USECASE input
+    class BUILD,RUN snowflake
+    class CLASSIFY,ACCESS,GUARD,EVAL,OBS control
+    class IMPROVE output
 ```
 
 ## Readable Snippets
@@ -273,13 +286,10 @@ The dangerous version for Snowflake is often indirect prompt injection. A RAG ap
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
 - [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
 - [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
 - [[01 Snowflake/05 Advanced Analytics and AI/38 Cortex Agents and CoWork]]
 - [[01 Snowflake/05 Advanced Analytics and AI/43 Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/45 Account Usage Views]]
-- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

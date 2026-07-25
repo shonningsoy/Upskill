@@ -11,7 +11,10 @@ tags:
 
 # Feature Store and ML Operations
 
-> Snowflake's broader ML lifecycle beyond notebooks and model registration. Consultant lens: understand when a model has moved from experiment to governed production asset.
+> [!abstract] Consultant lens
+> **What it is:** Snowflake's broader ML lifecycle beyond notebooks and model registration.
+>
+> **Why it matters:** Understand when a model has moved from experiment to governed production asset.
 
 ## Executive Summary
 
@@ -86,9 +89,22 @@ flowchart LR
     REG --> LINEAGE
     OBS --> DECIDE[Retrain / retire / rollback]
     DECIDE --> TRAIN
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class DATA input
+    class FS,DATASET,TRAIN,REG,INFER snowflake
+    class OBS,DECIDE control
+    class LINEAGE platform
+    class PRED output
 ```
 
 ## Readable Snippets
+
+### Create a feature store
 
 ```python
 # Representative shape only.
@@ -107,6 +123,8 @@ fs = FeatureStore(
 )
 ```
 
+### Generate a point-in-time training dataset
+
 ```python
 # Representative feature-store flow:
 # 1. Define customer/account/trade features once.
@@ -121,32 +139,37 @@ training_dataset = fs.generate_dataset(
 )
 ```
 
-```sql
--- Model observability pattern.
--- Exact parameters depend on the registered model version and monitor source.
-CREATE MODEL MONITOR corporate_risk_monitor
-WITH
-  MODEL = corporate_risk_model VERSION v1,
-  SOURCE = corporate_risk_inference_log,
-  TIMESTAMP_COLUMN = prediction_ts,
-  PREDICTION_COLUMN = predicted_risk_bucket,
-  ACTUAL_COLUMN = actual_risk_bucket,
-  SEGMENT_COLUMNS = (country, sector);
-```
-
-```sql
--- Query monitor metrics for dashboards or alerts.
-SELECT *
-FROM TABLE(MODEL_MONITOR_DRIFT_METRIC(
-  'corporate_risk_monitor',
-  'PSI',
-  'exposure_change_pct_10d',
-  'DAY',
-  '2026-01-01'::TIMESTAMP_NTZ,
-  '2026-01-31'::TIMESTAMP_NTZ,
-  '{"SEGMENTS": [{"column": "country", "value": "NO"}]}'
-));
-```
+> [!example]- Additional model-observability patterns
+> ### Create a model monitor
+>
+> ```sql
+> -- Model observability pattern.
+> -- Exact parameters depend on the registered model version and monitor source.
+> CREATE MODEL MONITOR corporate_risk_monitor
+> WITH
+>   MODEL = corporate_risk_model VERSION v1,
+>   SOURCE = corporate_risk_inference_log,
+>   TIMESTAMP_COLUMN = prediction_ts,
+>   PREDICTION_COLUMN = predicted_risk_bucket,
+>   ACTUAL_COLUMN = actual_risk_bucket,
+>   SEGMENT_COLUMNS = (country, sector);
+> ```
+>
+> ### Query drift metrics
+>
+> ```sql
+> -- Query monitor metrics for dashboards or alerts.
+> SELECT *
+> FROM TABLE(MODEL_MONITOR_DRIFT_METRIC(
+>   'corporate_risk_monitor',
+>   'PSI',
+>   'exposure_change_pct_10d',
+>   'DAY',
+>   '2026-01-01'::TIMESTAMP_NTZ,
+>   '2026-01-31'::TIMESTAMP_NTZ,
+>   '{"SEGMENTS": [{"column": "country", "value": "NO"}]}'
+> ));
+> ```
 
 ## Important Terms
 

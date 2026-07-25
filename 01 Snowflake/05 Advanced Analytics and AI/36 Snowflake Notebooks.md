@@ -11,7 +11,10 @@ tags:
 
 # Snowflake Notebooks
 
-> Jupyter-style SQL and Python notebooks inside Snowflake. Consultant lens: useful for governed exploration, AI/ML prototyping, and repeatable analysis close to Snowflake data, but not a substitute for production engineering discipline.
+> [!abstract] Consultant lens
+> **What it is:** Jupyter-style SQL and Python notebooks inside Snowflake.
+>
+> **Why it matters:** They support governed exploration, AI/ML prototyping, and repeatable analysis close to Snowflake data, but do not replace production engineering discipline.
 
 ## Executive Summary
 
@@ -97,6 +100,17 @@ flowchart LR
     NPO --> TASK["Task or orchestrator"]
     CP --> MON["Cost and usage monitoring"]
     WH --> MON
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class USER input
+    class NB,PY,SQL,CP,WH,NPO snowflake
+    class WS,DATA,REG platform
+    class MON control
+    class ML,TASK output
 ```
 
 The key architecture idea: notebooks can use **two compute surfaces**. The Python/kernel side can run on a compute pool, while SQL and Snowpark pushdown use a warehouse.
@@ -244,14 +258,10 @@ Use **warehouse inference** when a model should score tables in batch. Use **SPC
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
 - [[01 Snowflake/05 Advanced Analytics and AI/32 Snowpark]]
-- [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/34 Cortex Analyst]]
 - [[01 Snowflake/05 Advanced Analytics and AI/35 ML Model Registry]]
-- [[01 Snowflake/04 Data Engineering/21 Dynamic Tables]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

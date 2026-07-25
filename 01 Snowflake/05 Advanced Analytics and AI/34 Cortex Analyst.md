@@ -11,7 +11,10 @@ tags:
 
 # Cortex Analyst
 
-> Natural-language-to-SQL over governed Semantic Views. Consultant lens: self-service analytics succeeds only when business semantics, metrics, joins, permissions, and evaluation are explicitly modeled.
+> [!abstract] Consultant lens
+> **What it is:** Natural-language-to-SQL over governed Semantic Views.
+>
+> **Why it matters:** Self-service analytics succeeds only when business semantics, metrics, joins, permissions, and evaluation are explicitly modeled.
 
 ## Executive Summary
 
@@ -93,6 +96,17 @@ flowchart LR
     API --> LOGS["Monitoring logs<br/>questions, SQL, warnings, errors"]
     LOGS --> REFINE["Semantic view refinement"]
     REFINE --> SV
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class USER input
+    class API,SQL,WH snowflake
+    class APP,SV,DATA platform
+    class LOGS,REFINE control
+    class RESULT output
 ```
 
 The important loop is not just **question to answer**. It is **question to SQL to monitoring to semantic-model improvement**.
@@ -298,12 +312,10 @@ Use monitoring to inspect generated SQL, warnings, errors, and patterns in faile
 
 - [[01 Snowflake/05 Advanced Analytics and AI/Advanced Analytics and AI Overview]]
 - [[01 Snowflake/05 Advanced Analytics and AI/33 Cortex AI Functions]]
-- [[01 Snowflake/05 Advanced Analytics and AI/36 Snowflake Notebooks]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake]]
 - [[01 Snowflake/03 Security and Governance/12 RBAC Roles and Privileges]]
 - [[01 Snowflake/03 Security and Governance/13 Row Access Policies]]
 - [[01 Snowflake/03 Security and Governance/14 Column-level Masking Policies]]
-- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

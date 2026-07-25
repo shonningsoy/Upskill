@@ -11,7 +11,10 @@ tags:
 
 # Cortex Fine-tuning, Provisioned Throughput, and Model Lifecycle
 
-> Advanced Cortex operations for customized and capacity-managed model use. Consultant lens: know when normal prompting/RAG is enough, and when production AI needs tuning, reserved throughput, or lifecycle governance.
+> [!abstract] Consultant lens
+> **What it is:** Advanced Cortex operations for customized and capacity-managed model use.
+>
+> **Why it matters:** Know when normal prompting or RAG is enough, and when production AI needs tuning, reserved throughput, or lifecycle governance.
 
 ## Executive Summary
 
@@ -92,6 +95,17 @@ flowchart TD
     FIX --> DIAG
     PROD --> MONITOR[Monitor cost, latency,<br/>quality, lifecycle]
     MONITOR --> EVAL
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class NEED input
+    class DIAG,EVAL,APPROVE,FIX,MONITOR control
+    class RAG,FT,AE,PT snowflake
+    class LIFE platform
+    class PROD output
 ```
 
 ## Readable Snippets
@@ -264,9 +278,7 @@ A bank has a compliance document assistant and a KYC extraction pipeline.
 - [[01 Snowflake/05 Advanced Analytics and AI/37 Cortex Search and RAG]]
 - [[01 Snowflake/05 Advanced Analytics and AI/39 AI Governance, Guardrails, Observability, and Cost]]
 - [[01 Snowflake/05 Advanced Analytics and AI/41 Feature Store and ML Operations]]
-- [[01 Snowflake/05 Advanced Analytics and AI/42 Document and Multimodal AI]]
 - [[01 Snowflake/06 Cost Management and Operations/44 Credit Consumption Model]]
-- [[01 Snowflake/06 Cost Management and Operations/47 Budgets]]
 
 ## Related Decision Notes
 

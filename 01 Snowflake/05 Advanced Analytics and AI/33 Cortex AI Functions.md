@@ -11,7 +11,10 @@ tags:
 
 # Cortex AI Functions
 
-> Managed AI inference exposed through SQL and Python functions. Consultant lens: enrich unstructured data close to governed Snowflake data, while treating every output as probabilistic, every large invocation as a cost event, and every sensitive input as a governance decision.
+> [!abstract] Consultant lens
+> **What it is:** Managed AI inference exposed through SQL and Python functions.
+>
+> **Why it matters:** Enrich unstructured data close to governed Snowflake data, while treating every output as probabilistic, every large invocation as a cost event, and every sensitive input as a governance decision.
 
 ## Executive Summary
 
@@ -83,6 +86,17 @@ flowchart LR
     CHECK -->|Accepted| TABLE[(Persisted enrichment)]
     CHECK -->|Uncertain or high impact| HUMAN[Human review]
     TABLE --> BI[Analytics, routing,<br/>search, or application]
+
+    classDef input fill:#E8F0FE,stroke:#4C6EF5,color:#172B4D
+    classDef control fill:#FFF3BF,stroke:#D69E2E,color:#3D2E00
+    classDef snowflake fill:#E6FCF5,stroke:#2F9E7B,color:#123C34
+    classDef platform fill:#F1F3F5,stroke:#868E96,color:#212529
+    classDef output fill:#F3E8FF,stroke:#805AD5,color:#2D1B4E
+    class SRC input
+    class BATCH,FUNC,MODEL snowflake
+    class CHECK,HUMAN control
+    class TABLE platform
+    class OUT,BI output
 ```
 
 The generated enrichment is a derived interpretation. The original source remains the authoritative evidence.
