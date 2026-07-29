@@ -57,6 +57,7 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Star Schema vs Wide Marts]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Freshness vs Completeness vs Validity vs Reconciliation]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Model Contracts vs Data Tests vs Warehouse Constraints]]
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - dbt Packages vs Project Dependencies]]
 
 ### Fivetran
 
