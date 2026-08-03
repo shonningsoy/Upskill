@@ -63,7 +63,9 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 
 ### Fivetran
 
-- No Fivetran comparison notes yet.
+- [[80 Comparisons and Decision Notes/Comparisons/Fivetran/Comparison - Fivetran vs Custom Ingestion]]
+- [[80 Comparisons and Decision Notes/Comparisons/Fivetran/Comparison - Soft Delete Mode vs History Mode]]
+- [[80 Comparisons and Decision Notes/Comparisons/Fivetran/Comparison - SaaS vs Hybrid Deployment]]
 
 ### Cross-Tool
 
@@ -108,7 +110,9 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 
 ### Fivetran
 
-- No Fivetran decision notes yet.
+- [[80 Comparisons and Decision Notes/Decision Notes/Fivetran/Decisions - Evaluating Fivetran Connector Fit]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Fivetran/Decisions - Designing a Fivetran Production Operating Model]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Fivetran/Decisions - Estimating and Controlling Fivetran Cost]]
 
 ### Cross-Tool
 
