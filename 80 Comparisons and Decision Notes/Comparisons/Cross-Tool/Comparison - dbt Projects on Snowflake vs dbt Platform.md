@@ -11,6 +11,8 @@ Choose **dbt Projects on Snowflake** when Snowflake is the strategic platform an
 
 Choose the **dbt platform**—historically called dbt Cloud—when dbt is an enterprise platform in its own right, especially when the client needs a richer dbt-specific experience, broader hosted CI and orchestration, Semantic Layer or Catalog capabilities, or one control plane across multiple data platforms.
 
+Choose **self-operated dbt Core or Fusion** when an established engineering platform will deliberately own the runtime, orchestration, secrets, artifacts, upgrades, and incident response.
+
 Both approaches send transformation SQL to Snowflake. Snowflake executes that SQL and stores the resulting models. The main decision is **who owns the dbt control plane**, not where the analytical data is processed.
 
 ## Architecture Difference
@@ -48,8 +50,8 @@ flowchart TD
 | Lineage | dbt DAG plus Snowflake Horizon lineage | dbt DAG, Catalog, and dbt-platform metadata |
 | Runtime versions | Versions explicitly supported by Snowflake | dbt-supported platform release tracks |
 | Concurrency | One `EXECUTE DBT PROJECT` call at a time per project object; internal dbt threads are supported | Governed by dbt-platform job and account capabilities |
-| Environment variables | Not supported for deployed native project execution; use supported alternatives such as project variables | Supported platform configuration patterns are broader |
-| Package access | Resolve packages before deployment or configure Snowflake external access | Managed through the dbt environment and its network configuration |
+| Environment variables | Supported Snowflake `env.yml` and execution patterns, with Snowflake-specific rules for secrets and external access | Broader dbt-platform environment and secret configuration patterns |
+| Package access | Run `dbt deps` in a workspace or approved build path and deploy the resolved project; private access must follow supported Snowflake patterns | Managed through the dbt environment and its network configuration |
 | Security boundary | Project, execution, logs, scheduling, and models remain in the Snowflake operating boundary | Model data and compute remain in Snowflake, while code-related metadata, credentials, logs, and artifacts involve the dbt SaaS boundary |
 | Identity and RBAC | Snowflake project privileges, Task-owner role, profile role, warehouse and object grants | dbt-platform access plus the connected Snowflake user, role, warehouse, and object grants |
 | Multi-platform reach | Snowflake-centric | Designed to span supported data platforms |
@@ -147,6 +149,10 @@ Avoid scheduling the same project from both Snowflake Tasks and dbt-platform job
 - [[01 Snowflake/06 Cost Management and Operations/46 Warehouse Scheduling and Auto-suspend]]
 - [[02 dbt/05 Deployment CI CD and Operations/40 Git Workflow and Pull Requests]]
 - [[02 dbt/05 Deployment CI CD and Operations/42 CI Jobs and Slim CI]]
+- [[02 dbt/08 dbt on Snowflake and Finance Patterns/73 dbt on Snowflake Operating Model]]
+- [[02 dbt/08 dbt on Snowflake and Finance Patterns/74 dbt Projects on Snowflake vs dbt Platform vs Self-Operated dbt]]
+- [[02 dbt/08 dbt on Snowflake and Finance Patterns/75 Snowflake RBAC for dbt]]
+- [[02 dbt/08 dbt on Snowflake and Finance Patterns/77 Cost Governance for dbt on Snowflake]]
 
 ## Related Scenarios
 
@@ -159,4 +165,6 @@ Avoid scheduling the same project from both Snowflake Tasks and dbt-platform job
 - [Snowflake Docs: Schedule dbt Project Executions](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake-schedule-project-execution)
 - [Snowflake Docs: Requirements and Limitations](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake-limitations)
 - [Snowflake Docs: Understanding dbt Project Costs](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake-cost)
+- [Snowflake Docs: Best practices for dbt Projects](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake-best-practices)
+- [Snowflake Release Notes: May 2026 dbt Projects updates](https://docs.snowflake.com/en/release-notes/2026/other/2026-05-19-dbt-projects-on-snowflake-updates)
 - [dbt Docs: Connect Snowflake to the dbt Platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake)

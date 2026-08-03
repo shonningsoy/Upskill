@@ -58,6 +58,8 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Freshness vs Completeness vs Validity vs Reconciliation]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Model Contracts vs Data Tests vs Warehouse Constraints]]
 - [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - dbt Packages vs Project Dependencies]]
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - dbt Governance Controls vs Snowflake Security Controls]]
+- [[80 Comparisons and Decision Notes/Comparisons/dbt/Comparison - Hooks vs Models Tests and Operations]]
 
 ### Fivetran
 
@@ -97,6 +99,12 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing the Right dbt Quality Control]]
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a Legacy SQL-to-dbt Migration Strategy]]
 - [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a Data History and Restatement Pattern]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing Where Governed Metrics Should Live]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Choosing a Catalog and Lineage Authority]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Approving a dbt Package for Production]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - When to Abstract dbt SQL into Macros]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Designing dbt Roles Schemas and Warehouses on Snowflake]]
+- [[80 Comparisons and Decision Notes/Decision Notes/dbt/Decisions - Controlling and Attributing dbt Cost on Snowflake]]
 
 ### Fivetran
 
