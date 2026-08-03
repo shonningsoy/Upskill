@@ -78,13 +78,14 @@ The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer.
 
 ## Current Learning Focus
 
-The current focus is moving from the completed Snowflake foundation into dbt.
+The current focus is moving from the Snowflake and dbt foundations into Fivetran.
 
 The main navigation notes are:
 
 ```text
 00 Home/Snowflake Learning Map.md
 02 dbt/dbt Learning Map.md
+03 Fivetran/Fivetran Learning Map.md
 ```
 
 Snowflake is organized into chapter folders:
@@ -113,9 +114,22 @@ dbt should use the same learning-map and chapter-overview pattern:
 02 dbt/08 dbt on Snowflake and Finance Patterns/
 ```
 
+Fivetran uses the same learning-map and chapter-overview pattern:
+
+```text
+03 Fivetran/01 Foundations and Platform Mental Model/
+03 Fivetran/02 Connectors and Sync Behavior/
+03 Fivetran/03 Destination Data History and Schema Change/
+03 Fivetran/04 Fivetran with Snowflake and dbt/
+03 Fivetran/05 Security Governance and Production Operations/
+03 Fivetran/06 Cost and Consultant Decision-Making/
+```
+
 Each chapter has an overview note. Topic notes should link back to the relevant overview note and to a small number of genuinely related topics.
 
 For dbt, keep the notes focused on consultant working knowledge: what the dbt concept does, how it changes analytics engineering workflow, when to recommend it, and what governance, operational, cost, or banking-control implications matter.
+
+For Fivetran, keep the notes focused on consultant working knowledge: source and connector fit, sync and destination behavior, schema and data-quality boundaries, security and operations, usage cost, and the ownership boundary with Snowflake and dbt. Do not force code into Fivetran notes; use short configuration, destination-row, API, Terraform, SQL, calculation, or checklist examples only when they improve recognition.
 
 ## dbt Package and Advanced Topic Guidance
 
@@ -136,6 +150,12 @@ Use the existing template:
 
 ```text
 90 Templates/Topic Note Template.md
+```
+
+For Fivetran topics, use the tailored template:
+
+```text
+90 Templates/Fivetran Topic Note Template.md
 ```
 
 Each topic note should generally include:
@@ -225,6 +245,17 @@ Default rule:
 
 When a Snowflake topic becomes relevant during a dbt learning conversation, add the link when updating the durable note. Do not force cross-links during exploratory conversation.
 
+## Fivetran Linking Rules
+
+Keep the Fivetran learning area distinct while preserving the practical bridge to Snowflake and dbt.
+
+- Fivetran topic notes should primarily link to their Fivetran chapter overview and closely related Fivetran topics.
+- Add Snowflake links when destination identity, RBAC, networking, schemas, warehouses, table types, loading cost, monitoring, or recovery changes the recommendation.
+- Add dbt links when source freshness, staging, tests, reconciliation, orchestration, or downstream contracts change the recommendation.
+- Prefer curated cross-tool links from the `Fivetran with Snowflake and dbt` chapter overview instead of repeating them throughout every topic.
+- Keep `02 dbt/08 dbt on Snowflake and Finance Patterns/81 Fivetran to Snowflake to dbt Flow.md` as the dbt-side bridge into Fivetran.
+- Do not link tools merely because they appear in the same stack. Link only when the relationship explains ownership, risk, cost, or an implementation trade-off.
+
 ## Tags
 
 Snowflake notes use chapter tags for Graph View coloring.
@@ -255,6 +286,19 @@ dbt-packages-macros
 dbt-snowflake-finance
 ```
 
+Fivetran notes use these chapter tags consistently:
+
+```text
+fivetran-foundations
+fivetran-connectors-sync
+fivetran-data-schema
+fivetran-snowflake-dbt
+fivetran-security-operations
+fivetran-cost-decisions
+```
+
+Use the general tags `fivetran` and `learning` on Fivetran topic notes, plus exactly one main Fivetran chapter tag.
+
 Use the general tags `dbt` and `learning` on dbt topic notes, plus exactly one main dbt chapter tag unless the note is intentionally cross-cutting.
 
 Example dbt topic frontmatter:
@@ -281,7 +325,8 @@ The graph should remain simple.
 Preferred setup:
 
 - Snowflake Learning Map links to chapter overview notes.
-- dbt Learning Map links to dbt chapter overview notes once those overview notes are created.
+- dbt Learning Map links to dbt chapter overview notes.
+- Fivetran Learning Map links to Fivetran chapter overview notes.
 - Chapter overview notes link to topic notes.
 - Comparisons and Decision Notes Overview links to comparison, decision, and scenario notes.
 - Scenario/decision notes link to the few topic notes needed to reason through the situation.
@@ -305,7 +350,7 @@ The vault should contain distilled understanding, not raw conversation. Notes sh
 
 When helping the learner with a topic, the agent should treat the conversation as a learning dialogue first and a note-writing task second.
 
-For dbt topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
+For dbt and Fivetran topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
 
 The learner may ask follow-up questions, test understanding, challenge explanations, or temporarily explore side paths. Do not update the vault after every message unless the learner explicitly asks for that. Some parts of the conversation may be exploratory, repetitive, mistaken, or ultimately not useful.
 
