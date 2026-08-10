@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is an Obsidian vault for structured upskilling in the modern data stack, starting with Snowflake and later expanding into dbt and Fivetran.
+This repository is an Obsidian vault for structured upskilling in the modern data stack, starting with Snowflake and expanding into dbt, Fivetran, and Docker for data-engineering environments.
 
 The learner is preparing for a consultant role. The goal is not to deep-dive into every technical detail immediately, but to build a strong "title and subtitle" understanding of tools, features, trade-offs, and practical use cases.
 
@@ -39,6 +39,7 @@ Use the existing folder structure.
 01 Snowflake/
 02 dbt/
 03 Fivetran/
+04 Docker/
 80 Comparisons and Decision Notes/
 90 Templates/
 99 Archive/
@@ -52,33 +53,36 @@ The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer.
 80 Comparisons and Decision Notes/Comparisons/Snowflake/
 80 Comparisons and Decision Notes/Comparisons/dbt/
 80 Comparisons and Decision Notes/Comparisons/Fivetran/
+80 Comparisons and Decision Notes/Comparisons/Docker/
 80 Comparisons and Decision Notes/Comparisons/Cross-Tool/
 80 Comparisons and Decision Notes/Decision Notes/Snowflake/
 80 Comparisons and Decision Notes/Decision Notes/dbt/
 80 Comparisons and Decision Notes/Decision Notes/Fivetran/
+80 Comparisons and Decision Notes/Decision Notes/Docker/
 80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/
 80 Comparisons and Decision Notes/Client Scenarios/Snowflake/
 80 Comparisons and Decision Notes/Client Scenarios/dbt/
 80 Comparisons and Decision Notes/Client Scenarios/Fivetran/
+80 Comparisons and Decision Notes/Client Scenarios/Docker/
 80 Comparisons and Decision Notes/Client Scenarios/Cross-Tool/
 ```
 
 - `Comparisons/` is for A vs B trade-off notes.
 - `Decision Notes/` is for broader recommendation frameworks.
 - `Client Scenarios/` is for realistic client problem statements and reasoning paths.
-- Use `Snowflake/`, `dbt/`, `Fivetran/`, and `Cross-Tool/` domain subfolders under each note type. Create the domain folder when it has notes worth keeping.
+- Use `Snowflake/`, `dbt/`, `Fivetran/`, `Docker/`, and `Cross-Tool/` domain subfolders under each note type. Create the domain folder when it has notes worth keeping.
 - Keep `80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview.md` updated as the hub for this area.
 - Name comparison files and H1 titles as `Comparison - <topic>`.
 - Name decision-note files and H1 titles as `Decisions - <topic>`.
 - Name client-scenario files and H1 titles as `Scenario - <client problem>`.
 - Use `note-comparison` for comparison notes, `note-decision` for decision notes, and `note-scenario` for scenario notes so Obsidian Graph View can color them.
-- Keep one shared consultant reasoning layer for Snowflake, dbt, Fivetran, and cross-tool decisions. Do not create separate top-level reasoning areas under the individual tool folders.
-- Keep the overview note grouped with headings for Snowflake, dbt, Fivetran, and Cross-Tool notes under each note type.
-- Add dbt decision, comparison, and scenario notes only when a topic discussion produces durable recommendation material. Do not pre-create decision notes just to mirror the topic curriculum.
+- Keep one shared consultant reasoning layer for Snowflake, dbt, Fivetran, Docker, and cross-tool decisions. Do not create separate top-level reasoning areas under the individual tool folders.
+- Keep the overview note grouped with headings for Snowflake, dbt, Fivetran, Docker, and Cross-Tool notes under each note type.
+- Add dbt or Docker decision, comparison, and scenario notes only when a topic discussion produces durable recommendation material. Do not pre-create decision notes just to mirror a topic curriculum.
 
 ## Current Learning Focus
 
-The current focus is moving from the Snowflake and dbt foundations into Fivetran.
+The current focus includes Docker for a Snowflake, dbt Core, Airflow, and Python data-engineering environment, alongside the existing Snowflake, dbt, and Fivetran paths.
 
 The main navigation notes are:
 
@@ -86,6 +90,7 @@ The main navigation notes are:
 00 Home/Snowflake Learning Map.md
 02 dbt/dbt Learning Map.md
 03 Fivetran/Fivetran Learning Map.md
+04 Docker/Docker Learning Map.md
 ```
 
 Snowflake is organized into chapter folders:
@@ -125,11 +130,24 @@ Fivetran uses the same learning-map and chapter-overview pattern:
 03 Fivetran/06 Cost and Consultant Decision-Making/
 ```
 
+Docker uses the same learning-map and chapter-overview pattern:
+
+```text
+04 Docker/01 Foundations and Container Mental Model/
+04 Docker/02 Building Reproducible Images/
+04 Docker/03 Running Containers and Local Development/
+04 Docker/04 Docker Compose and Multi-Service Environments/
+04 Docker/05 Data Stack Integration Patterns/
+04 Docker/06 Security Operations and Team Standards/
+```
+
 Each chapter has an overview note. Topic notes should link back to the relevant overview note and to a small number of genuinely related topics.
 
 For dbt, keep the notes focused on consultant working knowledge: what the dbt concept does, how it changes analytics engineering workflow, when to recommend it, and what governance, operational, cost, or banking-control implications matter.
 
 For Fivetran, keep the notes focused on consultant working knowledge: source and connector fit, sync and destination behavior, schema and data-quality boundaries, security and operations, usage cost, and the ownership boundary with Snowflake and dbt. Do not force code into Fivetran notes; use short configuration, destination-row, API, Terraform, SQL, calculation, or checklist examples only when they improve recognition.
+
+For Docker, keep the notes focused on working fluency in a Snowflake, dbt Core, Airflow, and Python environment: reproducible images, everyday container operation, Docker Compose, dependency and secret boundaries, debugging, security, CI promotion, and production-fit judgment. Snowflake normally remains an external managed service. Do not expand into Kubernetes or deep container internals unless the learner explicitly asks.
 
 ## dbt Package and Advanced Topic Guidance
 
@@ -158,6 +176,12 @@ For Fivetran topics, use the tailored template:
 90 Templates/Fivetran Topic Note Template.md
 ```
 
+For Docker topics, use the tailored template:
+
+```text
+90 Templates/Docker Topic Note Template.md
+```
+
 Each topic note should generally include:
 
 - Executive Summary
@@ -183,7 +207,7 @@ Avoid turning notes into documentation dumps. Prefer concise explanations, compa
 
 ## Topic Note Consistency Rules
 
-To keep the vault familiar across Snowflake, dbt, and Fivetran, use one stable note structure:
+To keep the vault familiar across Snowflake, dbt, Fivetran, and Docker, use one stable note structure:
 
 - Keep the section order defined in `90 Templates/Topic Note Template.md`.
 - Write `How It Works` as a simple numbered flow (typically 4-8 steps).
@@ -256,6 +280,18 @@ Keep the Fivetran learning area distinct while preserving the practical bridge t
 - Keep `02 dbt/08 dbt on Snowflake and Finance Patterns/81 Fivetran to Snowflake to dbt Flow.md` as the dbt-side bridge into Fivetran.
 - Do not link tools merely because they appear in the same stack. Link only when the relationship explains ownership, risk, cost, or an implementation trade-off.
 
+## Docker Linking Rules
+
+Keep the Docker learning area distinct while linking it to the runtime decisions it materially affects.
+
+- Docker topic notes should primarily link to their Docker chapter overview and closely related Docker topics.
+- Add Snowflake links when authentication, networking, certificates, proxies, service roles, query attribution, or external-service boundaries change the recommendation.
+- Add dbt links when container execution affects dependencies, profiles, artifacts, CI, orchestration, or production jobs.
+- Add Airflow context inside Docker notes when Compose services, custom images, providers, task isolation, logs, or executor boundaries matter.
+- Prefer curated cross-tool links from `Data Stack Integration Patterns Overview` rather than repeating the whole stack in every Docker topic.
+- Do not imply that Docker Compose alone makes an Airflow deployment production-ready.
+- Do not link tools merely because they share an environment. Link only when Docker changes reproducibility, execution ownership, security, cost, or operations.
+
 ## Tags
 
 Snowflake notes use chapter tags for Graph View coloring.
@@ -297,7 +333,20 @@ fivetran-security-operations
 fivetran-cost-decisions
 ```
 
+Docker notes use these chapter tags consistently:
+
+```text
+docker-foundations
+docker-images-builds
+docker-runtime-dev
+docker-compose
+docker-data-stack
+docker-security-ops
+```
+
 Use the general tags `fivetran` and `learning` on Fivetran topic notes, plus exactly one main Fivetran chapter tag.
+
+Use the general tags `docker` and `learning` on Docker topic notes, plus exactly one main Docker chapter tag.
 
 Use the general tags `dbt` and `learning` on dbt topic notes, plus exactly one main dbt chapter tag unless the note is intentionally cross-cutting.
 
@@ -327,6 +376,7 @@ Preferred setup:
 - Snowflake Learning Map links to chapter overview notes.
 - dbt Learning Map links to dbt chapter overview notes.
 - Fivetran Learning Map links to Fivetran chapter overview notes.
+- Docker Learning Map links to Docker chapter overview notes.
 - Chapter overview notes link to topic notes.
 - Comparisons and Decision Notes Overview links to comparison, decision, and scenario notes.
 - Scenario/decision notes link to the few topic notes needed to reason through the situation.
@@ -350,7 +400,7 @@ The vault should contain distilled understanding, not raw conversation. Notes sh
 
 When helping the learner with a topic, the agent should treat the conversation as a learning dialogue first and a note-writing task second.
 
-For dbt and Fivetran topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
+For dbt, Fivetran, and Docker topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
 
 The learner may ask follow-up questions, test understanding, challenge explanations, or temporarily explore side paths. Do not update the vault after every message unless the learner explicitly asks for that. Some parts of the conversation may be exploratory, repetitive, mistaken, or ultimately not useful.
 
@@ -400,7 +450,7 @@ Use visuals to improve consultant learning speed where relevant.
 - Default target is one useful visual per topic note when relevant and possible; assume Mermaid unless an image is clearly the stronger choice.
 - Keep SQL/config snippets outside Mermaid unless a very short code-like label makes the diagram clearer; use normal fenced code blocks for copyable examples.
 - A topic note may omit a visual only if no high-value visual is available; in that case, add a one-line note in `Visuals` stating this explicitly.
-- Prioritize official sources (Snowflake, dbt, Fivetran) for any external images.
+- Prioritize official sources (Snowflake, dbt, Fivetran, Docker, and Apache Airflow) for any external images.
 - If official visuals are not available, use reputable sources.
 - Keep source links in `Sources To Revisit` for each note using external visuals.
 

@@ -185,6 +185,7 @@ Treat packages as tools to evaluate, not as things to install by default.
 - [[80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview]]
 - [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]
 - [[03 Fivetran/Fivetran Learning Map]]
+- [[04 Docker/Docker Learning Map|Docker Learning Map]]
 
 ## Sources To Revisit
 

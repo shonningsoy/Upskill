@@ -1,0 +1,84 @@
+---
+status: seed
+platform: Docker
+area: Building Reproducible Images
+topic_number: 10
+tags:
+  - docker
+  - docker-images-builds
+  - learning
+---
+
+# Multi-stage Builds, Image Size, and BuildKit
+
+> [!abstract] Learning target
+> Recognize when separate build and runtime stages, cache mounts, or build secrets improve an image without over-engineering it.
+
+## Executive Summary
+
+- **What it is:**
+- **Why it matters:**
+- **Mental model:**
+- **Best used when:**
+- **Avoid or reconsider when:**
+
+## What It Can Do
+
+-
+
+## What It Cannot Do
+
+-
+
+## Core Concepts
+
+| Concept | Plain-language meaning | Why it matters |
+|---|---|---|
+|  |  |  |
+
+## How It Works (Simple Flow)
+
+Use a simple numbered flow of 4-8 steps showing the mechanism at working data-engineer depth.
+
+## Visuals
+
+No high-value visual identified for this seed note yet.
+
+## Readable Snippets
+
+Use a short `Dockerfile`, `compose.yaml`, command, log excerpt, or configuration example only when it improves recognition.
+
+## Consultant Talking Points
+
+- **Client question this answers:**
+- **Trade-offs to mention:**
+- **Risk or governance angle:**
+- **Cost or operational angle:**
+
+## Common Pitfalls
+
+- Add at least three practical pitfalls linked to security, reproducibility, performance, cost, or operations.
+
+## When to Recommend What (Decision Table)
+
+| Situation | Recommend | Why | Watch-outs |
+|---|---|---|---|
+|  |  |  |  |
+
+## Related Topics
+
+- [[04 Docker/02 Building Reproducible Images/Building Reproducible Images Overview|Building Reproducible Images Overview]]
+
+## Related Decision Notes
+
+Add 1-3 curated links when the topic discussion produces durable recommendation material.
+
+## Questions
+
+- **Explain:** What is the core mental model for this topic?
+- **Apply:** How would this appear in a Snowflake, dbt Core, Airflow, and Python project?
+- **Challenge:** Which failure, security, or ownership boundary would change the recommendation?
+
+## Sources To Revisit
+
+- [Docker Docs: Building best practices](https://docs.docker.com/build/building/best-practices/)

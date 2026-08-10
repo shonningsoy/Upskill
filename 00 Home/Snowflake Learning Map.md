@@ -58,3 +58,4 @@ flowchart LR
 - [[80 Comparisons and Decision Notes/Modern Data Stack Overview|Modern Data Stack Overview]]
 - [[02 dbt/dbt Learning Map|dbt Learning Map]]
 - [[03 Fivetran/Fivetran Learning Map|Fivetran Learning Map]]
+- [[04 Docker/Docker Learning Map|Docker Learning Map]]
