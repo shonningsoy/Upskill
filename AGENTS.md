@@ -133,12 +133,10 @@ Fivetran uses the same learning-map and chapter-overview pattern:
 Docker uses the same learning-map and chapter-overview pattern:
 
 ```text
-04 Docker/01 Foundations and Container Mental Model/
-04 Docker/02 Building Reproducible Images/
-04 Docker/03 Running Containers and Local Development/
-04 Docker/04 Docker Compose and Multi-Service Environments/
-04 Docker/05 Data Stack Integration Patterns/
-04 Docker/06 Security Operations and Team Standards/
+04 Docker/01 Foundations and Everyday Docker/
+04 Docker/02 Reproducible Images and Docker Compose/
+04 Docker/03 Data Stack Integration Patterns/
+04 Docker/04 Security Operations and Team Standards/
 ```
 
 Each chapter has an overview note. Topic notes should link back to the relevant overview note and to a small number of genuinely related topics.
@@ -147,7 +145,7 @@ For dbt, keep the notes focused on consultant working knowledge: what the dbt co
 
 For Fivetran, keep the notes focused on consultant working knowledge: source and connector fit, sync and destination behavior, schema and data-quality boundaries, security and operations, usage cost, and the ownership boundary with Snowflake and dbt. Do not force code into Fivetran notes; use short configuration, destination-row, API, Terraform, SQL, calculation, or checklist examples only when they improve recognition.
 
-For Docker, keep the notes focused on working fluency in a Snowflake, dbt Core, Airflow, and Python environment: reproducible images, everyday container operation, Docker Compose, dependency and secret boundaries, debugging, security, CI promotion, and production-fit judgment. Snowflake normally remains an external managed service. Do not expand into Kubernetes or deep container internals unless the learner explicitly asks.
+For Docker, keep the compact curriculum focused on working fluency in a Snowflake, dbt Core, Airflow, and Python environment: reproducible images, everyday container operation, Docker Compose, dependency and secret boundaries, debugging, security, CI promotion, and production-fit judgment. Preserve the dedicated Data Stack Integration Patterns chapter. Prefer merging related mechanics into the existing 18 topics rather than adding narrow new topics. Snowflake normally remains an external managed service. Do not expand into Kubernetes or deep container internals unless the learner explicitly asks.
 
 ## dbt Package and Advanced Topic Guidance
 
@@ -337,9 +335,7 @@ Docker notes use these chapter tags consistently:
 
 ```text
 docker-foundations
-docker-images-builds
-docker-runtime-dev
-docker-compose
+docker-images-compose
 docker-data-stack
 docker-security-ops
 ```
