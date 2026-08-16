@@ -4,7 +4,7 @@ This vault is for consultant-oriented learning: enough depth to discuss tools cl
 
 ## How to use this vault
 
-1. Start from the learning map for the current tool: [[Snowflake Learning Map]], [[02 dbt/dbt Learning Map|dbt Learning Map]], [[03 Fivetran/Fivetran Learning Map|Fivetran Learning Map]], or [[04 Docker/Docker Learning Map|Docker Learning Map]].
+1. Start from the learning map for the current tool: [[Snowflake Learning Map]], [[02 dbt/dbt Learning Map|dbt Learning Map]], [[03 Fivetran/Fivetran Learning Map|Fivetran Learning Map]], [[04 Docker/Docker Learning Map|Docker Learning Map]], or [[05 APIs/API Learning Map|API Learning Map]].
 2. Open the next numbered topic note.
 3. During a Codex session, ask for a guided explanation of that topic.
 4. After the conversation produces durable understanding, let Codex update the note using [[Topic Note Template]], [[Fivetran Topic Note Template]], or [[Docker Topic Note Template]].
@@ -25,6 +25,7 @@ This vault is for consultant-oriented learning: enough depth to discuss tools cl
 - `02 dbt`: dbt learning map, chapter hubs, and topic notes.
 - `03 Fivetran`: Fivetran learning map, chapter hubs, and topic notes.
 - `04 Docker`: Docker learning map, chapter hubs, and data-engineering-focused topic notes.
+- `05 APIs`: API literacy, data-pipeline consumption, API building, and Snowflake-centered production decisions.
 - `80 Comparisons and Decision Notes`: cross-tool trade-offs and client recommendations.
 - `90 Templates`: reusable note formats for future topics.
 - `99 Archive`: retired notes, old drafts, and replaced material.

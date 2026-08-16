@@ -69,6 +69,8 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 
 ### Cross-Tool
 
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - API vs File vs CDC]]
+- [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Snowflake Python Connector vs SQL API]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Time Travel vs Modeled Historical Data]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - Conformed Analytical Models vs Master Data Management]]
 - [[80 Comparisons and Decision Notes/Comparisons/Cross-Tool/Comparison - dbt Projects on Snowflake vs dbt Platform]]
@@ -116,6 +118,8 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 
 ### Cross-Tool
 
+- [[80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/Decisions - Build vs Buy API Ingestion]]
+- [[80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/Decisions - Serving Data from Snowflake Through an API]]
 - [[80 Comparisons and Decision Notes/Decision Notes/Cross-Tool/Decisions - Choosing a Snowflake DevOps and Deployment Pattern]]
 
 ## Client Scenarios
@@ -159,4 +163,6 @@ Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Cli
 - [[00 Home/Snowflake Learning Map]]
 - [[02 dbt/dbt Learning Map]]
 - [[03 Fivetran/Fivetran Learning Map]]
+- [[04 Docker/Docker Learning Map]]
+- [[05 APIs/API Learning Map]]
 - [[80 Comparisons and Decision Notes/Modern Data Stack Overview]]

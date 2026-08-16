@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This repository is an Obsidian vault for structured upskilling in the modern data stack, starting with Snowflake and expanding into dbt, Fivetran, and Docker for data-engineering environments.
+This repository is an Obsidian vault for structured upskilling in the modern data stack, starting with Snowflake and expanding into dbt, Fivetran, Docker, and APIs for data-engineering environments.
 
 The learner is preparing for a consultant role. The goal is not to deep-dive into every technical detail immediately, but to build a strong "title and subtitle" understanding of tools, features, trade-offs, and practical use cases.
 
@@ -40,6 +40,7 @@ Use the existing folder structure.
 02 dbt/
 03 Fivetran/
 04 Docker/
+05 APIs/
 80 Comparisons and Decision Notes/
 90 Templates/
 99 Archive/
@@ -82,7 +83,7 @@ The `80 Comparisons and Decision Notes/` area is the consultant reasoning layer.
 
 ## Current Learning Focus
 
-The current focus includes Docker for a Snowflake, dbt Core, Airflow, and Python data-engineering environment, alongside the existing Snowflake, dbt, and Fivetran paths.
+The current focus includes Docker and APIs for a Snowflake, dbt Core, Airflow, and Python data-engineering environment, alongside the existing Snowflake, dbt, and Fivetran paths.
 
 The main navigation notes are:
 
@@ -91,6 +92,7 @@ The main navigation notes are:
 02 dbt/dbt Learning Map.md
 03 Fivetran/Fivetran Learning Map.md
 04 Docker/Docker Learning Map.md
+05 APIs/API Learning Map.md
 ```
 
 Snowflake is organized into chapter folders:
@@ -139,6 +141,15 @@ Docker uses the same learning-map and chapter-overview pattern:
 04 Docker/04 Security Operations and Team Standards/
 ```
 
+APIs use the same learning-map and chapter-overview pattern:
+
+```text
+05 APIs/01 Foundations and API Literacy/
+05 APIs/02 Consuming APIs for Data Pipelines/
+05 APIs/03 Designing and Building APIs/
+05 APIs/04 Production Security and Data Stack Integration/
+```
+
 Each chapter has an overview note. Topic notes should link back to the relevant overview note and to a small number of genuinely related topics.
 
 For dbt, keep the notes focused on consultant working knowledge: what the dbt concept does, how it changes analytics engineering workflow, when to recommend it, and what governance, operational, cost, or banking-control implications matter.
@@ -146,6 +157,8 @@ For dbt, keep the notes focused on consultant working knowledge: what the dbt co
 For Fivetran, keep the notes focused on consultant working knowledge: source and connector fit, sync and destination behavior, schema and data-quality boundaries, security and operations, usage cost, and the ownership boundary with Snowflake and dbt. Do not force code into Fivetran notes; use short configuration, destination-row, API, Terraform, SQL, calculation, or checklist examples only when they improve recognition.
 
 For Docker, keep the compact curriculum focused on working fluency in a Snowflake, dbt Core, Airflow, and Python environment: reproducible images, everyday container operation, Docker Compose, dependency and secret boundaries, debugging, security, CI promotion, and production-fit judgment. Preserve the dedicated Data Stack Integration Patterns chapter. Prefer merging related mechanics into the existing 18 topics rather than adding narrow new topics. Snowflake normally remains an external managed service. Do not expand into Kubernetes or deep container internals unless the learner explicitly asks.
+
+For APIs, teach conversation fluency first, then consuming APIs, building with FastAPI/Pydantic, and production judgment. Keep the focus on data-engineering concerns: pagination, incremental state, rate limits, retries, idempotency, schema drift, reconciliation, service identity, Snowflake data access, observability, Docker deployment, and API-versus-file/CDC/connector decisions. Do not turn the curriculum into front-end development, deep protocol internals, or a framework reference.
 
 ## dbt Package and Advanced Topic Guidance
 
@@ -205,7 +218,7 @@ Avoid turning notes into documentation dumps. Prefer concise explanations, compa
 
 ## Topic Note Consistency Rules
 
-To keep the vault familiar across Snowflake, dbt, Fivetran, and Docker, use one stable note structure:
+To keep the vault familiar across Snowflake, dbt, Fivetran, Docker, and APIs, use one stable note structure:
 
 - Keep the section order defined in `90 Templates/Topic Note Template.md`.
 - Write `How It Works` as a simple numbered flow (typically 4-8 steps).
@@ -290,6 +303,18 @@ Keep the Docker learning area distinct while linking it to the runtime decisions
 - Do not imply that Docker Compose alone makes an Airflow deployment production-ready.
 - Do not link tools merely because they share an environment. Link only when Docker changes reproducibility, execution ownership, security, cost, or operations.
 
+## API Linking Rules
+
+Keep the API learning area cross-tool but curated.
+
+- API topic notes should primarily link to their API chapter overview and closely related API topics.
+- Add Snowflake links when service identity, SQL execution, REST resource management, external access, SPCS, workload isolation, query attribution, latency, or cost changes the recommendation.
+- Add Fivetran links when managed API connectors, source coverage, sync behavior, schema handling, or build-versus-buy ownership matters.
+- Add Docker links when API packaging, secrets, networking, health, CI promotion, or runtime operations matter.
+- Add dbt links when curated serving models, contracts, tests, freshness, or precomputation materially shape the API.
+- Keep API comparisons and decision notes under the existing `Cross-Tool/` reasoning folders.
+- Do not imply that exposing a Snowflake query through HTTP makes it an operationally suitable API.
+
 ## Tags
 
 Snowflake notes use chapter tags for Graph View coloring.
@@ -340,9 +365,20 @@ docker-data-stack
 docker-security-ops
 ```
 
+API notes use these chapter tags consistently:
+
+```text
+api-foundations
+api-consuming
+api-building
+api-production-integration
+```
+
 Use the general tags `fivetran` and `learning` on Fivetran topic notes, plus exactly one main Fivetran chapter tag.
 
 Use the general tags `docker` and `learning` on Docker topic notes, plus exactly one main Docker chapter tag.
+
+Use the general tags `api` and `learning` on API topic notes, plus exactly one main API chapter tag.
 
 Use the general tags `dbt` and `learning` on dbt topic notes, plus exactly one main dbt chapter tag unless the note is intentionally cross-cutting.
 
@@ -373,6 +409,7 @@ Preferred setup:
 - dbt Learning Map links to dbt chapter overview notes.
 - Fivetran Learning Map links to Fivetran chapter overview notes.
 - Docker Learning Map links to Docker chapter overview notes.
+- API Learning Map links to API chapter overview notes.
 - Chapter overview notes link to topic notes.
 - Comparisons and Decision Notes Overview links to comparison, decision, and scenario notes.
 - Scenario/decision notes link to the few topic notes needed to reason through the situation.
@@ -396,7 +433,7 @@ The vault should contain distilled understanding, not raw conversation. Notes sh
 
 When helping the learner with a topic, the agent should treat the conversation as a learning dialogue first and a note-writing task second.
 
-For dbt, Fivetran, and Docker topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
+For dbt, Fivetran, Docker, and API topics, keep the conversational teaching slightly shorter and more direct when possible. Lead with the mental model and essential practical trade-offs, use only the examples needed to make the concept clear, and expand when the learner asks follow-up questions. This preference applies to the learning conversation; durable vault notes should still follow the established topic-note structure.
 
 The learner may ask follow-up questions, test understanding, challenge explanations, or temporarily explore side paths. Do not update the vault after every message unless the learner explicitly asks for that. Some parts of the conversation may be exploratory, repetitive, mistaken, or ultimately not useful.
 

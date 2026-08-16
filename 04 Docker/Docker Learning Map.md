@@ -92,6 +92,7 @@ If time is limited, start with the topics marked **Essential**. This gives you 1
 - [[00 Home/Snowflake Learning Map|Snowflake Learning Map]]
 - [[02 dbt/dbt Learning Map|dbt Learning Map]]
 - [[03 Fivetran/Fivetran Learning Map|Fivetran Learning Map]]
+- [[05 APIs/API Learning Map|API Learning Map]]
 - [[02 dbt/05 Deployment CI CD and Operations/44 Scheduling and Orchestration|dbt Scheduling and Orchestration]]
 - [[02 dbt/05 Deployment CI CD and Operations/47 Secrets Service Accounts and RBAC|dbt Secrets, Service Accounts, and RBAC]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake|dbt on Snowflake]]

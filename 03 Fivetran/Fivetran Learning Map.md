@@ -123,6 +123,7 @@ flowchart LR
 - [[00 Home/Snowflake Learning Map|Snowflake Learning Map]]
 - [[02 dbt/dbt Learning Map|dbt Learning Map]]
 - [[04 Docker/Docker Learning Map|Docker Learning Map]]
+- [[05 APIs/API Learning Map|API Learning Map]]
 - [[01 Snowflake/04 Data Engineering/25 dbt on Snowflake|dbt on Snowflake]]
 - [[02 dbt/08 dbt on Snowflake and Finance Patterns/81 Fivetran to Snowflake to dbt Flow|Fivetran to Snowflake to dbt Flow]]
 - [[80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview|Comparisons and Decision Notes]]

@@ -8,6 +8,7 @@
 - **Airflow** usually coordinates when and in what order data jobs run.
 - **Python** usually handles custom processing, automation, APIs, and utilities that do not fit cleanly in SQL.
 - **Docker** packages and runs the software environment used by dbt Core, Airflow, and Python; Snowflake normally remains an external managed service.
+- **APIs** define software contracts for interactive access and automation; they may be consumed as data sources or produced as governed data products.
 
 ## Consultant Frame
 
@@ -19,6 +20,7 @@ A useful client discussion usually separates these questions:
 - Who owns quality, documentation, and governance?
 - How will cost, access, and operations be controlled?
 - Which runtime dependencies should be standardized in container images, and which configuration or credentials must stay external?
+- Does the interaction need an API, file, CDC stream, event, data share, or direct query pattern?
 
 ## Runtime View
 
@@ -31,6 +33,8 @@ flowchart LR
     A --> D
     A --> P["Python jobs"]
     P --> W
+    E["External APIs"] --> P
+    W --> Q["Governed data product API"]
     X["Docker images and containers"] -. standardize runtime .-> A
     X -. standardize runtime .-> D
     X -. standardize runtime .-> P
@@ -40,3 +44,4 @@ flowchart LR
 
 - [[80 Comparisons and Decision Notes/Comparisons and Decision Notes Overview]]
 - [[04 Docker/Docker Learning Map|Docker Learning Map]]
+- [[05 APIs/API Learning Map|API Learning Map]]
