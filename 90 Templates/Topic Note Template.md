@@ -1,11 +1,15 @@
 ---
 status: seed
-platform: Snowflake
+note_type: topic
+platform:
 area:
 topic_number:
+last_verified:
+sensitivity: public-generalized
 tags:
-  - snowflake
   - learning
+  # Add exactly one general platform tag: snowflake, dbt, or api.
+  # Add exactly one matching chapter tag: sf-*, dbt-*, or api-*.
 ---
 
 # Topic Title

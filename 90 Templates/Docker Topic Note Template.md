@@ -1,11 +1,15 @@
 ---
 status: seed
+note_type: topic
 platform: Docker
 area:
 topic_number:
+last_verified:
+sensitivity: public-generalized
 tags:
   - docker
   - learning
+  # Add exactly one docker-* chapter tag before saving.
 ---
 
 # Topic Title

@@ -4,16 +4,42 @@
 
 ## How To Use This Area
 
-Use the topic notes to learn what each feature is. Use this area to practice when to recommend features, how to compare trade-offs, and how to reason through client situations.
+Use the topic notes to learn what each feature is. Use this area to discover options, practice trade-off analysis, and improve the questions asked about a new situation.
+
+> [!warning] Reasoning aids, not answer sources
+> Notes in this area are synthesized or synthetic material. They must never be the sole evidence for a recommendation, and a superficially similar scenario must not be treated as precedent. Re-derive the requirements and decision drivers for the current question.
+
+The three note types have different epistemic roles:
+
+| Note type | What it represents | Appropriate use | Do not use it as |
+|---|---|---|---|
+| Comparison | A synthesized view of trade-offs | Option discovery, comparison dimensions, and counterarguments | Proof that one option is generally superior |
+| Decision note | A heuristic diagnostic framework | Questions, decision drivers, and conditional guidance | A predetermined recommendation |
+| Client scenario | A synthetic practice exercise | Hypothesis generation, alternative reasoning paths, and failure-mode prompts | Evidence that its answer applies to a real situation |
+
+### Retrieval and Reasoning Order
+
+For architecture or solution questions:
+
+1. Understand the current situation from the prompt.
+2. Derive its requirements, constraints, unknowns, and decision drivers before looking for a similar stored answer.
+3. Read relevant factual topic notes.
+4. Verify material or time-sensitive technical claims against current official sources.
+5. Consult this area to discover overlooked options, comparison dimensions, risks, and counterarguments.
+6. Build the recommendation independently for the present situation.
+7. Use related reasoning notes to challenge the result and consider at least one credible alternative.
+8. State which assumptions must hold and what would change the recommendation.
+
+This ordering reduces anchoring bias. Matching technologies, symptoms, or goals do not imply matching requirements. If current evidence conflicts with a reasoning note, prefer the current evidence and update the note only when explicitly asked.
 
 Keep links curated. A comparison or scenario should usually link to the 3-6 topic notes that genuinely matter for the decision.
 
 Organize this area by note type first, then domain:
 
 ```text
-Comparisons/Snowflake, Comparisons/dbt, Comparisons/Fivetran, Comparisons/Cross-Tool
-Decision Notes/Snowflake, Decision Notes/dbt, Decision Notes/Fivetran, Decision Notes/Cross-Tool
-Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Client Scenarios/Cross-Tool
+Comparisons/Snowflake, Comparisons/dbt, Comparisons/Fivetran, Comparisons/Docker, Comparisons/Cross-Tool
+Decision Notes/Snowflake, Decision Notes/dbt, Decision Notes/Fivetran, Decision Notes/Docker, Decision Notes/Cross-Tool
+Client Scenarios/Snowflake, Client Scenarios/dbt, Client Scenarios/Fivetran, Client Scenarios/Docker, Client Scenarios/Cross-Tool
 ```
 
 ## Comparisons

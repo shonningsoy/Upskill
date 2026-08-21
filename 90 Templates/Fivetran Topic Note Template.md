@@ -1,11 +1,15 @@
 ---
 status: seed
+note_type: topic
 platform: Fivetran
 area:
 topic_number:
+last_verified:
+sensitivity: public-generalized
 tags:
   - fivetran
   - learning
+  # Add exactly one fivetran-* chapter tag before saving.
 ---
 
 # Topic Title
